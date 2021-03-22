@@ -12,7 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+body{
+  font-family: 'Kanit', sans-serif;;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,7 +25,39 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.left-nav{
+  width: 45vw;
+  justify-content: center;
+}
+ul{
+  margin: 0.3vw 0vw 0.3vw 0vw;
+  width: 40vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+li{
+  list-style: none;
+}
+li a{
+  color: #fff;
+  text-decoration: none;
+}
+.d-flex{
+  display: flex;
+}
+.bg-main{
+  background: #325679;
+}
+.bg-second{
+  background: #F26627;
+}
+.color-main{
+  color: #325679;
+}
+.color-second{
+  color: #F26627;
+}
 .App-link {
   color: #61dafb;
 }
