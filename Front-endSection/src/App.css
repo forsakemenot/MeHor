@@ -13,7 +13,7 @@
   }
 }
 body{
-  font-family: 'Kanit', sans-serif;;
+  font-family: 'Kanit', sans-serif;
 }
 .App-header {
   background-color: #282c34;
@@ -26,8 +26,17 @@ body{
   color: white;
 }
 .left-nav{
-  width: 45vw;
+  flex-basis: 50%;
+  /* width: 45vw; */
   justify-content: center;
+}
+.right-nav{
+  flex-basis: 45%;
+  justify-content: flex-end;
+}
+.right-nav a{
+  color: #fff;
+  text-decoration: none;
 }
 ul{
   margin: 0.3vw 0vw 0.3vw 0vw;
@@ -46,17 +55,29 @@ li a{
 .d-flex{
   display: flex;
 }
+.justify-center{
+  justify-content: center;
+}
+.align-center{
+  align-items: center;
+}
 .bg-main{
   background: #325679;
 }
 .bg-second{
   background: #F26627;
 }
+.bg-white{
+  background: #fff;
+}
 .color-main{
   color: #325679;
 }
 .color-second{
   color: #F26627;
+}
+.color-white{
+  color: #fff;
 }
 .App-link {
   color: #61dafb;

@@ -51,6 +51,8 @@
     font-size: 1.1vw;
     color: #fff;
     margin-bottom: 1vw;
+    padding: 0.4vw;
+    border: 0px;
 }
 .btn_dom_list img{
     width: 1vw;

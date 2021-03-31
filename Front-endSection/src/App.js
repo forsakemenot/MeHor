@@ -1,4 +1,4 @@
-import logo from './img/MeHor.svg';
+import logo from './img/MeHorWhite.svg';
 import './App.css';
 import React from "react";
 import {
@@ -9,10 +9,11 @@ import {
 } from "react-router-dom";
 import Home from './home/home.js';
 import AddDom from './add_dom/add_dom.js';
+import LoginRegister from './login_register/login_register.js';
 function App() {
   return (
     <Router>
-      <div className="bg-main">
+      <div className="bg-main d-flex">
         <div className="d-flex left-nav">
           <ul>
             <img alt="" src={logo} />
@@ -30,15 +31,21 @@ function App() {
             </li>
           </ul>
         </div>
+        <div className="d-flex right-nav align-center">
+          <Link to="/LoginRegister">เข้าสู่ระบบ/สมัครสมาชิก</Link>
+        </div>
       </div>
       <Switch>
-          <Route exact path="/">
-            <Home />
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/AddDom">
+          <AddDom />
+        </Route>
+        <Route path="/LoginRegister">
+          <LoginRegister />
           </Route>
-          <Route path="/AddDom">
-            <AddDom />
-          </Route>
-        </Switch>
+      </Switch>
     </Router>
 
   );
