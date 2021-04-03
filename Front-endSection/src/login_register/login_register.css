@@ -53,15 +53,44 @@
     color: #325679;
     font-size: 1.2vw;
 }
+.flex-50{
+    flex: 1 1 50%;
+}
+.flex-50 div input{
+    width: 80%;
+}
+
+.direction-row{
+    flex-direction:row !important;
+}
+
 #img_email{
     height: 1.5vw;
     top: 70%;
     left: 93%;
 }
+#img_email2{
+    height: 1.5vw;
+    top: 67%;
+    left: 94%;
+}
+#img_man1{
+    height: 1.5vw;
+    top: 68%;
+    left: 36%;
+}
+#img_man2{
+    height: 1.5vw;
+    top: 68%;
+    left: 86%;
+}
 #img_lock{
     height: 2vw;
-    top: 65%;
-    left: 94%;
+    top: 64%;
+    left: 95%;
+}
+.m-b-2{
+    margin-bottom: 2vw !important;
 }
 .btn_login{
     margin: auto;
