@@ -42,6 +42,7 @@
     width: 100%;
     height: 2.5vw;
     border: 2px solid #325679;
+    border-radius: 10px;
 }
 .text_from div img{
     height: 2vw;
@@ -53,11 +54,36 @@
     color: #325679;
     font-size: 1.2vw;
 }
+.div_checkbox{
+    position: relative;
+    margin: auto;
+    width: 80%;
+    padding: 1vw 0vw 1vw 0vw;
+}
+.div_checkbox span{
+    font-size: 1.2vw;
+    color: #325679;
+}
+.checkbox{
+    height: 2vw;
+    width: 2vw;
+    
+}
+.box_top{
+    margin: 0vw 1vw 0vw 1vw;
+}
+.box_bottom{
+    margin: 0vw 1vw 0vw 0vw;
+}
+/* .checkbox:checked{
+    background-color: #325679;
+} */
 .flex-50{
     flex: 1 1 50%;
 }
 .flex-50 div input{
     width: 80%;
+    border-radius: 10px;
 }
 
 .direction-row{
@@ -92,9 +118,12 @@
 .m-b-2{
     margin-bottom: 2vw !important;
 }
+.bt_color{
+    border-top: 2px solid #325679;
+}
 .btn_login{
     margin: auto;
-    margin-top: 2vw;
+    margin-top: 1vw;
     background: #F26627;
     color: #FFF;
     font-size: 1.4vw;
@@ -102,6 +131,7 @@
     width: 15vw;
     padding: 0.5vw 0vw 0.5vw 0vw;
     border: 0px;
+    border-radius: 10px;
 }
 .text_forget{
     margin: auto;

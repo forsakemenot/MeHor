@@ -90,6 +90,17 @@ function Login_register() {
                                 <img id="img_lock" alt="" src={lock} />
                             </div>
                         </div>
+                        <div className="d-flex div_checkbox align-center">
+                                <span>สมัครสมาชิกในบทบาท : </span>
+                                <input className="checkbox box_top" type="radio" name="checkbox" />
+                                <span>ผู้เช่า</span>
+                                <input className="checkbox box_top" type="radio" name="checkbox" />
+                                <span>ผู้ประกอบการ</span>
+                        </div>
+                        <div className="d-flex div_checkbox align-center bt_color">
+                            <input className="checkbox box_bottom" type="checkbox" />
+                            <span>รับข่าวสารและโปรโมชั่นจากทางเว็บ และที่พักที่เป็นสมาชิก</span>
+                        </div>
                         <div className="d-flex">
                             <button className="btn_login m-b-2">สมัครสมาชิก</button>
                         </div>
@@ -100,5 +111,6 @@ function Login_register() {
 
     );
 }
+
 
 export default Login_register;
