@@ -39,20 +39,21 @@ router.post('/validate', async (req, res) => {
 });
 
 router.post('/signup', (req, res) => {
-    const name = req.body.name || '';
-    const username = req.body.username || '';
+    const firstname = req.body.firstname || '';
+    const surname = req.body.surname || '';
     const email = req.body.email || '';
     const password = req.body.password || '';
     const confirmPassword = req.body.confirmPassword || '';
-
-    const reqBody = { name, username, email, password, confirmPassword };
+    const role = req.body.role || '';
+    const reqBody = { firstname, surname, email, password, confirmPassword, role};
 
     let errors = {};
+    console.log(reqBody);
     Object.keys(reqBody).forEach(async field => {
         if (reqBody[field] === '') {
             errors = {...errors, [field]: 'This field is required'}
         }
-        if (field === 'username' || field === 'email') {
+        if (field === 'email') {
             const value = reqBody[field];
             const { error, isUnique } = await checkUserUniqueness(field, value);
             if (!isUnique) {
@@ -74,10 +75,11 @@ router.post('/signup', (req, res) => {
         res.json({ errors });
     } else {
         const newUser = new User({
-            name: name,
-            username: username,
+            firstname: firstname,
+            surname: surname,
             email: email,
-            password: password
+            password: password,
+            role: role
         });
 
         // Generate the Salt
@@ -98,13 +100,13 @@ router.post('/signup', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    const username = req.body.username || '';
+    const email = req.body.email || '';
     const password = req.body.password || '';
 
     let errors = {};
 
-    if (username === '') {
-        errors = {...errors, username: 'This field is required' };
+    if (email === '') {
+        errors = {...errors, email: 'This field is required' };
     }
     if (password === '') {
         errors = {...errors, password: 'This field is required' };
@@ -113,7 +115,7 @@ router.post('/login', (req, res) => {
     if (Object.keys(errors).length > 0) {
         res.json({ errors });
     } else {
-        User.findOne({username: username}, (err, user) => {
+        User.findOne({email: email}, (err, user) => {
             if (err) throw err;
             if (Boolean(user)) {
                 // Match Password
@@ -122,15 +124,15 @@ router.post('/login', (req, res) => {
                     if (isMatch) {
                         const token = jwt.sign({
                                 id: user._id,
-                                username: user.username
+                                email: user.email
                             }, config.jwtSecret);
                         res.json({ token, success: 'success' })
                     } else {
-                       res.json({ errors: { invalidCredentials: 'Invalid Username or Password' } });
+                       res.json({ errors: { invalidCredentials: 'Invalid Email or Password' } });
                     }
                 });
             } else {
-                res.json({ errors: { invalidCredentials: 'Invalid Username or Password' } });
+                res.json({ errors: { invalidCredentials: 'Invalid Email or Password' } });
             }
         });
     }

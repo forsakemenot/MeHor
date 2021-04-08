@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema({
-    name: {
+    firstname: {
         type: String,
         required: true
     },
-    username: {
+    surname: {
         type: String,
         unique: true,
         required: true
@@ -23,7 +23,13 @@ const UserSchema = mongoose.Schema({
         type: Boolean,
         default: false,
         required: true
+    },
+    role:{
+        type: String,
+        required: true
     }
+
+    
 });
 
 const User = mongoose.model('User', UserSchema)
