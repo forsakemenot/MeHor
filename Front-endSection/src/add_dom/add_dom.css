@@ -44,6 +44,20 @@
     margin-top: 1%;
 }
 
+.continue {
+    width: 55vw;
+    height: 10vh;
+    justify-content: flex-end;
+    margin-top: 3%;
+}
+
+hr {
+    width: 55vw;
+    margin: 0;
+    margin-left: 3%;
+    margin-top: -1%;
+}
+
 #btn_detail {
     font-family: 'Kanit', sans-serif;
     font-size: 1vw;
@@ -72,20 +86,6 @@
     align-items: center;
     justify-content: center;
     margin-right: 2%;
-}
-
-.continue {
-    width: 55vw;
-    height: 10vh;
-    justify-content: flex-end;
-    margin-top: 3%;
-}
-
-hr {
-    width: 55vw;
-    margin: 0;
-    margin-left: 3%;
-    margin-top: -1%;
 }
 
 #btn_continue {
