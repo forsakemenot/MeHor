@@ -10,6 +10,7 @@ import {
 import Home from './home/home.js';
 import AddDom from './add_dom/add_dom.js';
 import LoginRegister from './login_register/login_register.js';
+import RoomType from './room_type/room_type.js';
 function App() {
   return (
     <Router>
@@ -47,6 +48,9 @@ function App() {
         </Route>
         <Route path="/LoginRegister">
           <LoginRegister />
+          </Route>
+        <Route path="/RoomType">
+          <RoomType />
           </Route>
       </Switch>
     </Router>

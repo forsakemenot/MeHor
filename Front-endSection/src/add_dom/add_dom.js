@@ -2,7 +2,10 @@ import React from "react";
 import './add_dom.css';
 import './../App.css';
 
+import { Link } from "react-router-dom";
+
 import city from './../img/city.svg';
+import card from './../img/address-card.svg';
 import gps from './../img/crosshair.svg';
 function AddDom() {
     return (
@@ -13,6 +16,7 @@ function AddDom() {
                         <img className="img_formdom" src={city}/>
                         <p className="text_header">ข้อมูลที่พัก</p>
                     </div>
+                    <hr></hr>
                     <div id="main_form" className="d-flex">
                             <p>ชื่อที่พัก</p>
                             <input type="text"></input>
@@ -85,9 +89,47 @@ function AddDom() {
                         <div className="d-flex">
                             <button id="btn_detail">Bold</button>
                             <button id="btn_detail">Italic</button>
-                            <button id="btn_detail">Underline</button>
+                            <button id="btn_detail_underline">Underline</button>
                             <button id="btn_detail">List</button>
                         </div>
+                         
+                        <textarea className="textarea_form"></textarea>
+                    </div>
+
+                    {/* contact-dom */}
+                    <div className="d-flex" style={{paddingLeft: '3%', marginTop: '3%'}}>
+                        <img className="img_formdom" src={card}/>
+                        <p className="text_header">ข้อมูลติดต่อ</p>
+                    </div>
+                    <hr></hr>
+                    <div id="main_form" className="d-flex">
+                            <p>ชื่อผู้ดูแล</p>
+                            <input type="text"></input>
+                    </div>
+                    <div id="main_form" className="d-flex">
+                            <p>เบอร์โทรศัพท์</p>
+                            <input type="text"></input>
+                    </div>
+                    <div id="main_form" className="d-flex">
+                            <p>เบอร์โทรศัพท์มือถือ (ถ้ามี)</p>
+                            <input type="text"></input>
+                    </div>
+                    <div id="main_form" className="d-flex">
+                            <p>อีเมล์</p>
+                            <input type="text"></input>
+                    </div>
+                    <div id="main_form" className="d-flex">
+                            <p>Line ID</p>
+                            <input type="text"></input>
+                    </div>
+                    <div id="main_form" className="d-flex">
+                            <p>Facebook</p>
+                            <input type="text"></input>
+                            <small>ระบุเป็น URL เช่น : https://www.facebook.com/mehor.in.th</small>
+                    </div>
+
+                    <div className="continue d-flex">
+                        <Link to="/room_type"><button id="btn_continue">ขั้นตอนถัดไป</button></Link>
                     </div>
                 </div>
             </div>
