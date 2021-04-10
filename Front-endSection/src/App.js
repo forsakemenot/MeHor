@@ -16,12 +16,15 @@ function App() {
       <div className="bg-main d-flex">
         <div className="d-flex left-nav">
           <ul>
-            <img alt="" src={logo} />
+          <Link to="/"><img alt="" src={logo} /></Link>
             <li>
               <Link to="/">หน้าแรก</Link>
             </li>
             <li>
               <Link>ค้นหาที่พัก</Link>
+            </li>
+            <li>
+              <Link>เว็บบอร์ด</Link>
             </li>
             <li>
               <Link>ลงโฆษณา</Link>

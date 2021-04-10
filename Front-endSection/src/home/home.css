@@ -2,12 +2,33 @@
     width: 100%;
     height: 50vh;
 }
+.search_dom{
+    width: 100%;
+    justify-content: center;
+    margin: 2vw 0vw 2vw 0vw;
+}
+.search_dom input{
+    width: 50%;
+    height: 1.75vw;
+    border: .1vw solid #325679;
+    border-radius: 10px;
+}
+.search_dom button{
+    position: relative;
+    left: -1%;
+    border: 0;
+    font-size: 0.8vw;
+    border-radius: 10px;
+    padding: 0vw 1vw;
+}
 .btn_link_add_dom{
     position: relative;
     top: 5%;
-    left: 80%;
+    left: 85%;
     color: #fff;
-    padding: 0.3vw;
+    padding: 0.4vw;
+    border: 0px;
+    border-radius: 5px;
 }
 .dom_list{
     width: 100%;
@@ -36,25 +57,64 @@
 }
 .center_dom_list{
     display: flex;
-    width: 90vw;
 }
 .disc_dom_list{
     display: flex;
-    width: 50vw;
-    border-bottom: 1px solid #325679;
     align-items: center;
-}
-.disc_dom_list div{
-    flex-basis: 50%;
 }
 .btn_dom_list{
     font-size: 1.1vw;
     color: #fff;
     margin-bottom: 1vw;
-    padding: 0.4vw;
+    padding: 0.4vw 1vw 0.4vw 1vw;
     border: 0px;
+    border-radius: 10px;
+}
+.div_disc_dom_list{
+    width: 25vw;
 }
 .btn_dom_list img{
     width: 1vw;
     padding: 0vw 0.3vw 0vw 0.3vw;
+}
+.all_disc{
+    width: 75%;
+}
+.div_disc{
+    flex: 1 1 80%;
+}
+.filter_dropbox{
+    flex: 1 1 10%;
+}
+.box_filter_dropbox{
+    margin: 1vw 0vw;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.checkbox_price{
+    flex-wrap: wrap;
+}
+.checkbox_price input{
+    flex: 1 1 20%;
+}
+.checkbox_price span{
+    flex: 1 1 75%;
+    color: #325679;
+}
+.checkbox_convenient,.checkbox_common_fee{
+    flex-wrap: wrap;
+}
+.checkbox_convenient input,.checkbox_common_fee input{
+    flex: 1 1 5%;
+}
+.checkbox_convenient span,.checkbox_common_fee span{
+    flex: 1 1 85%;
+    color: #325679;
+}
+.see_more img{
+    margin-left: 1vw;
+}
+.see_more span{
+    margin-left: 0.2vw;
+    color: #325679;
 }
