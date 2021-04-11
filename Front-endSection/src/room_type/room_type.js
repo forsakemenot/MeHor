@@ -251,7 +251,7 @@ function RoomType() {
                     </div>
 
                     <div className="continue d-flex">
-                        <Link to="/"><button id="btn_continue">ขั้นตอนถัดไป</button></Link>
+                        <Link to="/ImageRoom"><button id="btn_continue">ขั้นตอนถัดไป</button></Link>
                     </div>
 
                 </div>
