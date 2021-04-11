@@ -1,0 +1,134 @@
+
+.bg_test {
+    background-color: #ffe4e4;
+    height: 85vh;
+    width: 80vw;
+    display: flex;
+    justify-content: flex-end;
+}
+.form_confirm {
+    background-color: white;
+    border: #325679 2px solid;
+    border-radius: 10px 10px 10px 10px;
+    height: 73vh;
+    width: 65vw;
+    margin-top: 3vw;
+}
+
+.img_doc {
+    width: 2vw;
+}
+
+.text_head_table {
+    margin-top: -1%;
+    margin-left: 10%;
+    align-items: baseline;
+    color: #325679;
+}
+
+.note {
+    font-size: 0.8vw;
+    font-weight: 300;
+    margin-left: 1%;
+    color: #a3a3a3;
+}
+
+.house_regis {
+    width: 50vw;
+    height: 10vh;
+    margin-left: 10%;
+    background-color: #EFF5F9;
+    border: #325679 1px solid;
+    color: #325679;
+}
+
+.house_number {
+    width: 50vw;
+    height: 10vh;
+    margin-left: 10%;
+    border: #325679 1px solid;
+    color: #325679;
+}
+
+.header_topic {
+    width: 25vw;
+    height: 10vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.topic_house {
+    margin-top: 1%;
+    margin-left: 3%;
+}
+
+.remark_file {
+    font-size: 1vw;
+    font-weight: 300;
+    margin: -2% 0 0 3%;
+    color: #a3a3a3;
+}
+
+.status {
+    width: 10vw;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.status_file{
+    width: 8vw;
+    height: 4vh;
+    border-radius: 10px;
+    background-color: #C2C2C2;
+    color: white;
+    font-weight: 300;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload {
+    width: 17vw;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload_file{
+    width: 13vw;
+    height: 6vh;
+    border-radius: 10px;
+    background-image: linear-gradient(#609DD9, #034D98);
+    color: white;
+    font-weight: 300;
+    font-size: 0.9vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    margin-top: 2%;
+}
+
+.img_info {
+    width: 1.5vw;
+    margin-left: 10%;
+}
+
+.text_info {
+    margin-left: 1%;
+    color: #325679;
+    font-weight: 300;
+    font-size: 1vw;
+}
+
+.list_info {
+    margin: 1% 0 0 9%;
+    width: 50vw;
+    color: #325679;
+    font-weight: 300;
+    font-size: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

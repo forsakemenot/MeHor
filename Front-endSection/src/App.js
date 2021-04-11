@@ -13,6 +13,7 @@ import LoginRegister from './login_register/login_register.js';
 import RoomType from './room_type/room_type.js';
 import FurnitureDom from './furniture_dom/furniture_dom.js';
 import ConfirmDoc from './confirm_doc/confirm_doc.js';
+import DomMe from './dom_me/dom_me.js';
 
 function App() {
   return (
@@ -60,6 +61,9 @@ function App() {
           </Route>
         <Route path="/ConfirmDoc">
           <ConfirmDoc />
+          </Route>
+        <Route path="/DomMe">
+          <DomMe />
           </Route>
       </Switch>
     </Router>
