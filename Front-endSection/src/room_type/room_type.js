@@ -18,7 +18,7 @@ function RoomType() {
     return (
         <div className="d-flex justify-center">
             <div  className="bg_test">
-                <div className="form_dom">
+                <div className="form_room">
                     <div className="d-flex" style={{paddingLeft: '3%'}}>
                         <img className="img_formdom" src={city}/>
                         <p className="text_header">ประเภทห้อง</p>
@@ -251,7 +251,7 @@ function RoomType() {
                     </div>
 
                     <div className="continue d-flex">
-                        <Link to="/ImageRoom"><button id="btn_continue">ขั้นตอนถัดไป</button></Link>
+                        <Link to="/FurnitureDom"><button id="btn_continue">ขั้นตอนถัดไป</button></Link>
                     </div>
 
                 </div>

@@ -1,0 +1,70 @@
+.bg_test {
+    background-color: #ffe4e4;
+    height: 290vh;
+    width: 80vw;
+    display: flex;
+    justify-content: flex-end;
+}
+.form_image_room {
+    background-color: white;
+    border: #325679 2px solid;
+    border-radius: 10px 10px 10px 10px;
+    height: 275vh;
+    width: 65vw;
+    margin-top: 3vw;
+}
+
+.in_room,
+.out_room {
+    margin-top: 1%;
+    width: 25vw;
+    align-items: baseline;
+}
+
+.checkbox_room {
+    margin-left: 10%;
+    color: #325679;
+    font-weight: 300;
+}
+
+.img_furniture {
+    width: 2vw;
+}
+
+.text_topic {
+    color: #325679;
+    margin-left: 3%;
+}
+
+.img_warning {
+    width: 1.5vw;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+
+.text_warning {
+    margin-left: 1%;
+    color: #325679;
+    font-weight: 300;
+    font-size: 0.8vw;
+}
+
+.policy_of_img {
+    background-color: #EFF5F9;
+    width: 50vw;
+    margin-left: 10%;
+    color: #325679;
+    font-weight: 300;
+    font-size: 0.8vw;
+}
+
+
+#furniture {
+    width: 50vw;
+    height: 45vh;
+    margin-left: 10%;
+}
+
+#check {
+    margin-top: -5%;
+}

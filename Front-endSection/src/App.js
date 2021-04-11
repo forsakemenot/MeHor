@@ -11,7 +11,8 @@ import Home from './home/home.js';
 import AddDom from './add_dom/add_dom.js';
 import LoginRegister from './login_register/login_register.js';
 import RoomType from './room_type/room_type.js';
-import ImageRoom from './image_room/image_room.js';
+import FurnitureDom from './furniture_dom/furniture_dom.js';
+
 function App() {
   return (
     <Router>
@@ -53,8 +54,8 @@ function App() {
         <Route path="/RoomType">
           <RoomType />
           </Route>
-        <Route path="/ImageRoom">
-          <RoomType />
+        <Route path="/FurnitureDom">
+          <FurnitureDom />
           </Route>
       </Switch>
     </Router>

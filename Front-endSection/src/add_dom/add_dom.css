@@ -1,6 +1,6 @@
 .bg_test {
     background-color: #ffe4e4;
-    height: 300vh;
+    height: 100vh;
     width: 80vw;
     display: flex;
     justify-content: flex-end;
@@ -9,7 +9,7 @@
     background-color: white;
     border: #325679 2px solid;
     border-radius: 10px 10px 10px 10px;
-    height: 290vh;
+    height: 285vh;
     width: 65vw;
     margin-top: 3vw;
 }

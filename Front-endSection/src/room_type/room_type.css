@@ -5,7 +5,7 @@
     display: flex;
     justify-content: flex-end;
 }
-.form_dom {
+.form_room {
     background-color: white;
     border: #325679 2px solid;
     border-radius: 10px 10px 10px 10px;
