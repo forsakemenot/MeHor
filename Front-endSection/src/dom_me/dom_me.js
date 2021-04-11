@@ -29,13 +29,23 @@ function DomMe() {
                     <div className="test_check">
                         <div className="img_test"></div>
                         <div className="detail_check">
-                            <div className="d-flex align-baseline">
-                                <p>ชื่อหอพัก : </p>
-                                <p className="detail_db">หอพักสันติ</p>
+                            <div className="static_box d-flex align-baseline">
+                                <p className="static_text">ชื่อหอพัก : </p>
+                                <p className="detail_text">เอแอนด์เจ แมนชั่น</p>
                             </div>
-                            <p>สถานะ : </p>
-                            <p>การปรับปรุง : </p>
+
+                            <div className="static_box d-flex align-baseline">
+                                <p className="static_text">สถานะ : </p>
+                                <p className="detail_status">รอการตรวจสอบ</p>
+                            </div>
+
+                            <div className="static_box d-flex align-baseline">
+                                <p className="static_text">การปรับปรุง : </p>
+                                <p className="detail_improve">(ปรับปรุงล่าสุด 04/02/2564)</p>
+                            </div>
                         </div>
+
+                        <div></div>
                     </div>
                 </div>
             </div>

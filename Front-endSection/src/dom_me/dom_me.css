@@ -47,7 +47,7 @@
 
 .img_test {
     width: 20vw;
-    height: 25vh;
+    height: 20vh;
     background-color: gray;
     background-image: url(../img/img_test.svg);
     background-size: cover;
@@ -56,10 +56,35 @@
 .detail_check {
     color: #325679;
     width: 25vw;
-    background-color: greenyellow;
+    background-color: violet;
 }
 
-.detail_db {
-    margin-left: 2%;
+.static_box {
+    width: 25vw;
+    margin: 2% 0 2% 0;
+}
+
+.static_text {
+    margin: 0 0 0 2%;
+}
+
+.detail_text {
     font-size: 1.5vw;
+    margin: 0 0 2% 2%;
+}
+
+.detail_status {
+    background-color: #FFBD38;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    width: 7vw;
+    font-size: 0.8vw;
+    margin-left: 2%;
+}
+
+.detail_improve {
+    font-size: 1vw;
+    margin-left: 2%;
+    color: #B4B4B4;
 }
