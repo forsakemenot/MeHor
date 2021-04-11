@@ -9,6 +9,7 @@ import door from './../img/door-open.svg';
 import hotel from './../img/hotel.svg';
 import camera from './../img/camera.svg';
 import warning from './../img/warning.svg';
+import upload_pic from './../img/upload_pic.svg';
 
 
 function FurnitureDom() {
@@ -138,12 +139,33 @@ function FurnitureDom() {
                     <span className="text_warning">รูปถ่ายที่ไม่อนุญาตให้ลงในประกาศ</span>
 
                     <div className="policy_of_img d-flex">
-                            
-                        <p><u>รูปถ่ายที่ติดลายน้ำของกิจการอื่นๆ</u></p>
+                        <div>
+                            <p><u>รูปถ่ายที่ติดลายน้ำของกิจการอื่นๆ</u></p>
+                        </div>
+                        <div>
+                            <p><u>รูปถ่ายที่ติดลิขสิทธิ์หรือละเมิดสิทธิส่วนบุคคล</u></p>
+                        </div>
+                        <div>
+                            <p><u>รูปถ่ายที่มีการถูกดัดแปลง แก้ไขจากต้นฉบับ</u></p>
+                        </div>
+                    </div>
 
-                        <p><u>รูปถ่ายที่ติดลิขสิทธิ์หรือละเมิดสิทธิส่วนบุคคล</u></p>
-                            
-                        <p><u>รูปถ่ายที่มีการถูกดัดแปลง แก้ไขจากต้นฉบับ</u></p>
+                    <div className="upload_image d-flex">
+                        <div>
+                            <img src={upload_pic}></img>
+                        </div>
+                    </div>
+                    <div>
+                        <button className="btn_add_image">เพิ่มรูป</button>
+                    </div>
+
+                    <div className="remark_upload">
+                        <p>* รูปภาพแรก จะเป็น<u style={{fontWeight: '600'}}>รูปภาพหลัก</u>ของหอพัก</p>
+                        <p>** ไฟล์ภาพรองรับขนาดไม่เกิน 5 mb</p>
+                    </div>
+
+                    <div className="continue d-flex">
+                        <Link to="/"><button id="btn_continue">ขั้นตอนถัดไป</button></Link>
                     </div>
 
                 </div>
