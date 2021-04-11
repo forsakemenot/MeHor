@@ -12,6 +12,7 @@ import AddDom from './add_dom/add_dom.js';
 import LoginRegister from './login_register/login_register.js';
 import RoomType from './room_type/room_type.js';
 import FurnitureDom from './furniture_dom/furniture_dom.js';
+import ConfirmDoc from './confirm_doc/confirm_doc.js';
 
 function App() {
   return (
@@ -56,6 +57,9 @@ function App() {
           </Route>
         <Route path="/FurnitureDom">
           <FurnitureDom />
+          </Route>
+        <Route path="/ConfirmDoc">
+          <ConfirmDoc />
           </Route>
       </Switch>
     </Router>

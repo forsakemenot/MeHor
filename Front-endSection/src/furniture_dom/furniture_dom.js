@@ -165,7 +165,7 @@ function FurnitureDom() {
                     </div>
 
                     <div className="continue d-flex">
-                        <Link to="/"><button id="btn_continue">ขั้นตอนถัดไป</button></Link>
+                        <Link to="/ConfirmDoc"><button id="btn_continue">ขั้นตอนถัดไป</button></Link>
                     </div>
 
                 </div>
