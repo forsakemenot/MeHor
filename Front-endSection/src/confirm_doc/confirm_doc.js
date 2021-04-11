@@ -75,7 +75,7 @@ function ConfirmDoc() {
                     </ul>
 
                     <div className="continue d-flex">
-                        <Link to="/"><button id="btn_continue" style={{width: '13vw'}}>บันทึกและรอการตรวจสอบ</button></Link>
+                        <Link to="/DomMe"><button id="btn_continue" style={{width: '13vw'}}>บันทึกและรอการตรวจสอบ</button></Link>
                     </div>
                     
                 </div>

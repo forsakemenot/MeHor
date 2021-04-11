@@ -67,6 +67,9 @@ li a{
 .align-center{
   align-items: center;
 }
+.align-baseline{
+  align-items: baseline;
+}
 .mr-1{
   margin-right: 1.5vw;
 }
