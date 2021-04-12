@@ -7,7 +7,6 @@ const UserSchema = mongoose.Schema({
     },
     surname: {
         type: String,
-        unique: true,
         required: true
     },
     email: {
@@ -29,7 +28,6 @@ const UserSchema = mongoose.Schema({
         required: true
     }
 
-    
 });
 
 const User = mongoose.model('User', UserSchema)

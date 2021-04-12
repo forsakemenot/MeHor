@@ -1,6 +1,6 @@
 import logo from './img/MeHorWhite.svg';
 import './App.css';
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,26 +10,27 @@ import {
 import Home from './home/home.js';
 import AddDom from './add_dom/add_dom.js';
 import LoginRegister from './login_register/login_register.js';
-import RoomType from './room_type/room_type.js';
-import FurnitureDom from './furniture_dom/furniture_dom.js';
-import ConfirmDoc from './confirm_doc/confirm_doc.js';
-import DomMe from './dom_me/dom_me.js';
+import jwt from 'jsonwebtoken';
 
 function App() {
+  const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
+  const [email, setEmail] = useState((token && jwt.decode(token).email) || '');
+
+  const handleLogout = () => {
+    localStorage.removeItem('jwtToken');
+  }
+
   return (
     <Router>
       <div className="bg-main d-flex">
         <div className="d-flex left-nav">
           <ul>
-          <Link to="/"><img alt="" src={logo} /></Link>
+            <img alt="" src={logo} />
             <li>
               <Link to="/">หน้าแรก</Link>
             </li>
             <li>
               <Link>ค้นหาที่พัก</Link>
-            </li>
-            <li>
-              <Link>เว็บบอร์ด</Link>
             </li>
             <li>
               <Link>ลงโฆษณา</Link>
@@ -40,7 +41,18 @@ function App() {
           </ul>
         </div>
         <div className="d-flex right-nav align-center">
-          <Link to="/LoginRegister">เข้าสู่ระบบ/สมัครสมาชิก</Link>
+          {
+            email ?
+              <div>
+                <div>{email}</div>
+                <form onSubmit={handleLogout}>
+                  <button className="btn_login">Logout</button>
+                </form>
+              </div>
+              :
+              <Link to="/LoginRegister">เข้าสู่ระบบ/สมัครสมาชิก</Link>
+          }
+
         </div>
       </div>
       <Switch>
@@ -52,19 +64,7 @@ function App() {
         </Route>
         <Route path="/LoginRegister">
           <LoginRegister />
-          </Route>
-        <Route path="/RoomType">
-          <RoomType />
-          </Route>
-        <Route path="/FurnitureDom">
-          <FurnitureDom />
-          </Route>
-        <Route path="/ConfirmDoc">
-          <ConfirmDoc />
-          </Route>
-        <Route path="/DomMe">
-          <DomMe />
-          </Route>
+        </Route>
       </Switch>
     </Router>
 

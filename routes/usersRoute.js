@@ -102,7 +102,7 @@ router.post('/signup', (req, res) => {
 router.post('/login', (req, res) => {
     const email = req.body.email || '';
     const password = req.body.password || '';
-
+    console.log(req.body);
     let errors = {};
 
     if (email === '') {

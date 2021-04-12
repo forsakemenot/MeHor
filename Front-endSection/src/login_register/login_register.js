@@ -5,13 +5,56 @@ import man from './../img/Icon-awesome-user-alt.svg';
 import React, { useState } from 'react';
 import './login_register.css';
 import './../App.css';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Login_register() {
-    // state = {
-    //     activeTab: 'tab1'
-    // }
-    const [activeTab, setActiveTab] = useState("tab2");
+    const history = useHistory();
+
+    const [activeTab, setActiveTab] = useState("tab1");
+    const [userLoginDetails, setUserLoginDetails] = useState('');
+    const [data, setData] = useState('');
+
+    const options = data => {
+        return {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'post',
+            body: JSON.stringify(data)
+        };
+    };
+
+    const handleInputChange = (e) => {
+        const field = e.target.name;
+        const value = e.target.value;
+        setUserLoginDetails({
+            ...userLoginDetails,
+            [field]: value
+        });
+    }
+
+    const HandleSubmit = (evt) => {
+        console.log(userLoginDetails);
+
+        fetch('http://localhost:5000/api/users/login', options(userLoginDetails))
+            .then(res => res.json())
+            .then(res => {
+                if (res.success) {
+                    console.log(res);
+                    const token = res.token;
+                    delete res.token;
+                    localStorage.setItem('jwtToken', token);
+                    setData(token);
+                    history.push("/");
+                    window.location.reload();
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        evt.preventDefault();
+    }
+
     return (
 
         <div>
@@ -27,18 +70,24 @@ function Login_register() {
                 </div>
                 {
                     activeTab === "tab1" &&
-                    <div>
+                    <form onSubmit={HandleSubmit}>
                         <div className="d-flex text_from">
                             <p>E-mail</p>
                             <div>
-                                <input type="text"></input>
+                                <input type="text"
+                                    onChange={handleInputChange}
+                                    name="email"
+                                ></input>
                                 <img id="img_email" alt="" src={email} />
                             </div>
                         </div>
                         <div className="d-flex text_from">
                             <p>Password</p>
                             <div>
-                                <input type="text"></input>
+                                <input type="text"
+                                    onChange={handleInputChange}
+                                    name="password"
+                                ></input>
                                 <img id="img_lock" alt="" src={lock} />
                             </div>
                         </div>
@@ -48,7 +97,7 @@ function Login_register() {
                         <div className="d-flex">
                             <p className="text_forget"><Link to="/">ลืมรหัสผ่าน</Link> ใช่หรือไม่</p>
                         </div>
-                    </div>
+                    </form>
                 }
                 {
                     activeTab === "tab2" &&
@@ -91,11 +140,11 @@ function Login_register() {
                             </div>
                         </div>
                         <div className="d-flex div_checkbox align-center">
-                                <span>สมัครสมาชิกในบทบาท : </span>
-                                <input className="checkbox box_top" type="radio" name="checkbox" />
-                                <span>ผู้เช่า</span>
-                                <input className="checkbox box_top" type="radio" name="checkbox" />
-                                <span>ผู้ประกอบการ</span>
+                            <span>สมัครสมาชิกในบทบาท : </span>
+                            <input className="checkbox box_top" type="radio" name="checkbox" />
+                            <span>ผู้เช่า</span>
+                            <input className="checkbox box_top" type="radio" name="checkbox" />
+                            <span>ผู้ประกอบการ</span>
                         </div>
                         <div className="d-flex div_checkbox align-center bt_color">
                             <input className="checkbox box_bottom" type="checkbox" />
