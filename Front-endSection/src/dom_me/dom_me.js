@@ -44,8 +44,6 @@ function DomMe() {
                                 <p className="detail_improve">(ปรับปรุงล่าสุด 04/02/2564)</p>
                             </div>
                         </div>
-
-                        <div></div>
                     </div>
                 </div>
             </div>

@@ -11,6 +11,9 @@ function AddDom() {
     return (
         <div className="d-flex justify-center">
             <div  className="bg_test">
+                <div className="progress_bar">
+                    
+                </div>
                 <div className="form_dom">
                     <div className="d-flex" style={{paddingLeft: '3%'}}>
                         <img className="img_formdom" src={city}/>

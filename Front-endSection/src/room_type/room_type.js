@@ -43,7 +43,7 @@ function RoomType() {
 
                         <div className="m-left">
                             <div className="">
-                                <input type="radio"></input>
+                                <input type="radio" name="cost"></input>
                                 <span style={{marginLeft : '1%'}}>จำนวนเงิน
                                     <input className="amount"></input>
                                     บาท
@@ -51,11 +51,11 @@ function RoomType() {
                                 <small className="remark">*รวมค่าเงินมัดจำและค่าเงินประกัน</small>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="cost"></input>
                                 <span style={{marginLeft : '1%'}}>ไม่มีคำเงินมัดจำ/ค่าเงินประกัน</span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="cost"></input>
                                 <span style={{marginLeft : '1%'}}>อื่นๆ</span>
                                 <input className="d-flex other" style={{marginLeft : '3.5%'}}></input>
                             </div>
@@ -72,7 +72,7 @@ function RoomType() {
 
                         <div className="m-left">
                         <div className="">
-                                <input type="radio"></input>
+                                <input type="radio" name="payment"></input>
                                 <span style={{marginLeft : '1%'}}>ระบุเดือน
                                     <select className="select_mount" style={{textIndent : '15%'}}>
                                         <option>-- เลือกเดือน --</option>
@@ -87,22 +87,22 @@ function RoomType() {
                                 </span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="payment"></input>
                                 <span style={{marginLeft : '1%'}}>จำนวนเงิน
                                     <input className="amount"></input>
                                     บาท
                                 </span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="payment"></input>
                                 <span style={{marginLeft : '1%'}}>จ่ายเท่าจำนวนค่าห้อง</span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="payment"></input>
                                 <span style={{marginLeft : '1%'}}>ไม่ต้องจ่ายล่วงหน้า</span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="payment"></input>
                                 <span style={{marginLeft : '1%'}}>อื่นๆ</span>
                                 <input className="d-flex other" style={{marginLeft : '3.5%'}}></input>
                             </div>
@@ -119,18 +119,18 @@ function RoomType() {
 
                         <div className="m-left">
                             <div className="">
-                                <input type="radio"></input>
+                                <input type="radio" name="electric"></input>
                                 <span style={{marginLeft : '1%'}}>ตามยูนิตที่ใช้
                                     <input className="amount"></input>
                                     บาท/หน่วย
                                 </span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="electric"></input>
                                 <span style={{marginLeft : '1%'}}>รวมในค่าห้องแล้ว</span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="electric"></input>
                                 <span style={{marginLeft : '1%'}}>อื่นๆ</span>
                                 <input className="d-flex other" style={{marginLeft : '3.5%'}}></input>
                             </div>
@@ -147,32 +147,32 @@ function RoomType() {
 
                         <div className="m-left">
                             <div className="">
-                                <input type="radio"></input>
+                                <input type="radio" name="water"></input>
                                 <span style={{marginLeft : '1%'}}>ตามยูนิตที่ใช้
                                     <input className="amount"></input>
                                     บาท/หน่วย
                                 </span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="water"></input>
                                 <span style={{marginLeft : '1%'}}>เหมาจ่าย
                                     <input className="amount" style={{marginLeft : '3.5%'}}></input>
                                     บาทต่อ<u>คน</u>/หน่วย
                                 </span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="water"></input>
                                 <span style={{marginLeft : '1%'}}>เหมาจ่าย
                                     <input className="amount" style={{marginLeft : '3.5%'}}></input>
                                     บาทต่อ<u>ห้อง</u>/หน่วย
                                 </span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="water"></input>
                                 <span style={{marginLeft : '1%'}}>รวมในค่าห้องแล้ว</span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="water"></input>
                                 <span style={{marginLeft : '1%'}}>อื่นๆ</span>
                                 <input className="d-flex other" style={{marginLeft : '3.5%'}}></input>
                             </div>
@@ -196,22 +196,22 @@ function RoomType() {
 
                         <div className="m-left">
                             <div className="">
-                                <input type="radio"></input>
+                                <input type="radio" name="wifi"></input>
                                 <span style={{marginLeft : '1%'}}>จำนวนเงิน
                                     <input className="amount"></input>
                                     บาท/เดือน
                                 </span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="wifi"></input>
                                 <span style={{marginLeft : '1%'}}>ฟรี</span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="wifi"></input>
                                 <span style={{marginLeft : '1%'}}>ไม่มีอินเทอร์เน็ต</span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="wifi"></input>
                                 <span style={{marginLeft : '1%'}}>อื่นๆ</span>
                                 <input className="d-flex other" style={{marginLeft : '3.5%'}}></input>
                             </div>
@@ -228,22 +228,22 @@ function RoomType() {
 
                         <div className="m-left">
                             <div className="">
-                                <input type="radio"></input>
+                                <input type="radio" name="keycard"></input>
                                 <span style={{marginLeft : '1%'}}>จำนวนเงิน
                                     <input className="amount"></input>
                                     บาท/เดือน
                                 </span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="keycard"></input>
                                 <span style={{marginLeft : '1%'}}>ฟรี</span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="keycard"></input>
                                 <span style={{marginLeft : '1%'}}>ไม่มีคีย์การ์ด</span>
                             </div>
                             <div style={{marginTop: '1%'}}>
-                                <input type="radio"></input>
+                                <input type="radio" name="keycard"></input>
                                 <span style={{marginLeft : '1%'}}>อื่นๆ</span>
                                 <input className="d-flex other" style={{marginLeft : '3.5%'}}></input>
                             </div>

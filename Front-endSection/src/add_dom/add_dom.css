@@ -1,3 +1,4 @@
+
 .bg_test {
     background-color: #ffe4e4;
     height: 100vh;
@@ -5,6 +6,15 @@
     display: flex;
     justify-content: flex-end;
 }
+.progress_bar {
+    background-color: greenyellow;
+    display: flex;
+    justify-content: flex-start;
+    width: 15vw;
+    height: 100vh;
+    margin-top: 3vw;
+}
+
 .form_dom {
     background-color: white;
     border: #325679 2px solid;
