@@ -26,12 +26,12 @@ body{
   color: white;
 }
 .left-nav{
-  flex-basis: 50%;
+  flex-basis: 40%;
   /* width: 45vw; */
   justify-content: center;
 }
 .right-nav{
-  flex-basis: 45%;
+  flex-basis: 53%;
   justify-content: flex-end;
 }
 .right-nav a{
@@ -58,8 +58,20 @@ li a{
 .justify-center{
   justify-content: center;
 }
+.justify-start{
+  justify-content: flex-start;
+}
+.justify-end{
+  justify-content: flex-end;
+}
 .align-center{
   align-items: center;
+}
+.align-baseline{
+  align-items: baseline;
+}
+.mr-1{
+  margin-right: 1.5vw;
 }
 .bg-main{
   background: #325679;
@@ -82,7 +94,9 @@ li a{
 .App-link {
   color: #61dafb;
 }
-
+.kanit{
+  font-family: 'Kanit', sans-serif;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

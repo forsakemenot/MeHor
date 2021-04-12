@@ -1,74 +1,141 @@
 import React from "react";
 import './add_dom.css';
 import './../App.css';
+
+import { Link } from "react-router-dom";
+
+import city from './../img/city.svg';
+import card from './../img/address-card.svg';
+import gps from './../img/crosshair.svg';
 function AddDom() {
     return (
-        <div>
-            <div className="text_top">
-                <p>จัดการที่พัก</p>
-                <h2>ข้อมูลห้องพัก</h2>
-            </div>
-            <div className="d-flex header_dom">
-                <div className="d-flex text_header">
-                    <b>ข้อมูลที่พัก</b>
+        <div className="d-flex justify-center">
+            <div  className="bg_test">
+                <div className="progress_bar">
+                    
                 </div>
-                <div className="d-flex text_header">
-                    <p>ประเภทหอพัก</p>
-                </div>
-            </div>
+                <div className="form_dom">
+                    <div className="d-flex" style={{paddingLeft: '3%'}}>
+                        <img className="img_formdom" src={city}/>
+                        <p className="text_header">ข้อมูลที่พัก</p>
+                    </div>
+                    <hr></hr>
+                    <div id="main_form" className="d-flex">
+                            <p>ชื่อที่พัก</p>
+                            <input type="text"></input>
+                    </div>
+                    <div id="main_form" className="d-flex">
+                            <p>ชื่อที่พัก (ภาษาอังกฤษ)</p>
+                            <input type="text"></input>
+                    </div>
+                    <div id="main_form" className="d-flex">
+                            <p>ประเภทที่พัก</p>
+                            <select>
+                                <option>-- เลือกประเภทที่พัก --</option>
+                                <option value="apartment">หอพัก</option>
+                                <option value="condo">คอนโด</option>
+                            </select>
+                    </div>
 
-            <form>
-                <div className="d-flex form_dom">
-                    <div className="d-flex p-1-0-1-1">
-                        <div className="d-flex justify_start text_form">รหัสประเภท</div>
-                        <div className="d-flex justify_start input_form"><input placeholder="รหัสประกาศ"></input></div>
+                    {/* address form */}
+                    <div id="main_form" className="d-flex" style={{marginTop : '3%'}}>
+                        <p>ที่อยู่</p>
+                        <div className="d-flex">
+                            <div id="address_form">
+                                <p>เลขที่</p>
+                                <input type="text"></input>
+                            </div>
+                            <div id="address_form">
+                                <p>ซอย</p>
+                                <input type="text"></input>
+                            </div>
+                            <div id="address_form">
+                                <p>ถนน</p>
+                                <input type="text"></input>
+                            </div>
+                        </div>
+                        <div className="d-flex" style={{marginTop : '2%'}}>
+                            <div id="address_form">
+                                <p>จังหวัด</p>
+                                <input type="text"></input>
+                            </div>
+                            <div id="address_form">
+                                <p>อำเภอ/เขต</p>
+                                <input type="text"></input>
+                            </div>
+                            <div id="address_form">
+                                <p>ตำบล/แขวง</p>
+                                <input type="text"></input>
+                            </div>
+                            <div id="address_form">
+                                <p>รหัสไปรษณีย์</p>
+                                <input type="text"></input>
+                            </div>
+                        </div>
                     </div>
-                    <div className="d-flex p-1-0-1-1">
-                        <div className="d-flex justify_start text_form">ประเภทที่พัก</div>
-                        <div className="d-flex justify_start input_form"><input></input></div>
+
+                    {/* map */}
+                    <div id="main_form" className="d-flex" style={{marginTop : '3%'}}>
+                        <p>แผนที่</p>
+                        <button className="btn_gps"><img src={gps} style={{width : '7%', marginRight : '5%'}}/>ค้นหาจากตำแหน่งปัจจุบันของคุณ</button>
+                        <div style={{backgroundColor : '#ffe4e4',
+                                     width : '50vw',
+                                     height : '20vw',
+                                     marginTop : '1%'}}>
+
+                        </div>
                     </div>
-                    <div className="d-flex p-1-0-1-1">
-                        <div className="d-flex justify_start text_form">ชื่อที่พัก</div>
-                        <div className="d-flex justify_start input_form"><input></input></div>
+
+                    {/* detail apartment */}
+                    <div id="main_form" className="d-flex" style={{marginTop : '3%'}}>
+                        <p>รายละเอียด</p>
+                        <div className="d-flex">
+                            <button id="btn_detail">Bold</button>
+                            <button id="btn_detail">Italic</button>
+                            <button id="btn_detail_underline">Underline</button>
+                            <button id="btn_detail">List</button>
+                        </div>
+                         
+                        <textarea className="textarea_form"></textarea>
                     </div>
-                    <div className="d-flex p-1-0-1-1">
-                        <div className="d-flex justify_start text_form">อีเมล์</div>
-                        <div className="d-flex justify_start input_form"><input placeholder="user@domain.com"></input></div>
+
+                    {/* contact-dom */}
+                    <div className="d-flex" style={{paddingLeft: '3%', marginTop: '3%'}}>
+                        <img className="img_formdom" src={card}/>
+                        <p className="text_header">ข้อมูลติดต่อ</p>
                     </div>
-                    <div className="d-flex p-1-0-1-1">
-                        <div className="d-flex justify_start text_form">เบอร์ติดต่อ</div>
-                        <div className="d-flex justify_start input_form"><input placeholder="xxx-xxx-xxxx"></input></div>
+                    <hr></hr>
+                    <div id="main_form" className="d-flex">
+                            <p>ชื่อผู้ดูแล</p>
+                            <input type="text"></input>
                     </div>
-                    <div className="d-flex p-1-0-1-1">
-                        <div className="d-flex justify_start text_form">คำอธิบาย</div>
-                        <div className="d-flex justify_start input_form"><input placeholder="คำอธิบายรายละเอียด"></input></div>
+                    <div id="main_form" className="d-flex">
+                            <p>เบอร์โทรศัพท์</p>
+                            <input type="text"></input>
                     </div>
-                    <div className="p-1-0-1-1"><b>รายละเอียดค่าใช้จ่าย</b></div>
-                    <div className="d-flex p-1-0-1-1">
-                        <div className="d-flex justify_start text_form">ราคารายเดือน</div>
-                        <div className="d-flex justify_start input_form_2box">เริ่มต้น(บาท) <input></input></div>
-                        <div className="d-flex justify_start input_form_2box">สูงสุด (บาท) <input></input></div>
+                    <div id="main_form" className="d-flex">
+                            <p>เบอร์โทรศัพท์มือถือ (ถ้ามี)</p>
+                            <input type="text"></input>
                     </div>
-                    <div className="d-flex p-1-0-1-1">
-                        <div className="d-flex justify_start text_form">ราคารายเดือนวัน</div>
-                        <div className="d-flex justify_start input_form_2box">เริ่มต้น(บาท) <input></input></div>
-                        <div className="d-flex justify_start input_form_2box">สูงสุด (บาท) <input></input></div>
+                    <div id="main_form" className="d-flex">
+                            <p>อีเมล์</p>
+                            <input type="text"></input>
                     </div>
-                    <div className="d-flex p-1-0-1-1">
-                        <div className="d-flex justify_start text_form">อัตราค่าน้ำ</div>
-                        <div className="d-flex justify_start input_form"><input placeholder="คำอธิบายรายละเอียด"></input></div>
+                    <div id="main_form" className="d-flex">
+                            <p>Line ID</p>
+                            <input type="text"></input>
                     </div>
-                    <div className="d-flex p-1-0-1-1">
-                        <div className="d-flex justify_start text_form">อัตราค่าไฟ</div>
-                        <div className="d-flex justify_start input_form"><input placeholder="คำอธิบายรายละเอียด"></input></div>
+                    <div id="main_form" className="d-flex">
+                            <p>Facebook</p>
+                            <input type="text"></input>
+                            <small>ระบุเป็น URL เช่น : https://www.facebook.com/mehor.in.th</small>
                     </div>
-                    <div className="d-flex p-1-0-1-1">
-                        <div className="d-flex justify_start text_form">ค่าส่วนกลาง</div>
-                        <div className="d-flex justify_start input_form"><input placeholder="คำอธิบายรายละเอียด"></input></div>
+
+                    <div className="continue d-flex">
+                        <Link to="/RoomType"><button id="btn_continue">ขั้นตอนถัดไป</button></Link>
                     </div>
-                    <div className="save_form"><button className="btn_save bg-main">บันทึก</button></div>
                 </div>
-            </form>
+            </div>
         </div>
     );
 }
