@@ -1,4 +1,4 @@
-import logo from './img/MeHorWhite.svg';
+import LogoHome from './img/MeHorWhite.svg';
 import './App.css';
 import React, { useState } from "react";
 import {
@@ -7,11 +7,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Home from './home/home.js';
-import AddDom from './add_dom/add_dom.js';
-import LoginRegister from './login_register/login_register.js';
+import Home from './pages/home/home.js';
+import AddDom from './pages/add_dom/add_dom.js';
+import LoginRegister from './pages/login_register/login_register.js';
+import NavBar from "./components/NavBar/NavBar.js";
 import jwt from 'jsonwebtoken';
-
+// import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
   const [email, setEmail] = useState((token && jwt.decode(token).email) || '');
@@ -22,23 +23,11 @@ function App() {
 
   return (
     <Router>
+
       <div className="bg-main d-flex">
         <div className="d-flex left-nav">
-          <ul>
-            <img alt="" src={logo} />
-            <li>
-              <Link to="/">หน้าแรก</Link>
-            </li>
-            <li>
-              <Link>ค้นหาที่พัก</Link>
-            </li>
-            <li>
-              <Link>ลงโฆษณา</Link>
-            </li>
-            <li>
-              <Link>เกี่ยวกับเว็บไซต์</Link>
-            </li>
-          </ul>
+          <NavBar logo={LogoHome} />
+
         </div>
         <div className="d-flex right-nav align-center">
           {

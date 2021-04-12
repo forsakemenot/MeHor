@@ -1,10 +1,10 @@
-import logo from './../img/MeHor.svg';
-import email from './../img/Icon-zocial-email.svg';
-import lock from './../img/Icon-material-lock.svg';
-import man from './../img/Icon-awesome-user-alt.svg';
+import logo from './../../img/MeHor.svg';
+import email from './../../img/Icon-zocial-email.svg';
+import lock from './../../img/Icon-material-lock.svg';
+import man from './../../img/Icon-awesome-user-alt.svg';
 import React, { useState } from 'react';
 import './login_register.css';
-import './../App.css';
+import './../../App.css';
 import { Link, useHistory } from "react-router-dom";
 
 function Login_register() {

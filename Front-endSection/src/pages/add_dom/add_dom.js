@@ -1,12 +1,12 @@
 import React from "react";
 import './add_dom.css';
-import './../App.css';
+import './../../App.css';
 
 import { Link } from "react-router-dom";
 
-import city from './../img/city.svg';
-import card from './../img/address-card.svg';
-import gps from './../img/crosshair.svg';
+import city from './../../img/city.svg';
+import card from './../../img/address-card.svg';
+import gps from './../../img/crosshair.svg';
 function AddDom() {
     return (
         <div className="d-flex justify-center">

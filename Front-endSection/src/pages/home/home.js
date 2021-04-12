@@ -1,10 +1,10 @@
-import HomeImg from './../img/Icon-open-home.svg';
-import HeartImg from './../img/Icon-awesome-heart.svg';
-import Plus from './../img/Plus.svg';
-import minus from './../img/minus.svg';
+import HomeImg from './../../img/Icon-open-home.svg';
+import HeartImg from './../../img/Icon-awesome-heart.svg';
+import Plus from './../../img/Plus.svg';
+import minus from './../../img/minus.svg';
 import React, { useState } from 'react';
 import './home.css';
-import './../App.css';
+import './../../App.css';
 import { Link } from "react-router-dom";
 function Home() {
     const [activeBoxPrice, setActiveBoxPrice] = useState(false);
