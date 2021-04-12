@@ -13,6 +13,7 @@ import upload_pic from './../img/upload_pic.svg';
 
 
 function FurnitureDom() {
+    
     return (
         <div className="d-flex justify-center">
             <div  className="bg_test">
@@ -156,7 +157,9 @@ function FurnitureDom() {
                         </div>
                     </div>
                     <div>
-                        <button className="btn_add_image">เพิ่มรูป</button>
+                        
+                            <button className="btn_add_image">เพิ่มรูป</button>
+                        
                     </div>
 
                     <div className="remark_upload">

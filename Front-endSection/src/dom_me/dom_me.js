@@ -44,6 +44,13 @@ function DomMe() {
                                 <p className="detail_improve">(ปรับปรุงล่าสุด 04/02/2564)</p>
                             </div>
                         </div>
+
+                        <div>
+                            <select>
+                                <option>แก้ไข</option>
+                                <option>ลบ</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
