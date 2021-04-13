@@ -36,7 +36,7 @@ function Login_register() {
     const HandleSubmit = (evt) => {
         console.log(userLoginDetails);
 
-        fetch('http://localhost:5000/api/users/login', options(userLoginDetails))
+        fetch('http://103.13.231.22:5000/api/users/login', options(userLoginDetails))
             .then(res => res.json())
             .then(res => {
                 if (res.success) {
