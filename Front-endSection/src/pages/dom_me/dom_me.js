@@ -1,11 +1,11 @@
 import React from "react";
 import './dom_me.css';
-import './../App.css';
+import '../../App.css';
 
 import { Link } from "react-router-dom";
 
-import city from './../img/city.svg';
-import warningBW from './../img/warning-bw.svg';
+import city from '../../img/city.svg';
+import warningBW from '../../img/warning-bw.svg';
 
 function DomMe() {
     return (

@@ -1,15 +1,15 @@
 import React from "react";
 import './furniture_dom.css';
-import './../App.css';
+import '../../App.css';
 
 import { Link } from "react-router-dom";
 
-import city from './../img/city.svg';
-import door from './../img/door-open.svg';
-import hotel from './../img/hotel.svg';
-import camera from './../img/camera.svg';
-import warning from './../img/warning.svg';
-import upload_pic from './../img/upload_pic.svg';
+import city from '../../img/city.svg';
+import door from '../../img/door-open.svg';
+import hotel from '../../img/hotel.svg';
+import camera from '../../img/camera.svg';
+import warning from '../../img/warning.svg';
+import upload_pic from '../../img/upload_pic.svg';
 
 
 function FurnitureDom() {

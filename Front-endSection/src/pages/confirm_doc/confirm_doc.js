@@ -1,13 +1,13 @@
 import React from "react";
 import './confirm_doc.css';
-import './../App.css';
+import '../../App.css';
 
 import { Link } from "react-router-dom";
 
-import document from './../img/document.svg';
-import check from './../img/check-circle.svg';
-import upload from './../img/upload.svg';
-import info from './../img/info-circle.svg';
+import document from '../../img/document.svg';
+import check from '../../img/check-circle.svg';
+import upload from '../../img/upload.svg';
+import info from '../../img/info-circle.svg';
 
 function ConfirmDoc() {
     return (

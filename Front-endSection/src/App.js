@@ -10,6 +10,10 @@ import {
 import Home from './pages/home/home.js';
 import AddDom from './pages/add_dom/add_dom.js';
 import LoginRegister from './pages/login_register/login_register.js';
+import RoomType from './pages/room_type/room_type.js';
+import FurnitureDom from './pages/furniture_dom/furniture_dom.js';
+import DomMe from './pages/dom_me/dom_me.js';
+import ConfirmDoc from './pages/confirm_doc/confirm_doc.js';
 import NavBar from "./components/NavBar/NavBar.js";
 import jwt from 'jsonwebtoken';
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -53,6 +57,18 @@ function App() {
         </Route>
         <Route path="/LoginRegister">
           <LoginRegister />
+        </Route>
+        <Route path="/RoomType">
+          <RoomType />
+        </Route>
+        <Route path="/FurnitureDom">
+          <FurnitureDom />
+        </Route>
+        <Route path="/ConfirmDoc">
+          <ConfirmDoc />
+        </Route>
+        <Route path="/DomMe">
+          <DomMe />
         </Route>
       </Switch>
     </Router>

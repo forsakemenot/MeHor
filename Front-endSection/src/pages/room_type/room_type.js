@@ -1,17 +1,17 @@
 import React from "react";
 import './room_type.css';
-import './../App.css';
+import '../../App.css';
 
 import { Link } from "react-router-dom";
 
-import city from './../img/city.svg';
-import coin from './../img/coins.svg';
-import money from './../img/money-bill-wave.svg';
-import payment from './../img/money-check.svg';
-import electric from './../img/electrician.svg';
-import water from './../img/water.svg';
-import wifi from './../img/wifi.svg';
-import keycard from './../img/keycard.svg';
+import city from '../../img/city.svg';
+import coin from '../../img/coins.svg';
+import money from '../../img/money-bill-wave.svg';
+import payment from '../../img/money-check.svg';
+import electric from '../../img/electrician.svg';
+import water from '../../img/water.svg';
+import wifi from '../../img/wifi.svg';
+import keycard from '../../img/keycard.svg';
 
 
 function RoomType() {

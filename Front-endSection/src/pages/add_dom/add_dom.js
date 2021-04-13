@@ -21,20 +21,35 @@ function AddDom() {
                     </div>
                     <hr></hr>
                     <div id="main_form" className="d-flex">
-                            <p>ชื่อที่พัก</p>
-                            <input type="text"></input>
+                        <p>ชื่อที่พัก</p>
+                        <input type="text"></input>
                     </div>
                     <div id="main_form" className="d-flex">
-                            <p>ชื่อที่พัก (ภาษาอังกฤษ)</p>
-                            <input type="text"></input>
+                        <p>ชื่อที่พัก (ภาษาอังกฤษ)</p>
+                        <input type="text"></input>
                     </div>
                     <div id="main_form" className="d-flex">
-                            <p>ประเภทที่พัก</p>
-                            <select>
-                                <option>-- เลือกประเภทที่พัก --</option>
-                                <option value="apartment">หอพัก</option>
-                                <option value="condo">คอนโด</option>
-                            </select>
+                        <p>ประเภทที่พัก</p>
+                        <select>
+                            <option>-- เลือก ประเภทที่พัก --</option>
+                            <option value="apartment">หอพัก</option>
+                            <option value="condo">คอนโด</option>
+                        </select>
+                    </div>
+                    <div id="main_form" className="d-flex">
+                        <p>โซนที่พัก</p>
+                        <select>
+                            <option>-- เลือก โซนที่พัก --</option>
+                            <option value="apartment">เกกี</option>
+                            <option value="condo">RNP</option>
+                            <option value="apartment">FBT</option>
+                            <option value="condo">จินดา</option>
+                            <option value="condo">นิคม</option>
+                        </select>
+                    </div>
+                    <div id="main_form" className="d-flex">
+                        <p>อื่น ๆ</p>
+                        <input type="text"></input>
                     </div>
 
                     {/* address form */}
