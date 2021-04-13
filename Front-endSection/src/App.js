@@ -14,6 +14,7 @@ import RoomType from './pages/room_type/room_type.js';
 import FurnitureDom from './pages/furniture_dom/furniture_dom.js';
 import DomMe from './pages/dom_me/dom_me.js';
 import ConfirmDoc from './pages/confirm_doc/confirm_doc.js';
+import WebBoard from './pages/web_board/web_board.js';
 import NavBar from "./components/NavBar/NavBar.js";
 import jwt from 'jsonwebtoken';
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -69,6 +70,9 @@ function App() {
         </Route>
         <Route path="/DomMe">
           <DomMe />
+        </Route>
+        <Route path="/WebBoard">
+          <WebBoard />
         </Route>
       </Switch>
     </Router>

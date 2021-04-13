@@ -17,7 +17,7 @@ function NavBar({ logo }) {
         <Link>ค้นหาที่พัก</Link>
       </li>
       <li>
-        <Link to="/">เว็บบอร์ด</Link>
+        <Link to="/WebBoard">เว็บบอร์ด</Link>
       </li>
       <li>
         <Link>ลงโฆษณา</Link>
