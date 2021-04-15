@@ -7,6 +7,7 @@ require('dotenv').config();
 const articles = require('./routes/articlesRoute.js');
 const users = require('./routes/usersRoute.js');
 const config = require('./config.js');
+const dorm = require('./routes/dormRoute.js')
 
 const MONGODB_URI = config.mongodburi || 'mongodb://localhost/basic-mern-app';
 const PORT = process.env.PORT || 5000;
@@ -44,6 +45,7 @@ app.use((req, res, next) => {
 
 app.use('/api/articles', articles);
 app.use('/api/users', users);
+app.use('/api/dorm', dorm);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/client/build/index.html'));

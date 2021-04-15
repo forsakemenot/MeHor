@@ -1,7 +1,9 @@
+
+
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
+const Dorm = require('../models/dormModel.js');
 const User = require('../models/usersModel.js');
 const config = require('../config');
 
@@ -14,7 +16,7 @@ const validateEmail = (email) => {
 }
 
 const checkUserUniqueness = (field, value) => {
-    return { error, isUnique } = User.findOne({[field]: value}).exec()
+    return { error, isUnique } = User.findOne({ [field]: value }).exec()
         .then(user => {
             let res = {};
             if (Boolean(user)) {
@@ -45,29 +47,29 @@ router.post('/signup', (req, res) => {
     const password = req.body.password || '';
     const confirmPassword = req.body.confirmPassword || '';
     const role = req.body.role || '';
-    const reqBody = { firstname, surname, email, password, confirmPassword, role};
+    const reqBody = { firstname, surname, email, password, confirmPassword, role };
 
     let errors = {};
     console.log(reqBody);
     Object.keys(reqBody).forEach(async field => {
         if (reqBody[field] === '') {
-            errors = {...errors, [field]: 'This field is required'}
+            errors = { ...errors, [field]: 'This field is required' }
         }
         if (field === 'email') {
             const value = reqBody[field];
             const { error, isUnique } = await checkUserUniqueness(field, value);
             if (!isUnique) {
-                errors = {...errors, ...error};
+                errors = { ...errors, ...error };
             }
         }
         if (field === 'email' && !validateEmail(reqBody[field])) {
-            errors = {...errors, [field]: 'Not a valid Email'}
+            errors = { ...errors, [field]: 'Not a valid Email' }
         }
         if (field === 'password' && password !== '' && password < 4) {
-            errors = {...errors, [field]: 'Password too short'}
+            errors = { ...errors, [field]: 'Password too short' }
         }
         if (field === 'confirmPassword' && confirmPassword !== password) {
-            errors = {...errors, [field]: 'Passwords do not match'}
+            errors = { ...errors, [field]: 'Passwords do not match' }
         }
     });
 
@@ -84,14 +86,14 @@ router.post('/signup', (req, res) => {
 
         // Generate the Salt
         bcrypt.genSalt(10, (err, salt) => {
-            if(err) return err;
+            if (err) return err;
             // Create the hashed password
             bcrypt.hash(newUser.password, salt, (err, hash) => {
-                if(err) return err;
+                if (err) return err;
                 newUser.password = hash;
                 // Save the User
-                newUser.save(function(err){
-                    if(err) return err
+                newUser.save(function (err) {
+                    if (err) return err
                     res.json({ success: 'success' });
                 });
             });
@@ -106,16 +108,16 @@ router.post('/login', (req, res) => {
     let errors = {};
 
     if (email === '') {
-        errors = {...errors, email: 'This field is required' };
+        errors = { ...errors, email: 'This field is required' };
     }
     if (password === '') {
-        errors = {...errors, password: 'This field is required' };
+        errors = { ...errors, password: 'This field is required' };
     }
 
     if (Object.keys(errors).length > 0) {
         res.json({ errors });
     } else {
-        User.findOne({email: email}, (err, user) => {
+        User.findOne({ email: email }, (err, user) => {
             if (err) throw err;
             if (Boolean(user)) {
                 // Match Password
@@ -123,12 +125,12 @@ router.post('/login', (req, res) => {
                     if (err) return err;
                     if (isMatch) {
                         const token = jwt.sign({
-                                id: user._id,
-                                email: user.email
-                            }, config.jwtSecret);
+                            id: user._id,
+                            email: user.email
+                        }, config.jwtSecret);
                         res.json({ token, success: 'success' })
                     } else {
-                       res.json({ errors: { invalidCredentials: 'Invalid Email or Password' } });
+                        res.json({ errors: { invalidCredentials: 'Invalid Email or Password' } });
                     }
                 });
             } else {

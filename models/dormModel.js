@@ -3,49 +3,68 @@ const mongoose = require('mongoose');
 const DormSchema = mongoose.Schema({
     dorm_name: {
         type: String,
-        required: true
+        // required: true
     },
     dorm_name_eng: {
         type: String,
-        unique: true,
-        required: true
+        // required: true
     },
     dorm_type: {
         type: String,
-        unique: true,
-        required: true
+        // required: true
+    },
+    dorm_zone: {
+        type: String,
+        // required: true
+    },
+    dorm_others: {
+        type: String,
+        // required: true
+    },
+    dorm_address: {
+        address_number : {type: String},
+        alley : {type: String},
+        street : {type: String},
+        province : {type: String},
+        area : {type: String},
+        district : {type: String},
+        postcode : {type: String},
+
     },
     latitude: {
-        type: float,
-        required: true
+        type: Number,
+        // required: true
     },
     longtitude: {
-        type: float,
-        required: true
+        type: Number,
+        // required: true
     },
     description:{
         type: String,
-        required: true
+        // required: true
     },
     owner_name:{
         type: String,
-        required: true
+        // required: true
     },
     owner_phone:{
         type: String,
-        required: true
+        // required: true
     },
     owner_office_phone:{
         type: String,
-        required: true
+        // required: true
     },
     owner_line:{
         type: String,
-        required: true
+        // required: true
     },
     owner_facebook:{
         type: String,
-        required: true
+        // required: true
+    },
+    user:{
+        type: String,
     }
     
     
@@ -55,4 +74,4 @@ const DormSchema = mongoose.Schema({
 
 const Dorm = mongoose.model('Dorm', DormSchema)
 
-module.exports = Dmor;
+module.exports = Dorm;
