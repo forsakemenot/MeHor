@@ -82,10 +82,12 @@
     flex: 1 1 50%;
 }
 .flex-50 div input{
-    width: 80%;
+    width: 95%;
     border-radius: 10px;
 }
-
+#input_surname{
+    margin-left: 2vw;
+}
 .direction-row{
     flex-direction:row !important;
 }
@@ -103,12 +105,12 @@
 #img_man1{
     height: 1.5vw;
     top: 68%;
-    left: 36%;
+    left: 41%;
 }
 #img_man2{
     height: 1.5vw;
     top: 68%;
-    left: 86%;
+    left: 93%;
 }
 #img_lock{
     height: 2vw;

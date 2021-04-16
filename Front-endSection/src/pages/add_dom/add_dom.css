@@ -19,9 +19,8 @@
     background-color: white;
     border: #325679 2px solid;
     border-radius: 10px 10px 10px 10px;
-    height: 310vh;
     width: 65vw;
-    margin-top: 3vw;
+    margin: 3vw auto;
 }
 
 .text_header {
@@ -112,13 +111,13 @@ hr {
     justify-content: center;
 }
 
-#main_form {
+.main_form {
     padding-left: 10%;
     flex-direction: column;
     color: #325679;
 }
 
-#main_form input {
+.main_form input {
     font-family: 'Kanit', sans-serif;
     font-size: 1em;
     color: black;
@@ -129,7 +128,7 @@ hr {
     margin-top: -1%;
 }
 
-#main_form select {
+.main_form select {
     font-family: 'Kanit', sans-serif;
     font-size: 1em;
     color: black;

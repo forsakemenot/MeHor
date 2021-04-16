@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
 .App {
   text-align: center;
 }
@@ -12,7 +15,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-body{
+body,h1,h2,h4,h5,h6,span,input,label,button,select{
   font-family: 'Kanit', sans-serif;
 }
 .App-header {
@@ -24,6 +27,9 @@ body{
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+input{
+  color: #325679;
 }
 .left-nav{
   flex-basis: 40%;
@@ -96,6 +102,12 @@ li a{
 }
 .kanit{
   font-family: 'Kanit', sans-serif;
+}
+.mx{
+  margin: auto;
+}
+.mt-2{
+  margin-top: 2vw;
 }
 @keyframes App-logo-spin {
   from {

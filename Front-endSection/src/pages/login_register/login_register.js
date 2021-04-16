@@ -1,4 +1,4 @@
-import logo from './../../img/MeHor.svg';
+import logo from './../../img/MeHor.png';
 import email from './../../img/Icon-zocial-email.svg';
 import lock from './../../img/Icon-material-lock.svg';
 import man from './../../img/Icon-awesome-user-alt.svg';
@@ -110,7 +110,7 @@ function Login_register() {
                                     <img id="img_man1" alt="" src={man} />
                                 </div>
                             </div>
-                            <div className="flex-50">
+                            <div className="flex-50" id="input_surname">
                                 <p>นามสกุล</p>
                                 <div>
                                     <input type="text"></input>

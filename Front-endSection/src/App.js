@@ -1,4 +1,4 @@
-import LogoHome from './img/MeHorWhite.svg';
+import LogoHome from './img/MeHorWhite.png';
 import './App.css';
 import React, { useState } from "react";
 import {
