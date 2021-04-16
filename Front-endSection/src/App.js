@@ -16,6 +16,7 @@ import DomMe from './pages/dom_me/dom_me.js';
 import ConfirmDoc from './pages/confirm_doc/confirm_doc.js';
 import WebBoard from './pages/web_board/web_board.js';
 import NavBar from "./components/NavBar/NavBar.js";
+import Profile from "./pages/profile/profile.js";
 import jwt from 'jsonwebtoken';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
@@ -73,6 +74,9 @@ function App() {
         </Route>
         <Route path="/WebBoard">
           <WebBoard />
+        </Route>
+        <Route path="/Profile">
+          <Profile />
         </Route>
       </Switch>
     </Router>
