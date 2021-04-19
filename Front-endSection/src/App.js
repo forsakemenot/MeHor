@@ -1,5 +1,5 @@
 import LogoHome from './img/MeHorWhite.png';
-import './App.css';
+
 import React, { useState } from "react";
 import {
   BrowserRouter as Router,
@@ -18,7 +18,8 @@ import WebBoard from './pages/web_board/web_board.js';
 import NavBar from "./components/NavBar/NavBar.js";
 import Profile from "./pages/profile/profile.js";
 import jwt from 'jsonwebtoken';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 function App() {
   const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
   const [email, setEmail] = useState((token && jwt.decode(token).email) || '');

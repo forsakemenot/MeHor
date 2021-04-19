@@ -61,6 +61,7 @@
 .disc_dom_list{
     display: flex;
     align-items: center;
+    margin-top: 1vw;
 }
 .btn_dom_list{
     font-size: 1.1vw;
@@ -69,12 +70,13 @@
     padding: 0.4vw 1vw 0.4vw 1vw;
     border: 0px;
     border-radius: 10px;
+    align-items: center;
 }
 .div_disc_dom_list{
     width: 25vw;
 }
 .btn_dom_list img{
-    width: 1vw;
+    width: 1.8vw;
     padding: 0vw 0.3vw 0vw 0.3vw;
 }
 .all_disc{

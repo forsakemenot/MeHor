@@ -44,7 +44,10 @@
     align-items: center;
     justify-content: center;
 }
-
+.btn_gps img{
+    width: 7%;
+    margin-right: 5%;
+}
 .textarea_form {
     height: 15vw;
     width: 50vw;
@@ -60,14 +63,14 @@
     margin-top: 3%;
 }
 
-hr {
+.line_under_head{
     width: 55vw;
     margin: 0;
     margin-left: 3%;
     margin-top: -1%;
 }
 
-#btn_detail {
+.btn_detail {
     font-family: 'Kanit', sans-serif;
     font-size: 1vw;
     width: 5vw;
@@ -82,7 +85,7 @@ hr {
     margin-right: 2%;
 }
 
-#btn_detail_underline {
+.btn_detail_underline {
     font-family: 'Kanit', sans-serif;
     font-size: 1vw;
     width: 10vw;
@@ -139,14 +142,14 @@ hr {
     margin-top: -1%;
 }
 
-#address_form {
+.address_form {
     display: flex;
     flex-direction: column;
     margin-top: -2%;
     margin-right: 2%;
 }
 
-#address_form input {
+.address_form input {
     width: 11vw;
     margin-top: -4%;
 }

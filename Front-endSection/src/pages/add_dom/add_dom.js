@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import './add_dom.css';
 import './../../App.css';
-
 import { Link } from "react-router-dom";
-
 import city from './../../img/city.svg';
 import card from './../../img/address-card.svg';
 import gps from './../../img/crosshair.svg';
@@ -65,13 +63,12 @@ function AddDom() {
 
     return (
         <div className="d-flex">
-
             <div className="form_dom">
-                <div className="d-flex" style={{ paddingLeft: '3%' }}>
-                    <img className="img_formdom" src={city} />
+                <div className="d-flex pl-2-v">
+                    <img alt="" className="img_formdom" src={city} />
                     <p className="text_header">ข้อมูลที่พัก</p>
                 </div>
-                <hr></hr>
+                <hr className="line_under_head"/>
                 <form onSubmit={HandleSubmit} >
                     <div className="d-flex main_form">
                         <p>ชื่อที่พัก</p>
@@ -106,36 +103,36 @@ function AddDom() {
                     </div>
 
                     {/* address form */}
-                    <div className="d-flex main_form mt-2">
+                    <div className="d-flex main_form mt-2-v">
                         <p>ที่อยู่</p>
                         <div className="d-flex">
-                            <div id="address_form">
+                            <div className="address_form">
                                 <p>เลขที่</p>
                                 <input type="text" onChange={handleAddressChange} name="address_number"></input>
                             </div>
-                            <div id="address_form">
+                            <div className="address_form">
                                 <p>ซอย</p>
                                 <input type="text" onChange={handleAddressChange} name="alley"></input>
                             </div>
-                            <div id="address_form">
+                            <div className="address_form">
                                 <p>ถนน</p>
                                 <input type="text" onChange={handleAddressChange} name="street"></input>
                             </div>
                         </div>
-                        <div className="d-flex" style={{ marginTop: '2%' }}>
-                            <div id="address_form">
+                        <div className="d-flex mt-1-5-v">
+                            <div className="address_form">
                                 <p>จังหวัด</p>
                                 <input type="text" onChange={handleAddressChange} name="province"></input>
                             </div>
-                            <div id="address_form">
+                            <div className="address_form">
                                 <p>อำเภอ/เขต</p>
                                 <input type="text" onChange={handleAddressChange} name="area"></input>
                             </div>
-                            <div id="address_form">
+                            <div className="address_form">
                                 <p>ตำบล/แขวง</p>
                                 <input type="text" onChange={handleAddressChange} name="district"></input>
                             </div>
-                            <div id="address_form">
+                            <div className="address_form">
                                 <p>รหัสไปรษณีย์</p>
                                 <input type="text" onChange={handleAddressChange} name="postcode"></input>
                             </div>
@@ -143,9 +140,9 @@ function AddDom() {
                     </div>
 
                     {/* map */}
-                    <div className="d-flex main_form mt-2">
+                    <div className="d-flex main_form mt-2-v">
                         <p>แผนที่</p>
-                        <button className="btn_gps"><img src={gps} style={{ width: '7%', marginRight: '5%' }} />ค้นหาจากตำแหน่งปัจจุบันของคุณ</button>
+                        <button className="btn_gps"><img alt="" src={gps}/>ค้นหาจากตำแหน่งปัจจุบันของคุณ</button>
                         <div style={{
                             backgroundColor: '#ffe4e4',
                             width: '50vw',
@@ -158,24 +155,24 @@ function AddDom() {
 
 
                     {/* detail apartment */}
-                    <div className="d-flex main_form mt-2">
+                    <div className="d-flex main_form mt-2-v">
                         <p>รายละเอียด</p>
                         <div className="d-flex">
-                            <button id="btn_detail">Bold</button>
-                            <button id="btn_detail">Italic</button>
-                            <button id="btn_detail_underline">Underline</button>
-                            <button id="btn_detail">List</button>
+                            <button className="btn_detail">Bold</button>
+                            <button className="btn_detail">Italic</button>
+                            <button className="btn_detail_underline">Underline</button>
+                            <button className="btn_detail">List</button>
                         </div>
 
                         <textarea onChange={handleInputChange} name="description" className="textarea_form"></textarea>
                     </div>
 
                     {/* contact-dom */}
-                    <div className="d-flex mt-2" style={{ paddingLeft: '3%'}}>
-                        <img className="img_formdom" src={card} />
+                    <div className="d-flex mt-2-v pl-2-v">
+                        <img alt="" className="img_formdom" src={card} />
                         <p className="text_header">ข้อมูลติดต่อ</p>
                     </div>
-                    <hr></hr>
+                    <hr className="line_under_head"/>
                     <div className="d-flex main_form">
                         <p>ชื่อผู้ดูแล</p>
                         <input onChange={handleInputChange} name="owner_name" type="text"></input>
@@ -204,8 +201,8 @@ function AddDom() {
                     </div>
 
                     <div className="continue d-flex">
-                        {/* <Link to="/RoomType"><button id="btn_continue">ขั้นตอนถัดไป</button></Link> */}
-                        <button id="btn_continue">ขั้นตอนถัดไป</button>
+                        <Link to="/RoomType"><button id="btn_continue">ขั้นตอนถัดไป</button></Link>
+                        {/* <button id="btn_continue">ขั้นตอนถัดไป</button> */}
                     </div>
                 </form>
             </div>

@@ -1,28 +1,22 @@
 import React from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useLocation
-} from "react-router-dom";
+import "./DomList.css";
 function DomList({ data }) {
     return (
         <div className="center_dom_list">
             <div className="disc_dom_list">
-                <div className="mr-1"><img alt="" src={data.img} /></div>
-                <div className="color-main div_disc_dom_list"><h2><b>{data.name}</b><br />
-                </h2>
-                    <p>
+                <div className="mr-1-v"><img alt="" src={data.img} /></div>
+                <div className="color-main div_disc_dom_list"><span className="text_dom_list"><b>{data.name}</b><br />
+                </span>
+                    <span>
                         {data.desc.map(function (element, index) {
                             return <>{element}<br /></>
                         })
                         }
-                    </p>
+                    </span>
 
-                    <h2>{data.price}</h2>
+                    <span className="text_dom_list">{data.price}</span>
                     <div className="d-flex justify-end">
-                        <button className="bg-second btn_dom_list"><img alt="" src={data.HeartImg} />สนใจ</button>
+                        <button className="bg-second btn_dom_list d-flex"><img alt="" src={data.HeartImg} />สนใจ</button>
                     </div>
                 </div>
             </div>

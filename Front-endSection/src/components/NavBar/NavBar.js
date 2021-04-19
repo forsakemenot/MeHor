@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useLocation
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 function NavBar({ logo }) {
   return (
     <ul>

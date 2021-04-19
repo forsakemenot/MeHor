@@ -5,7 +5,7 @@ import '../../App.css';
 import { Link } from "react-router-dom";
 
 import city from '../../img/city.svg';
-import warningBW from '../../img/warning-bw.svg';
+// import warningBW from '../../img/warning-bw.svg';
 
 function DomMe() {
     return (
@@ -13,7 +13,7 @@ function DomMe() {
             <div className="dom_me d-flex">
                 <div className="header d-flex">
                     <div className="header_awar d-flex">
-                        <img className="img_doc" src={city}/>
+                        <img alt="" className="img_doc" src={city}/>
                         <p className="text_header">ประกาศหอพักของฉัน</p>
                     </div>
 

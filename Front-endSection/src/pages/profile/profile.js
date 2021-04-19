@@ -1,9 +1,6 @@
 import React from "react";
 import '../profile/profile.css';
 import '../../App.css';
-
-import { Link } from "react-router-dom";
-
 import photo from '../../img/add-a-photo.svg'
 import account from '../../img/account.svg'
 import key from '../../img/key.svg'
@@ -16,11 +13,11 @@ function Profile() {
                 {/* tab profile */}
                 <div className="menu_profile">
                     <div className="account d-flex">
-                        <img src={account} className="img_menuProfile"></img>
+                        <img alt="" src={account} className="img_menuProfile"></img>
                         <p>บัญชีของฉัน</p>
                     </div>
                     <div className="security d-flex">
-                        <img src={key} className="img_menuProfile"></img>
+                        <img alt="" src={key} className="img_menuProfile"></img>
                         <p>บัญชีของฉัน</p>
                     </div>
                 </div>
@@ -35,7 +32,7 @@ function Profile() {
                                 <div className="img_user"></div>
                                 <div className="btn_uploadImg d-flex">
                                     <p>อัพโหลดภาพโปรไฟล์</p>
-                                    <img className="img_photo" src={photo}></img>
+                                    <img alt="" className="img_photo" src={photo}></img>
                                 </div>
                             </div>
 

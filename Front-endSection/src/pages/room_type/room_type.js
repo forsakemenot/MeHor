@@ -17,10 +17,9 @@ import keycard from '../../img/keycard.svg';
 function RoomType() {
     return (
         <div className="d-flex justify-center">
-            <div  className="bg_test">
                 <div className="form_room">
                     <div className="d-flex" style={{paddingLeft: '3%'}}>
-                        <img className="img_formdom" src={city}/>
+                        <img alt="" className="img_formdom" src={city}/>
                         <p className="text_header">ประเภทห้อง</p>
                     </div>
                     <hr></hr>
@@ -28,7 +27,7 @@ function RoomType() {
 
                     {/* cost */}
                     <div className="d-flex" style={{paddingLeft: '3%', marginTop: '3%'}}>
-                        <img className="img_formdom" src={coin}/>
+                        <img alt="" className="img_formdom" src={coin}/>
                         <p className="text_header">ค่าใช้จ่ายเพิ่มเติม</p>
                     </div>
                     <hr></hr>
@@ -36,7 +35,7 @@ function RoomType() {
                     {/* deposit */}
                     <div id="form_cost" className="d-flex">
                         <div className="d-flex">
-                            <img className="img_cost" src={money}/>
+                            <img alt="" className="img_cost" src={money}/>
                             <p>ค่าเงินมัดจำ/ค่าเงินประกัน</p>
                         </div>
                         <hr style={{width: '50vw', margin: '-1% 0 1% 0'}}></hr>
@@ -65,7 +64,7 @@ function RoomType() {
                     {/* advance payment */}
                     <div id="form_cost" className="d-flex">
                         <div className="d-flex">
-                            <img className="img_cost" src={payment}/>
+                            <img alt="" className="img_cost" src={payment}/>
                             <p>จ่ายล่วงหน้า</p>
                         </div>
                         <hr style={{width: '50vw', margin: '-1% 0 1% 0'}}></hr>
@@ -112,7 +111,7 @@ function RoomType() {
                     {/* electric */}
                     <div id="form_cost" className="d-flex">
                         <div className="d-flex">
-                            <img className="img_cost" style={{width: '1vw'}} src={electric}/>
+                            <img alt="" className="img_cost" style={{width: '1vw'}} src={electric}/>
                             <p>ค่าไฟ</p>
                         </div>
                         <hr style={{width: '50vw', margin: '-1% 0 1% 0'}}></hr>
@@ -140,7 +139,7 @@ function RoomType() {
                     {/* water */}
                     <div id="form_cost" className="d-flex">
                         <div className="d-flex">
-                            <img className="img_cost" style={{width: '1vw'}} src={water}/>
+                            <img alt="" className="img_cost" style={{width: '1vw'}} src={water}/>
                             <p>ค่าน้ำ</p>
                         </div>
                         <hr style={{width: '50vw', margin: '-1% 0 1% 0'}}></hr>
@@ -189,7 +188,7 @@ function RoomType() {
                     {/* wifi */}
                     <div id="form_cost" className="d-flex">
                         <div className="d-flex">
-                            <img className="img_cost" src={wifi}/>
+                            <img alt="" className="img_cost" src={wifi}/>
                             <p>อินเทอร์เน็ต</p>
                         </div>
                         <hr style={{width: '50vw', margin: '-1% 0 1% 0'}}></hr>
@@ -221,7 +220,7 @@ function RoomType() {
                     {/* keycard */}
                     <div id="form_cost" className="d-flex">
                         <div className="d-flex">
-                            <img className="img_cost" style={{width: '1vw'}} src={keycard}/>
+                            <img alt="" className="img_cost" style={{width: '1vw'}} src={keycard}/>
                             <p>คีย์การ์ด</p>
                         </div>
                         <hr style={{width: '50vw', margin: '-1% 0 1% 0'}}></hr>
@@ -255,7 +254,6 @@ function RoomType() {
                     </div>
 
                 </div>
-            </div>
         </div>
     );
 }

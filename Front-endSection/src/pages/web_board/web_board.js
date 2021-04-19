@@ -2,8 +2,6 @@ import React from "react";
 import '../web_board/web_board.css';
 import '../../App.css';
 
-import { Link } from "react-router-dom";
-
 import post from '../../img/post.svg';
 import before from '../../img/arrow-before.svg';
 import after from '../../img/arrow-after.svg';
@@ -14,7 +12,7 @@ function RoomType() {
             <div className="bg_frame">
                 <div className="list_post">
                     <div className="d-flex post_header mt-3">
-                        <img className="img_header" src={post}></img>
+                        <img alt="" className="img_header" src={post}></img>
                         <p className="text_header">กระทู้ซื้อ - ขายสัญญาหอ</p>
                     </div>
                     <div className="recent_post d-flex">
@@ -39,7 +37,7 @@ function RoomType() {
                         </div>
 
                         <div className="page_post d-flex justify-center mt-3">
-                            <img src={before}></img>
+                            <img alt="" src={before}></img>
                             <div className="page_num d-flex justify-center align-center">
                                 <p>1</p>
                             </div>
@@ -49,7 +47,7 @@ function RoomType() {
                             <div className="page_num d-flex justify-center align-center">
                                 <p>3</p>
                             </div>
-                            <img src={after}></img>
+                            <img alt="" src={after}></img>
                         </div>
                     </div>
                 </div>

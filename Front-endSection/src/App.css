@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
 .App {
@@ -16,7 +15,7 @@
   }
 }
 body,h1,h2,h4,h5,h6,span,input,label,button,select{
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Kanit', sans-serif !important;
 }
 .App-header {
   background-color: #282c34;
@@ -45,7 +44,7 @@ input{
   text-decoration: none;
 }
 ul{
-  margin: 0.3vw 0vw 0.3vw 0vw;
+  margin: 0.3vw 0vw 0.3vw 0vw !important;
   width: 40vw;
   display: flex;
   justify-content: space-evenly;
@@ -54,9 +53,12 @@ ul{
 li{
   list-style: none;
 }
-li a{
+li a,li a:hover{
   color: #fff;
   text-decoration: none;
+}
+p{
+  margin: 1vw 0vw !important;
 }
 .d-flex{
   display: flex;
@@ -79,7 +81,7 @@ li a{
 .align-baseline{
   align-items: baseline;
 }
-.mr-1{
+.mr-1-v{
   margin-right: 1.5vw;
 }
 .bg-main{
@@ -109,8 +111,29 @@ li a{
 .mx{
   margin: auto;
 }
-.mt-2{
+.mt-0-5-v{
+  margin-top: 0.5vw;
+}
+.mt-1-v{
+  margin-top: 1vw;
+}
+.mt-1-5-v{
+  margin-top: 1.5vw;
+}
+.mt-2-v{
   margin-top: 2vw;
+}
+.pl-0-5-v{
+  padding-left: 0.5vw;
+}
+.pl-1-v{
+  padding-left: 1vw;
+}
+.pl-1-5-v{
+  padding-left: 1.5vw;
+}
+.pl-2-v{
+  padding-left: 2vw;
 }
 @keyframes App-logo-spin {
   from {
