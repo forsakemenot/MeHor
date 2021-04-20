@@ -224,8 +224,8 @@ function AddDom() {
                     </div>
 
                     <div className="continue d-flex">
-                        {/* <Link to="/RoomType"><button id="btn_continue">ขั้นตอนถัดไป</button></Link> */}
-                        <button type="submit" id="btn_continue">ขั้นตอนถัดไป</button>
+                        <Link to="/RoomType"><button type="submit" id="btn_continue">ขั้นตอนถัดไป</button></Link>
+                        {/* <button  id="btn_continue">ขั้นตอนถัดไป</button> */}
                     </div>
                 </form>
             </div>
