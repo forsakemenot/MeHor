@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const DormSchema = mongoose.Schema({
+    is_done: {
+        type: Boolean,
+        default: false
+    },
+
     dorm_name: {
         type: String,
         // required: true

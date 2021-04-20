@@ -1,6 +1,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const Dorm = require('../models/dormModel.js');
+const DormType = require('../models/dormTypeModel.js');
 const router = express.Router();
 
 router.post('/adddorm', (req, res) => {
@@ -48,7 +49,6 @@ router.post('/adddorm', (req, res) => {
             owner_line: owner_line,
             owner_facebook: owner_facebook,
             user: jwt.decode(token).email
-    
         });
         newDorm.save(function (err) {
             if (err) {
@@ -61,4 +61,40 @@ router.post('/adddorm', (req, res) => {
     }
 });
 
+router.post('/dormtype', (req, res) => {
+   
+    const dorm_id = req.body.dorm_id || '';
+    const dormtype = req.body.dorm_type || '';
+    const insurance_bill = req.body.insurance_bill || '';
+    const pre_paid = req.body.pre_paid || '';
+    const electric_bill = req.body.electric_bill || '';
+    const water_bill = req.body.water_bill || '';
+    const internet_bill = req.body.internet_bill || '';
+    const keycard = req.body.keycard || '';
+
+    const token = req.headers.authorization || '';
+    const reqBody = {
+        dorm_id, dormtype, insurance_bill, pre_paid, electric_bill, water_bill, internet_bill, keycard
+    };
+
+    let errors = {};
+    console.log(reqBody);
+
+    if (Object.keys(errors).length > 0) {
+        console.log('errors');
+        res.json({ errors });
+    } else {
+        
+        const newDormType = new DormType(reqBody);
+        newDormType.save(function (err) {
+            if (err) {
+                console.log(err.message);
+                res.status(500).json({ error: err.message });
+                return err
+            }
+            res.json({ success: 'success' });
+        });
+
+    }
+});
 module.exports = router;

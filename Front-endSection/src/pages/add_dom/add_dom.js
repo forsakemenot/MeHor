@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import './add_dom.css';
 import './../../App.css';
-import { Link } from "react-router-dom";
+import { Link , useHistory} from "react-router-dom";
 import city from './../../img/city.svg';
 import card from './../../img/address-card.svg';
 import gps from './../../img/crosshair.svg';
 function AddDom() {
+    const history = useHistory();
     const [dormDetails, setdormDetails] = useState({ latitude: 1.5551, longtitude: 1.5858 });
     const [addressDetails, setAddressDetails] = useState('');
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
@@ -13,6 +14,7 @@ function AddDom() {
         return {
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': token,
             },
             method: 'post',
             body: JSON.stringify(data)
@@ -29,18 +31,15 @@ function AddDom() {
 
     const HandleSubmit = (evt) => {
         console.log(dormDetails);
-        dormDetails.token = token
-        fetch('localhost:5000/api/dorm/adddorm', options(dormDetails))
+        fetch('http://nocgy.com:5000/api/dorm/adddorm', options(dormDetails))
             .then(res => res.json())
             .then(res => {
                 if (res.success) {
-                    // const token = res.token;
-                    // delete res.token;
-                    // localStorage.setItem('jwtToken', token);
-                    // setData(token);
-                    // history.push("/");
-                    // window.location.reload();
+
+
                     alert("success")
+                    
+                    history.push("/RoomType");
                 }
             })
             .catch(error => {
@@ -48,6 +47,7 @@ function AddDom() {
             })
         evt.preventDefault();
     }
+
     const handleAddressChange = (e) => {
         const field = e.target.name;
         const value = e.target.value;
@@ -224,8 +224,8 @@ function AddDom() {
                     </div>
 
                     <div className="continue d-flex">
-                        <Link to="/RoomType"><button id="btn_continue">ขั้นตอนถัดไป</button></Link>
-                        {/* <button id="btn_continue">ขั้นตอนถัดไป</button> */}
+                        {/* <Link to="/RoomType"><button id="btn_continue">ขั้นตอนถัดไป</button></Link> */}
+                        <button type="submit" id="btn_continue">ขั้นตอนถัดไป</button>
                     </div>
                 </form>
             </div>
