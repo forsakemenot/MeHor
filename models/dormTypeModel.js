@@ -1,10 +1,17 @@
 const mongoose = require('mongoose');
 
 const DormTypeSchema = mongoose.Schema({
-    dorm_type: {
-        type: Object,
+    dorm_id: {
+        type: String,
+        unique: true,
         required: true
     },
+    dorm_type: [{
+        room_name : {type: String ,  required: true},
+        room_area : {type: String ,  required: true},
+        room_cost : {type: String ,  required: true},
+        additional : {type: String ,  required: true}
+    }],
     insurance_bill: {
         type: String,
         unique: true,
@@ -20,7 +27,7 @@ const DormTypeSchema = mongoose.Schema({
         required: true
     },
     water_bill: {
-        type: Boolean,
+        type: String,
         default: false,
         required: true
     },
