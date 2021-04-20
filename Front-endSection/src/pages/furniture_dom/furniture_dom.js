@@ -15,7 +15,29 @@ import upload_pic from '../../img/upload_pic.svg';
 function FurnitureDom() {
 
     return (
-        <div className="d-flex justify-center">
+        <div className="d-flex">
+            <div className="w-20 position-absolute box_progress">
+                <div className="d-flex w-70 mx-auto align-items-center position-relative">
+                    <span className="w-20 text-center num_progress active">1</span>
+                    <span className="w-80 text-left text_progress">ข้อมูลทั่วไป</span>
+                    <div className="position-absolute line_progress active"></div>
+                </div>
+                <div className="d-flex w-70 mx-auto align-items-center mt-3-v position-relative">
+                    <span className="w-20 text-center num_progress active">2</span>
+                    <span className="w-80 text-left text_progress">ประเภทห้องและค่าเช่า</span>
+                    <div className="position-absolute line_progress active"></div>
+                </div>
+                <div className="d-flex w-70 mx-auto align-items-center mt-3-v position-relative">
+                    <span className="w-20 text-center num_progress active">3</span>
+                    <span className="w-80 text-left text_progress">สิ่งอำนวย ความสะดวก และรูปภาพ</span>
+                    <div className="position-absolute line_progress"></div>
+                </div>
+                <div className="d-flex w-70 mx-auto align-items-center mt-3-v position-relative">
+                    <span className="w-20 text-center num_progress">4</span>
+                    <span className="w-80 text-left text_progress">เอกสารยืนยัน</span>
+                    <div className="position-absolute"></div>
+                </div>
+            </div>
             <div className="form_image_room">
                 <div className="d-flex" style={{ paddingLeft: '3%' }}>
                     <img alt="" className="img_formdom" src={city} />

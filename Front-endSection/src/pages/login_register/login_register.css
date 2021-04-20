@@ -25,7 +25,7 @@
     color: #325679;
     border-bottom: 3px solid #325679;
 }
-.active{
+.tab_active{
    background: #325679;
    color: #FFF;
 }

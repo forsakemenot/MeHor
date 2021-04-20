@@ -108,8 +108,29 @@ p{
 .kanit{
   font-family: 'Kanit', sans-serif;
 }
-.mx{
-  margin: auto;
+.w-5{
+  width: 5%;
+}
+.w-10{
+  width: 10%;
+}
+.w-15{
+  width: 15%;
+}
+.w-20{
+  width: 20%;
+}
+.w-60{
+  width: 60%;
+}
+.w-70{
+  width: 70%;
+}
+.w-80{
+  width: 80%;
+}
+.w-90{
+  width: 90%;
 }
 .mt-0-5-v{
   margin-top: 0.5vw;
@@ -122,6 +143,12 @@ p{
 }
 .mt-2-v{
   margin-top: 2vw;
+}
+.mt-2-5-v{
+  margin-top: 2.5vw;
+}
+.mt-3-v{
+  margin-top: 3vw;
 }
 .pl-0-5-v{
   padding-left: 0.5vw;

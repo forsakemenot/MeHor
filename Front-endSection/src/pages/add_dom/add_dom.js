@@ -63,12 +63,35 @@ function AddDom() {
 
     return (
         <div className="d-flex">
+            <div className="w-20 position-absolute box_progress">
+                <div className="d-flex w-70 mx-auto align-items-center position-relative">
+                    <span className="w-20 text-center num_progress active">1</span>
+                    <span className="w-80 text-left text_progress">ข้อมูลทั่วไป</span>
+                    <div className="position-absolute line_progress"></div>
+                </div>
+                <div className="d-flex w-70 mx-auto align-items-center mt-3-v position-relative">
+                    <span className="w-20 text-center num_progress">2</span>
+                    <span className="w-80 text-left text_progress">ประเภทห้องและค่าเช่า</span>
+                    <div className="position-absolute line_progress"></div>
+                </div>
+                <div className="d-flex w-70 mx-auto align-items-center mt-3-v position-relative">
+                    <span className="w-20 text-center num_progress">3</span>
+                    <span className="w-80 text-left text_progress">สิ่งอำนวย ความสะดวก และรูปภาพ</span>
+                    <div className="position-absolute line_progress"></div>
+                </div>
+                <div className="d-flex w-70 mx-auto align-items-center mt-3-v position-relative">
+                    <span className="w-20 text-center num_progress">4</span>
+                    <span className="w-80 text-left text_progress">เอกสารยืนยัน</span>
+                    <div className="position-absolute"></div>
+                </div>
+            </div>
             <div className="form_dom">
+
                 <div className="d-flex pl-2-v">
                     <img alt="" className="img_formdom" src={city} />
                     <p className="text_header">ข้อมูลที่พัก</p>
                 </div>
-                <hr className="line_under_head"/>
+                <hr className="line_under_head" />
                 <form onSubmit={HandleSubmit} >
                     <div className="d-flex main_form">
                         <p>ชื่อที่พัก</p>
@@ -142,7 +165,7 @@ function AddDom() {
                     {/* map */}
                     <div className="d-flex main_form mt-2-v">
                         <p>แผนที่</p>
-                        <button className="btn_gps"><img alt="" src={gps}/>ค้นหาจากตำแหน่งปัจจุบันของคุณ</button>
+                        <button className="btn_gps"><img alt="" src={gps} />ค้นหาจากตำแหน่งปัจจุบันของคุณ</button>
                         <div style={{
                             backgroundColor: '#ffe4e4',
                             width: '50vw',
@@ -155,7 +178,7 @@ function AddDom() {
 
 
                     {/* detail apartment */}
-                    <div className="d-flex main_form mt-2-v">
+                    {/* <div className="d-flex main_form mt-2-v">
                         <p>รายละเอียด</p>
                         <div className="d-flex">
                             <button className="btn_detail">Bold</button>
@@ -165,14 +188,14 @@ function AddDom() {
                         </div>
 
                         <textarea onChange={handleInputChange} name="description" className="textarea_form"></textarea>
-                    </div>
+                    </div> */}
 
                     {/* contact-dom */}
                     <div className="d-flex mt-2-v pl-2-v">
                         <img alt="" className="img_formdom" src={card} />
                         <p className="text_header">ข้อมูลติดต่อ</p>
                     </div>
-                    <hr className="line_under_head"/>
+                    <hr className="line_under_head" />
                     <div className="d-flex main_form">
                         <p>ชื่อผู้ดูแล</p>
                         <input onChange={handleInputChange} name="owner_name" type="text"></input>

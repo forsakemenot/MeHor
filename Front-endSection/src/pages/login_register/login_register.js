@@ -65,8 +65,8 @@ function Login_register() {
             </div>
             <div className="box_login">
                 <div className="d-flex">
-                    <div onClick={() => setActiveTab("tab1")} className={`tab_child text_tab ${activeTab === "tab1" && "active"}`}>เข้าสู่ระบบ</div>
-                    <div onClick={() => setActiveTab("tab2")} className={`tab_child text_tab ${activeTab === "tab2" && "active"}`}>สมัครสมาชิก</div>
+                    <div onClick={() => setActiveTab("tab1")} className={`tab_child text_tab ${activeTab === "tab1" && "tab_active"}`}>เข้าสู่ระบบ</div>
+                    <div onClick={() => setActiveTab("tab2")} className={`tab_child text_tab ${activeTab === "tab2" && "tab_active"}`}>สมัครสมาชิก</div>
                 </div>
                 {
                     activeTab === "tab1" &&
