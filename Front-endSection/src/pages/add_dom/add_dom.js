@@ -13,6 +13,7 @@ function AddDom() {
         return {
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': token,
             },
             method: 'post',
             body: JSON.stringify(data)
@@ -29,7 +30,6 @@ function AddDom() {
 
     const HandleSubmit = (evt) => {
         console.log(dormDetails);
-        dormDetails.token = token
         fetch('localhost:5000/api/dorm/adddorm', options(dormDetails))
             .then(res => res.json())
             .then(res => {
@@ -201,8 +201,8 @@ function AddDom() {
                     </div>
 
                     <div className="continue d-flex">
-                        <Link to="/RoomType"><button id="btn_continue">ขั้นตอนถัดไป</button></Link>
-                        {/* <button id="btn_continue">ขั้นตอนถัดไป</button> */}
+                        {/* <Link to="/RoomType"><button id="btn_continue">ขั้นตอนถัดไป</button></Link> */}
+                        <button type="submit" id="btn_continue">ขั้นตอนถัดไป</button>
                     </div>
                 </form>
             </div>

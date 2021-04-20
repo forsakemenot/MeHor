@@ -48,7 +48,6 @@ router.post('/adddorm', (req, res) => {
             owner_line: owner_line,
             owner_facebook: owner_facebook,
             user: jwt.decode(token).email
-    
         });
         newDorm.save(function (err) {
             if (err) {
