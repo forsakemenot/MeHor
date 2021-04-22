@@ -77,9 +77,7 @@ function Home() {
 
                 </div>
                 <div className="all_disc d-flex">
-                    <div className="div_disc">
-
-                        
+                    <div className="div_disc">                        
                         {
                             dom.map(function (element, index) {
                                 return <DomList data={element} />

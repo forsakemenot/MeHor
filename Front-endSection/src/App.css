@@ -43,20 +43,7 @@ input{
   color: #fff;
   text-decoration: none;
 }
-ul{
-  margin: 0.3vw 0vw 0.3vw 0vw !important;
-  width: 40vw;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-li{
-  list-style: none;
-}
-li a,li a:hover{
-  color: #fff;
-  text-decoration: none;
-}
+
 p{
   margin: 1vw 0vw !important;
 }
@@ -90,6 +77,9 @@ p{
 .bg-second{
   background: #F26627;
 }
+.bg-third{
+  background: #EFF5F9;
+}
 .bg-white{
   background: #fff;
 }
@@ -120,6 +110,12 @@ p{
 .w-20{
   width: 20%;
 }
+.w-30{
+  width: 30%;
+}
+.w-40{
+  width: 40%;
+}
 .w-60{
   width: 60%;
 }
@@ -129,8 +125,14 @@ p{
 .w-80{
   width: 80%;
 }
+.w-85{
+  width: 85%;
+}
 .w-90{
   width: 90%;
+}
+.w-95{
+  width: 95%;
 }
 .mt-0-5-v{
   margin-top: 0.5vw;
@@ -150,6 +152,45 @@ p{
 .mt-3-v{
   margin-top: 3vw;
 }
+.mr-0-5-v{
+  margin-right: 0.5vw;
+}
+.mr-1-v{
+  margin-right: 1vw;
+}
+.mr-1-5-v{
+  margin-right: 1.5vw;
+}
+.mr-2-v{
+  margin-right: 2vw;
+}
+.mr-2-5-v{
+  margin-right: 2.5vw;
+}
+.mr-3-v{
+  margin-right: 3vw;
+}
+.ml-0-5-v{
+  margin-left: 0.5vw;
+}
+.ml-1-v{
+  margin-left: 1vw;
+}
+.ml-1-5-v{
+  margin-left: 1.5vw;
+}
+.ml-2-v{
+  margin-left: 2vw;
+}
+.ml-2-5-v{
+  margin-left: 2.5vw;
+}
+.ml-3-v{
+  margin-left: 3vw;
+}
+.my-1-auto{
+  margin: 1vw auto;
+}
 .pl-0-5-v{
   padding-left: 0.5vw;
 }
@@ -161,6 +202,42 @@ p{
 }
 .pl-2-v{
   padding-left: 2vw;
+}
+.pt-0-5-v{
+  padding-top: 0.5vw;
+}
+.pt-1-v{
+  padding-top: 1vw;
+}
+.pt-1-5-v{
+  padding-top: 1.5vw;
+}
+.pt-2-v{
+  padding-top: 2vw;
+}
+.py-0-5-v{
+  padding: 0.5vw 0vw;
+}
+.py-1-v{
+  padding: 1vw 0vw;
+}
+.fs-0-5-v{
+  font-size: 0.5vw;
+}
+.fs-1-v{
+  font-size: 1vw;
+}
+.fs-1-2-v{
+  font-size: 1.2vw;
+}
+.fs-1-5-v{
+  font-size: 1.5vw;
+}
+.fs-2-v{
+  font-size: 2vw;
+}
+.fs-2-5-v{
+  font-size: 2.5vw;
 }
 @keyframes App-logo-spin {
   from {

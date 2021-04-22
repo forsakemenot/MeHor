@@ -1,0 +1,13 @@
+.border-box-comment{
+    border-top: 1px solid #C2C2C2;
+}
+.border-box-comment-bottom{
+    border-radius: 0px 0px 5px 5px;
+}
+.decs-text-drop-down{
+    font-size: 0.5vw;
+    padding: 0.5vw 0vw;
+}
+.desc-text-drop-down.first{
+    padding: 0.5vw 1.5vw;
+}

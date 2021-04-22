@@ -1,8 +1,9 @@
 import React from "react";
+import "./NavBar.css"
 import { Link } from "react-router-dom";
 function NavBar({ logo }) {
   return (
-    <ul>
+    <ul className="nav-bar">
       <Link to="/"><img alt="" src={logo} /></Link>
       <li>
         <Link to="/">หน้าแรก</Link>
