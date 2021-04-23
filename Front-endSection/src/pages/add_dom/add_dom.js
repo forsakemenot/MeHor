@@ -7,9 +7,7 @@ import card from './../../img/address-card.svg';
 import gps from './../../img/crosshair.svg';
 
 import {
-  MapContainer, TileLayer, Marker, Popup, useMapEvents, LayersControl, LayerGroup, Circle,
-  FeatureGroup, Rectangle
-} from 'react-leaflet'
+  MapContainer, TileLayer, Marker, Popup, useMapEvents} from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import marker from './../../img/location.svg';
@@ -27,6 +25,16 @@ const center = {
 }
 
 const zoom = 15
+
+// const showMyLocation = () => {
+//   if (location.loaded && !location.error) {
+//     mapRef.current.leafletElements.flyTo([location.coordinates.lat, location.coordinates.lng],
+//       zoom, { animate: true }
+//     );
+//   } else {
+//     alert(location.error.massage)
+//   }
+// };
 
 // function DraggableMarker() {
 //     const [draggable, setDraggable] = useState(false)
@@ -64,6 +72,8 @@ const zoom = 15
 //       </Marker>
 //     )
 // }
+
+// ส่วน Reset Map
 function DisplayPosition({ map }) {
   const [position, setPosition] = useState(map.getCenter())
 
@@ -85,12 +95,31 @@ function DisplayPosition({ map }) {
   return (
     <p>
       latitude: {position.lat.toFixed(4)}, longitude: {position.lng.toFixed(4)}{' '}
-      <button onClick={onClick}>reset</button>
+      {/* <button onClick={onClick}>reset</button> */}
     </p>
   )
 }
+
+// ตัว marker
 function LocationMarker() {
   const [position, setPosition] = useState(null)
+  const [draggable, setDraggable] = useState(false)
+
+  const markerRef = useRef(null)
+  const eventHandlers = useMemo(
+    () => ({
+      dragend() {
+        const marker = markerRef.current
+        if (marker != null) {
+          setPosition(marker.getLatLng())
+        }
+      },
+    }),
+    [],
+  )
+  const toggleDraggable = useCallback(() => {
+    setDraggable((d) => !d)
+  }, [])
   const map = useMapEvents({
     click() {
       map.locate()
@@ -103,9 +132,17 @@ function LocationMarker() {
 
   return position === null ? null : (
     <Marker
+      draggable={draggable}
+      eventHandlers={eventHandlers}
       icon={myIcon}
       position={position}>
-      <Popup>You are here</Popup>
+      <Popup>
+        <span onClick={toggleDraggable}>
+          {draggable
+            ? 'Marker is draggable'
+            : 'Click here to make marker draggable'}
+        </span>
+      </Popup>
     </Marker>
   )
 }
@@ -170,32 +207,12 @@ function AddDom() {
   const displayMap = useMemo(
     () => (
       <MapContainer center={center} zoom={zoom} scrollWheelZoom={false} whenCreated={setMap} className="map_con">
-        <LayersControl position="topright">
-          <LayersControl.BaseLayer checked name="OpenStreetMap.Mapnik" className="popup_map">
-            <TileLayer
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-          </LayersControl.BaseLayer>
-          <LayersControl.BaseLayer name="OpenStreetMap.BlackAndWhite">
-            <TileLayer
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
-            />
-          </LayersControl.BaseLayer>
-        </LayersControl>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
         <LocationMarker />
       </MapContainer>
-      // <MapContainer
-      //   center={center}
-      //   zoom={zoom}
-      //   scrollWheelZoom={false}
-      //   whenCreated={setMap}>
-      //   <TileLayer
-      //     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      //     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      //   />
-      // </MapContainer>
     ),
     [],
   )
@@ -303,12 +320,14 @@ function AddDom() {
           {/* map */}
           <div className="d-flex main_form mt-2-v">
             <p>แผนที่</p>
-              <button className="btn_gps"><img alt="" src={gps} />ค้นหาจากตำแหน่งปัจจุบันของคุณ</button>
+            <button className="btn_gps">
+              <img alt="" src={gps} />
+              ค้นหาจากตำแหน่งปัจจุบันของคุณ
+            </button>
 
-              {map ? <DisplayPosition map={map} /> : null}
+            {map ? <DisplayPosition map={map} /> : null}
+
             <div>
-
-              
               {displayMap}
             </div>
 
