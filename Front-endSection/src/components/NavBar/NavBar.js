@@ -15,7 +15,7 @@ function NavBar({ logo }) {
         <Link to="/WebBoard">เว็บบอร์ด</Link>
       </li>
       <li>
-        <Link>ลงโฆษณา</Link>
+        <Link to="/Advertise">ลงโฆษณา</Link>
       </li>
       <li>
         <Link>เกี่ยวกับเว็บไซต์</Link>

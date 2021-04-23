@@ -18,6 +18,7 @@ import WebBoard from './pages/web_board/web_board.js';
 import NavBar from "./components/NavBar/NavBar.js";
 import Profile from "./pages/profile/profile.js";
 import Details from "./pages/details/details.js";
+import Advertise from "./pages/advertise/advertise.js";
 import jwt from 'jsonwebtoken';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -82,6 +83,9 @@ function App() {
         </Route>
         <Route path="/details">
           <Details />
+        </Route>
+        <Route path="/Advertise">
+          <Advertise />
         </Route>
       </Switch>
     </Router>
