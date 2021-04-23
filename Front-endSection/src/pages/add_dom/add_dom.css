@@ -185,3 +185,13 @@
 .line_progress.active{
     background: #325679;
 }
+
+.map_con {
+    width: 50vw;
+    height: 45vh;
+    margin-top: 1%;
+}
+
+.popup_map {
+    background-color: #325679;
+}
