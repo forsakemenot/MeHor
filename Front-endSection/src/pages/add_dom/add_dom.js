@@ -238,7 +238,7 @@ function AddDom() {
 
   const HandleSubmit = (evt) => {
     console.log(dormDetails);
-    fetch('http://nocgy.com:5000/api/dorm/adddorm', options(dormDetails))
+    fetch('http://103.13.231.22:5000/api/dorm/adddorm', options(dormDetails))
       .then(res => res.json())
       .then(res => {
         if (res.success) {

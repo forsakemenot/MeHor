@@ -31,7 +31,8 @@ let app = express();
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static('public'))
+// app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use((req, res, next) => {
      res.header("Access-Control-Allow-Origin", "*");
