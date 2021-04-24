@@ -8,7 +8,7 @@ const dormDocument = require('../models/documentModel')
 const router = express.Router();
 const multer = require('multer')
 const upload_img = multer({dest:'./public'})
-const {uploadFile} = require('../util/uploadFile.function')
+const {uploadFile, uploadPDF} = require('../util/uploadFile.function')
 
 
 router.post('/adddorm', (req, res) => {
@@ -142,41 +142,49 @@ router.post('/dormfacility',upload_img.single('img') , (req, res) => {
     }
 });
 
-router.post('/dormDocument', upload_img.single('regis_pic'), upload_img.single('location_pic'), (req, res) => {
-    console.log(req.file);
-    let fullpath
-    if(req.file){
-        fullpath = uploadFile(req)
+let cpUpload = upload_img.fields([{ name: 'regis_pic', maxCount: 1 }, { name: 'location_pic', maxCount: 8 }])
+router.post('/dormDocument', cpUpload, (req, res) => {
+
+    let fullpath_regis, fullpath_location
+    console.log(req.files['regis_pic'][0]);
+    if (req.files) {
+        fullpath_regis = uploadPDF(req.files['regis_pic'][0], res)
+        fullpath_location = uploadPDF(req.files['location_pic'][0], res)
     }
-    res.send(fullpath)
-    // const dorm_id = req.body.dorm_id || '';
-    // const regis_pic = fullpath;
-    // const location_pic = fullpath;
-    // const token = req.headers.authorization || '';
-    // const reqBody = {
-    //     dorm_id, regis_pic, location_pic, token
-    // };
+    res.status(200).send("success")
 
-    // let errors = {};
-    // console.log(reqBody);
+    const dorm_id = req.body.dorm_id || '';
+    const regis_pic = fullpath_regis;
+    const location_pic = fullpath_location;
+    const token = req.headers.authorization || '';
+    const reqBody = {
+        dorm_id, regis_pic, location_pic, token
+    };
 
-    // if (Object.keys(errors).length > 0) {
-    //     console.log('errors');
-    //     res.json({ errors });
-    // } else {
+    let errors = {};
+    console.log(reqBody);
+
+    if (Object.keys(errors).length > 0) {
+        console.log('errors');
+        res.json({ errors });
+    } else {
         
-    //     const newDormDocument = new dormDocument(reqBody);
-    //     newDormDocument.save(function (err) {
-    //         if (err) {
-    //             console.log(err.message);
-    //             res.status(500).json({ error: err.message });
-    //             return err
-    //         }         
-    //     })
-    //     res.json({ 
-    //         success: 'success',
-    //         data:  newDormDocument
-    //     });
-    // }
+        const newDormDocument = new dormDocument(reqBody);
+        newDormDocument.save(function (err) {
+            if (err) {
+                console.log(err.message);
+                res.status(500).json({ error: err.message });
+                return err
+            }   
+            else{
+                res.json({ 
+                    success: 'success',
+                    data:  newDormDocument
+                });
+                return 
+            }   
+        })
+      
+    }
 });
 module.exports = router;

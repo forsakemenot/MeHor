@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const DocumentSchema = mongoose.Schema({
-    registration_image: {
+    regis_pic: {
         type: String,
         required: true
     },
-    location_image: {
+    location_pic: {
         type: String,
         required: true
     }
