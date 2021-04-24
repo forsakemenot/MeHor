@@ -33,7 +33,7 @@ function Home() {
         name: "ชื่อหอต้องการ",
         desc: ["รายละเอียด - 1", "รายละเอียด - 2", "รายละเอียด - 3", "รายละเอียด - 4", "รายละเอียด - 5", "รายละเอียด - 6"],
         price: "฿ ราคา / เดือน",
-        img: "http://dummyimage.com/450x285/",
+        img: "http://dummyimage.com/315x200/",
         HeartImg: HeartImg
 
     },
@@ -41,7 +41,7 @@ function Home() {
         name: "ชื่อหอต้องการ",
         desc: ["รายละเอียด - 1", "รายละเอียด - 2", "รายละเอียด - 3", "รายละเอียด - 4", "รายละเอียด - 5", "รายละเอียด - 6"],
         price: "฿ ราคา / เดือน",
-        img: "http://dummyimage.com/450x285/",
+        img: "http://dummyimage.com/315x200/",
         HeartImg: HeartImg
 
     }
