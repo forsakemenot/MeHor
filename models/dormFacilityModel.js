@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const DormFacilitySchema = mongoose.Schema({
-    dorm_facilities: {
+    dorm_facilities: [{
         type: String,
         required: true
-    },
-    pic: {
+    }],
+    img: {
         type: String,
         required: true
     }

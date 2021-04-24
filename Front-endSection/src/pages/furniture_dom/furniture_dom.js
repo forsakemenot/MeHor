@@ -3,7 +3,6 @@ import './furniture_dom.css';
 import '../../App.css';
 
 import { Link } from "react-router-dom";
-
 import city from '../../img/city.svg';
 import door from '../../img/door-open.svg';
 import hotel from '../../img/hotel.svg';
@@ -13,7 +12,6 @@ import upload_pic from '../../img/upload_pic.svg';
 
 
 function FurnitureDom() {
-
     return (
         <div className="d-flex">
             <div className="w-20 position-absolute box_progress">
@@ -177,12 +175,10 @@ function FurnitureDom() {
                         <img alt="" src={upload_pic}></img>
                     </div>
                 </div>
-                <div>
-
-                    <button className="btn_add_image">เพิ่มรูป</button>
-
-                </div>
-
+                    <div className="d-flex justify-content-center">
+                        {/* <button type="file" id="customFile" name="filename" className="btn_add_image file" data-browse-on-zone-click="true">เพิ่มรูป</button> */}
+                        <input multiple id="input-b1" name="input-b1" type="file" class="file" data-browse-on-zone-click="true"></input>
+                    </div>
                 <div className="remark_upload">
                     <p>* รูปภาพแรก จะเป็น<u style={{ fontWeight: '600' }}>รูปภาพหลัก</u>ของหอพัก</p>
                     <p>** ไฟล์ภาพรองรับขนาดไม่เกิน 5 mb</p>
