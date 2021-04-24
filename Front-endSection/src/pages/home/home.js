@@ -7,6 +7,7 @@ import './home.css';
 import './../../App.css';
 import { Link } from "react-router-dom";
 import DomList from "../../components/DomList/DomList";
+import Footer from "../../components/Footer/Footer"
 function Home() {
     const [activeBoxPrice, setActiveBoxPrice] = useState(false);
     const [activeBoxConvenient, setActiveBoxConvenient] = useState(false);
@@ -62,29 +63,32 @@ function Home() {
 
         <div>
             <div className="map_info">
-                <Link to="/AddDom"><button className="btn_link_add_dom bg-main">+ ลงประกาศหอพัก</button></Link>
-            </div>
-            <div className="search_dom d-flex">
-                <input className="kanit" type="text" placeholder=" ค้นหา ชื่อที่พัก, ชื่อโซน"></input>
-                <button className="color-white bg-main kanit">ค้นหา</button>
+                
             </div>
             <div className="dom_list d-flex">
-                <div className="top_dom_list">
-                    <div className="text_top_dom_list">
+                <div className="search_dom d-flex mt-3-v">
+                    <input className="kanit" type="text" placeholder=" ค้นหา ชื่อที่พัก, ชื่อโซน"></input>
+                    <button className="color-white bg-main kanit">ค้นหา</button>
+                    <Link to="/AddDom"><button className="ml-1-v color-white bg-main">+ ลงประกาศหอพัก</button></Link>
+                </div>
+                <div className="top_dom_list position-relative mt-1-5-v">
+                    <div className="position-absolute line_back_home bg-main w-100"></div>
+                    <div className="text_top_dom_list ml-6-v">
                         <span className="color-main">ที่พักทั้งหมด</span>
                         <img alt="" src={HomeImg} />
                     </div>
 
                 </div>
                 <div className="all_disc d-flex">
-                    <div className="div_disc">                        
+                    <div className="div_disc">
                         {
                             dom.map(function (element, index) {
                                 return <DomList data={element} />
                             })
                         }
                     </div>
-                    <div className="filter_dropbox">
+                    <div className="filter_dropbox position-relative">
+                        <div className="position-absolute line_filter"></div>
                         <div className="d-flex box_filter_dropbox">
                             <span className='color-main'>ราคา</span>
                             <img alt="" src={activeBoxPrice ? minus : Plus} onClick={togglePrice} />
@@ -95,11 +99,11 @@ function Home() {
                             <div>
                                 <div className="d-flex align-center">
                                     <input type="radio" name="filter_price"></input>
-                                    <span className="color-main">ทุกราคา</span>
+                                    <span className="color-main ml-0-2-v">ทุกราคา</span>
                                 </div>
                                 <div className="d-flex align-center">
                                     <input type="radio" name="filter_price"></input>
-                                    <span className="color-main">รายเดือน</span>
+                                    <span className="color-main ml-0-2-v">รายเดือน</span>
                                 </div>
                                 <div className="d-flex align-center checkbox_price">
                                     <input type="checkbox" name=""></input>
@@ -113,7 +117,7 @@ function Home() {
                                 </div>
                                 <div className="d-flex align-center">
                                     <input type="radio" name="filter_price"></input>
-                                    <span className="color-main">รายวัน</span>
+                                    <span className="color-main ml-0-2-v">รายวัน</span>
                                 </div>
                                 <div className="d-flex align-center checkbox_price">
                                     <input type="checkbox" name=""></input>
@@ -189,6 +193,7 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
 
     );

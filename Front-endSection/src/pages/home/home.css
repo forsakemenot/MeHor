@@ -5,42 +5,34 @@
 .search_dom{
     width: 100%;
     justify-content: center;
-    margin: 2vw 0vw 2vw 0vw;
+    /* margin: 3vw 0vw; */
 }
 .search_dom input{
-    width: 50%;
-    height: 1.75vw;
+    width: 60%;
+    font-size: 1vw;
     border: .1vw solid #325679;
+    padding: 0vw 1vw;
     border-radius: 10px;
 }
 .search_dom button{
     position: relative;
     left: -1%;
     border: 0;
-    font-size: 0.8vw;
+    font-size: 1vw;
     border-radius: 10px;
-    padding: 0vw 1vw;
-}
-.btn_link_add_dom{
-    position: relative;
-    top: 5%;
-    left: 85%;
-    color: #fff;
-    padding: 0.4vw;
-    border: 0px;
-    border-radius: 5px;
+    padding: 0.3vw 1.5vw;
 }
 .dom_list{
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
     background: #EFF5F9;
+    padding-bottom: 2.5vw;
 }
 .top_dom_list{
-    width: 90vw;
+    width: 80vw;
     height: 8vh;
     display: flex; 
-    border-bottom: 1px solid #325679;
 
 }
 .text_top_dom_list{
@@ -48,6 +40,12 @@
     width: 15vw;
     justify-content: space-evenly;
     align-items: center;
+    background: #EFF5F9;
+    z-index: 2;
+}
+.line_back_home{
+    height: 0.1vw;
+    top: 50%;
 }
 .text_top_dom_list span{
     font-size: 1.7vw;
@@ -88,6 +86,12 @@
 .filter_dropbox{
     flex: 1 1 10%;
 }
+.line_filter{
+    background: #C2C2C2;
+    left: 110%;
+    height: 12vw;
+    width: 0.2vw;
+}
 .box_filter_dropbox{
     margin: 1vw 0vw;
     justify-content: space-between;
@@ -107,7 +111,7 @@
     flex-wrap: wrap;
 }
 .checkbox_convenient input,.checkbox_common_fee input{
-    flex: 1 1 5%;
+    flex: 1 1 15%;
 }
 .checkbox_convenient span,.checkbox_common_fee span{
     flex: 1 1 85%;

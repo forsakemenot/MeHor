@@ -43,7 +43,10 @@ input{
   color: #fff;
   text-decoration: none;
 }
-
+.right-nav a:hover{
+  color: #fff;
+  text-decoration: none;
+}
 p{
   margin: 1vw 0vw !important;
 }
@@ -134,6 +137,7 @@ p{
 .w-95{
   width: 95%;
 }
+
 .mt-0-5-v{
   margin-top: 0.5vw;
 }
@@ -170,6 +174,9 @@ p{
 .mr-3-v{
   margin-right: 3vw;
 }
+.ml-0-2-v{
+  margin-left: 0.2vw;
+}
 .ml-0-5-v{
   margin-left: 0.5vw;
 }
@@ -187,6 +194,15 @@ p{
 }
 .ml-3-v{
   margin-left: 3vw;
+}
+.ml-4-v{
+  margin-left: 4vw;
+}
+.ml-5-v{
+  margin-left: 5vw;
+}
+.ml-6-v{
+  margin-left: 6vw;
 }
 .my-1-auto{
   margin: 1vw auto;
@@ -238,6 +254,12 @@ p{
 }
 .fs-2-5-v{
   font-size: 2.5vw;
+}
+.fs-3-v{
+  font-size: 3vw;
+}
+.fs-3-5-v{
+  font-size: 3.5vw;
 }
 @keyframes App-logo-spin {
   from {

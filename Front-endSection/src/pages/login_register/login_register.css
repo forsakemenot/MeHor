@@ -1,14 +1,14 @@
 .space_stand_logo{
-    height: 13vw;
+    height: 11vw;
 }
 .space_logo{
     margin-top: 2vw;
-    height: 5vw;
+    height: 11vw;
     padding: 3vw 5vw 5vw 5.5vw;
-    border-radius: 300px 300px 0 0;
+    border-radius: 1000px 1000px 0 0;
 }
 .space_logo img{
-   height: 7.2vw;
+   height: 6.3vw;
 }
 .box_login{
     margin: auto;
