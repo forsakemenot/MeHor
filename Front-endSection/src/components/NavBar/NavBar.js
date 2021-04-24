@@ -29,7 +29,7 @@ function NavBar() {
 
       </li>
       <li>
-        <Link>ลงโฆษณา</Link>
+        <Link to="/Advertise">ลงโฆษณา</Link>
       </li>
       <li>
         <Link>เกี่ยวกับเว็บไซต์</Link>

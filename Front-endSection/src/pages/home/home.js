@@ -17,7 +17,7 @@ function Home() {
         name: "หอพักกอบัว (หอพักหญิง)",
         desc: ["มัดจำ 5000 บาท จ่ายล่วงหน้า 1 เดือน", "มี wifi 15 mdps", "น้ำ 18 ไฟ 7", "กุญแจชุดละ 300", "มี 2 เตียง(3.5 ฟุต)", "เบอร์ 02-326-9220 (เจ้าของ)"],
         price: "฿ 3200 - 3700 / เดือน",
-        img: "http://dummyimage.com/450x285/",
+        img: "http://dummyimage.com/315x200/",
         HeartImg: HeartImg
 
     },
@@ -25,7 +25,7 @@ function Home() {
         name: "ชื่อหอที่ต้องการ",
         desc: ["รายละเอียด - 1", "รายละเอียด - 2", "รายละเอียด - 3", "รายละเอียด - 4", "รายละเอียด - 5", "รายละเอียด - 6"],
         price: "฿ ราคา / เดือน",
-        img: "http://dummyimage.com/450x285/",
+        img: "http://dummyimage.com/315x200/",
         HeartImg: HeartImg
 
     },

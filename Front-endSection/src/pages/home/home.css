@@ -48,10 +48,13 @@
     top: 50%;
 }
 .text_top_dom_list span{
-    font-size: 1.7vw;
+    font-size: 1.6vw;
 }
 .text_top_dom_list img{
-    width: 2.5vw;
+    width: 2.2vw;
+    position: relative;
+    left: -7%;
+    margin-bottom: 5%;
 }
 .center_dom_list{
     display: flex;

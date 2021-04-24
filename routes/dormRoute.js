@@ -2,7 +2,14 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const Dorm = require('../models/dormModel.js');
 const DormType = require('../models/dormTypeModel.js');
+const DormFacility = require('../models/dormFacilityModel')
+const dormDocument = require('../models/documentModel')
+
 const router = express.Router();
+const multer = require('multer')
+const upload_img = multer({dest:'./public'})
+const {uploadFile, uploadPDF} = require('../util/uploadFile.function')
+
 
 router.post('/adddorm', (req, res) => {
     const dorm_name = req.body.dorm_name || '';
@@ -95,6 +102,89 @@ router.post('/dormtype', (req, res) => {
             res.json({ success: 'success' });
         });
 
+    }
+});
+
+router.post('/dormfacility',upload_img.single('img') , (req, res) => {
+    console.log(req.file);
+    let fullpath
+    if(req.file){
+        fullpath = uploadFile(req)
+    }
+    const dorm_id = req.body.dorm_id || '';
+    const dorm_facilities = req.body.dorm_facilities || '';
+    const img = fullpath
+    const token = req.headers.authorization || '';
+    const reqBody = {
+        dorm_id, dorm_facilities, img, token
+    };
+
+    let errors = {};
+    console.log(reqBody);
+
+    if (Object.keys(errors).length > 0) {
+        console.log('errors');
+        res.json({ errors });
+    } else {
+        
+        const newDormFacility = new DormFacility(reqBody);
+        newDormFacility.save(function (err) {
+            if (err) {
+                console.log(err.message);
+                res.status(500).json({ error: err.message });
+                return err
+            }         
+        })
+        res.json({ 
+            success: 'success',
+            data:  newDormFacility
+        });
+    }
+});
+
+let cpUpload = upload_img.fields([{ name: 'regis_pic', maxCount: 1 }, { name: 'location_pic', maxCount: 8 }])
+router.post('/dormDocument', cpUpload, (req, res) => {
+
+    let fullpath_regis, fullpath_location
+    console.log(req.files['regis_pic'][0]);
+    if (req.files) {
+        fullpath_regis = uploadPDF(req.files['regis_pic'][0], res)
+        fullpath_location = uploadPDF(req.files['location_pic'][0], res)
+    }
+    res.status(200).send("success")
+
+    const dorm_id = req.body.dorm_id || '';
+    const regis_pic = fullpath_regis;
+    const location_pic = fullpath_location;
+    const token = req.headers.authorization || '';
+    const reqBody = {
+        dorm_id, regis_pic, location_pic, token
+    };
+
+    let errors = {};
+    console.log(reqBody);
+
+    if (Object.keys(errors).length > 0) {
+        console.log('errors');
+        res.json({ errors });
+    } else {
+        
+        const newDormDocument = new dormDocument(reqBody);
+        newDormDocument.save(function (err) {
+            if (err) {
+                console.log(err.message);
+                res.status(500).json({ error: err.message });
+                return err
+            }   
+            else{
+                res.json({ 
+                    success: 'success',
+                    data:  newDormDocument
+                });
+                return 
+            }   
+        })
+      
     }
 });
 module.exports = router;
