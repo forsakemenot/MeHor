@@ -15,8 +15,11 @@ import rnp from '../../img/rnp.png';
 import jinda from '../../img/jinda.png';
 import nikom from '../../img/nikom.png';
 import kmitl from '../../img/kmitl.png';
-import shadow_s from '../../img/shadow.png';
-import shadow_L from '../../img/shadow-nikom.png';
+import shadow_fbt from '../../img/shadow-fbt.png';
+import shadow_rnp from '../../img/shadow-rnp.png';
+import shadow_keki from '../../img/shadow-keki.png';
+import shadow_jinda from '../../img/shadow-jinda.png';
+import shadow_nikom from '../../img/shadow-nikom.png';
 
 function Home() {
     const [activeBoxPrice, setActiveBoxPrice] = useState(false);
@@ -76,35 +79,25 @@ function Home() {
                 <div className="main_kmitl">
                     <img alt="" src={kmitl}></img>
                 </div>
-                <div className="zone_fbt_shad">
-                    <img alt="" src={shadow_s}></img>
+                <div className=" map-el zone_fbt">
+                    <img className="map-el-shadow zone_fbt_shd" alt="" src={shadow_fbt}></img>
+                    <img className="map-el-img zone_fbt_img" alt="" src={fbt}></img>
                     </div>
-                <div className="zone_fbt">
-                    <img alt="" src={fbt}></img>
+                <div className=" map-el zone_keki">
+                    <img className="map-el-shadow zone_keki_shd" alt="" src={shadow_keki}></img>
+                    <img className="map-el-img zone_keki_img" alt="" src={keki}></img>
                     </div>
-                <div className="zone_keki_shad">
-                    <img alt="" src={shadow_s}></img>
+                <div className=" map-el zone_rnp">
+                    <img className="map-el-shadow zone_rnp_shd" alt="" src={shadow_rnp}></img>
+                    <img className="map-el-img zone_rnp_img" alt="" src={rnp}></img>
                     </div>
-                <div className="zone_keki">
-                    <img alt="" src={keki}></img>
+                <div className=" map-el zone_jinda">
+                    <img className="map-el-shadow zone_jinda_shd" alt="" src={shadow_jinda}></img>
+                    <img className="map-el-img zone_jinda_img" alt="" src={jinda}></img>
                     </div>
-                <div className="zone_rnp_shad">
-                    <img alt="" src={shadow_s}></img>
-                    </div>
-                <div className="zone_rnp">
-                    <img alt="" src={rnp}></img>
-                    </div>
-                <div className="zone_jinda_shad">
-                    <img alt="" src={shadow_s}></img>
-                    </div>
-                <div className="zone_jinda">
-                    <img alt="" src={jinda}></img>
-                    </div>
-                <div className="zone_nikom_shad">
-                    <img alt="" src={shadow_L}></img>
-                    </div>
-                <div className="zone_nikom">
-                    <img alt="" src={nikom}></img>
+                <div className=" map-el zone_nikom">
+                    <img className="map-el-shadow zone_nikom_shd"alt="" src={shadow_nikom}></img>
+                    <img className="map-el-img zone_nikom_img"alt="" src={nikom}></img>
                     </div>
             </div>
             <div className="dom_list d-flex">

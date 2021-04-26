@@ -130,6 +130,8 @@
     color: #325679;
 }
 
+/*--------------------------------*/
+
 .main_kmitl{
     position: absolute;
     left: calc(45vw);
@@ -140,82 +142,43 @@
     left: calc(55vw);
     top: calc(23vw);
 }
-.zone_fbt_shad{
-    position: absolute;
-    left: calc(56vw);
-    top: calc(24vw);
-}
 .zone_keki{
     position: absolute;
     left: calc(25vw);
     top: calc(6vw);
-}
-.zone_keki_shad{
-    position: absolute;
-    left: calc(26.5vw);
-    top: calc(8vw);
 }
 .zone_rnp{
     position: absolute;
     left: calc(9vw);
     top: calc(5vw);
 }
-.zone_rnp_shad{
-    position: absolute;
-    left: calc(10vw);
-    top: calc(6vw);
-}
 .zone_jinda{
     position: absolute;
     left: calc(29vw);
     top: calc(22vw);
-}
-.zone_jinda_shad{
-    position: absolute;
-    left: calc(30.5vw);
-    top: calc(24vw);
 }
 .zone_nikom{
     position: absolute;
     left: calc(75vw);
     top: calc(2vw);
 }
-.zone_nikom_shad{
-    position: absolute;
-    left: calc(75.5vw);
-    top: calc(4.5vw);
-}
 
 .main_kmitl img{
     width: 25vw;
 }
-.zone_fbt img{
-    width: 15vw;
+
+.map-el-shadow{
+    position: relative;
+    opacity: .7;
+    width: 15VW;
 }
-.zone_fbt_shad img{
-    width: 13vw;
+.map-el-img{
+    position: absolute;
+    width: 15.2vw;
+    left: 0;
+    top: -1px;
+    transition: .2s;
 }
-.zone_keki img{
-    width: 15vw;
-}
-.zone_keki_shad img{
-    width: 12vw;
-}
-.zone_rnp img{
-    width: 15vw;
-}
-.zone_rnp_shad img{
-    width: 13vw;
-}
-.zone_jinda img{
-    width: 16vw;
-}
-.zone_jinda_shad img{
-    width: 13vw;
-}
-.zone_nikom img{
-    width: 15vw;
-}
-.zone_nikom_shad img{
-    width: 13vw;
+.map-el:hover .map-el-img{
+    top: -15px;
 }
