@@ -8,6 +8,16 @@ import './../../App.css';
 import { Link } from "react-router-dom";
 import DomList from "../../components/DomList/DomList";
 import Footer from "../../components/Footer/Footer"
+
+import fbt from '../../img/fbt.png';
+import keki from '../../img/keki.png';
+import rnp from '../../img/rnp.png';
+import jinda from '../../img/jinda.png';
+import nikom from '../../img/nikom.png';
+import kmitl from '../../img/kmitl.png';
+import shadow_s from '../../img/shadow.png';
+import shadow_L from '../../img/shadow-nikom.png';
+
 function Home() {
     const [activeBoxPrice, setActiveBoxPrice] = useState(false);
     const [activeBoxConvenient, setActiveBoxConvenient] = useState(false);
@@ -63,7 +73,39 @@ function Home() {
 
         <div>
             <div className="map_info">
-                
+                <div className="main_kmitl">
+                    <img alt="" src={kmitl}></img>
+                </div>
+                <div className="zone_fbt_shad">
+                    <img alt="" src={shadow_s}></img>
+                    </div>
+                <div className="zone_fbt">
+                    <img alt="" src={fbt}></img>
+                    </div>
+                <div className="zone_keki_shad">
+                    <img alt="" src={shadow_s}></img>
+                    </div>
+                <div className="zone_keki">
+                    <img alt="" src={keki}></img>
+                    </div>
+                <div className="zone_rnp_shad">
+                    <img alt="" src={shadow_s}></img>
+                    </div>
+                <div className="zone_rnp">
+                    <img alt="" src={rnp}></img>
+                    </div>
+                <div className="zone_jinda_shad">
+                    <img alt="" src={shadow_s}></img>
+                    </div>
+                <div className="zone_jinda">
+                    <img alt="" src={jinda}></img>
+                    </div>
+                <div className="zone_nikom_shad">
+                    <img alt="" src={shadow_L}></img>
+                    </div>
+                <div className="zone_nikom">
+                    <img alt="" src={nikom}></img>
+                    </div>
             </div>
             <div className="dom_list d-flex">
                 <div className="search_dom d-flex mt-3-v">

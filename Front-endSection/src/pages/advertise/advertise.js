@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 
 import ads_banner from '../../img/Ads-banner.svg';
 
-
-
 function Advertise() {
 
     return (
