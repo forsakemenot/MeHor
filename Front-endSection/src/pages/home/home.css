@@ -1,7 +1,7 @@
 .map_info{
     position: relative;
     width: 100%;
-    height: 35vw;
+    height: 38vw;
     background-color: #F7F7F7;
 }
 .search_dom{
@@ -133,56 +133,57 @@
 .main_kmitl{
     position: absolute;
     left: calc(45vw);
-    top: calc(0vw);
+    top: calc(2vw);
 }
 .zone_fbt{
     position: absolute;
     left: calc(55vw);
-    top: calc(21vw);
+    top: calc(23vw);
 }
 .zone_fbt_shad{
     position: absolute;
     left: calc(56vw);
-    top: calc(22vw);
+    top: calc(24vw);
 }
 .zone_keki{
     position: absolute;
     left: calc(25vw);
-    top: calc(4vw);
+    top: calc(6vw);
 }
 .zone_keki_shad{
     position: absolute;
     left: calc(26.5vw);
-    top: calc(35vw - 29vw);
+    top: calc(8vw);
 }
 .zone_rnp{
     position: absolute;
     left: calc(9vw);
-    top: calc(35vw - 33vw);
+    top: calc(5vw);
 }
 .zone_rnp_shad{
     position: absolute;
-    left: calc(10.5vw);
-    top: calc(35vw - 32vw);
+    left: calc(10vw);
+    top: calc(6vw);
 }
 .zone_jinda{
     position: absolute;
     left: calc(29vw);
-    top: calc(20vw);
+    top: calc(22vw);
 }
 .zone_jinda_shad{
     position: absolute;
     left: calc(30.5vw);
-    top: calc(22vw);
+    top: calc(24vw);
 }
 .zone_nikom{
     position: absolute;
     left: calc(75vw);
+    top: calc(2vw);
 }
 .zone_nikom_shad{
     position: absolute;
     left: calc(75.5vw);
-    top: calc(2.5vw);
+    top: calc(4.5vw);
 }
 
 .main_kmitl img{
