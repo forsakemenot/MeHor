@@ -7,8 +7,8 @@ const dormDocument = require('../models/documentModel')
 
 const router = express.Router();
 const multer = require('multer')
-const upload_img = multer({dest:'./public'})
-const {uploadFile, uploadPDF} = require('../util/uploadFile.function')
+const upload_img = multer({ dest: './public' })
+const { uploadFile, uploadPDF } = require('../util/uploadFile.function')
 
 
 router.post('/adddorm', (req, res) => {
@@ -28,7 +28,7 @@ router.post('/adddorm', (req, res) => {
     const owner_facebook = req.body.owner_facebook || '';
     const token = req.headers.authorization || '';
     const reqBody = {
-        dorm_name, dorm_name_eng, dorm_type, dorm_zone, dorm_others,dorm_address, latitude,
+        dorm_name, dorm_name_eng, dorm_type, dorm_zone, dorm_others, dorm_address, latitude,
         longtitude, description, owner_name, owner_phone, owner_office_name, owner_line, owner_facebook,
         token
     };
@@ -69,7 +69,7 @@ router.post('/adddorm', (req, res) => {
 });
 
 router.post('/dormtype', (req, res) => {
-   
+
     const dorm_id = req.body.dorm_id || '';
     const dormtype = req.body.dorm_type || '';
     const insurance_bill = req.body.insurance_bill || '';
@@ -91,7 +91,7 @@ router.post('/dormtype', (req, res) => {
         console.log('errors');
         res.json({ errors });
     } else {
-        
+
         const newDormType = new DormType(reqBody);
         newDormType.save(function (err) {
             if (err) {
@@ -105,10 +105,10 @@ router.post('/dormtype', (req, res) => {
     }
 });
 
-router.post('/dormfacility',upload_img.single('img') , (req, res) => {
+router.post('/dormfacility', upload_img.single('img'), (req, res) => {
     console.log(req.file);
     let fullpath
-    if(req.file){
+    if (req.file) {
         fullpath = uploadFile(req)
     }
     const dorm_id = req.body.dorm_id || '';
@@ -126,18 +126,18 @@ router.post('/dormfacility',upload_img.single('img') , (req, res) => {
         console.log('errors');
         res.json({ errors });
     } else {
-        
+
         const newDormFacility = new DormFacility(reqBody);
         newDormFacility.save(function (err) {
             if (err) {
                 console.log(err.message);
                 res.status(500).json({ error: err.message });
                 return err
-            }         
+            }
         })
-        res.json({ 
+        res.json({
             success: 'success',
-            data:  newDormFacility
+            data: newDormFacility
         });
     }
 });
@@ -168,23 +168,15 @@ router.post('/dormDocument', cpUpload, (req, res) => {
         console.log('errors');
         res.json({ errors });
     } else {
-        
+
         const newDormDocument = new dormDocument(reqBody);
         newDormDocument.save(function (err) {
             if (err) {
                 console.log(err.message);
                 res.status(500).json({ error: err.message });
                 return err
-            }   
-            else{
-                res.json({ 
-                    success: 'success',
-                    data:  newDormDocument
-                });
-                return 
-            }   
+            }
         })
-      
     }
 });
 module.exports = router;

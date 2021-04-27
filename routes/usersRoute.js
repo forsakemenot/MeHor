@@ -19,6 +19,7 @@ const checkUserUniqueness = (field, value) => {
     return { error, isUnique } = User.findOne({ [field]: value }).exec()
         .then(user => {
             let res = {};
+
             if (Boolean(user)) {
                 res = { error: { [field]: "This " + field + " is not available" }, isUnique: false };
             } else {
@@ -40,7 +41,7 @@ router.post('/validate', async (req, res) => {
     }
 });
 
-router.post('/signup', (req, res) => {
+router.post('/signup', async function(req, res) {
     const firstname = req.body.firstname || '';
     const surname = req.body.surname || '';
     const email = req.body.email || '';
@@ -50,14 +51,16 @@ router.post('/signup', (req, res) => {
     const reqBody = { firstname, surname, email, password, confirmPassword, role };
 
     let errors = {};
-    console.log(reqBody);
-    Object.keys(reqBody).forEach(async field => {
+
+    await Promise.all(Object.keys(reqBody).forEach(async field => {
         if (reqBody[field] === '') {
             errors = { ...errors, [field]: 'This field is required' }
         }
         if (field === 'email') {
+
             const value = reqBody[field];
             const { error, isUnique } = await checkUserUniqueness(field, value);
+            console.log(isUnique);
             if (!isUnique) {
                 errors = { ...errors, ...error };
             }
@@ -71,8 +74,9 @@ router.post('/signup', (req, res) => {
         if (field === 'confirmPassword' && confirmPassword !== password) {
             errors = { ...errors, [field]: 'Passwords do not match' }
         }
-    });
-
+    }));
+    
+    console.log(errors);
     if (Object.keys(errors).length > 0) {
         res.json({ errors });
     } else {
