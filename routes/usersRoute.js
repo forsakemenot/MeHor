@@ -15,11 +15,15 @@ const validateEmail = (email) => {
     return re.test(email);
 }
 
+const headleError = (res, error) => {
+    res.json({ error })
+    return
+}
+
 const checkUserUniqueness = (field, value) => {
     return { error, isUnique } = User.findOne({ [field]: value }).exec()
         .then(user => {
             let res = {};
-
             if (Boolean(user)) {
                 res = { error: { [field]: "This " + field + " is not available" }, isUnique: false };
             } else {
@@ -41,7 +45,7 @@ router.post('/validate', async (req, res) => {
     }
 });
 
-router.post('/signup', async function(req, res) {
+router.post('/signup', (req, res) => {
     const firstname = req.body.firstname || '';
     const surname = req.body.surname || '';
     const email = req.body.email || '';
@@ -51,58 +55,59 @@ router.post('/signup', async function(req, res) {
     const reqBody = { firstname, surname, email, password, confirmPassword, role };
 
     let errors = {};
-
-    await Promise.all(Object.keys(reqBody).forEach(async field => {
+    console.log(reqBody);
+    Object.keys(reqBody).forEach(async field => {
         if (reqBody[field] === '') {
             errors = { ...errors, [field]: 'This field is required' }
         }
         if (field === 'email') {
-
             const value = reqBody[field];
             const { error, isUnique } = await checkUserUniqueness(field, value);
-            console.log(isUnique);
             if (!isUnique) {
-                errors = { ...errors, ...error };
+                // errors = { ...errors, ...error };
+                headleError(res, error)
+                return
             }
         }
         if (field === 'email' && !validateEmail(reqBody[field])) {
-            errors = { ...errors, [field]: 'Not a valid Email' }
+            // errors = { ...errors, [field]: 'Not a valid Email' }
+            headleError(res, {[field]: 'Not a valid Email'})
+            return
         }
         if (field === 'password' && password !== '' && password < 4) {
-            errors = { ...errors, [field]: 'Password too short' }
+            // errors = { ...errors, [field]: 'Password too short' }
+            headleError(res, {[field]: 'Password too short'})
+            return
         }
         if (field === 'confirmPassword' && confirmPassword !== password) {
-            errors = { ...errors, [field]: 'Passwords do not match' }
+            // errors = { ...errors, [field]: 'Passwords do not match' }
+            headleError(res, {[field]: 'Passwords do not match'})
+            return
         }
-    }));
-    
-    console.log(errors);
-    if (Object.keys(errors).length > 0) {
-        res.json({ errors });
-    } else {
-        const newUser = new User({
-            firstname: firstname,
-            surname: surname,
-            email: email,
-            password: password,
-            role: role
-        });
+    });
+    const newUser = new User({
+        firstname: firstname,
+        surname: surname,
+        email: email,
+        password: password,
+        role: role
+    });
 
-        // Generate the Salt
-        bcrypt.genSalt(10, (err, salt) => {
+    // Generate the Salt
+    bcrypt.genSalt(10, (err, salt) => {
+        if (err) return err;
+        // Create the hashed password
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) return err;
-            // Create the hashed password
-            bcrypt.hash(newUser.password, salt, (err, hash) => {
-                if (err) return err;
-                newUser.password = hash;
-                // Save the User
-                newUser.save(function (err) {
-                    if (err) return err
-                    res.json({ success: 'success' });
-                });
+            newUser.password = hash;
+            // Save the User
+            newUser.save(function (err) {
+                if (err) return err
+                res.json({ success: 'success' });
             });
         });
-    }
+    });
+
 });
 
 router.post('/login', (req, res) => {
