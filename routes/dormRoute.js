@@ -10,7 +10,18 @@ const multer = require('multer')
 const upload_img = multer({ dest: './public' })
 const { uploadFile, uploadPDF } = require('../util/uploadFile.function')
 
+router.get('/dorm', (req, res) => {
+    const token = req.headers.authorization || '';
+    const email = jwt.decode(token).email
+    console.log(jwt.decode(token).email);
+    Dorm.findOne({ user: email }).exec()
+        .then(dorm => {
+            console.log(dorm);
+            res.status(200).json({ dorm: dorm });
+        })
+        .catch(err => { console.log(err); res.status(400).json({ error: err }); })
 
+})
 router.post('/adddorm', (req, res) => {
     const dorm_name = req.body.dorm_name || '';
     const dorm_name_eng = req.body.dorm_name_eng || '';
