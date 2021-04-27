@@ -58,14 +58,6 @@
     left: -7%;
     margin-bottom: 5%;
 }
-.center_dom_list{
-    display: flex;
-}
-.disc_dom_list{
-    display: flex;
-    align-items: center;
-    margin-top: 1vw;
-}
 .btn_dom_list{
     font-size: 1.1vw;
     color: #fff;
@@ -74,9 +66,6 @@
     border: 0px;
     border-radius: 10px;
     align-items: center;
-}
-.div_disc_dom_list{
-    width: 25vw;
 }
 .btn_dom_list img{
     width: 1.8vw;

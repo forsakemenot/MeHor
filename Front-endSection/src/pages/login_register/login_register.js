@@ -128,14 +128,14 @@ function Login_register() {
                         <div className="d-flex text_from">
                             <p>Password</p>
                             <div>
-                                <input type="text"></input>
+                                <input type="password"></input>
                                 <img id="img_lock" alt="" src={lock} />
                             </div>
                         </div>
                         <div className="d-flex text_from">
                             <p>Confirm Password</p>
                             <div>
-                                <input type="text"></input>
+                                <input type="password"></input>
                                 <img id="img_lock" alt="" src={lock} />
                             </div>
                         </div>

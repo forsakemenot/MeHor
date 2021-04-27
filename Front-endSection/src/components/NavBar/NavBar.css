@@ -6,10 +6,16 @@
     justify-content: space-evenly;
     align-items: center;
   }
+.disc_dom_list{
+    display: flex;
+    align-items: center;
+    margin-top: 1vw;
+    border-bottom: .1vw solid #325679;
+}
   .nav-bar li{
     list-style: none;
   }
-  .nav-bar li a,li a:hover{
+  .nav-bar li a,li a:hover,.logo-home:hover{
     color: #fff;
     text-decoration: none;
   }
@@ -23,6 +29,7 @@
     width: 200%;
     display: none;
     padding: .5vw 1vw;
+    z-index: 2;
   }
   .dropdown-body li{
     border-bottom: 1px solid #E5E8EC;

@@ -2,10 +2,10 @@ import React from "react";
 import "./DomList.css";
 function DomList({ data }) {
     return (
-        <div className="center_dom_list">
-            <div className="disc_dom_list">
-                <div className="mr-1-v"><img alt="" src={data.img} /></div>
-                <div className="color-main div_disc_dom_list"><span className="text_dom_list"><b>{data.name}</b><br />
+        <div className="d-flex">
+            <div className="disc_dom_list py-1-v w-90">
+                <div className="mr-1-v w-70"><img alt="" src={data.img} className="size-image-dorm-list w-100"/></div>
+                <div className="color-main w-100"><span className="text_dom_list"><b>{data.name}</b><br />
                 </span>
                     <span>
                         {data.desc.map(function (element, index) {
@@ -15,7 +15,7 @@ function DomList({ data }) {
                     </span>
 
                     <span className="text_dom_list">{data.price}</span>
-                    <div className="d-flex justify-end">
+                    <div className="d-flex justify-content-end">
                         <button className="bg-second btn_dom_list d-flex"><img alt="" src={data.HeartImg} />สนใจ</button>
                     </div>
                 </div>
