@@ -11,7 +11,7 @@ import Footer from "../../components/Footer/Footer"
 import GayGee from "../../img/zone_gay_gee.svg"
 
 
-function Home() {
+function Zone() {
     const [activeBoxPrice, setActiveBoxPrice] = useState(false);
     const [activeBoxConvenient, setActiveBoxConvenient] = useState(false);
     const [activeBoxCommonFee, setActiveBoxCommonFee] = useState(false);
@@ -202,4 +202,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Zone;

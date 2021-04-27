@@ -27,127 +27,6 @@ const center = {
 
 const zoom = 15
 
-// const showMyLocation = () => {
-//   if (location.loaded && !location.error) {
-//     mapRef.current.leafletElements.flyTo([location.coordinates.lat, location.coordinates.lng],
-//       zoom, { animate: true }
-//     );
-//   } else {
-//     alert(location.error.massage)
-//   }
-// };
-
-// function DraggableMarker() {
-//     const [draggable, setDraggable] = useState(false)
-//     const [position, setPosition] = useState(center)
-//     const markerRef = useRef(null)
-//     const eventHandlers = useMemo(
-//       () => ({
-//         dragend() {
-//           const marker = markerRef.current
-//           if (marker != null) {
-//             setPosition(marker.getLatLng())
-//           }
-//         },
-//       }),
-//       [],
-//     )
-//     const toggleDraggable = useCallback(() => {
-//       setDraggable((d) => !d)
-//     }, [])
-
-//     return (
-//       <Marker
-//         icon={myIcon}
-//         draggable={draggable}
-//         eventHandlers={eventHandlers}
-//         position={position}
-//         ref={markerRef}>
-//         <Popup minWidth={90}>
-//           <span onClick={toggleDraggable}>
-//             {draggable
-//               ? 'Marker is draggable'
-//               : 'Click here to make marker draggable'}
-//           </span>
-//         </Popup>
-//       </Marker>
-//     )
-// }
-
-// ส่วน Reset Map
-// function DisplayPosition({ map }) {
-//   const [position, setPosition] = useState(map.getCenter())
-
-//   const onClick = useCallback(() => {
-//     map.setView(center, zoom)
-//   }, [map])
-
-//   const onMove = useCallback(() => {
-//     setPosition(map.getCenter())
-//   }, [map])
-
-//   useEffect(() => {
-//     map.on('move', onMove)
-//     return () => {
-//       map.off('move', onMove)
-//     }
-//   }, [map, onMove])
-
-//   return (
-//     <p>
-//       latitude: {position.lat.toFixed(4)}, longitude: {position.lng.toFixed(4)}{' '}
-//       {/* <button onClick={onClick}>reset</button> */}
-//     </p>
-//   )
-// }
-
-// ตัว marker
-// function LocationMarker() {
-//   const [position, setPosition] = useState(null)
-//   const [draggable, setDraggable] = useState(false)
-
-//   const markerRef = useRef(null)
-//   const eventHandlers = useMemo(
-//     () => ({
-//       dragend() {
-//         const marker = markerRef.current
-//         if (marker != null) {
-//           setPosition(marker.getLatLng())
-//         }
-//       },
-//     }),
-//     [],
-//   )
-//   const toggleDraggable = useCallback(() => {
-//     setDraggable((d) => !d)
-//   }, [])
-//   const map = useMapEvents({
-//     click() {
-//       map.locate()
-//     },
-//     locationfound(e) {
-//       setPosition(e.latlng)
-//       map.flyTo(e.latlng, map.getZoom())
-//     },
-//   })
-
-//   return position === null ? null : (
-//     <Marker
-//       draggable={draggable}
-//       eventHandlers={eventHandlers}
-//       icon={myIcon}
-//       position={position}>
-//       <Popup>
-//         <span onClick={toggleDraggable}>
-//           {draggable
-//             ? 'Marker is draggable'
-//             : 'Click here to make marker draggable'}
-//         </span>
-//       </Popup>
-//     </Marker>
-//   )
-// }
-
 function DraggableMarker() {
   const [position, setPosition] = useState(center)
 
@@ -268,70 +147,78 @@ function AddDom() {
     });
   }
 
-// MAP
-const [map, setMap] = useState(null)
+  // MAP
+  const [map, setMap] = useState(null)
 
-const [position, setPosition] = useState(center)
-const markerRef = useRef(null)
+  const [position, setPosition] = useState(center)
+  const markerRef = useRef(null)
 
-const eventHandlers = useMemo(
-  () => ({
-    dragend() {
-      const marker = markerRef.current
-      if (marker != null) {
-        setPosition(marker.getLatLng())
-      }
-    },
-  }),
-  [],
-)
+  const eventHandlers = useMemo(
+    () => ({
+      dragend() {
+        const marker = markerRef.current
+        if (marker != null) {
+          setPosition(marker.getLatLng())
 
-const map_position = useCallback(() => {
-  map?.setView(position, zoom)
-}, [position])
+        }
+      },
+    }),
+    [],
+  )
 
-useEffect(() => { console.log(position); map_position() }, [position])
+  const map_position = useCallback(() => {
+    map?.setView(position, zoom)
+  }, [position])
 
-const onClick = useCallback(() => {
-  map.setView(center, zoom)
-  setPosition(center)
-}, [map])
+  useEffect(() => {
+    console.log(position); map_position()
+    setdormDetails({
+      ...dormDetails,
+      latitude: position.lat,
+      longtitude: position.lng
+    })
+  }, [position])
 
-const displayMap = useMemo(
-  () => (
-    <MapContainer
-      center={center}
-      zoom={zoom}
-      scrollWheelZoom={false}
-      whenCreated={setMap}
-      className="map_con"
-    >
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {/* <LocationMarker /> */}
-      <Marker
-        draggable="True"
-        icon={myIcon}
-        scrollWheelZoom={true}
-        eventHandlers={eventHandlers}
-        position={position}
-        ref={markerRef}
+  const onClick = useCallback(() => {
+    map.setView(center, zoom)
+    setPosition(center)
+  }, [map])
+
+  const displayMap = useMemo(
+    () => (
+      <MapContainer
+        center={center}
+        zoom={zoom}
+        scrollWheelZoom={false}
+        whenCreated={setMap}
+        className="map_con"
       >
-        <Popup minWidth={90}>
-          <span >
-            Hello world
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {/* <LocationMarker /> */}
+        <Marker
+          draggable="True"
+          icon={myIcon}
+          scrollWheelZoom={true}
+          eventHandlers={eventHandlers}
+          position={position}
+          ref={markerRef}
+        >
+          <Popup minWidth={90}>
+            <span >
+              Hello world
       {/* {draggable
         ? 'Marker is draggable'
         : 'Click here to make marker draggable'} */}
-          </span>
-        </Popup>
-      </Marker>
-    </MapContainer>
-  ),
-  [],
-)
+            </span>
+          </Popup>
+        </Marker>
+      </MapContainer>
+    ),
+    [],
+  )
 
   return (
     <div className="d-flex">
@@ -385,11 +272,11 @@ const displayMap = useMemo(
             <p>โซนที่พัก</p>
             <select onChange={handleInputChange} name="dorm_zone">
               <option>-- เลือก โซนที่พัก --</option>
-              <option value="apartment">เกกี</option>
-              <option value="condo">RNP</option>
-              <option value="apartment">FBT</option>
-              <option value="condo">จินดา</option>
-              <option value="condo">นิคม</option>
+              <option value="Geygee">เกกี</option>
+              <option value="RNP">RNP</option>
+              <option value="FBT">FBT</option>
+              <option value="Jinda">จินดา</option>
+              <option value="Nikom">นิคม</option>
             </select>
           </div>
           <div className="d-flex main_form">
@@ -501,8 +388,7 @@ const displayMap = useMemo(
           </div>
 
           <div className="continue d-flex">
-            <Link to="/RoomType"><button type="submit" id="btn_continue">ขั้นตอนถัดไป</button></Link>
-            {/* <button  id="btn_continue">ขั้นตอนถัดไป</button> */}
+            <button id="btn_continue" type="submit">ขั้นตอนถัดไป</button>
           </div>
         </form>
       </div>

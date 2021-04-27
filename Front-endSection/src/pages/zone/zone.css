@@ -1,13 +1,5 @@
 
-.div_disc_dom_list{
-    width: 25vw;
-}
-.disc_dom_list{
-    display: flex;
-    align-items: center;
-    margin-top: 1vw;
-    border-bottom: .1vw solid #325679;
-}
+
 .space-image-zone{
     height: 20vw;
 }

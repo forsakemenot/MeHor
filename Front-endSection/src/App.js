@@ -20,6 +20,7 @@ import Profile from "./pages/profile/profile.js";
 import Details from "./pages/details/details.js";
 import Advertise from "./pages/advertise/advertise.js";
 import Zone from "./pages/zone/zone.js"
+import AboutUs from "./pages/about_us/about_us.js"
 import jwt from 'jsonwebtoken';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -90,6 +91,9 @@ function App() {
         </Route>
         <Route path="/zone">
           <Zone />
+        </Route>
+        <Route path="/aboutUs">
+          <AboutUs />
         </Route>
       </Switch>
     </Router>
