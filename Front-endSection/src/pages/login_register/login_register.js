@@ -88,8 +88,6 @@ function Login_register() {
             })
         evt.preventDefault();
     }
-
-
     return (
 
         <div>
@@ -119,7 +117,7 @@ function Login_register() {
                         <div className="d-flex text_from">
                             <p>Password</p>
                             <div>
-                                <input type="text"
+                                <input type="password"
                                     onChange={handleInputChange}
                                     name="password"
                                 ></input>
@@ -129,7 +127,7 @@ function Login_register() {
                         <div className="d-flex">
                             <button type="submit" className="btn_login">เข้าสู่ระบบ</button>
                         </div>
-                        <div className="d-flex">
+                        <div className="d-flex justify-content-center">
                             <p className="text_forget"><Link to="/">ลืมรหัสผ่าน</Link> ใช่หรือไม่</p>
                         </div>
                     </form>
@@ -183,7 +181,7 @@ function Login_register() {
                                 <img id="img_lock" alt="" src={lock} />
                             </div>
                         </div>
-                        <div className="d-flex text_from">
+                        <div className="d-flex text_from mb-1-5-v">
                             <p>Confirm Password</p>
                             <div>
                                 <input type="password"></input>
