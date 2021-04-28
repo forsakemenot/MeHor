@@ -123,7 +123,8 @@
 .main_form input {
     font-family: 'Kanit', sans-serif;
     font-size: 1em;
-    color: black;
+    padding: 0.5vw;
+    color: #696969;
     border: #325679 1px solid;
     border-radius: 10px 10px 10px 10px;
     width: 30vw;
@@ -134,7 +135,8 @@
 .main_form select {
     font-family: 'Kanit', sans-serif;
     font-size: 1em;
-    color: black;
+    padding: 0.5vw;
+    color: #696969;
     border: #325679 1px solid;
     border-radius: 10px 10px 10px 10px;
     width: 30.5vw;

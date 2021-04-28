@@ -24,10 +24,10 @@ function NavBar() {
           <li><Link to="/zone">โซน จินดา</Link></li>
         </ul>
       </li>
-      <li>
+      {/* <li>
         <Link to="/WebBoard" >เว็บบอร์ด</Link>
 
-      </li>
+      </li> */}
       <li>
         <Link to="/Advertise">ลงโฆษณา</Link>
       </li>

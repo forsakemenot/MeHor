@@ -1,18 +1,20 @@
-.bg_test {
-    background-color: #ffe4e4;
-    height: 290vh;
-    width: 80vw;
-    display: flex;
-    justify-content: flex-end;
-}
 .form_room {
     background-color: white;
     border: #325679 2px solid;
     border-radius: 10px 10px 10px 10px;
-    width: 65vw;
     margin: 3vw auto;
 }
 
+.box-top-head-room-type{
+    padding: 0.3vw 0vw;
+    border-bottom: 0.1vw solid #C2C2C2;
+}
+.box-top-sub-room-type{
+    border-bottom: 0.1vw solid #C2C2C2;
+}
+.box-top-sub-room-type p{
+    padding: 0vw;
+}
 .m-left {
     margin-left: 4%;
 }
@@ -74,12 +76,13 @@ hr {
 .select_mount {
     font-family: 'Kanit', sans-serif;
     font-size: 1vw;
-    color: black;
+    color: #696969;
     border: #325679 1px solid;
     border-radius: 10px 10px 10px 10px;
     width: 11vw;
     height: 5vh;
     margin-left: 1%;
+    text-indent: 1.7vw;
 }
 
 .continue {
