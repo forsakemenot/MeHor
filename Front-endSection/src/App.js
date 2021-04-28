@@ -43,11 +43,16 @@ function App() {
         <div className="d-flex right-nav align-center">
           {
             email ?
-              <div>
-                <div>{email}</div>
-                <form onSubmit={handleLogout}>
-                  <button className="btn_login">Logout</button>
+              <div className="d-flex flex-column align-items-center">
+                <div className="color-white">{email}</div>
+                <div className="d-flex mt-0-5-v">
+                <form>
+                  <button className="btn btn-warning mr-1-v">Admin Panel</button>
                 </form>
+                <form onSubmit={handleLogout}>
+                  <button className="btn btn-outline-light">Logout</button>
+                </form>
+              </div>
               </div>
               :
               <Link to="/LoginRegister">เข้าสู่ระบบ/สมัครสมาชิก</Link>
