@@ -162,7 +162,7 @@ router.post('/dormDocument', cpUpload, (req, res) => {
         fullpath_regis = uploadPDF(req.files['regis_pic'][0], res)
         fullpath_location = uploadPDF(req.files['location_pic'][0], res)
     }
-    res.status(200).send("success")
+    
 
     const dorm_id = req.body.dorm_id || '';
     const regis_pic = fullpath_regis;
@@ -187,6 +187,7 @@ router.post('/dormDocument', cpUpload, (req, res) => {
                 res.status(500).json({ error: err.message });
                 return err
             }
+            res.status(200).send("success")
         })
     }
 });
