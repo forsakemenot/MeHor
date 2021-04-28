@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import './admin_form.css';
 import './../../../App.css';
 
-import bin from './../../../img/metro-bin.svg'
+import bin from './../../../img/metro-bin.svg';
 
-import CostPanel from './component/cost_panel.js'
-import TypePanel from './component/type_panel.js'
-import DormInfoPanel from './component/dormInfo_panel.js'
-import ContactDormPanel from './component/contactDorm_panel.js'
-import MapPanel from './component/map_panel.js'
-import ConInPanel from './component/conveninetIn_panel.js'
-import ConOutPanel from './component/conveninetOut_panel.js'
-import ImagePanel from './component/image_panel'
-import DocPanel from './component/doc_panel.js'
-import DetailPanel from './component/detail_panel'
+import CostPanel from '../component/cost_panel.js'
+import TypePanel from '../component/type_panel.js'
+import DormInfoPanel from '../component/dormInfo_panel.js'
+import ContactDormPanel from '../component/contactDorm_panel.js'
+import MapPanel from '../component/map_panel.js'
+import ConInPanel from '../component/conveninetIn_panel.js'
+import ConOutPanel from '../component/conveninetOut_panel.js'
+import ImagePanel from '../component/image_panel'
+import DocPanel from '../component/doc_panel.js'
+import DetailPanel from '../component/detail_panel'
 
 function AdminForm() {
    return (

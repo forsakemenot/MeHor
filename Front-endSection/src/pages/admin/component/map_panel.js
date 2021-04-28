@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../admin_form.css';
-import './../../../../App.css';
+import '../admin_form/admin_form.css';
+import './../../../App.css';
 
 function map_panel() {
     return (

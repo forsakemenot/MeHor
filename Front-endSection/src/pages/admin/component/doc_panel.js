@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import '../admin_form.css';
-import './../../../../App.css';
+import '../admin_form/admin_form.css';
+import './../../../App.css';
 
-import bin from '../../../../img/metro-bin.svg'
+import bin from '../../../img/metro-bin.svg';
 
 function doc_panel() {
     return (
