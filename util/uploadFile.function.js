@@ -70,5 +70,5 @@ exports.uploadPDF = (req, res) => {
         });
     }
 
-    return path.join(__dirname, '../../', targetPath);
+    return path.join(targetPath.replace('public\\','').replace('public/',''));
 }
