@@ -22,6 +22,7 @@ import Advertise from "./pages/advertise/advertise.js";
 import Zone from "./pages/zone/zone.js"
 import AboutUs from "./pages/about_us/about_us.js"
 import jwt from 'jsonwebtoken';
+import AdminForm from './pages/admin/admin_form/admin_form.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 function App() {
@@ -99,6 +100,9 @@ function App() {
         </Route>
         <Route path="/aboutUs">
           <AboutUs />
+        </Route>
+        <Route path="/AdminForm">
+          <AdminForm />
         </Route>
       </Switch>
     </Router>
