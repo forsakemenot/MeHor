@@ -4,7 +4,27 @@
     border-radius: 10px 10px 10px 10px;
     margin: 3vw auto;
 }
-
+.input-type-room{
+    display: block;
+    width: 100%;
+    padding: .3vw .5vw;
+    font-size: .9vw;
+    color: #495057;
+    background-color: #fff;
+    border: 0.05vw solid #325679;
+    border-radius: 5px;
+}
+.btn-type-room{
+    color: #fff;
+    font-size: 1vw;
+    background: #C90000;
+    border: 0;
+    border-radius: 50%;
+    padding: 0.1vw .6vw;
+}
+.btn-type-room.plus{
+    background: #325679;
+}
 .box-top-head-room-type{
     padding: 0.3vw 0vw;
     border-bottom: 0.1vw solid #C2C2C2;
