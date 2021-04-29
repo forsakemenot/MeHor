@@ -66,7 +66,7 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/AddDom">
+        <Route path="/AddDorm">
           <AddDom />
         </Route>
         <Route path="/LoginRegister">

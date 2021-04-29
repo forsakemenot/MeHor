@@ -340,19 +340,11 @@ function AddDom() {
 
           </div>
 
-
           {/* detail apartment */}
-          {/* <div className="d-flex main_form mt-2-v">
-                        <p>รายละเอียด</p>
-                        <div className="d-flex">
-                            <button className="btn_detail">Bold</button>
-                            <button className="btn_detail">Italic</button>
-                            <button className="btn_detail_underline">Underline</button>
-                            <button className="btn_detail">List</button>
-                        </div>
-
-                        <textarea onChange={handleInputChange} name="description" className="textarea_form"></textarea>
-                    </div> */}
+          <div className="d-flex main_form mt-2-v">
+            <p>รายละเอียด</p>
+            <textarea onChange={handleInputChange} name="description" className="textarea_form"></textarea>
+          </div>
 
           {/* contact-dom */}
           <div className="d-flex mt-2-v pl-2-v">
