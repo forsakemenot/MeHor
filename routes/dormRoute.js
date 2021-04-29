@@ -116,7 +116,7 @@ router.post('/dormtype', (req, res) => {
     }
 });
 
-router.post('/dormfacility', upload_img.single('img'), (req, res) => {
+router.post('/dormfacility', upload_img.any('img'), (req, res) => {
     console.log(req.file);
     let fullpath
     if (req.file) {
