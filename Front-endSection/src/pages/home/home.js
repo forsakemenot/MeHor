@@ -104,7 +104,7 @@ function Home() {
                 <div className="search_dom d-flex mt-3-v">
                     <input className="kanit" type="text" placeholder=" ค้นหา ชื่อที่พัก, ชื่อโซน"></input>
                     <button className="color-white bg-main kanit">ค้นหา</button>
-                    <Link to="/AddDom"><button className="ml-1-v color-white bg-main">+ ลงประกาศหอพัก</button></Link>
+                    <Link to="/AddDorm"><button className="ml-1-v color-white bg-main">+ ลงประกาศหอพัก</button></Link>
                 </div>
                 <div className="top_dom_list position-relative mt-1-5-v">
                     <div className="position-absolute line_back_home bg-main w-100"></div>
