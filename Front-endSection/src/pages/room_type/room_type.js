@@ -50,6 +50,7 @@ function RoomType() {
       })
     } else {
       console.log(e.target?.getAttribute('row'), e.target?.name, e.target?.value);
+      console.log(roomType);
       let row = e.target?.getAttribute('row')
       let field = e.target?.name
       let value = e.target?.value

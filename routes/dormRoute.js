@@ -8,7 +8,7 @@ const dormDocument = require('../models/documentModel')
 const router = express.Router();
 const multer = require('multer')
 const upload_img = multer({ dest: './public' })
-const { uploadFile, uploadPDF } = require('../util/uploadFile.function')
+const { uploadFile, uploadPDF, uploadMultiFile } = require('../util/uploadFile.function')
 
 router.get('/dorm', (req, res) => {
     const token = req.headers.authorization || '';
@@ -20,8 +20,43 @@ router.get('/dorm', (req, res) => {
             res.status(200).json({ dorm: dorm });
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
-
 })
+
+router.get('/alldorm', (req, res) => {
+    // const token = req.headers.authorization || '';
+    // const email = jwt.decode(token).email
+    // console.log(jwt.decode(token).email);
+    Dorm.find({}).exec()
+        .then(dorm => {
+            res.status(200).json({ dorm: dorm });
+        })
+        .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+})
+router.get('/roomtypebyid/:dorm_id', (req, res) => {
+    DormType.findOne({dorm_id:req.params.dorm_id}).exec()
+        .then(DormType => {
+            res.status(200).json({ DormType: DormType });
+        })
+        .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+  
+})
+router.get('/facilitybyid/:dorm_id', (req, res) => {
+    DormFacility.findOne({dorm_id:req.params.dorm_id}).exec()
+        .then(DormFacility => {
+            res.status(200).json({ DormFacility: DormFacility });
+        })
+        .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+  
+})
+router.get('/documentbyid/:dorm_id', (req, res) => {
+    dormDocument.findOne({dorm_id:req.params.dorm_id}).exec()
+        .then(DormFacility => {
+            res.status(200).json({ dormDocument: dormDocument });
+        })
+        .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+  
+})
+
 router.post('/adddorm', (req, res) => {
     const dorm_name = req.body.dorm_name || '';
     const dorm_name_eng = req.body.dorm_name_eng || '';
@@ -82,7 +117,7 @@ router.post('/adddorm', (req, res) => {
 router.post('/dormtype', (req, res) => {
 
     const dorm_id = req.body.dorm_id || '';
-    const dormtype = req.body.dorm_type || '';
+    const dorm_type = req.body.dorm_type || '';
     const insurance_bill = req.body.insurance_bill || '';
     const pre_paid = req.body.pre_paid || '';
     const electric_bill = req.body.electric_bill || '';
@@ -92,7 +127,7 @@ router.post('/dormtype', (req, res) => {
 
     const token = req.headers.authorization || '';
     const reqBody = {
-        dorm_id, dormtype, insurance_bill, pre_paid, electric_bill, water_bill, internet_bill, keycard
+        dorm_id, dorm_type, insurance_bill, pre_paid, electric_bill, water_bill, internet_bill, keycard
     };
 
     let errors = {};
@@ -116,11 +151,11 @@ router.post('/dormtype', (req, res) => {
     }
 });
 
-router.post('/dormfacility', upload_img.any('img'), (req, res) => {
-    console.log(req.file);
+router.post('/dormfacility', upload_img.any(), async (req, res) => {
     let fullpath
-    if (req.file) {
-        fullpath = uploadFile(req)
+    if (req.files) {
+        fullpath = await uploadMultiFile(req, res)
+        console.log(fullpath);
     }
     const dorm_id = req.body.dorm_id || '';
     const dorm_facilities = req.body.dorm_facilities || '';
@@ -131,7 +166,6 @@ router.post('/dormfacility', upload_img.any('img'), (req, res) => {
     };
 
     let errors = {};
-    console.log(reqBody);
 
     if (Object.keys(errors).length > 0) {
         console.log('errors');
@@ -148,6 +182,7 @@ router.post('/dormfacility', upload_img.any('img'), (req, res) => {
         })
         res.json({
             success: 'success',
+            img: img,
             data: newDormFacility
         });
     }
@@ -162,7 +197,7 @@ router.post('/dormDocument', cpUpload, (req, res) => {
         fullpath_regis = uploadPDF(req.files['regis_pic'][0], res)
         fullpath_location = uploadPDF(req.files['location_pic'][0], res)
     }
-    
+
 
     const dorm_id = req.body.dorm_id || '';
     const regis_pic = fullpath_regis;

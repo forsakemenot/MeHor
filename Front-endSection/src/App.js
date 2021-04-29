@@ -24,6 +24,7 @@ import AboutUs from "./pages/about_us/about_us.js"
 import jwt from 'jsonwebtoken';
 import AdminForm from './pages/admin/admin_form/admin_form.js'
 import AdminDorm from './pages/admin/admin_all_dorm/admin_all_dorm.js'
+import AdminApprove from './pages/admin/admin_approve/admin_approve.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 function App() {
@@ -107,6 +108,9 @@ function App() {
         </Route>
         <Route path="/AdminDorm">
           <AdminDorm />
+        </Route>
+        <Route path="/AdminApprove">
+          <AdminApprove />
         </Route>
       </Switch>
     </Router>

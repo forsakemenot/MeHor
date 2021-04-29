@@ -5,7 +5,7 @@ const handleError = (err, res) => {
     return;
 };
 
-exports.uploadFile = (req) => {
+exports.uploadFile = (req, res) => {
     // upload file
     let tempPath = req.file.path;
     let targetPath = path.join(tempPath);
@@ -70,5 +70,41 @@ exports.uploadPDF = (req, res) => {
         });
     }
 
-    return path.join(targetPath.replace('public\\','').replace('public/',''));
+    return path.join(targetPath.replace('public\\', '').replace('public/', ''));
+}
+
+exports.uploadMultiFile = (req, res) => {
+    // upload file
+    let files = req.files
+    let arr_file = []
+    files.forEach(file => {
+        let tempPath = file.path;
+
+        let targetPath = path.join(tempPath);
+        if (file.mimetype === "image/png") {
+            targetPath = targetPath + '.png';
+            fs.rename(tempPath, targetPath, err => {
+                if (err) return handleError(err, res);
+                console.log("File uploaded!")
+                // res.status(200).send("File uploaded!");
+            });
+        } else if (file.mimetype === "image/jpeg") {
+            targetPath = targetPath + '.jpg';
+            fs.rename(tempPath, targetPath, err => {
+                if (err) return handleError(err, res);
+                console.log("File uploaded!")
+                // res.status(200).send("File uploaded!");
+            });
+        } else {
+            fs.unlink(tempPath, err => {
+                if (err) return handleError(err, res);
+                res.status(403).send("Only .png / .jpeg files are allowed!");
+                return
+            });
+        }
+        arr_file.push(targetPath.replace('public\\', '').replace('public/', ''))
+    });
+
+    return arr_file;
+
 }
