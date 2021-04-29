@@ -37,17 +37,11 @@
     width: 50vw;
     height: 10vh;
     margin-left: 10%;
-    background-color: #EFF5F9;
     border: #325679 1px solid;
     color: #325679;
 }
-
-.house_number {
-    width: 50vw;
-    height: 10vh;
-    margin-left: 10%;
-    border: #325679 1px solid;
-    color: #325679;
+.house_regis.active{
+    background-color: #EFF5F9;
 }
 
 .header_topic {
@@ -74,6 +68,8 @@
     height: 10vh;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
 .status_file{
@@ -87,6 +83,10 @@
     align-items: center;
 }
 
+.input-file-type{
+    height: 65%;
+    opacity: 0;
+}
 .upload {
     width: 17vw;
     height: 10vh;

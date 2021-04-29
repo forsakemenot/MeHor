@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './confirm_doc.css';
 import '../../App.css';
 
@@ -10,6 +10,21 @@ import upload from '../../img/upload.svg';
 import info from '../../img/info-circle.svg';
 
 function ConfirmDoc() {
+    const [fileDorm, setFileDorm] = useState("");
+    const [fileDormNum, setFileDormNum] = useState("");
+
+    // Handles file upload event and updates state
+    function handleFileDorm(event) {
+        setFileDorm(event.target.files[0]);
+        // Add code here to upload file to server
+        // ...
+    }
+    function handleFileDormNum(event) {
+        setFileDormNum(event.target.files[0]);
+
+        // Add code here to upload file to server
+        // ...
+    }
     return (
         <div className="d-flex">
             <div className="w-20 position-absolute box_progress">
@@ -54,34 +69,53 @@ function ConfirmDoc() {
                     <p className="note">(โปรดแนบเอกสารให้ตรงกับหัวข้อ)</p>
                 </div>
 
-                <div className="house_regis d-flex">
+                <div className={`house_regis d-flex ${fileDorm.type != undefined && "active"}`}>
                     <div className="header_topic d-flex">
                         <p className="topic_house">สำเนาทะเบียนบ้านของ "ที่พัก" พร้อมเซ็นสำเนาถูกต้อง</p>
                         <p className="remark_file">(รองรับไฟล์ jpg. png. และ pdf.)</p>
                     </div>
                     <div className="status d-flex">
-                        <p className="status_file d-flex">ยังไม่ได้อัพโหลด</p>
+                        <p className="status_file d-flex">
+                            {fileDorm.type == undefined ?
+                                "ยังไม่ได้อัพโหลด" : fileDorm.name
+                            }
+                        </p>
                     </div>
                     <div className="upload d-flex">
                         <p className="upload_file d-flex">อัพโหลดสำเนาทะเบียนบ้าน
-                                <img alt="" src={upload} style={{ width: '1.3vw', marginLeft: '5%' }}></img>
+                        <input type="file" onChange={handleFileDorm} className="input-file-type position-absolute w-80 mx-auto bg-info" />
+                            <img alt="" src={upload} style={{ width: '1.3vw', marginLeft: '5%' }}></img>
                         </p>
                     </div>
                 </div>
 
-                <div className="house_number d-flex">
+                <div className={`house_regis d-flex ${fileDormNum.type != undefined && "active"}`}>
                     <div className="header_topic d-flex">
                         <p className="topic_house">รูปถ่ายที่พักโดยให้เห็น "บ้านเลขที่" และอาคารที่ชัดเจน</p>
                         <p className="remark_file">(รองรับไฟล์ jpg. png. และ pdf.)</p>
                     </div>
+                    {/* {file.name} */}
                     <div className="status d-flex">
-                        <p className="status_file d-flex">ยังไม่ได้อัพโหลด</p>
+                        <p className="status_file d-flex">
+                            {fileDormNum.type == undefined ?
+                                "ยังไม่ได้อัพโหลด" : fileDormNum.name
+                            }
+                        </p>
                     </div>
-                    <div className="upload d-flex">
+                    <div className="upload d-flex position-relative">
+                        <input type="file" onChange={handleFileDormNum} className="input-file-type position-absolute w-80 mx-auto bg-info" />
                         <p className="upload_file d-flex">อัพโหลดสำเนาทะเบียนบ้าน
                                 <img alt="" src={upload} style={{ width: '1.3vw', marginLeft: '5%' }}></img>
                         </p>
                     </div>
+                    {/* <div id="upload-box" className="file-input">
+                        
+                        <label for="file">
+                            Select file
+                        <p class="file-name"></p>
+                        </label>
+                        {file && <ImageThumb image={file} />}
+                    </div> */}
                 </div>
 
                 <div className="info d-flex">
@@ -103,5 +137,9 @@ function ConfirmDoc() {
         </div>
     );
 }
+// เอาไว้เพิ่มรูป
+// const ImageThumb = ({ image }) => {
+//     return <img src={URL.createObjectURL(image)} alt={image.name} />;
+//   };
 
 export default ConfirmDoc;
