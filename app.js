@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 require('dotenv').config();
 
-const articles = require('./routes/articlesRoute.js');
+
 const users = require('./routes/usersRoute.js');
 const config = require('./config.js');
 const dorm = require('./routes/dormRoute.js')
@@ -44,7 +44,6 @@ app.use((req, res, next) => {
      next();
 });
 
-app.use('/api/articles', articles);
 app.use('/api/users', users);
 app.use('/api/dorm', dorm);
 
