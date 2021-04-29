@@ -16,7 +16,7 @@ import Add_row from "../../components/add_row/add_row"
 
 function RoomType() {
 
-  const [numRow, setNumRow] = useState(1);
+  const [numRow, setNumRow] = useState(0);
   const [roomType, setRoomType] = useState({ dorm_type: [] });
   const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
   const options = data => {
@@ -81,8 +81,8 @@ function RoomType() {
   let rows = [];
   for (var i = 0; i < numRow; i++) {
     rows.push(
-      <Add_row key={i}
-        row={i}
+      <Add_row key={i+2}
+        row={i+2}
         col1={"room_name"}
         col2={"room_area"}
         col3={"room_cost"}
@@ -176,9 +176,39 @@ function RoomType() {
             <img alt="" className="img_formdom" src={city} />
             <p className="text_header">ประเภทห้อง</p>
           </div>
-          <div className="w-95 mx-auto mt-1-v d-flex justify-content-center">
+          <div className="w-95 mx-auto  d-flex justify-content-center flex-wrap flex-column">
+            <div className="d-flex w-100 align-items-center justify-content-around mt-1-v">
+            1
+              <div className="w-20">
+                <input type="text" className="input-type-room" placeholder="ex. ห้องเดี่ยว 1 เตียง"
+                  row="1"
+                  name="room_name"
+                  onChange={handleReturnRoomType} />
+              </div>
+              <div className="w-20">
+                <input type="text" className="input-type-room" placeholder="16 ตรม."
+                  row="1"
+                  name="room_area"
+                  onChange={handleReturnRoomType} />
+              </div>
+              <div className="w-20">
+                <input type="text" className="input-type-room" placeholder="4,000 บาท/เดือน"
+                  row="1"
+                  name="room_cost"
+                  onChange={handleReturnRoomType} />
+              </div>
+              <div className="w-20">
+                <input type="text" className="input-type-room" placeholder="4,000 บาท/เดือน"
+                  row="1"
+                  name="additional"
+                  onChange={handleReturnRoomType} />
+              </div>
+              <div className="w-5">
+              <button onClick={() => handleAdd()} type="button" className="btn-type-room plus">+</button>
+              </div>
+            </div>
             {rows}
-            <button onClick={() => handleAdd()} type="button" className="btn btn-primary ml-3-v">+</button>
+            
             {/* cost */}
           </div>
           <div className="d-flex box-top-head-room-type mt-3-v w-95 mx-auto">
@@ -221,7 +251,7 @@ function RoomType() {
               <div className="">
                 <input type="radio" name="payment" />
                 <span className="ml-0-5-v">ระบุเดือน
-                                <select className="select_mount mt-1-v"  name="pre_paid" onChange={handleInputChange}>
+                                <select className="select_mount mt-1-v" name="pre_paid" onChange={handleInputChange}>
                     <option>-- เลือกเดือน --</option>
                     <option value="1">1 เดือน</option>
                     <option value="2">2 เดือน</option>
@@ -343,7 +373,7 @@ function RoomType() {
               <div className="mt-0-5-v">
                 <input type="radio" name="wifi" />
                 <span className="ml-0-5-v">อื่นๆ</span>
-                <input className="d-flex other" name="internet_bill" onChange={handleInputChange} />
+                <input className="d-flex other ml-1-v" name="internet_bill" onChange={handleInputChange} />
               </div>
             </div>
           </div>
@@ -371,7 +401,7 @@ function RoomType() {
               <div className="mt-0-5-v">
                 <input type="radio" name="keycard" />
                 <span className="ml-0-5-v">อื่นๆ</span>
-                <input className="d-flex other" name="keycard" onChange={handleInputChange} />
+                <input className="d-flex other ml-1-v" name="keycard" onChange={handleInputChange} />
               </div>
             </div>
           </div>
