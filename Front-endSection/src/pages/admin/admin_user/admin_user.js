@@ -14,7 +14,7 @@ function AdminUser() {
 
          <div className="d-flex flex-column w-100 color-main align-items-center bg-admin">
             <div className="navigation bg-white d-flex align-items-center justify-content-between px-3-v">
-               <p className="m-0">รายการหอพักทั้งหมดในระบบ</p>
+               <p className="m-0">ผู้ใช้ทั้งหมดในระบบ</p>
                <p className="m-0">Welcome! - ADMIN POWER</p>
             </div>
             <div className="form_panel flex-column p-3 mt-2-v mb-2-v">
@@ -27,14 +27,11 @@ function AdminUser() {
                         </div>
                      </div>
                      <div className="col-5 d-flex justify-content-end align-items-center">
-                        <p className="text-dark">โซน :</p>
+                        <p className="text-dark">ประเภทผู้ใช้ :</p>
                         <select className="filter_admin ml-1-v px-1-v color-main fs-0-8-v">
                            <option>ทั้งหมด</option>
-                           <option>วีคอนโด</option>
-                           <option>เกกี</option>
-                           <option>RNP</option>
-                           <option>FBT</option>
-                           <option>จินดา</option>
+                           <option>ผู้เช่า</option>
+                           <option>ผู้ประกอบการ</option>
                         </select>
                      </div>
                      <div className="col-3 d-flex justify-content-start align-items-center">
