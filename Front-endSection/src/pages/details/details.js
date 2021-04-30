@@ -16,7 +16,6 @@ import water from "../../img/water.svg";
 import keycard from "../../img/keycard.svg";
 import door from "../../img/Icon-door-open.svg";
 import hotel from "../../img/Icon-hotel.svg";
-import review from "../../img/Icon-review.svg";
 import profile from "../../img/profile.jpg";
 import confirm from "../../img/confirm.svg";
 import home from "../../img/Icon-open-home.svg";
@@ -25,9 +24,10 @@ import eye from "../../img/eye.svg";
 import clock from "../../img/clock.svg";
 import heartOff from "../../img/heart-off.svg";
 
-import room from "../../img/20210321_151812.svg"
+import room from "../../img/20210321_151812.svg";
 
-import Comment from "../../components/CommentReview/CommentReview";
+// import Comment from "../../components/CommentReview/CommentReview";
+import Footer from "../../components/Footer/Footer";
 function Details() {
     const {dormId} = useParams()
     const [typeRoom, setTypeRoom] = useState(false);
@@ -61,12 +61,12 @@ function Details() {
             })
     }, []);
     useEffect(() => {
-        fetch('http://103.13.231.22:5000/api/dorm/dorm/' + dormId, optionsGet())
+        fetch('http://103.13.231.22:5000/api/dorm/dormById/' + dormId, optionsGet())
             .then(res => res.json())
             .then(res => {
-                if (res.dorm) {
-                    setDescDorm(res.dorm);
-                    console.log(res.dorm);
+                if (res.Dorm) {
+                    setDescDorm(res.Dorm);
+                    console.log(res.Dorm);
                 }
             })
             .catch(error => {
@@ -79,12 +79,6 @@ function Details() {
         update: "29 มีนาคม 2564",
         img: [room, room, room, room, room]
     }
-    // const contact = {
-    //     location: "ถนนลาดกระบัง 52 แยก 3 แขวงลาดกระบัง เขตลาดกระบัง กรุงเทพมหานคร",
-    //     phone: "083-233-3028, 02-326-9220 (ป้าจัน)",
-    //     line: "-",
-    //     pirce: "3,200 - 3,700"
-    // }
     const DecsDropDown = [{
         typeRoom: "ห้องเดี่ยว พัดลม มีระเบียง",
         size: "16 ตรม.",
@@ -144,7 +138,8 @@ function Details() {
 
     const contant = useMemo(
         () => {  
-            if (descDorm.dorm_id) {
+            console.log(descDorm);
+            if (descDorm.dorm_address) {
                 console.log(descDorm);
                 return (
                     <div className="w-50 mx-auto d-flex justify-content-start flex-wrap">
@@ -406,8 +401,7 @@ function Details() {
                     }
                 </div>
                 {/* บทความที่เกี่ยวข้อง */}
-                <div className="w-85 mx-auto position-relative mt-2-v">
-                    {/* เอาไปทำ components */}
+                {/* <div className="w-85 mx-auto position-relative mt-2-v">
                     <div className="w-100 line_back_text"></div>
                     <span className="bg-white text_on_line color-main">บทความที่เกี่ยวข้อง</span>
                 </div>
@@ -418,11 +412,12 @@ function Details() {
                     <div className="w-30 d-flex justify-content-end pr-involve-name">
                         <span className="color-main">{involve.name}</span>
                     </div>
-                </div>
+                </div> */}
                 {/* ถึงตรงนี้ */}
             </div>
+            <Footer/>
             {/* รีวิว */}
-            <div className="w-100 bg-third mt-2-v d-flex flex-wrap">
+            {/* <div className="w-100 bg-third mt-2-v d-flex flex-wrap">
                 <div className="w-85 mx-auto d-flex align-items-center mt-1-v">
                     <span className="fs-1-2-v color-main ">รีวิว</span>
                     <img alt="" className="image_review" src={review} />
@@ -437,7 +432,7 @@ function Details() {
                     })
                 }
 
-            </div>
+            </div> */}
         </div>
     );
 }
