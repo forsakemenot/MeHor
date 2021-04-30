@@ -29,7 +29,7 @@ import room from "../../img/20210321_151812.svg";
 // import Comment from "../../components/CommentReview/CommentReview";
 import Footer from "../../components/Footer/Footer";
 function Details() {
-    const {dormId} = useParams()
+    const { dormId } = useParams()
     const [typeRoom, setTypeRoom] = useState(false);
     const [desc, setDesc] = useState(false);
     const [morePrice, setMorePrice] = useState(false);
@@ -79,49 +79,10 @@ function Details() {
         update: "29 มีนาคม 2564",
         img: [room, room, room, room, room]
     }
-    const DecsDropDown = [{
-        typeRoom: "ห้องเดี่ยว พัดลม มีระเบียง",
-        size: "16 ตรม.",
-        pirce_month: "3,200 บาท/เดือน",
-        pirce_day: "-"
-
-    },
-    {
-        typeRoom: "ห้องเดี่ยว แอร์ มีระเบียง",
-        size: "16 ตรม.",
-        pirce_month: "3,700 บาท/เดือน",
-        pirce_day: "-"
-
-    }]
-    const fullDesc = {
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    }
-    const descMore = {
-        insurance: "5000",
-        electric: "7",
-        internet: "ฟรี [15 Mbps]",
-        deposit: "1 เดือน (คิดเป็นค่าห้อง)",
-        water: "18",
-        keycard: "300"
-    }
     const detailsInDorm = {
-        inRoom: ["เครื่องปรับอากาศ", "เฟอร์นิเจอร์", "อินเทอร์เน็ตไร้สาย (Wifi)"],
+        inRoom: ["เครื่องปรับอากาศ", "เฟอร์นิเจอร์", "อินเทอร์เน็ตไร้สาย (Wifi)","กล้องวงจารปิด (CCTV)"],
         central: ["เครื่องซักผ้า", "ตู้กดน้ำ", "กล้องวงจารปิด (CCTV)"]
     }
-    const involve = {
-        post: "ขายสัญญาหอ (เว็บบอร์ด)",
-        name: "Phawinee Thongbor"
-    }
-    const comments = [{
-        image: profile,
-        name: "หอพักสตรีกอบัว",
-        date: "31/3/2021",
-        time: "9.09 PM",
-        no: "1",
-        like: "0",
-        comment: "ถ้าสนใจสามารถติดต่อได้เลยนะคะ ห้องยังว่างอยู่ค่ะ",
-        amount_commet: "1"
-    }]
 
     function toggletypeRoom() {
         setTypeRoom(!typeRoom);
@@ -137,10 +98,8 @@ function Details() {
     }
 
     const contant = useMemo(
-        () => {  
-            console.log(descDorm);
+        () => {
             if (descDorm.dorm_address) {
-                console.log(descDorm);
                 return (
                     <div className="w-50 mx-auto d-flex justify-content-start flex-wrap">
                         <div className="w-100 d-flex justify-content-around align-items-center">
@@ -172,23 +131,82 @@ function Details() {
                 )
             }
             return
-
         }, [descDorm]
     )
 
     const price = useMemo(
         () => {
             if (roomType.dorm_type) {
-                console.log(roomType);
                 return (
                     <span className="text_price_details">ราคา <span className="color-second">{roomType.dorm_type[0].room_cost}</span> บาท/เดือน</span>
                 )
             }
             return
-
         }, [roomType]
     )
 
+    const tabRoomType = useMemo(
+        () => {
+            if (roomType.dorm_type) {
+                return (
+                    roomType.dorm_type.map(function (element, index) {
+                        return <DescInDropDown data={element} />
+                    })
+                )
+            }
+            return
+        }, [roomType]
+    )
+    const fullDesc = useMemo(
+        () => {
+            if (descDorm.dorm_address) {
+                return (
+                    <span>{descDorm.description}</span>
+                )
+            }
+            return
+        }, [descDorm]
+    )
+    const descMore = useMemo(
+        () => {
+            if (roomType.dorm_type) {
+                return (
+                    <div className="w-80 mx-auto d-flex flex-wrap">
+                            <div className="w-50 d-flex flex-wrap border-right-color">
+                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v">
+                                    <img alt="" className="w-10 size_icon_desc" alt="" src={bill} />
+                                    <span className="w-90 color-main "><b>ค่าเงินมัดจำ/ค่าเงินประกัน :</b> {roomType.insurance_bill}</span>
+                                </div>
+                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v bg-third">
+                                    <img alt="" className="w-10 size_icon_desc" alt="" src={electric} />
+                                    <span className="w-90 color-main "><b>ค่าเงินมัดจำ/ค่าเงินประกัน :</b> หน่วยละ {roomType.electric_bill} บาท</span>
+                                </div>
+                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v">
+                                    <img alt="" className="w-10 size_icon_desc" alt="" src={wifi} />
+                                    <span className="w-90 color-main "><b>อินเทอร์เน็ต (Wifi) :</b> {roomType.internet_bill}</span>
+                                </div>
+
+                            </div>
+                            <div className="w-50 d-flex flex-wrap">
+                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v">
+                                    <img alt="" className="w-10 size_icon_desc" alt="" src={check} />
+                                    <span className="w-90 color-main"><b>จ่ายล่วงหน้า :</b> {roomType.pre_paid}</span>
+                                </div>
+                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v bg-third">
+                                    <img alt="" className="w-10 size_icon_desc" alt="" src={water} />
+                                    <span className="w-90 color-main "><b>ค่าน้ำ หน่วยละ :</b> {roomType.water_bill} บาท</span>
+                                </div>
+                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v">
+                                    <img alt="" className="w-10 size_icon_desc" alt="" src={keycard} />
+                                    <span className="w-90 color-main "><b>คีย์การ์ด :</b> {roomType.keycard} บาท/ชุด</span>
+                                </div>
+                            </div>
+                        </div>
+                )
+            }
+            return
+        }, [roomType]
+    )
     return (
         <div className='my-1-auto'>
             {/* รูปหอพัก */}
@@ -235,11 +253,8 @@ function Details() {
             </div>
             {/* ช่องทางติดต่อ */}
             <div className="d-flex w-80 mx-auto">
-
                 {contant}
-
                 <div className="w-50 d-flex justify-content-center flex-wrap">
-                    {/* ตรงนี้ */}
                     <div className="w-100 d-flex align-items-center">
                         <img alt="" className="w-20 image_price_details" src={coins} alt="" />
                         {price}
@@ -282,11 +297,7 @@ function Details() {
                                 </div>
                             </div>
                         </div>
-                        {
-                            DecsDropDown.map(function (element, index) {
-                                return <DescInDropDown data={element} />
-                            })
-                        }
+                        {tabRoomType}
                     </div>
                 }
                 {/* รายละเอียด */}
@@ -305,7 +316,7 @@ function Details() {
                         desc === true &&
 
                         <div className="full-desc w-80 mx-auto mt-1-v">
-                            <span>{fullDesc.desc}</span>
+                            {fullDesc}
                         </div>
                     }
                 </div>
@@ -321,43 +332,10 @@ function Details() {
                             </div>
                         </div>
                     </div>
-                    {
-                        morePrice === true &&
-                        <div className="w-80 mx-auto d-flex flex-wrap">
-                            <div className="w-50 d-flex flex-wrap border-right-color">
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={bill} />
-                                    <span className="w-90 color-main "><b>ค่าเงินมัดจำ/ค่าเงินประกัน :</b> {descMore.insurance}</span>
-                                </div>
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v bg-third">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={electric} />
-                                    <span className="w-90 color-main "><b>ค่าเงินมัดจำ/ค่าเงินประกัน :</b> หน่วยละ {descMore.electric} บาท</span>
-                                </div>
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={wifi} />
-                                    <span className="w-90 color-main "><b>อินเทอร์เน็ต (Wifi) :</b> {descMore.internet}</span>
-                                </div>
-
-                            </div>
-                            <div className="w-50 d-flex flex-wrap">
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={check} />
-                                    <span className="w-90 color-main"><b>จ่ายล่วงหน้า :</b> {descMore.deposit}</span>
-                                </div>
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v bg-third">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={water} />
-                                    <span className="w-90 color-main "><b>ค่าน้ำ หน่วยละ :</b> {descMore.water} บาท</span>
-                                </div>
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={keycard} />
-                                    <span className="w-90 color-main "><b>คีย์การ์ด :</b> {descMore.keycard} บาท/ชุด</span>
-                                </div>
-                            </div>
-                        </div>
-                    }
+                    {morePrice === true && descMore}
                 </div>
                 {/* สิ่งอำนวยความสะดวก */}
-                <div className="w-100 d-flex flex-wrap mt-2-v">
+                <div className="w-100 d-flex flex-wrap mt-2-v mb-2-v">
                     <div className="w-80 bg-main mx-auto box-drop-down mt-1-v">
                         <div className="w-100 d-flex align-items-center" onClick={toggleConvenient}>
                             <div className="pl-1-v w-95">
@@ -370,29 +348,12 @@ function Details() {
                     </div>
                     {
                         convenient === true &&
-                        <div className="w-80 mx-auto d-flex flex-wrap">
-                            <div className="w-50 d-flex flex-wrap border-right-color">
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={door} />
-                                    <span className="w-90 color-main font-weight-bold">ภายในห้อง</span>
-                                </div>
-                                <ul className="w-75 mx-auto">
+                        <div className="w-80 mx-auto d-flex flex-wrap ">
+                            <div className="w-100 d-flex flex-wrap mt-0-5-v">
+                                <ul className="w-95 d-flex flex-wrap p-0">
                                     {
                                         detailsInDorm.inRoom.map(function (element, index) {
-                                            return <li className="color-main">{element}</li>
-                                        })
-                                    }
-                                </ul>
-                            </div>
-                            <div className="w-50 d-flex flex-wrap">
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={hotel} />
-                                    <span className="w-90 color-main font-weight-bold">ส่วนกลาง</span>
-                                </div>
-                                <ul className="w-75 mx-auto">
-                                    {
-                                        detailsInDorm.central.map(function (element, index) {
-                                            return <li className="color-main">{element}</li>
+                                            return <><div className="w-5"></div><li className="color-main w-45 fs-1-v">{element}</li></>
                                         })
                                     }
                                 </ul>
@@ -415,7 +376,7 @@ function Details() {
                 </div> */}
                 {/* ถึงตรงนี้ */}
             </div>
-            <Footer/>
+            <Footer />
             {/* รีวิว */}
             {/* <div className="w-100 bg-third mt-2-v d-flex flex-wrap">
                 <div className="w-85 mx-auto d-flex align-items-center mt-1-v">
