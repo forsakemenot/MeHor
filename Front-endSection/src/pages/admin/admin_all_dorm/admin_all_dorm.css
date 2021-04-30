@@ -15,3 +15,21 @@
 .dorm_component.card-body {
     padding: 0.5vw 1vw;
 }
+
+.filter_admin {
+    background-image: linear-gradient(#F9F9F9, #DBDBDB);
+    border-radius: 50px;
+    height: 2vw;
+    border: #E3E3E3 1px solid;
+}
+
+.search_dorm_admin {
+    width: 25vw;
+    height: 2vw;
+    border-radius: 50px;
+    border: #8B9DC4 1px solid;
+}
+
+::placeholder {
+    color: #EAEAEA;
+}

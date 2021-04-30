@@ -20,8 +20,12 @@ function AdminForm() {
       <div className="d-flex">
          <NavbarAdmin />
 
-         <div className="d-flex justify-center w-100 color-main">
-            <div className="form_panel justify-center flex-column p-3 mt-2-v mb-2-v">
+         <div className="d-flex flex-column w-100 color-main align-items-center bg-admin">
+            <div className="navigation bg-white d-flex align-items-center justify-content-between px-3-v">
+               <p className="m-0">รายการหอพักทั้งหมดในระบบ</p>
+               <p className="m-0">Welcome! - ADMIN POWER</p>
+            </div>
+            <div className="form_panel flex-column p-3 mt-2-v mb-2-v">
                <form>
                   <div className="panel_dorm">
                      <div className="card-columns">

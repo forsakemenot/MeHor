@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../pages/admin/admin_form/admin_form.css';
+import './NavbarAdmin.css';
 import '../../App.css';
 
 import LogoHome from '../../img/MeHorWhite.png';

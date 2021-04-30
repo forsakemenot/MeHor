@@ -92,6 +92,9 @@ p{
 .bg-white{
   background: #fff;
 }
+.bg-admin{
+  background:#F1F1F1;
+}
 .color-main{
   color: #325679;
 }
@@ -112,6 +115,9 @@ p{
 }
 .w-10{
   width: 10%;
+}
+.w-13{
+  width: 13%
 }
 .w-15{
   width: 15%;
@@ -273,8 +279,20 @@ p{
 .py-1-v{
   padding: 1vw 0vw;
 }
+.px-0-5-v{
+  padding: 0vw 1vw;
+}
+.px-1-v{
+  padding: 0vw 1vw;
+}
+.px-3-v{
+  padding: 0vw 3vw;
+}
 .fs-0-5-v{
   font-size: 0.5vw;
+}
+.fs-0-8-v{
+  font-size: 0.8vw;
 }
 .fs-1-v{
   font-size: 1vw;
