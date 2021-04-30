@@ -65,7 +65,7 @@ function Login_register() {
         evt.preventDefault();
     }
     const HandleSubmitRegis = (evt) => {
-        // console.log(userRegisDetails);
+        console.log(userRegisDetails);
         fetch('http://103.13.231.22:5000/api/users/signup', options(userRegisDetails))
             .then(res => res.json())
             .then(res => {
@@ -78,7 +78,7 @@ function Login_register() {
                 else if (res.errors) {
                     setErrors(res.errors)
                 }
-                else{
+                else {
                     alert('SOMETHING WENT WRONG')
                 }
             })
@@ -162,30 +162,30 @@ function Login_register() {
                             <div className="d-flex text_from">
                                 <p>Password</p>
                                 <div>
-                                    <input name="password" onChange={handleInputChangeRegis} type="text"></input>
+                                    <input name="password" onChange={handleInputChangeRegis} type="password"></input>
                                     <img id="img_lock" alt="" src={lock} />
                                 </div>
                             </div>
                             <div className="d-flex text_from">
                                 <p>Confirm Password</p>
                                 <div>
-                                    <input name="confirmPassword" onChange={handleInputChangeRegis} type="text"></input>
+                                    <input name="confirmPassword" onChange={handleInputChangeRegis} type="password"></input>
                                     <img id="img_lock" alt="" src={lock} />
                                 </div>
                             </div>
-                        </div>
-                        <div className="d-flex text_from">
-                            <p>Password</p>
-                            <div>
-                                <input type="password"></input>
-                                <img id="img_lock" alt="" src={lock} />
+                            <div className="d-flex div_checkbox align-center">
+                                <span>สมัครสมาชิกในบทบาท : </span>
+                                <input className="checkbox box_top" type="radio" name="role" value="General" onChange={handleInputChangeRegis}/>
+                                <span>ผู้เช่า</span>
+                                <input className="checkbox box_top" type="radio" name="role" value="Operator" onChange={handleInputChangeRegis}/>
+                                <span>ผู้ประกอบการ</span>
                             </div>
-                        </div>
-                        <div className="d-flex text_from mb-1-5-v">
-                            <p>Confirm Password</p>
-                            <div>
-                                <input type="password"></input>
-                                <img id="img_lock" alt="" src={lock} />
+                            <div className="d-flex div_checkbox align-center bt_color">
+                                <input className="checkbox box_bottom" type="checkbox" />
+                                <span>รับข่าวสารและโปรโมชั่นจากทางเว็บ และที่พักที่เป็นสมาชิก</span>
+                            </div>
+                            <div className="d-flex">
+                                <button className="btn_login mb-1-v" type="submit">สมัครสมาชิก</button>
                             </div>
                         </div>
                     </form>

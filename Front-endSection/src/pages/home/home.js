@@ -1,8 +1,8 @@
+import React, { useState, useEffect, useMemo } from 'react';
 import HomeImg from './../../img/Icon-open-home.svg';
 import HeartImg from './../../img/Icon-awesome-heart.svg';
 import Plus from './../../img/Plus.svg';
 import minus from './../../img/minus.svg';
-import React, { useState } from 'react';
 import './home.css';
 import './../../App.css';
 import { Link } from "react-router-dom";
@@ -26,6 +26,32 @@ function Home() {
     const [activeBoxConvenient, setActiveBoxConvenient] = useState(false);
     const [activeBoxCommonFee, setActiveBoxCommonFee] = useState(false);
     const [activeBoxSeeMore, setActiveBoxSeeMore] = useState(false);
+    const [descDorm, setDescDorm] = useState({});
+    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
+    const optionsGet = data => {
+        return {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token,
+            },
+            method: 'get',
+            // body: JSON.stringify(data)
+        };
+    };
+    useEffect(() => {
+        console.log("useEffect");
+        fetch('http://103.13.231.22:5000/api/dorm/alldorm', optionsGet())
+            .then(res => res.json())
+            .then(res => {
+                if (res.dorm) {
+                    setDescDorm(res.dorm);
+                    console.log(res.dorm);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }, []);
     const dom = [{
         name: "หอพักกอบัว (หอพักหญิง)",
         desc: ["มัดจำ 5000 บาท จ่ายล่วงหน้า 1 เดือน", "มี wifi 15 mdps", "น้ำ 18 ไฟ 7", "กุญแจชุดละ 300", "มี 2 เตียง(3.5 ฟุต)", "เบอร์ 02-326-9220 (เจ้าของ)"],
@@ -72,6 +98,20 @@ function Home() {
     function toggleSeeMore() {
         setActiveBoxSeeMore(!activeBoxSeeMore);
     }
+    const dormBox = useMemo(
+        () => {
+            console.log(descDorm);
+            if (descDorm) {
+                return (
+                    descDorm?.map(function (element, index) {
+                        return <DomList data={element} />
+                    })
+                )
+            }
+            return
+            
+        },[descDorm]
+    )
     return (
 
         <div>
@@ -82,23 +122,23 @@ function Home() {
                 <div className=" map-el zone_fbt">
                     <img className="map-el-shadow zone_fbt_shd" alt="" src={shadow_fbt}></img>
                     <img className="map-el-img zone_fbt_img" alt="" src={fbt}></img>
-                    </div>
+                </div>
                 <div className=" map-el zone_keki">
                     <img className="map-el-shadow zone_keki_shd" alt="" src={shadow_keki}></img>
                     <img className="map-el-img zone_keki_img" alt="" src={keki}></img>
-                    </div>
+                </div>
                 <div className=" map-el zone_rnp">
                     <img className="map-el-shadow zone_rnp_shd" alt="" src={shadow_rnp}></img>
                     <img className="map-el-img zone_rnp_img" alt="" src={rnp}></img>
-                    </div>
+                </div>
                 <div className=" map-el zone_jinda">
                     <img className="map-el-shadow zone_jinda_shd" alt="" src={shadow_jinda}></img>
                     <img className="map-el-img zone_jinda_img" alt="" src={jinda}></img>
-                    </div>
+                </div>
                 <div className=" map-el zone_nikom">
-                    <img className="map-el-shadow zone_nikom_shd"alt="" src={shadow_nikom}></img>
-                    <img className="map-el-img zone_nikom_img"alt="" src={nikom}></img>
-                    </div>
+                    <img className="map-el-shadow zone_nikom_shd" alt="" src={shadow_nikom}></img>
+                    <img className="map-el-img zone_nikom_img" alt="" src={nikom}></img>
+                </div>
             </div>
             <div className="dom_list d-flex">
                 <div className="search_dom d-flex mt-3-v">
@@ -116,11 +156,7 @@ function Home() {
                 </div>
                 <div className="all_disc d-flex">
                     <div className="div_disc">
-                        {
-                            dom.map(function (element, index) {
-                                return <DomList data={element} />
-                            })
-                        }
+                        {dormBox}
                     </div>
                     <div className="filter_dropbox position-relative">
                         <div className="position-absolute line_filter"></div>
@@ -228,7 +264,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
 
     );

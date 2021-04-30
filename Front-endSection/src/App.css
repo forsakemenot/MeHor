@@ -213,8 +213,17 @@ p{
 .my-1-auto{
   margin: 1vw auto;
 }
+.mb-0-5-v{
+  margin-bottom: 0.5vw !important;
+}
+.mb-1-v{
+  margin-bottom: 1vw !important;
+}
 .mb-1-5-v{
   margin-bottom: 1.5vw !important;
+}
+.mb-2-v{
+  margin-bottom: 2vw !important;
 }
 .pl-0-5-v{
   padding-left: 0.5vw;
