@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import './admin_form.css';
 import './../../../App.css';
 
-import bin from './../../../img/metro-bin.svg';
-
 import CostPanel from '../component/cost_panel.js'
 import TypePanel from '../component/type_panel.js'
 import DormInfoPanel from '../component/dormInfo_panel.js'
@@ -15,32 +13,15 @@ import ImagePanel from '../component/image_panel'
 import DocPanel from '../component/doc_panel.js'
 import DetailPanel from '../component/detail_panel'
 
+import NavbarAdmin from "../../../components/NavbarAdmin/NavbarAdmin.js"
+
 function AdminForm() {
    return (
       <div className="d-flex">
-         <div className="navbar_admin">
-
-         </div>
+         <NavbarAdmin />
 
          <div className="d-flex justify-center w-100 color-main">
-            <div className="form_panel justify-center flex-column p-3 mb-5">
-               <div className="panel_bar w-100">
-                  <div className="row align-items-center">
-                     <div className="col-6">
-                        <div className="d-flex">
-                           <input className="kanit" type="text" placeholder=" ค้นหา ชื่อที่พัก, ชื่อโซน"></input>
-                        </div>
-                     </div>
-                     <div className="col-6 d-flex justify-end">
-                        <p>แสดงโดย:</p>
-                        <select className="ml-1-v">
-                           <option>เพิ่มเมื่อเร็วๆ นี้</option>
-                        </select>
-                     </div>
-                  </div>
-               </div>
-               <hr></hr>
-
+            <div className="form_panel justify-center flex-column p-3 mt-2-v mb-2-v">
                <form>
                   <div className="panel_dorm">
                      <div className="card-columns">

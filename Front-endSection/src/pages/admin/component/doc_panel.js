@@ -43,9 +43,9 @@ function doc_panel() {
                                     <p className="m-0 text_label">ทะเบียนบ้าน</p>
                                 </div>
                                 <div className="col-4 d-flex align-items-center">
-                                    <input type="radio" className="checkbox_panel mx-3" />
+                                    <input type="radio" name="house_regis" className="checkbox_panel mx-3" />
                                     <p className="m-0 text-success text_label">ผ่านการอนุมัติ</p>
-                                    <input type="radio" className="checkbox_panel mx-3" />
+                                    <input type="radio" name="house_regis" className="checkbox_panel mx-3" />
                                     <p className="m-0 text-danger text_label">ไม่ผ่านการอนุมัติ</p>
                                 </div>
                                 <div className="col-2">
@@ -68,13 +68,13 @@ function doc_panel() {
                                     <p className="m-0 text_label">รูปถ่ายที่พัก</p>
                                 </div>
                                 <div className="col-4 d-flex align-items-center">
-                                    <input type="radio" className="checkbox_panel mx-3" />
+                                    <input type="radio" name="photo_dorm" className="checkbox_panel mx-3" />
                                     <p className="m-0 text-success text_label">ผ่านการอนุมัติ</p>
-                                    <input type="radio" className="checkbox_panel mx-3" />
+                                    <input type="radio" name="photo_dorm" className="checkbox_panel mx-3" />
                                     <p className="m-0 text-danger text_label">ไม่ผ่านการอนุมัติ</p>
                                 </div>
                                 <div className="col-2">
-                                    <p className="m-0">04/22/2021</p>
+                                    <p className="m-0 text_label">04/22/2021</p>
                                 </div>
                                 <div className="col-1">
                                     <img src={bin}></img>

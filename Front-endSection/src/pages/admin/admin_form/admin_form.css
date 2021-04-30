@@ -5,8 +5,16 @@
 }
 .navbar_admin {
     width: 20vw;
-    background-color: red;
-    height: 10vw;
+    background-image: linear-gradient(#325679, #3B5998);
+    height: auto;
+}
+
+.back_to_home {
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 14vw;
+    border-radius: 6px;
+    border: #70B8FF 1px solid;
+    margin: 15vw 2vw 1vw 2vw;
 }
 
 .panel_dorm {
