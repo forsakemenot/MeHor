@@ -26,7 +26,7 @@ function Home() {
     const [activeBoxConvenient, setActiveBoxConvenient] = useState(false);
     const [activeBoxCommonFee, setActiveBoxCommonFee] = useState(false);
     const [activeBoxSeeMore, setActiveBoxSeeMore] = useState(false);
-    const [descDorm, setDescDorm] = useState([]);
+    const [descDorm, setDescDorm] = useState({});
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
     const optionsGet = data => {
         return {

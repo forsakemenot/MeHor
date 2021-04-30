@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
+import { useParams } from "react-router-dom";
 import '../../App.css';
 import './details.css';
 import coins from "../../img/coins.svg";
@@ -28,21 +29,62 @@ import room from "../../img/20210321_151812.svg"
 
 import Comment from "../../components/CommentReview/CommentReview";
 function Details() {
+    const {dormId} = useParams()
     const [typeRoom, setTypeRoom] = useState(false);
     const [desc, setDesc] = useState(false);
     const [morePrice, setMorePrice] = useState(false);
     const [convenient, setConvenient] = useState(false);
+    const [roomType, setRoomType] = useState({});
+    const [descDorm, setDescDorm] = useState({});
+    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
+    const optionsGet = data => {
+        return {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token,
+            },
+            method: 'get',
+            // body: JSON.stringify(data)
+        };
+    };
+    useEffect(() => {
+        fetch('http://103.13.231.22:5000/api/dorm/roomtypebyid/' + dormId, optionsGet())
+            .then(res => res.json())
+            .then(res => {
+                if (res.DormType) {
+                    setRoomType(res.DormType);
+                    console.log(res.DormType);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }, []);
+    useEffect(() => {
+        fetch('http://103.13.231.22:5000/api/dorm/dorm/' + dormId, optionsGet())
+            .then(res => res.json())
+            .then(res => {
+                if (res.dorm) {
+                    setDescDorm(res.dorm);
+                    console.log(res.dorm);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }, []);
+
     const desc_update = {
         view: "534",
         update: "29 มีนาคม 2564",
         img: [room, room, room, room, room]
     }
-    const contact = {
-        location: "ถนนลาดกระบัง 52 แยก 3 แขวงลาดกระบัง เขตลาดกระบัง กรุงเทพมหานคร",
-        phone: "083-233-3028, 02-326-9220 (ป้าจัน)",
-        line: "-",
-        pirce: "3,200 - 3,700"
-    }
+    // const contact = {
+    //     location: "ถนนลาดกระบัง 52 แยก 3 แขวงลาดกระบัง เขตลาดกระบัง กรุงเทพมหานคร",
+    //     phone: "083-233-3028, 02-326-9220 (ป้าจัน)",
+    //     line: "-",
+    //     pirce: "3,200 - 3,700"
+    // }
     const DecsDropDown = [{
         typeRoom: "ห้องเดี่ยว พัดลม มีระเบียง",
         size: "16 ตรม.",
@@ -99,6 +141,59 @@ function Details() {
     function toggleConvenient() {
         setConvenient(!convenient);
     }
+
+    const contant = useMemo(
+        () => {  
+            if (descDorm.dorm_id) {
+                console.log(descDorm);
+                return (
+                    <div className="w-50 mx-auto d-flex justify-content-start flex-wrap">
+                        <div className="w-100 d-flex justify-content-around align-items-center">
+                            <img alt="" className="w-10 image_contact" src={location} alt="" />
+                            <span className="desc_contact w-90">{
+                                descDorm.dorm_address.address_number + " " +
+                                descDorm.dorm_address.street + " " +
+                                descDorm.dorm_address.province + " " +
+                                descDorm.dorm_address.postcode + " " +
+                                descDorm.dorm_address.area
+                            }</span>
+                        </div>
+                        <div className="w-100 d-flex justify-content-around align-items-center">
+                            <div className="w-100 d-flex justify-content-around align-items-center">
+                                <img alt="" className="w-10 image_contact" src={phone} alt="" />
+                                <span className="desc_contact w-90">{descDorm.owner_phone}</span>
+                            </div>
+                        </div>
+                        <div className="w-100 d-flex justify-content-around align-items-center">
+                            <div className="w-100 d-flex justify-content-around align-items-center">
+                                <img alt="" className="w-10 image_contact" src={line} alt="" />
+                                <span className="desc_contact w-90">{descDorm.owner_line}</span>
+                            </div>
+                        </div>
+                        <div className="w-100 d-flex">
+                            <img alt="" className="w-50 py-0-5-v" src={confirm} />
+                        </div>
+                    </div>
+                )
+            }
+            return
+
+        }, [descDorm]
+    )
+
+    const price = useMemo(
+        () => {
+            if (roomType.dorm_type) {
+                console.log(roomType);
+                return (
+                    <span className="text_price_details">ราคา <span className="color-second">{roomType.dorm_type[0].room_cost}</span> บาท/เดือน</span>
+                )
+            }
+            return
+
+        }, [roomType]
+    )
+
     return (
         <div className='my-1-auto'>
             {/* รูปหอพัก */}
@@ -109,7 +204,7 @@ function Details() {
                     </div>
                     <div className="w-30">
                         <div className="w-100 d-flex align-items-center color-main">
-                            <span className="fs-1-2-v">{comments[0].name}</span>
+                            <span className="fs-1-2-v">{descDorm.dorm_name}</span>
                         </div>
                         <div className="w-100 d-flex ">
                             <img className="mr-0-5-v" alt="" src={star} />
@@ -145,31 +240,14 @@ function Details() {
             </div>
             {/* ช่องทางติดต่อ */}
             <div className="d-flex w-80 mx-auto">
-                <div className="w-50 mx-auto d-flex justify-content-start flex-wrap">
-                    <div className="w-100 d-flex justify-content-around align-items-center">
-                        <img alt="" className="w-10 image_contact" src={location} alt="" />
-                        <span className="desc_contact w-90">{contact.location}</span>
-                    </div>
-                    <div className="w-100 d-flex justify-content-around align-items-center">
-                        <div className="w-100 d-flex justify-content-around align-items-center">
-                            <img alt="" className="w-10 image_contact" src={phone} alt="" />
-                            <span className="desc_contact w-90">{contact.phone}</span>
-                        </div>
-                    </div>
-                    <div className="w-100 d-flex justify-content-around align-items-center">
-                        <div className="w-100 d-flex justify-content-around align-items-center">
-                            <img alt="" className="w-10 image_contact" src={line} alt="" />
-                            <span className="desc_contact w-90">{contact.line}</span>
-                        </div>
-                    </div>
-                    <div className="w-100 d-flex">
-                        <img alt="" className="w-50 py-0-5-v" src={confirm} />
-                    </div>
-                </div>
+
+                {contant}
+
                 <div className="w-50 d-flex justify-content-center flex-wrap">
+                    {/* ตรงนี้ */}
                     <div className="w-100 d-flex align-items-center">
                         <img alt="" className="w-20 image_price_details" src={coins} alt="" />
-                        <span className="text_price_details">ราคา <span className="color-second">{contact.pirce}</span> บาท/เดือน</span>
+                        {price}
                     </div>
                     <div className="h-75 w-100 bg-info">
 

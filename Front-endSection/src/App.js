@@ -63,6 +63,7 @@ function App() {
 
         </div>
       </div>
+      
       <Switch>
         <Route exact path="/">
           <Home />
@@ -91,7 +92,7 @@ function App() {
         <Route path="/Profile">
           <Profile />
         </Route>
-        <Route path="/details">
+        <Route path="/details/:dormId">
           <Details />
         </Route>
         <Route path="/Advertise">

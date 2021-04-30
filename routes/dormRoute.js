@@ -32,6 +32,14 @@ router.get('/alldorm', (req, res) => {
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
 })
+router.get('/dormById/:dorm_id', (req, res) => {
+    Dorm.findOne({_id:req.params.dorm_id}).exec()
+        .then(Dorm => {
+            res.status(200).json({ Dorm: Dorm });
+        })
+        .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+  
+})
 router.get('/roomtypebyid/:dorm_id', (req, res) => {
     DormType.findOne({dorm_id:req.params.dorm_id}).exec()
         .then(DormType => {
