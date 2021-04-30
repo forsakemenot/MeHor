@@ -228,6 +228,15 @@ p{
 .mb-2-v{
   margin-bottom: 2vw !important;
 }
+.p-0-5-v{
+  padding: 0.5vw;
+}
+.p-1-v{
+  padding: 1vw;
+}
+.p-2-v{
+  padding: 2vw;
+}
 .pl-0-5-v{
   padding-left: 0.5vw;
 }
