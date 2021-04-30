@@ -173,7 +173,7 @@ function Login_register() {
                                     <img id="img_lock" alt="" src={lock} />
                                 </div>
                             </div>
-                            <div className="d-flex div_checkbox align-center">
+                            <div className="d-flex div_checkbox align-items-center">
                                 <span>สมัครสมาชิกในบทบาท : </span>
                                 <input className="checkbox box_top" type="radio" name="role" value="General" onChange={handleInputChangeRegis}/>
                                 <span>ผู้เช่า</span>
