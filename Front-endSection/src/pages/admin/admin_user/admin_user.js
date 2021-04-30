@@ -55,22 +55,19 @@ function AdminUser() {
                            <div className="col-1">
                               <p className="m-0">NO.</p>
                            </div>
-                           <div className="col-2">
-                              <p className="m-0">หมายเลขหอพัก</p>
+                           <div className="col-3">
+                              <p className="m-0 pl-0-5-v">ชื่อผู้ใช้</p>
                            </div>
                            <div className="col-3">
-                              <p className="m-0">ชื่อหอพัก</p>
+                              <p className="m-0 pl-0-5-v">ประเภทผู้ใช้</p>
                            </div>
                            <div className="col-2">
-                              <p className="m-0">โซน</p>
-                           </div>
-                           <div className="col-2">
-                              <p className="m-0">อัพเดตข้อมูลล่าสุด</p>
+                              <p className="m-0 pl-0-5-v">วันเข้าระบบ</p>
                            </div>
                         </div>
-                     </div>
+                    </div>
 
-
+                    <User />
                   </div>
                </div>
             </div>

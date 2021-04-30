@@ -11,19 +11,16 @@ function User() {
                 <div className="col-1">
                     <p className="m-0 text_label">1</p>
                 </div>
-                <div className="col-2">
-                    <p className="m-0 text_label">#001</p>
+                <div className="col-3">
+                    <p className="m-0 text_label">Thanopon Matikanon</p>
                 </div>
                 <div className="col-3">
-                    <p className="m-0 text_label">A.J. PARK</p>
+                    <p className="m-0 text_label">ผู้เช่า</p>
                 </div>
-                <div className="col-2">
-                    <p className="m-0 text_label">เกกีงาม</p>
+                <div className="col-4">
+                    <p className="m-0 text_label">20 / 4 /2021</p>
                 </div>
-                <div className="col-2">
-                    <p className="m-0 text_label">4 / 13 /2021</p>
-                </div>
-                <div className="col-2 d-flex justify-evenly">
+                <div className="col-1 d-flex justify-evenly">
                     <img src={bin} className="img_admin_edit"></img>
                 </div>
             </div>
