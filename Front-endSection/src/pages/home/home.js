@@ -26,7 +26,7 @@ function Home() {
     const [activeBoxConvenient, setActiveBoxConvenient] = useState(false);
     const [activeBoxCommonFee, setActiveBoxCommonFee] = useState(false);
     const [activeBoxSeeMore, setActiveBoxSeeMore] = useState(false);
-    const [descDorm, setDescDorm] = useState({});
+    const [descDorm, setDescDorm] = useState([]);
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
     const optionsGet = data => {
         return {
@@ -52,39 +52,7 @@ function Home() {
                 console.log(error);
             })
     }, []);
-    const dom = [{
-        name: "หอพักกอบัว (หอพักหญิง)",
-        desc: ["มัดจำ 5000 บาท จ่ายล่วงหน้า 1 เดือน", "มี wifi 15 mdps", "น้ำ 18 ไฟ 7", "กุญแจชุดละ 300", "มี 2 เตียง(3.5 ฟุต)", "เบอร์ 02-326-9220 (เจ้าของ)"],
-        price: "฿ 3200 - 3700 / เดือน",
-        img: "http://dummyimage.com/315x200/",
-        HeartImg: HeartImg
 
-    },
-    {
-        name: "ชื่อหอที่ต้องการ",
-        desc: ["รายละเอียด - 1", "รายละเอียด - 2", "รายละเอียด - 3", "รายละเอียด - 4", "รายละเอียด - 5", "รายละเอียด - 6"],
-        price: "฿ ราคา / เดือน",
-        img: "http://dummyimage.com/315x200/",
-        HeartImg: HeartImg
-
-    },
-    {
-        name: "ชื่อหอต้องการ",
-        desc: ["รายละเอียด - 1", "รายละเอียด - 2", "รายละเอียด - 3", "รายละเอียด - 4", "รายละเอียด - 5", "รายละเอียด - 6"],
-        price: "฿ ราคา / เดือน",
-        img: "http://dummyimage.com/315x200/",
-        HeartImg: HeartImg
-
-    },
-    {
-        name: "ชื่อหอต้องการ",
-        desc: ["รายละเอียด - 1", "รายละเอียด - 2", "รายละเอียด - 3", "รายละเอียด - 4", "รายละเอียด - 5", "รายละเอียด - 6"],
-        price: "฿ ราคา / เดือน",
-        img: "http://dummyimage.com/315x200/",
-        HeartImg: HeartImg
-
-    }
-    ]
 
     function togglePrice() {
         setActiveBoxPrice(!activeBoxPrice);
@@ -100,17 +68,17 @@ function Home() {
     }
     const dormBox = useMemo(
         () => {
-            console.log(descDorm);
+
             if (descDorm) {
                 return (
                     descDorm?.map(function (element, index) {
-                        return <DomList data={element} />
+                        return <DomList data={element} HeartImg={HeartImg} />
                     })
                 )
             }
             return
-            
-        },[descDorm]
+
+        }, [descDorm]
     )
     return (
 
