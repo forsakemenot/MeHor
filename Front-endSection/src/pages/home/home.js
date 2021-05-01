@@ -138,7 +138,7 @@ function Home() {
                                     <input type="radio" name="filter_price" className="radio_type_home"></input>
                                     <span className="color-main ml-0-2-v">ทุกราคา</span>
                                 </div>
-                                <div className="d-flex align-center">
+                                <div className="d-flex align-center mt-0-5-v">
                                     <input type="radio" name="filter_price" className="radio_type_home"></input>
                                     <span className="color-main ml-0-2-v">รายเดือน</span>
                                 </div>
@@ -152,7 +152,7 @@ function Home() {
                                     <input type="checkbox" name=""></input>
                                     <span>มากกว่า 6000 บาท</span>
                                 </div>
-                                <div className="d-flex align-center">
+                                <div className="d-flex align-center mt-0-5-v">
                                     <input type="radio" name="filter_price" className="radio_type_home"></input>
                                     <span className="color-main ml-0-2-v">รายวัน</span>
                                 </div>
@@ -173,7 +173,7 @@ function Home() {
                             <img alt="" src={activeBoxConvenient ? minus : Plus} onClick={toggleConvenient} />
                             {
                                 activeBoxConvenient === true &&
-                                <div className="d-flex align-center checkbox_convenient">
+                                <div className="d-flex align-center checkbox_convenient mt-0-5-v">
                                     <input type="checkbox" name=""></input>
                                     <span>เครื่องปรับอากาศ</span>
                                     <input type="checkbox" name=""></input>
@@ -212,7 +212,7 @@ function Home() {
                             <img alt="" src={activeBoxCommonFee ? minus : Plus} onClick={toggleCommonFee} />
                             {
                                 activeBoxCommonFee === true &&
-                                <div className="d-flex align-center checkbox_common_fee">
+                                <div className="d-flex align-center checkbox_common_fee mt-0-5-v">
                                     <input type="checkbox" name=""></input>
                                     <span>ที่จอดรถ</span>
                                     <input type="checkbox" name=""></input>
