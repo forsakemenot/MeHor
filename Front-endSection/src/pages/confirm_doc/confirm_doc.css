@@ -2,22 +2,15 @@
     width: 1.5vw;
 }
 
-.text_head_table {
-    margin-top: -1%;
-    margin-left: 10%;
-    align-items: baseline;
-    color: #325679;
-}
-
 .note {
     font-size: 0.8vw;
     font-weight: 300;
-    margin-left: 2vw;
+    padding-left: 0.5vw;
     color: #a3a3a3;
 }
 
 .house_regis {
-    width: 50vw;
+    width: 47vw;
     height: 10vh;
     border: #325679 1px solid;
     color: #325679;
@@ -27,22 +20,20 @@
 }
 
 .header_topic {
-    width: 25vw;
+    width: 27vw;
     height: 10vh;
     flex-direction: column;
     justify-content: center;
 }
 
-.topic_house {
-    margin-top: 1%;
-    margin-left: 3%;
+.remark_file {
+    font-size: 0.8vw;
+    font-weight: 300;
+    color: #a3a3a3;
 }
 
-.remark_file {
-    font-size: 1vw;
-    font-weight: 300;
-    margin: -2% 0 0 3%;
-    color: #a3a3a3;
+.img_upload {
+    width: 1.3vw;
 }
 
 .status {
@@ -55,7 +46,8 @@
 }
 
 .status_file{
-    width: 8vw;
+    font-size: 0.9vw;
+    width: 7vw;
     height: 4vh;
     border-radius: 10px;
     background-color: #C2C2C2;
@@ -94,23 +86,29 @@
 
 .img_info {
     width: 1.5vw;
-    margin-left: 10%;
 }
 
 .text_info {
     margin-left: 1%;
     color: #325679;
     font-weight: 300;
-    font-size: 1vw;
+    font-size: 0.9vw;
 }
 
 .list_info {
-    margin: 1% 0 0 9%;
+    margin: 1% 0 0 5%;
     width: 50vw;
     color: #325679;
     font-weight: 300;
-    font-size: 1vw;
+    font-size: 0.9vw;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.text_red {
+    font-weight: 300;
+    font-weight: 0.9vw;
+    color: #C90000;
+    padding-left: 0.5vw;
 }

@@ -62,15 +62,15 @@ function ConfirmDoc() {
                     <p>ค่าเงินมัดจำ/ค่าเงินประกัน</p>
                 </div>
 
-                <div className="text_head_table d-flex">
+                <div className="text_head_table d-flex align-items-baseline color-main ml-3-v">
                     <p>เอกสาร</p>
                     <p className="note">(โปรดแนบเอกสารให้ตรงกับหัวข้อ)</p>
                 </div>
 
                 <div className={`house_regis mx-auto d-flex ${fileDorm.type != undefined && "active"}`}>
                     <div className="header_topic d-flex">
-                        <p className="topic_house">สำเนาทะเบียนบ้านของ "ที่พัก" พร้อมเซ็นสำเนาถูกต้อง</p>
-                        <p className="remark_file">(รองรับไฟล์ jpg. png. และ pdf.)</p>
+                        <p className="pl-1-v m-0">สำเนาทะเบียนบ้านของ "ที่พัก" พร้อมเซ็นสำเนาถูกต้อง</p>
+                        <p className="remark_file pl-1-v m-0">(รองรับไฟล์ jpg. png. และ pdf.)</p>
                     </div>
                     <div className="status d-flex">
                         <p className="status_file d-flex">
@@ -82,15 +82,15 @@ function ConfirmDoc() {
                     <div className="upload d-flex">
                         <p className="upload_file d-flex position-relative">อัพโหลดสำเนาทะเบียนบ้าน
                         <input type="file" onChange={handleFileDorm} className="input-file-type position-absolute w-80 mx-auto bg-info" />
-                            <img alt="" src={upload} style={{ width: '1.3vw', marginLeft: '5%' }}></img>
+                            <img alt="" src={upload} className="img_upload ml-0-5-v"></img>
                         </p>
                     </div>
                 </div>
 
                 <div className={`house_regis mx-auto d-flex ${fileDormNum.type != undefined && "active"}`}>
                     <div className="header_topic d-flex position-relative">
-                        <p className="topic_house">รูปถ่ายที่พักโดยให้เห็น "บ้านเลขที่" และอาคารที่ชัดเจน</p>
-                        <p className="remark_file">(รองรับไฟล์ jpg. png. และ pdf.)</p>
+                        <p className="pl-1-v m-0">รูปถ่ายที่พักโดยให้เห็น "บ้านเลขที่" และอาคารที่ชัดเจน</p>
+                        <p className="remark_file pl-1-v m-0">(รองรับไฟล์ jpg. png. และ pdf.)</p>
                     </div>
                     {/* {file.name} */}
                     <div className="status d-flex">
@@ -103,7 +103,7 @@ function ConfirmDoc() {
                     <div className="upload d-flex position-relative">
                         <input type="file" onChange={handleFileDormNum} className="input-file-type position-absolute w-80 mx-auto bg-info" />
                         <p className="upload_file d-flex">อัพโหลดสำเนาทะเบียนบ้าน
-                                <img alt="" src={upload} style={{ width: '1.3vw', marginLeft: '5%' }}></img>
+                                <img alt="" src={upload} className="img_upload ml-0-5-v"></img>
                         </p>
                     </div>
                     {/* <div id="upload-box" className="file-input">
@@ -116,14 +116,14 @@ function ConfirmDoc() {
                     </div> */}
                 </div>
 
-                <div className="info d-flex">
+                <div className="info d-flex align-items-center ml-3-v">
                     <img alt="" src={info} className="img_info"></img>
                     <span className="text_info">รูปถ่ายที่ไม่อนุญาตให้ลงในประกาศ</span>
                 </div>
 
                 <ul className="list_info">
-                    <li>หลักฐานที่ใช้ในการลงทะเบียนเพื่อยืนยันตัวตนกับ เว็บไซต์ mehor.in.th
-                            <span style={{ fontWeight: '400', color: '#C90000' }}> จะไม่แสดงให้ผู้ใช้งานหรือบุคคลทั่วไปเห็น</span></li>
+                    <li className="mb-0-5-v">หลักฐานที่ใช้ในการลงทะเบียนเพื่อยืนยันตัวตนกับ เว็บไซต์ mehor.in.th
+                        <span className="text_red">จะไม่แสดงให้ผู้ใช้งานหรือบุคคลทั่วไปเห็น</span></li>
                     <li>ทีมงานใช้เวลาตรวจสอบเอกสารและเปลี่ยนสถานะการตรวจสอบไม่เกิน 7 วันทำการ</li>
                 </ul>
 
