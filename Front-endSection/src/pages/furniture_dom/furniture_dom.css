@@ -50,10 +50,6 @@
 }
 
 .policy_of_img {
-    width: 45vw;
-    margin-top: 1%;
-    margin-left: 10%;
-    border-radius: 10px;
     font-weight: 300;
     font-size: 0.8vw;
     color: #FF3E3E;
@@ -71,7 +67,7 @@
 }
 
 .upload_image {
-    width: 50vw;
+    width: 45vw;
     margin: 2% 0 2% 10%;
     height: 30vh;
     border: #325679;
@@ -100,5 +96,5 @@
 }
 
 .photo {
-    margin-top: 10vw;
+    margin-top: 9vw;
 }

@@ -49,19 +49,17 @@ function ConfirmDoc() {
                     <div className="position-absolute"></div>
                 </div>
             </div>
-            <div className="form_confirm">
-                <div className="d-flex" style={{ paddingLeft: '3%' }}>
+
+            <div className="form_dorm">
+                <div className="d-flex">
                     <img alt="" className="img_doc" src={document} />
                     <p className="text_header">เอกสารยืนยัน</p>
                 </div>
-                <hr></hr>
+                <hr className="line_under_head"></hr>
 
-                <div id="form_cost" className="d-flex">
-                    <div className="d-flex">
-                        <img alt="" className="img_cost" src={check} />
-                        <p>ค่าเงินมัดจำ/ค่าเงินประกัน</p>
-                    </div>
-                    <hr style={{ width: '50vw', margin: '-1% 0 1% 0' }}></hr>
+                <div className="d-flex ml-3-v">
+                    <img alt="" className="img_cost" src={check} />
+                    <p>ค่าเงินมัดจำ/ค่าเงินประกัน</p>
                 </div>
 
                 <div className="text_head_table d-flex">

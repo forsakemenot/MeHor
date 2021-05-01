@@ -245,12 +245,14 @@ function FurnitureDom() {
                   <hr className="line_under_head"></hr>
 
                   <div className="d-flex align-items-start mt-1-v">
-                     <img alt="" src={warning} className="img_warning"></img>
-                     <span className="text_warning">รูปถ่ายที่ไม่อนุญาตให้ลงในประกาศ</span>
+                     <div className="d-flex align-items-center w-35">
+                        <img alt="" src={warning} className="img_warning"></img>
+                        <span className="text_warning">รูปถ่ายที่ไม่อนุญาตให้ลงในประกาศ</span>
+                     </div>
                      <div className="policy_of_img">
-                        <p><u>รูปถ่ายที่ติดลายน้ำของกิจการอื่นๆ</u></p>
-                        <p><u>รูปถ่ายที่ติดลิขสิทธิ์หรือละเมิดสิทธิส่วนบุคคล</u></p>
-                        <p><u>รูปถ่ายที่มีการถูกดัดแปลง แก้ไขจากต้นฉบับ</u></p>
+                        <p className="mt-0"><u>รูปถ่ายที่ติดลายน้ำของกิจการอื่นๆ</u></p>
+                        <p className="mt-0"><u>รูปถ่ายที่ติดลิขสิทธิ์หรือละเมิดสิทธิส่วนบุคคล</u></p>
+                        <p className="mt-0"><u>รูปถ่ายที่มีการถูกดัดแปลง แก้ไขจากต้นฉบับ</u></p>
                      </div>
                   </div>
 
@@ -260,12 +262,12 @@ function FurnitureDom() {
                         <img alt="" src={upload_pic}></img>
                      </div>
                   </div>
-                  <div className="d-flex justify-content-center">
+                  <div className="ml-5-v">
                      {/* <button type="file" id="customFile" name="filename" className="btn_add_image file" data-browse-on-zone-click="true">เพิ่มรูป</button> */}
                      <input onChange={(e) => setSelectedFile(e.target.files)} multiple id="input-b1" name="input-b1" type="file" class="file" data-browse-on-zone-click="true" />
                   </div>
                   <div className="remark_upload">
-                     <p>* รูปภาพแรก จะเป็น<u style={{ fontWeight: '600' }}>รูปภาพหลัก</u>ของหอพัก</p>
+                     <p>* รูปภาพแรก จะเป็น<u>รูปภาพหลัก</u>ของหอพัก</p>
                      <p>** ไฟล์ภาพรองรับขนาดไม่เกิน 5 mb</p>
                   </div>
                </div>

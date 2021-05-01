@@ -1,22 +1,5 @@
-
-.bg_test {
-    background-color: #ffe4e4;
-    height: 85vh;
-    width: 80vw;
-    display: flex;
-    justify-content: flex-end;
-}
-.form_confirm {
-    background-color: white;
-    border: #325679 2px solid;
-    border-radius: 10px 10px 10px 10px;
-    height: 73vh;
-    width: 65vw;
-    margin: 3vw auto;
-}
-
 .img_doc {
-    width: 2vw;
+    width: 1.5vw;
 }
 
 .text_head_table {
@@ -29,7 +12,7 @@
 .note {
     font-size: 0.8vw;
     font-weight: 300;
-    margin-left: 1%;
+    margin-left: 2vw;
     color: #a3a3a3;
 }
 
