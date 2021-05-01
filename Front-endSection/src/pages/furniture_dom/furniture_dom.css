@@ -5,14 +5,6 @@
     display: flex;
     justify-content: flex-end;
 }
-.form_image_room {
-    background-color: white;
-    border: #325679 2px solid;
-    border-radius: 10px 10px 10px 10px;
-    height: 145vh;
-    width: 65vw;
-    margin: 3vw auto;
-}
 
 .in_room,
 .out_room {
@@ -25,10 +17,19 @@
     margin-left: 10%;
     color: #325679;
     font-weight: 300;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox_type {
+    width: 1.4vw;
+    height: 1.4vw;
+    margin: 0.5vw 0.5vw 0.5vw 0;
 }
 
 .img_furniture {
-    width: 2vw;
+    width: 1.5vw;
+    margin-right: 1vw;
 }
 
 .text_topic {
@@ -38,8 +39,7 @@
 
 .img_warning {
     width: 1.5vw;
-    margin-left: 10%;
-    margin-top: 2%;
+    margin-left: 5vw;
 }
 
 .text_warning {
@@ -50,16 +50,13 @@
 }
 
 .policy_of_img {
-    background-color: #EFF5F9;
-    width: 50vw;
+    width: 45vw;
     margin-top: 1%;
     margin-left: 10%;
-    color: #325679;
-    border: #325679 1px solid;
     border-radius: 10px;
     font-weight: 300;
     font-size: 0.8vw;
-    justify-content: space-evenly;
+    color: #FF3E3E;
 }
 
 .btn_add_image {
@@ -92,13 +89,16 @@
     color: #325679;
 }
 
-
-#furniture {
+.furniture {
     width: 50vw;
     height: 45vh;
     margin-left: 10%;
 }
 
-#check {
+.check {
     margin-top: -1%;
+}
+
+.photo {
+    margin-top: 10vw;
 }
