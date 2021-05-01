@@ -67,7 +67,7 @@ function ConfirmDoc() {
                     <p className="note">(โปรดแนบเอกสารให้ตรงกับหัวข้อ)</p>
                 </div>
 
-                <div className={`house_regis d-flex ${fileDorm.type != undefined && "active"}`}>
+                <div className={`house_regis mx-auto d-flex ${fileDorm.type != undefined && "active"}`}>
                     <div className="header_topic d-flex">
                         <p className="topic_house">สำเนาทะเบียนบ้านของ "ที่พัก" พร้อมเซ็นสำเนาถูกต้อง</p>
                         <p className="remark_file">(รองรับไฟล์ jpg. png. และ pdf.)</p>
@@ -80,15 +80,15 @@ function ConfirmDoc() {
                         </p>
                     </div>
                     <div className="upload d-flex">
-                        <p className="upload_file d-flex">อัพโหลดสำเนาทะเบียนบ้าน
+                        <p className="upload_file d-flex position-relative">อัพโหลดสำเนาทะเบียนบ้าน
                         <input type="file" onChange={handleFileDorm} className="input-file-type position-absolute w-80 mx-auto bg-info" />
                             <img alt="" src={upload} style={{ width: '1.3vw', marginLeft: '5%' }}></img>
                         </p>
                     </div>
                 </div>
 
-                <div className={`house_regis d-flex ${fileDormNum.type != undefined && "active"}`}>
-                    <div className="header_topic d-flex">
+                <div className={`house_regis mx-auto d-flex ${fileDormNum.type != undefined && "active"}`}>
+                    <div className="header_topic d-flex position-relative">
                         <p className="topic_house">รูปถ่ายที่พักโดยให้เห็น "บ้านเลขที่" และอาคารที่ชัดเจน</p>
                         <p className="remark_file">(รองรับไฟล์ jpg. png. และ pdf.)</p>
                     </div>
