@@ -91,11 +91,18 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+.radio_type_home{
+    height: 1.1vw;
+    width: 1.1vw;
+    margin: .3vw 0;
+}
 .checkbox_price{
     flex-wrap: wrap;
 }
 .checkbox_price input{
     flex: 1 1 20%;
+    height: 1vw;
+    margin: .3vw 0vw;
 }
 .checkbox_price span{
     flex: 1 1 75%;
@@ -106,6 +113,8 @@
 }
 .checkbox_convenient input,.checkbox_common_fee input{
     flex: 1 1 15%;
+    height: 1vw;
+    margin: .3vw 0vw;
 }
 .checkbox_convenient span,.checkbox_common_fee span{
     flex: 1 1 85%;

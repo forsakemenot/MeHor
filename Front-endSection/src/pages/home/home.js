@@ -135,11 +135,11 @@ function Home() {
 
                             <div>
                                 <div className="d-flex align-center">
-                                    <input type="radio" name="filter_price"></input>
+                                    <input type="radio" name="filter_price" className="radio_type_home"></input>
                                     <span className="color-main ml-0-2-v">ทุกราคา</span>
                                 </div>
                                 <div className="d-flex align-center">
-                                    <input type="radio" name="filter_price"></input>
+                                    <input type="radio" name="filter_price" className="radio_type_home"></input>
                                     <span className="color-main ml-0-2-v">รายเดือน</span>
                                 </div>
                                 <div className="d-flex align-center checkbox_price">
@@ -153,7 +153,7 @@ function Home() {
                                     <span>มากกว่า 6000 บาท</span>
                                 </div>
                                 <div className="d-flex align-center">
-                                    <input type="radio" name="filter_price"></input>
+                                    <input type="radio" name="filter_price" className="radio_type_home"></input>
                                     <span className="color-main ml-0-2-v">รายวัน</span>
                                 </div>
                                 <div className="d-flex align-center checkbox_price">
