@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="469" height="288" viewBox="0 0 469 288">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1" y1="1" x2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#a7e6da"/>
+      <stop offset="1" stop-color="#c7e6c0"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_409" data-name="Group 409" transform="translate(-726 -1057)">
+    <g id="Rectangle_7" data-name="Rectangle 7" transform="translate(726 1057)" stroke="#c6c6c6" stroke-width="1" fill="url(#linear-gradient)">
+      <rect width="469" height="288" stroke="none"/>
+      <rect x="0.5" y="0.5" width="468" height="287" fill="none"/>
+    </g>
+    <text id="Standard" transform="translate(859 1156)" font-size="50" font-family="Kanit-Regular, Kanit"><tspan x="0" y="0">Standard</tspan></text>
+    <text id="เริ่มต้น_400_บาท_เดือน" data-name="เริ่มต้น
+400 บาท/เดือน" transform="translate(965 1225)" font-size="40" font-family="Kanit-Light, Kanit" font-weight="300"><tspan x="-52.84" y="0">เริ่มต้น</tspan><tspan x="-124.72" y="60">400 บาท/เดือน</tspan></text>
+  </g>
+</svg>

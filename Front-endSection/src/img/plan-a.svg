@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="469" height="288" viewBox="0 0 469 288">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1.058" y1="0.58" x2="-0.047" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#bdb4b4"/>
+      <stop offset="1" stop-color="#cbcbcb"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_408" data-name="Group 408" transform="translate(-144 -1057)">
+    <g id="Rectangle_7" data-name="Rectangle 7" transform="translate(144 1057)" stroke="#c6c6c6" stroke-width="1" fill="url(#linear-gradient)">
+      <rect width="469" height="288" stroke="none"/>
+      <rect x="0.5" y="0.5" width="468" height="287" fill="none"/>
+    </g>
+    <text id="ไม่เสียค่าใช้จ่าย" transform="translate(375 1268)" font-size="40" font-family="Kanit-Light, Kanit" font-weight="300"><tspan x="-117.66" y="0">ไม่เสียค่าใช้จ่าย</tspan></text>
+    <text id="Free" transform="translate(327 1158)" font-size="50" font-family="Kanit-Regular, Kanit"><tspan x="0" y="0">Free</tspan></text>
+  </g>
+</svg>
