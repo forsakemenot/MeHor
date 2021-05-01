@@ -222,6 +222,9 @@ p{
 .my-1-auto{
   margin: 1vw auto;
 }
+.my-0-5-v{
+  margin: 0.5vw 0;
+}
 .mb-0-5-v{
   margin-bottom: 0.5vw !important;
 }
