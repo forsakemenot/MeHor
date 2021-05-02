@@ -10,6 +10,8 @@ import camera from '../../img/camera.svg';
 import warning from '../../img/warning.svg';
 import upload_pic from '../../img/upload_pic.svg';
 
+import AddMap from '../../components/Map/Map'
+
 
 function FurnitureDom() {
    const history = useHistory();
