@@ -170,7 +170,15 @@ p{
 .w-95{
   width: 95%;
 }
-
+.h-70{
+  height: 70%;
+}
+.h-80{
+  height: 80%;
+}
+.h-90{
+  height: 90%;
+}
 .mt-0-5-v{
   margin-top: 0.5vw;
 }
@@ -374,6 +382,9 @@ p{
 }
 .line-top-gray{
   border-top: .1vw solid #707070;
+}
+.pointer {
+  cursor: pointer;
 }
 .line-bottom-gray{
   border-bottom: .1vw solid #707070;

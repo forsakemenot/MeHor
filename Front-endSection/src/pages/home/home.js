@@ -81,7 +81,7 @@ function Home() {
     )
     return (
 
-        <div>
+        <div>       
             <div className="map_info">
                 <div className="main_kmitl">
                     <img alt="" src={kmitl}></img>
@@ -106,6 +106,9 @@ function Home() {
                     <img className="map-el-shadow zone_nikom_shd" alt="" src={shadow_nikom}></img>
                     <img className="map-el-img zone_nikom_img" alt="" src={nikom}></img>
                 </div>
+            </div>
+            <div>
+                
             </div>
             <div className="dom_list d-flex">
                 <div className="search_dom d-flex mt-3-v">
