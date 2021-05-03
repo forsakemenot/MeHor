@@ -104,87 +104,89 @@ function Login_register() {
                 {
                     activeTab === "tab1" &&
                     <form onSubmit={HandleSubmitLogin}>
-                        <div className="d-flex text_from">
-                            <p>E-mail</p>
-                            <div>
-                                <input type="text"
-                                    onChange={handleInputChange}
-                                    name="email"
-                                ></input>
-                                <img id="img_email" alt="" src={email} />
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <div className="d-flex text_from">
+                                <span className="fs-1-v color-main py-0-5-v">E-mail</span>
+                                <div>
+                                    <input type="text" onChange={handleInputChange} name="email"></input>
+                                    <img id="img_email" className="position-absolute" alt="" src={email} />
+                                </div>
                             </div>
-                        </div>
-                        <div className="d-flex text_from">
-                            <p>Password</p>
-                            <div>
-                                <input type="password"
-                                    onChange={handleInputChange}
-                                    name="password"
-                                ></input>
-                                <img id="img_lock" alt="" src={lock} />
+                            <div className="d-flex text_from">
+                                <span className="fs-1-v color-main py-0-5-v">Password</span>
+                                <div>
+                                    <input type="password"
+                                        onChange={handleInputChange}
+                                        name="password"
+                                    ></input>
+                                    <img id="img_lock" className="position-absolute" alt="" src={lock} />
+                                </div>
                             </div>
                         </div>
                         <div className="d-flex">
                             <button type="submit" className="btn_login">เข้าสู่ระบบ</button>
                         </div>
                         <div className="d-flex justify-content-center">
-                            <p className="text_forget"><Link to="/">ลืมรหัสผ่าน</Link> ใช่หรือไม่</p>
+                            <p className="text_forget"><Link to="/"><u>ลืมรหัสผ่าน</u></Link> ใช่หรือไม่</p>
                         </div>
                     </form>
                 }
                 {
                     activeTab === "tab2" &&
                     <form onSubmit={HandleSubmitRegis}>
-                        <div>
-                            <div className="d-flex text_from direction-row">
-                                <div className="flex-50">
-                                    <p>ชื่อ</p>
-                                    <div>
-                                        <input name="firstname" onChange={handleInputChangeRegis} type="text"></input>
-                                        <img id="img_man1" alt="" src={man} />
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <div className="d-flex text_from">
+                                <div className="w-100 d-flex">
+                                    <div className="flex-50 pt-0-5-v">
+                                        <span className="fs-1-v color-main">ชื่อ</span>
+                                        <div>
+                                            <input name="firstname" className="mt-0-5-v" onChange={handleInputChangeRegis} type="text"></input>
+                                            <img id="img_man1" alt="" src={man} />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="flex-50" id="input_surname">
-                                    <p>นามสกุล</p>
-                                    <div>
-                                        <input name="surname" onChange={handleInputChangeRegis} type="text"></input>
-                                        <img id="img_man2" alt="" src={man} />
+                                    <div className="flex-50 pt-0-5-v" id="input_surname">
+                                        <span className="fs-1-v color-main">นามสกุล</span>
+                                        <div>
+                                            <input name="surname" className="mt-0-5-v" onChange={handleInputChangeRegis} type="text"></input>
+                                            <img id="img_man2" alt="" src={man} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="d-flex text_from">
-                                <p>E-mail</p>
+                                <span className="fs-1-v color-main">E-mail</span>
                                 <div>
-                                    <input name="email" onChange={handleInputChangeRegis} type="text"></input>
+                                    <input name="email" className="mt-0-5-v" onChange={handleInputChangeRegis} type="text"></input>
                                     <img id="img_email2" alt="" src={email} />
                                 </div>
                             </div>
                             <div className="d-flex text_from">
-                                <p>Password</p>
+                                <span className="fs-1-v color-main">Password</span>
                                 <div>
-                                    <input name="password" onChange={handleInputChangeRegis} type="password"></input>
-                                    <img id="img_lock" alt="" src={lock} />
+                                    <input name="password" className="mt-0-5-v" onChange={handleInputChangeRegis} type="password"></input>
+                                    <img id="img_lock2" alt="" src={lock} />
                                 </div>
                             </div>
                             <div className="d-flex text_from">
-                                <p>Confirm Password</p>
+                                <span className="fs-1-v color-main">Confirm Password</span>
                                 <div>
-                                    <input name="confirmPassword" onChange={handleInputChangeRegis} type="password"></input>
-                                    <img id="img_lock" alt="" src={lock} />
+                                    <input name="confirmPassword" className="mt-0-5-v" onChange={handleInputChangeRegis} type="password"></input>
+                                    <img id="img_lock2" alt="" src={lock} />
                                 </div>
                             </div>
-                            <div className="d-flex div_checkbox align-items-center">
-                                <span>สมัครสมาชิกในบทบาท : </span>
-                                <input className="checkbox box_top" type="radio" name="role" value="General" onChange={handleInputChangeRegis}/>
-                                <span>ผู้เช่า</span>
-                                <input className="checkbox box_top" type="radio" name="role" value="Operator" onChange={handleInputChangeRegis}/>
-                                <span>ผู้ประกอบการ</span>
+                            <div className="d-flex align-items-center w-100 p-1-v">
+                                <span className="fs-1-v color-main ml-1-v">สมัครสมาชิกในบทบาท : </span>
+                                <input className="checkbox box_top" type="radio" name="role" value="General" onChange={handleInputChangeRegis} />
+                                <span className="fs-1-v color-main mr-1-v">ผู้เช่า</span>
+                                <input className="checkbox box_top" type="radio" name="role" value="Operator" onChange={handleInputChangeRegis} />
+                                <span className="fs-1-v color-main">ผู้ประกอบการ</span>
                             </div>
-                            <div className="d-flex div_checkbox align-center bt_color">
+
+                            <div className="d-flex align-center w-100 p-0-5-v ml-3-v">
                                 <input className="checkbox box_bottom" type="checkbox" />
-                                <span>รับข่าวสารและโปรโมชั่นจากทางเว็บ และที่พักที่เป็นสมาชิก</span>
+                                <span className="fs-0-8-v color-main">รับข่าวสารและโปรโมชั่นจากทางเว็บ และที่พักที่เป็นสมาชิก</span>
                             </div>
-                            <div className="d-flex">
+                            <div className="d-flex mt-0-5-v">
                                 <button className="btn_login mb-1-v" type="submit">สมัครสมาชิก</button>
                             </div>
                         </div>

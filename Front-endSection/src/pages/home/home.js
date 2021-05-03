@@ -156,20 +156,6 @@ function Home() {
                                     <input type="checkbox" name=""></input>
                                     <span>มากกว่า 6000 บาท</span>
                                 </div>
-                                <div className="d-flex align-center mt-0-5-v">
-                                    <input type="radio" name="filter_price" className="radio_type_home"></input>
-                                    <span className="color-main ml-0-2-v">รายวัน</span>
-                                </div>
-                                <div className="d-flex align-center checkbox_price">
-                                    <input type="checkbox" name=""></input>
-                                    <span>น้อยกว่า 500 บาท</span>
-                                    <input type="checkbox" name=""></input>
-                                    <span>500 - 1000 บาท</span>
-                                    <input type="checkbox" name=""></input>
-                                    <span>1000 - 1500 บาท</span>
-                                    <input type="checkbox" name=""></input>
-                                    <span>มากกว่า 1500 บาท</span>
-                                </div>
                             </div>
                         }
                         <div className="d-flex box_filter_dropbox">
