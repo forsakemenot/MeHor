@@ -8,3 +8,14 @@
     border-radius: 6px;
     border: #70B8FF 1px solid;
 }
+.bg-active-nav-bar-admin{
+    background: #6E87A3;
+}
+.nav-admin{
+    color: #fff;
+    text-decoration: none;
+  }
+  .nav-admin:hover{
+    color: #fff;
+    text-decoration: none;
+  }

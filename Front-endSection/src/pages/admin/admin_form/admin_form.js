@@ -18,9 +18,9 @@ import NavbarAdmin from "../../../components/NavbarAdmin/NavbarAdmin.js"
 function AdminForm() {
    return (
       <div className="d-flex">
-         <NavbarAdmin />
+         <NavbarAdmin pages={0}/>
 
-         <div className="d-flex flex-column w-100 color-main align-items-center bg-admin">
+         <div className="d-flex flex-column w-20 color-main align-items-center bg-admin">
             <div className="navigation bg-white d-flex align-items-center justify-content-between px-3-v">
                <p className="m-0">รายการหอพักทั้งหมดในระบบ</p>
                <p className="m-0">Welcome! - ADMIN POWER</p>

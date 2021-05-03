@@ -10,7 +10,7 @@ import User from "../component/admin_user.js"
 function AdminUser() {
    return (
       <div className="d-flex">
-         <NavbarAdmin />
+         <NavbarAdmin pages={2}/>
 
          <div className="d-flex flex-column w-100 color-main align-items-center bg-admin">
             <div className="navigation bg-white d-flex align-items-center justify-content-between px-3-v">
