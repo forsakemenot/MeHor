@@ -1,13 +1,21 @@
 .navbar_admin {
-    width: 20vw;
     background-image: linear-gradient(#325679, #3B5998);
-    height: auto;
+    height: 100vh;
 }
 
 .back_to_home {
     background-color: rgba(255, 255, 255, 0.3);
-    width: 14vw;
     border-radius: 6px;
     border: #70B8FF 1px solid;
-    margin: 18vw 2vw 1vw 2vw;
 }
+.bg-active-nav-bar-admin{
+    background: #6E87A3;
+}
+.nav-admin{
+    color: #fff;
+    text-decoration: none;
+  }
+  .nav-admin:hover{
+    color: #fff;
+    text-decoration: none;
+  }

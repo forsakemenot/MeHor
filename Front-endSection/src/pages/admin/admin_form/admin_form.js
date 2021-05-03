@@ -18,7 +18,7 @@ import NavbarAdmin from "../../../components/NavbarAdmin/NavbarAdmin.js"
 function AdminForm() {
    return (
       <div className="d-flex">
-         <NavbarAdmin />
+         <NavbarAdmin pages={0}/>
 
          <div className="d-flex flex-column w-100 color-main align-items-center bg-admin">
             <div className="navigation bg-white d-flex align-items-center justify-content-between px-3-v">

@@ -45,7 +45,7 @@ function Home() {
             .then(res => {
                 if (res.dorm) {
                     setDescDorm(res.dorm);
-                    console.log(res.dorm);
+                    // console.log(res.dorm);
                 }
             })
             .catch(error => {
@@ -68,7 +68,8 @@ function Home() {
     }
     const dormBox = useMemo(
         () => {
-            if (descDorm._id) {
+            if (descDorm[0]?.dorm_name) {
+                console.log(descDorm[0],"test");
                 return (
                     descDorm.map(function (element, index) {
                         return <DomList data={element} HeartImg={HeartImg} />

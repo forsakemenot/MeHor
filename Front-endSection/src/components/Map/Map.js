@@ -3,9 +3,7 @@ import '../../pages/add_dom/add_dom.css';
 import './../../App.css';
 import gps from '../../img/crosshair.svg';
 
-import {
-    MapContainer, TileLayer, Marker, Popup, useMapEvents
-} from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import marker from '../../img/location.svg';
@@ -89,7 +87,7 @@ function DisplayPosition({ map }) {
 }
 function MapDorm() {
     const [dormDetails, setdormDetails] = useState({ latitude: 1.5551, longtitude: 1.5858 });
-    
+
     // MAP
     const [map, setMap] = useState(null)
 
@@ -134,7 +132,7 @@ function MapDorm() {
                 zoom={zoom}
                 scrollWheelZoom={false}
                 whenCreated={setMap}
-                className="map_con"
+                className="w-100 h-100 d-flex"
             >
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -164,24 +162,9 @@ function MapDorm() {
     )
 
     return (
-        <div>
-            {/* map */}
-            <div className="d-flex main_form mt-2-v">
-                <p>แผนที่</p>
-                <button className="btn_gps">
-                    <img alt="" src={gps} />
-          ค้นหาจากตำแหน่งปัจจุบันของคุณ
-       </button>
-
-                <p>
-                    latitude: {position.lat.toFixed(4)}, longitude: {position.lng.toFixed(4)}{' '}
-                    <button type="button" onClick={onClick}>reset</button>
-                </p>
-
-                <div>
-                    {displayMap}
-                </div>
-
+        <div className="d-flex color-main flex-column w-100 h-100">
+            <div className="w-100 h-100 d-flex justify-content-center">
+                {displayMap}
             </div>
         </div>
     );

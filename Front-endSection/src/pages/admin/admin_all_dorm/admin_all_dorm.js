@@ -12,8 +12,9 @@ import NavbarAdmin from "../../../components/NavbarAdmin/NavbarAdmin.js"
 function AllDorm() {
    return (
       <div className="d-flex">
-         <NavbarAdmin />
-
+         <div className="w-20 d-flex">
+         <NavbarAdmin pages={0}/>
+         </div>
          <div className="d-flex flex-column w-100 color-main align-items-center bg-admin">
             <div className="navigation bg-white d-flex align-items-center justify-content-between px-3-v">
                <p className="m-0">รายการหอพักทั้งหมดในระบบ</p>

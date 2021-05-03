@@ -36,25 +36,15 @@
 
 .btn_gps {
     font-family: 'Kanit', sans-serif;
-    width: 18vw;
-    height: 2.5vw;
     border-radius: 10px 10px 10px 10px;
-    background-color: #325679;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .btn_gps img{
-    width: 7%;
-    margin-right: 5%;
+   height: 1vw;
 }
 .textarea_form {
     height: 10vw;
-    width: 45vw;
     border: #325679 1px solid;
     border-radius: 10px 10px 10px 10px;
-    margin-top: 1%;
 }
 
 .continue {

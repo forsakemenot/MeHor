@@ -1,15 +1,14 @@
-#img_admin_approve {
+.img_admin_approve {
     width: 15vw;
-    height: 10vw;
+    height: 9vw;
 }
 
 .navigation {
-    height: 4vw;
-    width: 80.9vw;
+    padding: 1vw 4vw;
 } 
 
-.approve_component.card-body {
-    padding: 0.5vw 1vw 0.5vw 1vw;
+.approve_component {
+    padding: 0.5vw 1vw;
 }
 
 .approve_check {
@@ -26,4 +25,11 @@
     height: 2.5vw;
     border-radius: 6px;
     margin: 0.5vw 0 0.5vw 0;
+}
+.image-search-admin-approve{
+    height: 1vw;
+    left: 70%;
+}
+.btn-dorm-approve{
+    height: 1vw;
 }

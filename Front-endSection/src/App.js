@@ -20,7 +20,7 @@ import Profile from "./pages/profile/profile.js";
 import Details from "./pages/details/details.js";
 import Advertise from "./pages/advertise/advertise.js";
 import Zone from "./pages/zone/zone.js"
-import AboutUs from "./pages/about_us/about_us.js"
+import AboutWeb from "./pages/about_web/about_web"
 import jwt from 'jsonwebtoken';
 import AdminForm from './pages/admin/admin_form/admin_form.js'
 import AdminDorm from './pages/admin/admin_all_dorm/admin_all_dorm.js'
@@ -51,7 +51,7 @@ function App() {
                 <div className="color-white">{email}</div>
                 <div className="d-flex mt-0-5-v">
                 <form>
-                  <button className="btn btn-warning mr-1-v">Admin Panel</button>
+                  <Link to="AdminApprove"><button className="btn btn-warning mr-1-v">Admin Panel</button></Link>
                 </form>
                 <form onSubmit={handleLogout}>
                   <button className="btn btn-outline-light">Logout</button>
@@ -61,7 +61,6 @@ function App() {
               :
               <Link to="/LoginRegister">เข้าสู่ระบบ/สมัครสมาชิก</Link>
           }
-
         </div>
       </div>
       
@@ -102,8 +101,8 @@ function App() {
         <Route path="/zone">
           <Zone />
         </Route>
-        <Route path="/aboutUs">
-          <AboutUs />
+        <Route path="/aboutWeb">
+          <AboutWeb />
         </Route>
         <Route path="/AdminForm">
           <AdminForm />
