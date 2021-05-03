@@ -348,6 +348,9 @@ p{
 .fs-3-5-v{
   font-size: 3.5vw;
 }
+.fw-bold {
+  font-weight: bold !important;
+}
 .line-bottom-white{
   border-bottom: .1vw solid #fff;
 }
