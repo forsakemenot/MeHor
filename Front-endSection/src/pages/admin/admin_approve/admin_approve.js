@@ -12,7 +12,7 @@ import NavbarAdmin from '../../../components/NavbarAdmin/NavbarAdmin.js'
 function AdminApprove() {
     return (
         <div className="d-flex bg-admin">
-            <div className="w-20  d-flex">
+            <div className="w-20 d-flex">
                 <NavbarAdmin pages={1}/>
             </div>
             <div className="d-flex flex-column w-100 color-main align-items-center">
