@@ -4,8 +4,7 @@
 }
 
 .navigation {
-    height: 4vw;
-    width: 80.9vw;
+    padding: 1vw 4vw;
 } 
 
 .approve_component.card-body {
@@ -26,4 +25,8 @@
     height: 2.5vw;
     border-radius: 6px;
     margin: 0.5vw 0 0.5vw 0;
+}
+.image-search-admin-approve{
+    height: 1vw;
+    left: 64%;
 }

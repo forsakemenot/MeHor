@@ -252,14 +252,14 @@ function Details() {
                 </div>
             </div>
             {/* ช่องทางติดต่อ */}
-            <div className="d-flex w-80 mx-auto">
+            <div className="d-flex w-80 mx-auto py-1-5-v">
                 {contant}
-                <div className="w-55 d-flex justify-content-center flex-wrap">
+                <div className="w-60 d-flex justify-content-center flex-wrap">
                     <div className="w-100 d-flex align-items-center">
                         <img alt="" className="w-20 image_price_details" src={coins} alt="" />
                         {price}
                     </div>
-                    <div className="w-100 bg-info d-flex h-100">
+                    <div className="w-100 d-flex h-100 mt-0-5-v">
                         <Map/>
                     </div>
                 </div>

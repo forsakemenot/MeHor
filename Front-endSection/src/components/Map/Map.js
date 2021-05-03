@@ -132,7 +132,7 @@ function MapDorm() {
                 zoom={zoom}
                 scrollWheelZoom={false}
                 whenCreated={setMap}
-                className="map_con d-flex"
+                className="w-100 h-100 d-flex"
             >
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -162,8 +162,8 @@ function MapDorm() {
     )
 
     return (
-        <div className="d-flex color-main flex-column w-100">
-            <div className="w-100 d-flex justify-content-center">
+        <div className="d-flex color-main flex-column w-100 h-100">
+            <div className="w-100 h-100 d-flex justify-content-center">
                 {displayMap}
             </div>
         </div>

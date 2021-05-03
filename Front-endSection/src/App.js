@@ -61,7 +61,6 @@ function App() {
               :
               <Link to="/LoginRegister">เข้าสู่ระบบ/สมัครสมาชิก</Link>
           }
-
         </div>
       </div>
       

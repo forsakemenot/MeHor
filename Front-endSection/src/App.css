@@ -285,11 +285,20 @@ p{
 .py-0-3-v{
   padding: 0.3vw 0vw;
 }
+.py-0-4-v{
+  padding: 0.4vw 0vw;
+}
 .py-0-5-v{
   padding: 0.5vw 0vw;
 }
 .py-1-v{
   padding: 1vw 0vw;
+}
+.py-1-5-v{
+  padding: 1.5vw 0vw;
+}
+.py-2-v{
+  padding: 2vw 0vw;
 }
 .px-0-5-v{
   padding: 0vw 1vw;
@@ -303,8 +312,17 @@ p{
 .fs-0-5-v{
   font-size: 0.5vw;
 }
+.fs-0-6-v{
+  font-size: 0.6vw;
+}
+.fs-0-7-v{
+  font-size: 0.7vw;
+}
 .fs-0-8-v{
   font-size: 0.8vw;
+}
+.fs-0-9-v{
+  font-size: 0.9vw;
 }
 .fs-1-v{
   font-size: 1vw;
@@ -326,6 +344,9 @@ p{
 }
 .fs-3-5-v{
   font-size: 3.5vw;
+}
+.line-bottom-white{
+  border-bottom: .1vw solid #fff;
 }
 @keyframes App-logo-spin {
   from {
