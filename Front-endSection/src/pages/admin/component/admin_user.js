@@ -9,16 +9,16 @@ function User() {
         <div className="dorm_component card-body">
             <div className="row dorm_box align-items-center text-secondary">
                 <div className="col-1">
-                    <p className="m-0 text_label">1</p>
+                    <span className="text_label">1</span>
                 </div>
                 <div className="col-3">
-                    <p className="m-0 text_label">Thanopon Matikanon</p>
+                    <span className="text_label">Thanopon Matikanon</span>
                 </div>
                 <div className="col-3">
-                    <p className="m-0 text_label">ผู้เช่า</p>
+                    <span className="text_label">ผู้เช่า</span>
                 </div>
                 <div className="col-4">
-                    <p className="m-0 text_label">20 / 4 /2021</p>
+                    <span className="text_label">20 / 4 /2021</span>
                 </div>
                 <div className="col-1 d-flex justify-evenly">
                     <img src={bin} className="img_admin_edit"></img>
