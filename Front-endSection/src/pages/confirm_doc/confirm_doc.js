@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './confirm_doc.css';
 import '../../App.css';
 
@@ -10,6 +10,34 @@ import upload from '../../img/upload.svg';
 import info from '../../img/info-circle.svg';
 
 function ConfirmDoc() {
+    const [dormid, setDormid] = useState('');
+    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
+    const optionsGet = data => {
+        return {
+           headers: {
+              'Content-Type': 'application/json',
+              'Authorization': token,
+           },
+           method: 'get',
+           // body: JSON.stringify(data)
+        };
+     };
+     useEffect(() => {
+        console.log("useEffect");
+        fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
+           .then(res => res.json())
+           .then(res => {
+              if (res.dorm) {
+                 setDormid(res.dorm._id)
+                 console.log(res);
+              }
+           })
+           .catch(error => {
+              console.log(error);
+  
+           })
+  
+     }, []);
     const [fileDorm, setFileDorm] = useState("");
     const [fileDormNum, setFileDormNum] = useState("");
 
