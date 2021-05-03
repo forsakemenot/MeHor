@@ -99,7 +99,7 @@ function App() {
         <Route path="/zone">
           <Zone />
         </Route>
-        <Route path="/aboutWeb">
+        <Route path="/AboutWeb">
           <AboutWeb />
         </Route>
         <Route path="/AdminForm">
