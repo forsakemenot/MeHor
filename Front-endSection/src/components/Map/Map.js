@@ -3,9 +3,7 @@ import '../../pages/add_dom/add_dom.css';
 import './../../App.css';
 import gps from '../../img/crosshair.svg';
 
-import {
-    MapContainer, TileLayer, Marker, Popup, useMapEvents
-} from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import marker from '../../img/location.svg';
@@ -165,15 +163,6 @@ function MapDorm() {
 
     return (
         <div className="d-flex color-main flex-column w-100">
-            {/* <div className="d-flex flex-column w-100 mx-auto">
-                <span>แผนที่</span>
-                <button className="w-45 btn_gps color-white d-flex align-items-center justify-content-center bg-main border-0 fs-0-9-v py-0-3-v"><img alt="" src={gps} className="mr-0-5-v"/>ค้นหาจากตำแหน่งปัจจุบันของคุณ</button>
-                <span>
-                    latitude: {position.lat.toFixed(4)}, longitude: {position.lng.toFixed(4)}{' '}
-                    <button type="button" onClick={onClick}>reset</button>
-                </span>
-            </div> */}
-
             <div className="w-100 d-flex justify-content-center">
                 {displayMap}
             </div>
