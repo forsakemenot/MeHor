@@ -1,9 +1,11 @@
-.box-about-us{
-    height: 43vw;
-}
-.image-about-us{
-    height: 1.5vw;
-}
-.image-about-us-email{
-    height: 1vw;
+.box-about {
+    background-color: white;
+    border: 2px solid #BEBEBE;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px 0 rgb(0, 0, 0, 0.2);
+    padding: 1vw;
+    font-weight: lighter;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1vw;
 }

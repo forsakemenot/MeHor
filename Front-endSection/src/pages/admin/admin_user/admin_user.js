@@ -19,7 +19,7 @@ function AdminUser() {
                <span>Welcome! - ADMIN POWER</span>
             </div>
 
-            <div className="w-85 form_panel flex-column p-3 mt-2-v mb-2-v">
+            <div className="w-85 form_panel flex-column p-1-v mt-2-v mb-2-v">
                <div className="panel_bar w-100 line-bottom-gray">
                   <div className="row align-items-center">
                      <div className="col-4">
