@@ -127,7 +127,7 @@ function Login_register() {
                             <button type="submit" className="btn_login">เข้าสู่ระบบ</button>
                         </div>
                         <div className="d-flex justify-content-center">
-                            <p className="text_forget"><Link to="/"><u>ลืมรหัสผ่าน</u></Link> ใช่หรือไม่</p>
+                            <span className="text_forget fs-0-8-v"><Link to="/"><u>ลืมรหัสผ่าน</u></Link> ใช่หรือไม่</span>
                         </div>
                     </form>
                 }
@@ -186,7 +186,7 @@ function Login_register() {
                                 <input className="checkbox box_bottom" type="checkbox" />
                                 <span className="fs-0-8-v color-main">รับข่าวสารและโปรโมชั่นจากทางเว็บ และที่พักที่เป็นสมาชิก</span>
                             </div>
-                            <div className="d-flex mt-0-5-v">
+                            <div className="d-flex">
                                 <button className="btn_login mb-1-v" type="submit">สมัครสมาชิก</button>
                             </div>
                         </div>
