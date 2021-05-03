@@ -9,7 +9,7 @@ function image_panel() {
         <div className="image mt-3">
             <div className="card border-light panel_frame">
                 <div className="card-header d-flex align-items-center justify-content-between">รูปภาพทั้งหมด
-                                    <div className="d-flex align-items-center">
+                    <div className="d-flex align-items-center">
                         <input type="checkbox" className="checkbox_panel mr-2" />
                         <p className="m-0">เลือกทั้งหมด</p>
                         <img src={bin} className="ml-5"></img>

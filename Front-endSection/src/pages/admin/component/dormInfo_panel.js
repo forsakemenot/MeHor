@@ -8,44 +8,44 @@ function dorm_panel() {
             <div className="card-header">ข้อมูลที่พัก</div>
             <div className="card-body d-flex flex-column">
                 <div className="d-flex align-items-center justify-content-end">
-                    <p className="text_label">ชื่อที่พัก</p>
-                    <input className="input_panel" />
+                    <span className="text_label">ชื่อที่พัก</span>
+                    <input className="input_panel my-0-4-v" />
                 </div>
-                <div className="d-flex align-items-center  justify-content-end">
-                    <p className="text_label">ชื่อที่พัก (ภาษาอังกฤษ)</p>
-                    <input className="input_panel" />
+                <div className="d-flex align-items-center justify-content-end">
+                    <span className="text_label">ประเภทห้องพัก</span>
+                    <input className="input_panel my-0-4-v" />
                 </div>
-                <div className="d-flex align-items-center  justify-content-end">
-                    <p className="text_label">ประเภทห้องพัก</p>
-                    <input className="input_panel" />
+                <div className="d-flex align-items-center justify-content-end">
+                    <span className="text_label">โซนที่พัก</span>
+                    <input className="input_panel my-0-4-v" />
                 </div>
-                <div className="d-flex align-items-center  justify-content-end">
-                    <p className="text_label">เลขที่</p>
-                    <input className="input_panel" />
+                <div className="d-flex align-items-center justify-content-end">
+                    <span className="text_label">เลขที่</span>
+                    <input className="input_panel my-0-4-v" />
                 </div>
-                <div className="d-flex align-items-center  justify-content-end">
-                    <p className="text_label">ซอย</p>
-                    <input className="input_panel" />
+                <div className="d-flex align-items-center justify-content-end">
+                    <span className="text_label">ซอย</span>
+                    <input className="input_panel my-0-4-v" />
                 </div>
-                <div className="d-flex align-items-center  justify-content-end">
-                    <p className="text_label">ถนน</p>
-                    <input className="input_panel" />
+                <div className="d-flex align-items-center justify-content-end">
+                    <span className="text_label">ถนน</span>
+                    <input className="input_panel my-0-4-v" />
                 </div>
-                <div className="d-flex align-items-center  justify-content-end">
-                    <p className="text_label">จังหวัด</p>
-                    <input className="input_panel" />
+                <div className="d-flex align-items-center justify-content-end">
+                    <span className="text_label">จังหวัด</span>
+                    <input className="input_panel my-0-4-v" />
                 </div>
-                <div className="d-flex align-items-center  justify-content-end">
-                    <p className="text_label">อำเภอ/เขต</p>
-                    <input className="input_panel" />
+                <div className="d-flex align-items-center justify-content-end">
+                    <span className="text_label">อำเภอ/เขต</span>
+                    <input className="input_panel my-0-4-v" />
                 </div>
-                <div className="d-flex align-items-center  justify-content-end">
-                    <p className="text_label">ตำบล/แขวง</p>
-                    <input className="input_panel" />
+                <div className="d-flex align-items-center justify-content-end">
+                    <span className="text_label">ตำบล/แขวง</span>
+                    <input className="input_panel my-0-4-v" />
                 </div>
-                <div className="d-flex align-items-center  justify-content-end">
-                    <p className="text_label">รหัสไปรษณีย์</p>
-                    <input className="input_panel" />
+                <div className="d-flex align-items-center justify-content-end">
+                    <span className="text_label">รหัสไปรษณีย์</span>
+                    <input className="input_panel my-0-4-v" />
                 </div>
             </div>
         </div>

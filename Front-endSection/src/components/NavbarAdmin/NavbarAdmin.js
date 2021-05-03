@@ -23,16 +23,18 @@ function NavbarAdmin({ pages }) {
                         <span>รายการหอรอการอนุมัติ</span>
                     </div>
                 </Link>
-                <Link to="AdminUser" className="nav-admin">
+                <Link to="/AdminUser" className="nav-admin">
                     <div className={`d-flex w-100 justify-content-center py-1-v fs-0-9-v ${page === 2 && "bg-active-nav-bar-admin"}`} onClick={() => handleNavBar(2)}>
                         <span>ผู้ใช้ทั้งหมดในระบบ</span>
                     </div>
                 </Link>
             </div>
             <div className="d-flex w-95 mx-auto flex-column justify-content-end h-50 line-bottom-white py-1-v">
+            <Link to="/" className="nav-admin" onClick={() => window.location.href='/'}>
                 <div className="back_to_home w-80 mx-auto d-flex justify-content-center py-0-4-v">
                     <span className="fs-0-9-v">กลับไปยังหน้าเว็บไซต์หลัก</span>
                 </div>
+                </Link>
             </div>
         </div>
     );

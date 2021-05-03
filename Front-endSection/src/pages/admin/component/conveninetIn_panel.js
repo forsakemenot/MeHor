@@ -4,56 +4,14 @@ import './../../../App.css';
 
 function conveninetIn_panel() {
     return (
-        <div className="card">
-            <div className="card-header">สิ่งอำนวยความสะดวก
-                              <p className="m-0 color-second">(ภายในห้องพัก)</p>
+        <div className="card w-50">
+            <div className="card-header">
+                <span className="fs-1-v">สิ่งอำนวยความสะดวก</span>
+                <span className="pl-0-5-v color-second fs-1-v">(ภายในห้องพัก)</span>
             </div>
-            <div className="d-flex justify-content-around">
-                <div className="col1">
-                    <div className="d-flex align-items-center">
-                        <input type="checkbox" className="checkbox_panel" />
-                        <p className="text_label ml-2">เครื่องปรับอากาศ</p>
-                    </div>
-                    <div className="d-flex align-items-center">
-                        <input type="checkbox" className="checkbox_panel" />
-                        <p className="text_label ml-2">พัดลม</p>
-                    </div>
-                    <div className="d-flex align-items-center">
-                        <input type="checkbox" className="checkbox_panel" />
-                        <p className="text_label ml-2">เครื่องทำน้ำอุ่น</p>
-                    </div>
-                    <div className="d-flex align-items-center">
-                        <input type="checkbox" className="checkbox_panel" />
-                        <p className="text_label ml-2">เตียง โต๊ะ ตู้เสื้อผ้า</p>
-                    </div>
-                    <div className="d-flex align-items-center">
-                        <input type="checkbox" className="checkbox_panel" />
-                        <p className="text_label ml-2">Internet / wifi</p>
-                    </div>
-                </div>
-
-                <div className="col2">
-                    <div className="d-flex align-items-center">
-                        <input type="checkbox" className="checkbox_panel" />
-                        <p className="text_label ml-2">TV</p>
-                    </div>
-                    <div className="d-flex align-items-center">
-                        <input type="checkbox" className="checkbox_panel" />
-                        <p className="text_label ml-2">Truevision</p>
-                    </div>
-                    <div className="d-flex align-items-center">
-                        <input type="checkbox" className="checkbox_panel" />
-                        <p className="text_label ml-2">ซิงค์ล้างจาน</p>
-                    </div>
-                    <div className="d-flex align-items-center">
-                        <input type="checkbox" className="checkbox_panel" />
-                        <p className="text_label ml-2">ตู้เย็น</p>
-                    </div>
-                    <div className="d-flex align-items-center">
-                        <input type="checkbox" className="checkbox_panel" />
-                        <p className="text_label ml-2">เคเบิลทีวี / ดาว</p>
-                    </div>
-                </div>
+            <div className="form-group mt-1-v d-flex flex-column">
+                <span className="pl-2-v pt-0-5-v text_label">รายละเอียด</span>
+                <span className="pl-2-v pt-0-5-v text_label">รายละเอียด</span>
             </div>
         </div>
     );

@@ -12,7 +12,7 @@ import AddDom from './pages/add_dom/add_dom.js';
 import LoginRegister from './pages/login_register/login_register.js';
 import RoomType from './pages/room_type/room_type.js';
 import FurnitureDom from './pages/furniture_dom/furniture_dom.js';
-import DomMe from './pages/dom_me/dom_me.js';
+import DormMe from './pages/dom_me/dom_me.js';
 import ConfirmDoc from './pages/confirm_doc/confirm_doc.js';
 import WebBoard from './pages/web_board/web_board.js';
 import NavBar from "./components/NavBar/NavBar.js";
@@ -29,41 +29,39 @@ import AdminUser from './pages/admin/admin_user/admin_user.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 function App() {
-  const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
-  const [email, setEmail] = useState((token && jwt.decode(token).email) || '');
+  // const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
+  // const [email, setEmail] = useState((token && jwt.decode(token).email) || '');
 
-  const handleLogout = () => {
-    localStorage.removeItem('jwtToken');
-  }
+  // const handleLogout = () => {
+  //   localStorage.removeItem('jwtToken');
+  // }
 
   return (
     <Router>
+      {window.location.pathname !== "/AdminDorm" &&
+            <>
+            <NavBar logo={LogoHome} />
+            {window.scrollTo(0, 0)}
+            </>
 
-      <div className="bg-main d-flex">
-        <div className="d-flex left-nav">
-          <NavBar logo={LogoHome} />
-
-        </div>
-        <div className="d-flex right-nav align-center">
-          {
+      }
+          {/* <div className="d-flex right-nav align-center">
             email ?
               <div className="d-flex flex-column align-items-center">
-                <div className="color-white">{email}</div>
-                <div className="d-flex mt-0-5-v">
+              <div className="color-white">{email}</div>
+              <div className="d-flex mt-0-5-v">
                 <form>
-                  <Link to="AdminApprove"><button className="btn btn-warning mr-1-v">Admin Panel</button></Link>
+                  <Link to="AdminApprove" onClick={() => window.location.href = '/AdminApprove'}><button className="btn btn-warning mr-1-v">Admin Panel</button></Link>
                 </form>
                 <form onSubmit={handleLogout}>
                   <button className="btn btn-outline-light">Logout</button>
                 </form>
               </div>
-              </div>
+            </div>
               :
               <Link to="/LoginRegister">เข้าสู่ระบบ/สมัครสมาชิก</Link>
-          }
-        </div>
-      </div>
-      
+
+          </div> */}
       <Switch>
         <Route exact path="/">
           <Home />
@@ -83,8 +81,8 @@ function App() {
         <Route path="/ConfirmDoc">
           <ConfirmDoc />
         </Route>
-        <Route path="/DomMe">
-          <DomMe />
+        <Route path="/DormMe">
+          <DormMe />
         </Route>
         <Route path="/WebBoard">
           <WebBoard />
