@@ -20,7 +20,7 @@ function AdminUser() {
             </div>
 
             <div className="w-85 form_panel flex-column p-3 mt-2-v mb-2-v">
-               <div className="panel_bar w-100">
+               <div className="panel_bar w-100 line-bottom-gray">
                   <div className="row align-items-center">
                      <div className="col-4">
                         <div className="d-flex align-items-center justify-content-end">
@@ -45,10 +45,9 @@ function AdminUser() {
                      </div>
                   </div>
                </div>
-               <hr className="w-95"></hr>
 
                <div className="user_all">
-                  <div className="card border-light">
+                  <div className="card border-light mt-1-v">
                      <div className="card-header">
                         <div className="row align-items-center">
                            <div className="col-1">
