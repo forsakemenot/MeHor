@@ -140,11 +140,11 @@ function Home() {
                             <div>
                                 <div className="d-flex align-center">
                                     <input type="radio" name="filter_price" className="radio_type_home"></input>
-                                    <span className="color-main ml-0-2-v">ทุกราคา</span>
+                                    <span className="color-main ml-0-5-v">ทุกราคา</span>
                                 </div>
                                 <div className="d-flex align-center mt-0-5-v">
                                     <input type="radio" name="filter_price" className="radio_type_home"></input>
-                                    <span className="color-main ml-0-2-v">รายเดือน</span>
+                                    <span className="color-main ml-0-5-v">ราคา</span>
                                 </div>
                                 <div className="d-flex align-center checkbox_price">
                                     <input type="checkbox" name=""></input>
