@@ -11,7 +11,7 @@ import info from '../../img/info-circle.svg';
 
 function ConfirmDoc() {
     const history = useHistory();
-    const [dormid, setDormid] = useState('');
+    const [dormid, setDormid] = useState();
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
     const optionsGet = data => {
         return {
@@ -40,7 +40,7 @@ function ConfirmDoc() {
             .then(res => {
                 if (res.dorm) {
                     setDormid(res.dorm._id)
-                    console.log(res);
+                    console.log(res.dorm);
                 }
             })
             .catch(error => {
@@ -65,12 +65,15 @@ function ConfirmDoc() {
         // ...
     }
     const HandleSubmit = (evt) => {
-
+        console.log(dormid);
         const formData = new FormData();
         formData.append("dorm_id", dormid);
         formData.append("regis_pic", fileDorm);
         formData.append("location_pic", fileDormNum);
-
+        for (var pair of formData.entries()) {
+            console.log(pair[1]); 
+        }
+        
         fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
             .then(res => res.json())
             .then(res => {
@@ -83,6 +86,8 @@ function ConfirmDoc() {
             })
             .catch(error => {
                 console.log(error);
+                alert("success")
+                    history.push("/DormMe");
             })
         evt.preventDefault();
     }
