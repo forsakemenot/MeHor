@@ -3,7 +3,7 @@ import './admin_form.css';
 import './../../../App.css';
 
 import CostPanel from '../component/cost_panel.js'
-import TypePanel from '../component/type_panel.js'
+import DetailTypeRoom from '../component/detail_typeRoom'
 import DormInfoPanel from '../component/dormInfo_panel.js'
 import ContactDormPanel from '../component/contactDorm_panel.js'
 import MapPanel from '../component/map_panel.js'
@@ -13,46 +13,75 @@ import ImagePanel from '../component/image_panel'
 import DocPanel from '../component/doc_panel.js'
 import DetailPanel from '../component/detail_panel'
 
+import bin from '../../../img/metro-bin.svg';
+
 import NavbarAdmin from "../../../components/NavbarAdmin/NavbarAdmin.js"
 
 function AdminForm() {
    return (
-      <div className="d-flex">
-         <NavbarAdmin pages={0}/>
-
-         <div className="d-flex flex-column w-20 color-main align-items-center bg-admin">
-            <div className="navigation bg-white d-flex align-items-center justify-content-between px-3-v">
-               <p className="m-0">รายการหอพักทั้งหมดในระบบ</p>
-               <p className="m-0">Welcome! - ADMIN POWER</p>
+      <div className="d-flex bg-admin">
+         <div className="w-20  d-flex">
+            <NavbarAdmin pages={1} />
+         </div>
+         <div className="d-flex flex-column w-100 color-main align-items-center">
+            <div className="navigation bg-white w-100 d-flex align-items-center justify-content-between">
+               <span>รายการหอพักทั้งหมดในระบบ</span>
+               <span>Welcome! - ADMIN POWER</span>
             </div>
-            <div className="form_panel flex-column p-3 mt-2-v mb-2-v">
+
+            <div className="w-85 form_panel flex-column p-3 mt-2-v mb-2-v">
                <form>
-                  <div className="panel_dorm">
-                     <div className="card-columns">
+                  <div className="d-flex flex-wrap">
+                     <div className="card_size card-columns">
                         <DormInfoPanel />
                         <ContactDormPanel />
                         <MapPanel />
                         <DetailPanel />
                      </div>
                   </div>
-                  <TypePanel />
 
-                  <div className="">
-                     <div class="card-columns d-flex justify-content-between">
-                        <CostPanel />
-                        <div className="d-flex flex-column">
-                           <ConInPanel />
-                           <ConOutPanel />
+                  {/* Type Room */}
+                  <div className="type">
+                     <div className="card border-light panel_frame">
+                        <div className="card-header d-flex align-items-center justify-content-between">
+                           <span className="fs-1-v">ประเภทห้องพัก</span>
+                        </div>
+
+                        <div className="form-group">
+                           <DetailTypeRoom />
                         </div>
                      </div>
                   </div>
-                  <ImagePanel />
+
+                  <div class="card-columns d-flex">
+                     <CostPanel />
+                  </div>
+                  <div className="d-flex w-100">
+                     <ConInPanel />
+                     <ConOutPanel />
+                  </div>
+
+                  <div className="image mt-1-v">
+                     <div className="card border-light panel_frame">
+                        <div className="card-header d-flex align-items-center justify-content-between">
+                           <span className="fs-1-v w-50">รูปภาพทั้งหมด</span>
+                           <div className="d-flex align-items-center justify-content-end w-50">
+                              <input type="checkbox" className="checkbox_panel mr-1-v" />
+                              <span className="fs-1-v">เลือกทั้งหมด</span>
+                              <img src={bin} className="ml-2-v w-5"></img>
+                           </div>
+                        </div>
+                        <div className="form-group">
+                           <img alt="" className="image_dorm_all" />
+                        </div>
+                     </div>
+                  </div>
+
                   <DocPanel />
                </form>
 
-               <hr className="w-100"></hr>
-               <div className="d-flex justify-content-center">
-                  <div className="button d-flex">
+               <div className="button line-top-gray">
+                  <div className="d-flex justify-content-center mt-1-v">
                      <div className="btn_cancel bg-main d-flex justify-content-center align-items-center">
                         <p className="m-0 text-white">ยกเลิก</p>
                      </div>
@@ -61,9 +90,12 @@ function AdminForm() {
                      </div>
                   </div>
                </div>
+
             </div>
          </div>
       </div>
+
+
    );
 }
 

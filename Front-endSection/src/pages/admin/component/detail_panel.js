@@ -4,7 +4,7 @@ import './../../../App.css';
 
 function detail_panel() {
     return (
-        <div className="card">
+        <div className="dorm_info card">
             <div className="card-header">รายละเอียด</div>
             <div className="card-body">
                 <div class="form-group m-0">

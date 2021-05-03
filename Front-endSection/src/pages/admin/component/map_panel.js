@@ -4,16 +4,16 @@ import './../../../App.css';
 
 function map_panel() {
     return (
-        <div className="card">
+        <div className="dorm_info card">
             <div className="card-header">แผนที่</div>
             <div className="card-body d-flex flex-column">
-                <div className="d-flex align-items-center  justify-content-end">
-                    <p className="text_label">สถานที่ตั้ง</p>
-                    <input className="input_panel_address" />
+                <div className="d-flex align-items-center justify-content-end">
+                    <span className="text_label">สถานที่ตั้ง</span>
+                    <input className="input_panel_address my-0-4-v" />
                 </div>
-                <div className="d-flex align-items-center  justify-content-end">
-                    <p className="text_label">แผนที่</p>
-                    <div className="map_panel"></div>
+                <div className="d-flex align-items-center justify-content-end">
+                    <span className="text_label">แผนที่</span>
+                    <div className="map_panel my-0-4-v"></div>
                 </div>
             </div>
         </div>

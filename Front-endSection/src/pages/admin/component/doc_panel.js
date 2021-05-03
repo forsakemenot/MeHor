@@ -6,28 +6,28 @@ import bin from '../../../img/metro-bin.svg';
 
 function doc_panel() {
     return (
-        <div className="doc mt-3">
+        <div className="doc mt-1-v">
             <div className="card border-light panel_frame">
-                <div className="card-header d-flex">เอกสารยืนยัน</div>
+                <div className="card-header d-flex fs-1-v">เอกสารยืนยัน</div>
 
-                <div className="form-group p-3 m-0">
-                    <div className="card border-dark mb-3">
+                <div className="form-group p-2-v m-0">
+                    <div className="card border-dark mb-2-v">
                         <div className="card-header">
                             <div className="row align-items-center text-center">
                                 <div className="col-1">
                                     <input type="checkbox" className="checkbox_panel" />
                                 </div>
                                 <div className="col-2">
-                                    <p className="m-0">รูปภาพ</p>
+                                    <span className="fs-1-v">รูปภาพ</span>
                                 </div>
                                 <div className="col-2">
-                                    <p className="m-0">เอกสาร</p>
+                                    <span className="fs-1-v">เอกสาร</span>
                                 </div>
                                 <div className="col-4">
-                                    <p className="m-0">สถานะ</p>
+                                    <span className="fs-1-v">สถานะ</span>
                                 </div>
                                 <div className="col-2">
-                                    <p className="m-0">วันที่</p>
+                                    <span className="fs-1-v">วันที่</span>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@ function doc_panel() {
                                     <input type="checkbox" className="checkbox_panel" />
                                 </div>
                                 <div className="col-2">
-                                    <img id="img_doc_admin"></img>
+                                    <img class="img_doc_admin"></img>
                                 </div>
                                 <div className="col-2">
                                     <p className="m-0 text_label">ทะเบียนบ้าน</p>
@@ -52,7 +52,7 @@ function doc_panel() {
                                     <p className="m-0 text_label">04/22/2021</p>
                                 </div>
                                 <div className="col-1">
-                                    <img src={bin}></img>
+                                    <img src={bin} className="w-45"></img>
                                 </div>
                                 <hr></hr>
                             </div>
@@ -62,7 +62,7 @@ function doc_panel() {
                                     <input type="checkbox" className="checkbox_panel" />
                                 </div>
                                 <div className="col-2">
-                                    <img id="img_doc_admin"></img>
+                                    <img class="img_doc_admin"></img>
                                 </div>
                                 <div className="col-2">
                                     <p className="m-0 text_label">รูปถ่ายที่พัก</p>
@@ -77,7 +77,7 @@ function doc_panel() {
                                     <p className="m-0 text_label">04/22/2021</p>
                                 </div>
                                 <div className="col-1">
-                                    <img src={bin}></img>
+                                    <img src={bin} className="w-45"></img>
                                 </div>
                             </div>
                         </div>
