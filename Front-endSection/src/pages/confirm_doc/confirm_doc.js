@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './confirm_doc.css';
 import '../../App.css';
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import document from '../../img/document.svg';
 import check from '../../img/check-circle.svg';
@@ -10,34 +10,45 @@ import upload from '../../img/upload.svg';
 import info from '../../img/info-circle.svg';
 
 function ConfirmDoc() {
+    const history = useHistory();
     const [dormid, setDormid] = useState('');
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
     const optionsGet = data => {
         return {
-           headers: {
-              'Content-Type': 'application/json',
-              'Authorization': token,
-           },
-           method: 'get',
-           // body: JSON.stringify(data)
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token,
+            },
+            method: 'get',
+            // body: JSON.stringify(data)
         };
-     };
-     useEffect(() => {
+    };
+    const options = data => {
+
+        return {
+            headers: {
+                'Authorization': token,
+            },
+            method: 'post',
+            body: data
+        };
+    };
+    useEffect(() => {
         console.log("useEffect");
         fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
-           .then(res => res.json())
-           .then(res => {
-              if (res.dorm) {
-                 setDormid(res.dorm._id)
-                 console.log(res);
-              }
-           })
-           .catch(error => {
-              console.log(error);
-  
-           })
-  
-     }, []);
+            .then(res => res.json())
+            .then(res => {
+                if (res.dorm) {
+                    setDormid(res.dorm._id)
+                    console.log(res);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+
+            })
+
+    }, []);
     const [fileDorm, setFileDorm] = useState("");
     const [fileDormNum, setFileDormNum] = useState("");
 
@@ -52,6 +63,28 @@ function ConfirmDoc() {
 
         // Add code here to upload file to server
         // ...
+    }
+    const HandleSubmit = (evt) => {
+
+        const formData = new FormData();
+        formData.append("dorm_id", dormid);
+        formData.append("regis_pic", fileDorm);
+        formData.append("location_pic", fileDormNum);
+
+        fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                if (res.error) alert(res.error);
+                if (res.success) {
+                    alert("success")
+                    history.push("/DormMe");
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        evt.preventDefault();
     }
     return (
         <div className="d-flex">
@@ -94,7 +127,7 @@ function ConfirmDoc() {
                     <p>เอกสาร</p>
                     <p className="note">(โปรดแนบเอกสารให้ตรงกับหัวข้อ)</p>
                 </div>
-
+                <form onSubmit={HandleSubmit}>
                 <div className={`house_regis mx-auto d-flex ${fileDorm.type != undefined && "active"}`}>
                     <div className="header_topic d-flex">
                         <p className="pl-1-v m-0">สำเนาทะเบียนบ้านของ "ที่พัก" พร้อมเซ็นสำเนาถูกต้อง</p>
@@ -106,7 +139,10 @@ function ConfirmDoc() {
                                 "ยังไม่ได้อัพโหลด" : fileDorm.name
                             }
                         </p>
+
                     </div>
+                    
+                            
                     <div className="upload d-flex">
                         <p className="upload_file d-flex position-relative">อัพโหลดสำเนาทะเบียนบ้าน
                         <input type="file" onChange={handleFileDorm} className="input-file-type position-absolute w-80 mx-auto bg-info" />
@@ -143,7 +179,7 @@ function ConfirmDoc() {
                         {file && <ImageThumb image={file} />}
                     </div> */}
                 </div>
-
+               
                 <div className="info d-flex align-items-center ml-3-v">
                     <img alt="" src={info} className="img_info"></img>
                     <span className="text_info">รูปถ่ายที่ไม่อนุญาตให้ลงในประกาศ</span>
@@ -156,9 +192,9 @@ function ConfirmDoc() {
                 </ul>
 
                 <div className="continue d-flex">
-                    <Link to="/DomMe"><button id="btn_continue" style={{ width: '13vw' }}>บันทึกและรอการตรวจสอบ</button></Link>
+                    <button id="btn_continue" type="submit" style={{ width: '13vw' }}>บันทึกและรอการตรวจสอบ</button>
                 </div>
-
+                </form>
             </div>
         </div>
     );
