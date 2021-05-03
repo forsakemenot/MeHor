@@ -8,6 +8,8 @@ import ads_banner from '../../img/Ads-banner.svg';
 import plan_a from '../../img/plan-a.svg';
 import plan_b from '../../img/plan-b.svg';
 import plan_c from '../../img/plan-c.svg';
+import ex_home from '../../img/ex_home.jpg';
+import ex_search from '../../img/ex_search.jpg';
 
 function Advertise() {
 
@@ -110,11 +112,19 @@ function Advertise() {
             </div>
             <br></br>
             <div className="d-flex w-80 mx-auto align-items-center flex-wrap mt-1-v">
-            <div className="w-100 d-flex flex-column justify-content-center align-items-center">
-                <span>รูปแสดงลำดับการแสดงผลโฆษณา</span>
-                <img alt="" className="img_ads_plan" src={plan_c}/>
-                <hr></hr>
-            </div>
+                <div className="w-100 d-flex flex-column justify-content-center align-items-center">
+                    <span>รูปแสดงลำดับการแสดงผลโฆษณาในหน้าแรก</span><br></br>
+                    <img alt="" className="img_example" src={ex_home}/><br></br>
+                </div>
+                <div className="w-40">
+                </div>
+                <div className="w-100 d-flex flex-column justify-content-center align-items-center">
+                    <span>รูปแสดงลำดับการแสดงผลโฆษณาในหน้าการค้นหาและหน้าโซนหอพัก</span><br></br>
+                    <img alt="" className="img_example" src={ex_search}/>
+                    <hr></hr>
+                </div>
+                <br></br>
+                
             </div>
 
             <br></br>
