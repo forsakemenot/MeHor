@@ -10,8 +10,9 @@ import User from "../component/admin_user.js"
 function AdminUser() {
    return (
       <div className="d-flex">
+         <div className="w-20 d-flex">
          <NavbarAdmin pages={2}/>
-
+         </div>
          <div className="d-flex flex-column w-100 color-main align-items-center bg-admin">
             <div className="navigation bg-white d-flex align-items-center justify-content-between px-3-v">
                <p className="m-0">ผู้ใช้ทั้งหมดในระบบ</p>

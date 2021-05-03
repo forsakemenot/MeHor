@@ -30,25 +30,25 @@ function Advertise() {
                         <div className="card">
                             <img alt="" className="img_ads_plan" src={plan_a}></img>
                             <div class="card-header">
-                                ตำแหน่งที่แสดงผลโฆษณา
+                                <b>ตำแหน่งที่แสดงผลโฆษณา</b>
                                     </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">หน้าโฮมเพจ (ไม่แสดงให้เห็น)</li>
-                                <li class="list-group-item">หน้าผลการค้นหา (แสดงผลอันดับหลัง)</li>
-                                <li class="list-group-item">หน้าโซนที่พัก (แสดงผลอันดับหลัง)</li>
+                                <li class="list-group-item"><span className="text-danger">X </span> หน้าโฮมเพจ (ไม่แสดงให้เห็น)</li>
+                                <li class="list-group-item"><span className="text-success">O </span> หน้าผลการค้นหา</li>
+                                <li class="list-group-item"><span className="text-success">O </span> หน้าโซนที่พัก</li>
                             </ul>
                             <div class="card-header">
-                                บริการเสริม
+                                <b>บริการเสริม</b>
                                     </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">X บริการถ่ายภาพที่พัก</li>
-                                <li class="list-group-item">X บริการเว็บไซต์ที่พักพร้อมโดเมน</li>
+                                <li class="list-group-item"><span className="text-danger">X </span> บริการถ่ายภาพที่พัก</li>
+                                <li class="list-group-item"><span className="text-danger">X </span> บริการเว็บไซต์ที่พักพร้อมโดเมน</li>
                             </ul>
                             <div class="card-header">
-                                ค่าบริการ
+                                <b>ค่าบริการ</b>
                                     </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">ไม่เสียค่าใช้จ่ายใดๆ <br></br> Free</li>
+                                <li class="list-group-item">ไม่เสียค่าใช้จ่ายใดๆ <br></br><span className="fs-2-v"> Free</span></li>
                             </ul>
                         </div>
                     </div>
@@ -57,25 +57,25 @@ function Advertise() {
                         <div className="card">
                             <img alt="" className="img_ads_plan" src={plan_b}></img>
                             <div class="card-header">
-                                ตำแหน่งการแสดงโฆษณา
+                                <b>ตำแหน่งที่แสดงผลโฆษณา</b>
                                     </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">หน้าโฮมเพจ (สุ่มแสดง)</li>
-                                <li class="list-group-item">หน้าผลการค้นหา (แสดงผลอันดับรองลงมา)</li>
-                                <li class="list-group-item">หน้าโซนที่พัก (แสดงผลอันดับรองลงมา)</li>
+                                <li class="list-group-item"><span className="text-success">O </span>หน้าโฮมเพจ (สุ่มขึ้นแสดงเป็นบางครั้ง)</li>
+                                <li class="list-group-item"><span className="text-success">O </span>หน้าผลการค้นหา</li>
+                                <li class="list-group-item"><span className="text-success">O </span>หน้าโซนที่พัก</li>
                             </ul>
                             <div class="card-header">
-                                บริการเสริม
+                                <b>บริการเสริม</b>
                                     </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">O บริการถ่ายภาพที่พัก</li>
-                                <li class="list-group-item">X บริการเว็บไซต์ที่พักพร้อมโดเมน</li>
+                                <li class="list-group-item"><span className="text-success">O </span> บริการถ่ายภาพที่พัก</li>
+                                <li class="list-group-item"><span className="text-danger">X </span> บริการเว็บไซต์ที่พักพร้อมโดเมน</li>
                             </ul>
                             <div class="card-header">
-                                ค่าบริการ
+                                <b>ค่าบริการ</b>
                                     </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">เริ่มต้น 3 เดือน <br></br> ในราคา 1,200 บาท</li>
+                                <li class="list-group-item">เริ่มต้น 3 เดือน <br></br> <span className="fs-2-v">ราคา 1,200 บาท</span></li>
                             </ul>
                         </div>
                     </div>
@@ -84,30 +84,39 @@ function Advertise() {
                         <div className="card">
                             <img alt="" className="img_ads_plan" src={plan_c}></img>
                             <div class="card-header">
-                                ตำแหน่งที่แสดงผลโฆษณา
+                                <b>ตำแหน่งที่แสดงผลโฆษณา</b>
                                     </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">หน้าโฮมเพจ (แสดงตลอดเวลา)</li>
-                                <li class="list-group-item">หน้าผลการค้นหา (แสดงผลอันดับแรกๆ)</li>
-                                <li class="list-group-item">หน้าโซนที่พัก (แสดงผลอันดับแรกๆ)</li>
+                                <li class="list-group-item"><span className="text-success">O </span> หน้าโฮมเพจ (แสดงตลอดเวลา)</li>
+                                <li class="list-group-item"><span className="text-success">O </span> หน้าผลการค้นหา</li>
+                                <li class="list-group-item"><span className="text-success">O </span> หน้าโซนที่พัก</li>
                             </ul>
                             <div class="card-header">
-                                บริการเสริม
+                                <b>บริการเสริม</b>
                                     </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">O บริการถ่ายภาพที่พัก</li>
-                                <li class="list-group-item">O บริการเว็บไซต์ที่พักพร้อมโดเมน</li>
+                                <li class="list-group-item"><span className="text-success">O </span> บริการถ่ายภาพที่พัก</li>
+                                <li class="list-group-item"><span className="text-success">O </span> บริการเว็บไซต์ที่พักพร้อมโดเมน</li>
                             </ul>
                             <div class="card-header">
-                                ค่าบริการ
+                                <b>ค่าบริการ</b>
                                     </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">เริ่มต้น 6 เดือน <br></br>ในราคา 4,800 บาท</li>
+                                <li class="list-group-item">เริ่มต้น 6 เดือน <br></br><span className="fs-2-v">ราคา 4,800 บาท</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
+            <br></br>
+            <div className="d-flex w-80 mx-auto align-items-center flex-wrap mt-1-v">
+            <div className="w-100 d-flex flex-column justify-content-center align-items-center">
+                <span>รูปแสดงลำดับการแสดงผลโฆษณา</span>
+                <img alt="" className="img_ads_plan" src={plan_c}/>
+                <hr></hr>
+            </div>
+            </div>
+
             <br></br>
             <Footer />
         </div>

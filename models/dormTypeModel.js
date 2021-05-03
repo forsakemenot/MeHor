@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const DormTypeSchema = mongoose.Schema({
+
     dorm_id: {
         type: String,
         unique: true,

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './room_type.css';
 import '../../App.css';
-
+import {useHistory } from "react-router-dom";
 
 import city from '../../img/city.svg';
 import coin from '../../img/coins.svg';
@@ -15,7 +15,7 @@ import Add_row from "../../components/add_row/add_row"
 
 
 function RoomType() {
-
+   const history = useHistory();
    const [numRow, setNumRow] = useState(0);
    const [roomType, setRoomType] = useState({ dorm_type: [] });
    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
@@ -137,7 +137,7 @@ function RoomType() {
          .then(res => {
             if (res.success) {
                alert("success")
-               //   history.push("/FurnitureDom");
+               history.push("/FurnitureDom");
             }
          })
          .catch(error => {
