@@ -31,18 +31,15 @@
 
 .apartment_success {
     color: #C2C2C2;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     flex-direction: column;
 }
 
 .test_check {
-    width: 75vw;
-    height: 30vh;
     border: #C2C2C2 1px solid;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
+    padding: 1vw;
 }
 
 .img_test {
@@ -58,7 +55,6 @@
     width: 25vw;
     
 }
-
 .static_box {
     width: 25vw;
     margin: 2% 0 2% 0;
@@ -88,4 +84,9 @@
     margin-left: 2%;
     color: #B4B4B4;
 }
-
+.btn-check-status{
+    padding: .1vw 1vw;
+}
+.image-del-dorm-me{
+    height: 3vw;
+}
