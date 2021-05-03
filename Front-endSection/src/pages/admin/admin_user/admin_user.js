@@ -9,17 +9,18 @@ import User from "../component/admin_user.js"
 
 function AdminUser() {
    return (
-      <div className="d-flex">
+      <div className="d-flex bg-admin">
          <div className="w-20 d-flex">
-         <NavbarAdmin pages={2}/>
+            <NavbarAdmin pages={2} />
          </div>
-         <div className="d-flex flex-column w-100 color-main align-items-center bg-admin">
-            <div className="navigation bg-white d-flex align-items-center justify-content-between px-3-v">
-               <p className="m-0">ผู้ใช้ทั้งหมดในระบบ</p>
-               <p className="m-0">Welcome! - ADMIN POWER</p>
+         <div className="d-flex flex-column w-100 color-main align-items-center">
+            <div className="navigation bg-white w-100 d-flex align-items-center justify-content-between">
+               <span>ผู้ใช้ทั้งหมดในระบบ</span>
+               <span>Welcome! - ADMIN POWER</span>
             </div>
-            <div className="form_panel flex-column p-3 mt-2-v mb-2-v">
-               <div className="panel_bar w-100">
+
+            <div className="w-85 form_panel flex-column p-3 mt-2-v mb-2-v">
+               <div className="panel_bar w-100 line-bottom-gray">
                   <div className="row align-items-center">
                      <div className="col-4">
                         <div className="d-flex align-items-center justify-content-end">
@@ -44,10 +45,9 @@ function AdminUser() {
                      </div>
                   </div>
                </div>
-               <hr className="w-95"></hr>
 
-               <div>
-                  <div className="card border-light">
+               <div className="user_all">
+                  <div className="card border-light mt-1-v">
                      <div className="card-header">
                         <div className="row align-items-center">
                            <div className="col-1">
@@ -63,9 +63,10 @@ function AdminUser() {
                               <p className="m-0 pl-0-5-v">วันเข้าระบบ</p>
                            </div>
                         </div>
-                    </div>
+                     </div>
 
-                    <User />
+                     <User />
+                     
                   </div>
                </div>
             </div>
