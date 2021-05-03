@@ -15,7 +15,7 @@ import Add_row from "../../components/add_row/add_row"
 
 
 function RoomType() {
-   const history = useHistory();
+const history = useHistory();
    const [numRow, setNumRow] = useState(0);
    const [roomType, setRoomType] = useState({ dorm_type: [] });
    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
@@ -51,10 +51,9 @@ function RoomType() {
       } else {
          console.log(e.target?.getAttribute('row'), e.target?.name, e.target?.value);
          console.log(roomType);
-         let row = e.target?.getAttribute('row')
+         let row = e.target?.getAttribute('row') -1
          let field = e.target?.name
          let value = e.target?.value
-
          let items = [...roomType.dorm_type]
 
          let item = {
@@ -119,11 +118,11 @@ function RoomType() {
    }, []);
 
    const HandleSubmit = (evt) => {
-
       console.log(roomType);
+      evt.preventDefault();
       let items = roomType.dorm_type;
       let itemFiltered = items.filter(el => {
-         return el[0] != 0;
+         return el !== undefined;
       });
       items = itemFiltered
 
@@ -135,15 +134,19 @@ function RoomType() {
       fetch('http://localhost:5000/api/dorm/dormtype', options(roomType))
          .then(res => res.json())
          .then(res => {
+            console.log(res);
+            if(res.error){
+               alert(res.error)
+            }
             if (res.success) {
                alert("success")
-               history.push("/FurnitureDom");
+               history.push("/FurnitureDorm");
             }
          })
          .catch(error => {
             console.log(error);
          })
-      evt.preventDefault();
+      
    }
 
    return (
@@ -172,6 +175,7 @@ function RoomType() {
          </div>
 
          <div className="form_dorm">
+
             <form onSubmit={HandleSubmit}>
                <div className="d-flex box-top-head-room-type w-95 mx-auto">
                   <img alt="" className="img_formdorm" src={city} />

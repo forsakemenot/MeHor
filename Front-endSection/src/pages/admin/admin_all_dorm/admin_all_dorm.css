@@ -30,6 +30,12 @@
     border: #8B9DC4 1px solid;
 }
 
+.dorm_all {
+    height: 60vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
 ::placeholder {
     color: #EAEAEA;
 }

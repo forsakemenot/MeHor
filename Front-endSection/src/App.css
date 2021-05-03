@@ -383,6 +383,9 @@ p{
 .pointer {
   cursor: pointer;
 }
+.line-bottom-gray{
+  border-bottom: .1vw solid #707070;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

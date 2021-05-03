@@ -17,6 +17,7 @@ function FurnitureDom() {
    const history = useHistory();
    const [facilities, setFacilities] = useState([]);
    const [selectedFile, setSelectedFile] = useState(null);
+   const [dormid, setDormid] = useState('');
    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
    const options = data => {
       console.log(selectedFile);
@@ -38,15 +39,13 @@ function FurnitureDom() {
          // body: JSON.stringify(data)
       };
    };
-   let dormid = '6087d6c5b2800193e3dea225'
    useEffect(() => {
       console.log("useEffect");
       fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
          .then(res => res.json())
          .then(res => {
             if (res.dorm) {
-               console.log('test');
-               dormid = res.dorm_id
+               setDormid(res.dorm._id)
                console.log(res);
             }
          })
@@ -82,13 +81,16 @@ function FurnitureDom() {
       array.forEach(element => {
          formData.append("files", element);
       });
-      console.log(formData);
+      console.log(formData, 'test');
+      console.log(facilities);
+      console.log(dormid);
       fetch('http://localhost:5000/api/dorm/dormfacility', options(formData))
          .then(res => res.json())
          .then(res => {
+            if (res.error) alert(res.error);
             if (res.success) {
                alert("success")
-               // history.push("/ConfirmDoc");
+               history.push("/ConfirmDoc");
             }
          })
          .catch(error => {
