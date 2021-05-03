@@ -68,7 +68,9 @@ function Home() {
     }
     const dormBox = useMemo(
         () => {
+            console.log(descDorm);
             if (descDorm._id) {
+                console.log(descDorm);
                 return (
                     descDorm.map(function (element, index) {
                         return <DomList data={element} HeartImg={HeartImg} />

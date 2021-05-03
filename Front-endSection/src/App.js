@@ -51,7 +51,7 @@ function App() {
                 <div className="color-white">{email}</div>
                 <div className="d-flex mt-0-5-v">
                 <form>
-                  <button className="btn btn-warning mr-1-v">Admin Panel</button>
+                  <Link to="AdminApprove"><button className="btn btn-warning mr-1-v">Admin Panel</button></Link>
                 </form>
                 <form onSubmit={handleLogout}>
                   <button className="btn btn-outline-light">Logout</button>

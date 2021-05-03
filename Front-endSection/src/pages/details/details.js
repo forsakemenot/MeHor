@@ -25,7 +25,7 @@ import clock from "../../img/clock.svg";
 import heartOff from "../../img/heart-off.svg";
 
 import room from "../../img/20210321_151812.svg";
-
+import Map from "../../components/Map/Map"
 // import Comment from "../../components/CommentReview/CommentReview";
 import Footer from "../../components/Footer/Footer";
 function Details() {
@@ -101,7 +101,7 @@ function Details() {
         () => {
             if (descDorm.dorm_address) {
                 return (
-                    <div className="w-50 mx-auto d-flex justify-content-start flex-wrap">
+                    <div className="w-45 mx-auto d-flex justify-content-start flex-wrap">
                         <div className="w-100 d-flex justify-content-around align-items-center">
                             <img alt="" className="w-10 image_contact" src={location} alt="" />
                             <span className="desc_contact w-90">{
@@ -254,13 +254,13 @@ function Details() {
             {/* ช่องทางติดต่อ */}
             <div className="d-flex w-80 mx-auto">
                 {contant}
-                <div className="w-50 d-flex justify-content-center flex-wrap">
+                <div className="w-55 d-flex justify-content-center flex-wrap">
                     <div className="w-100 d-flex align-items-center">
                         <img alt="" className="w-20 image_price_details" src={coins} alt="" />
                         {price}
                     </div>
-                    <div className="h-75 w-100 bg-info">
-
+                    <div className="w-100 bg-info d-flex h-100">
+                        <Map/>
                     </div>
                 </div>
             </div>

@@ -89,7 +89,7 @@ function DisplayPosition({ map }) {
 }
 function MapDorm() {
     const [dormDetails, setdormDetails] = useState({ latitude: 1.5551, longtitude: 1.5858 });
-    
+
     // MAP
     const [map, setMap] = useState(null)
 
@@ -134,7 +134,7 @@ function MapDorm() {
                 zoom={zoom}
                 scrollWheelZoom={false}
                 whenCreated={setMap}
-                className="map_con"
+                className="map_con d-flex"
             >
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -164,24 +164,18 @@ function MapDorm() {
     )
 
     return (
-        <div>
-            {/* map */}
-            <div className="d-flex main_form mt-2-v">
-                <p>แผนที่</p>
-                <button className="btn_gps">
-                    <img alt="" src={gps} />
-          ค้นหาจากตำแหน่งปัจจุบันของคุณ
-       </button>
-
-                <p>
+        <div className="d-flex color-main flex-column w-100">
+            {/* <div className="d-flex flex-column w-100 mx-auto">
+                <span>แผนที่</span>
+                <button className="w-45 btn_gps color-white d-flex align-items-center justify-content-center bg-main border-0 fs-0-9-v py-0-3-v"><img alt="" src={gps} className="mr-0-5-v"/>ค้นหาจากตำแหน่งปัจจุบันของคุณ</button>
+                <span>
                     latitude: {position.lat.toFixed(4)}, longitude: {position.lng.toFixed(4)}{' '}
                     <button type="button" onClick={onClick}>reset</button>
-                </p>
+                </span>
+            </div> */}
 
-                <div>
-                    {displayMap}
-                </div>
-
+            <div className="w-100 d-flex justify-content-center">
+                {displayMap}
             </div>
         </div>
     );

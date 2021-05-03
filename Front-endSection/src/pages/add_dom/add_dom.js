@@ -171,13 +171,15 @@ function AddDom() {
                      </div>
                   </div>
                </div>
+               <div className="d-flex mx-auto w-80 justify-content-center mt-2-v">
+                  <AddMap />
+               </div>
                
-               <AddMap />
 
                {/* detail apartment */}
-               <div className="d-flex main_form mt-2-v">
-                  <p>รายละเอียด</p>
-                  <textarea onChange={handleInputChange} name="description" className="textarea_form"></textarea>
+               <div className="d-flex flex-column color-main mt-2-v w-80 mx-auto">
+                  <p className="w-100 mx-auto">รายละเอียด</p>
+                  <textarea onChange={handleInputChange} name="description" className="textarea_form w-100"></textarea>
                </div>
 
                {/* contact-dom */}
