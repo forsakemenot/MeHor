@@ -1,11 +1,7 @@
 const mongoose = require('mongoose');
 
 const DormTypeSchema = mongoose.Schema({
-    isApprove: {
-        type: Boolean,
-        default: false,
-        require: true
-    },
+
     dorm_id: {
         type: String,
         unique: true,

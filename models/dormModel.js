@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const DormSchema = mongoose.Schema({
+    isApprove: {
+        type: Boolean,
+        default: false,
+        require: true
+    },
     is_done: {
         type: Boolean,
         default: false
