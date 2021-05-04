@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useMemo } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import CostPanel from '../../pages/admin/component/cost_panel'
@@ -18,6 +18,7 @@ import info from '../../img/info-circle.svg';
 function CustomerForm() {
    const history = useHistory();
    const { UserId } = useParams()
+   const [numRow, setNumRow] = useState(0);
    const [dormid, setDormid] = useState();
    const [roomType, setRoomType] = useState({});
    const [descDorm, setDescDorm] = useState({});
@@ -32,28 +33,20 @@ function CustomerForm() {
          // body: JSON.stringify(data)
       };
    };
-   useEffect(() => {
-      fetch('http://103.13.231.22:5000/api/dorm/roomtypebyid/' + UserId, optionsGet())
-         .then(res => res.json())
-         .then(res => {
-            if (res.DormType) {
-               setRoomType(res.DormType);
-               console.log(res.DormType);
-            }
-         })
-         .catch(error => {
-            console.log(error);
-         })
-   }, []);
 
 
    useEffect(() => {
       fetch('http://103.13.231.22:5000/api/dorm/dormById/' + UserId, optionsGet())
          .then(res => res.json())
          .then(res => {
-            if (res.Dorm) {
-               setDescDorm(res.Dorm);
-               console.log(res.Dorm);
+            console.log(res);
+            if (res.dorm) {
+               setDescDorm(res.dorm);
+               // console.log(res.dorm);
+            }
+            if (res.DormType) {
+               setRoomType(res.DormType);
+               // console.log(res.DormType);
             }
          })
          .catch(error => {
@@ -143,13 +136,62 @@ function CustomerForm() {
          })
       evt.preventDefault();
    }
+   const handleAdd = () => {
+      setNumRow(numRow + 1)
+      setRoomType({
+         ...roomType,
+         dorm_type: [...roomType.dorm_type, []]
+      })
+   }
+
+   const AddRoomType = useMemo(
+      () => {
+
+         if (roomType.dorm_type) {
+            return (
+               <div className="d-flex w-100 align-items-center justify-content-around mt-1-v">
+                  1
+                  <div className="w-20">
+                     <input type="text" className="input-type-room" value={roomType?.dorm_type[0].room_name} placeholder="ex. ห้องเดี่ยว 1 เตียง"
+                        row="1"
+                        name="room_name"
+                        onChange={handleReturnRoomType} />
+                  </div>
+                  <div className="w-20">
+                     <input type="text" className="input-type-room" value={roomType?.dorm_type[0].room_area} placeholder="16 ตรม."
+                        row="1"
+                        name="room_area"
+                        onChange={handleReturnRoomType} />
+                  </div>
+                  <div className="w-20">
+                     <input type="text" className="input-type-room" value={roomType?.dorm_type[0].room_cost} placeholder="4,000 บาท/เดือน"
+                        row="1"
+                        name="room_cost"
+                        onChange={handleReturnRoomType} />
+                  </div>
+                  <div className="w-20">
+                     <input type="text" className="input-type-room" value={roomType?.dorm_type[0].additional} placeholder="4,000 บาท/เดือน"
+                        row="1"
+                        name="additional"
+                        onChange={handleReturnRoomType} />
+                  </div>
+                  <div className="w-5">
+                     <button onClick={() => handleAdd()} type="button" className="btn-type-room plus">+</button>
+                  </div>
+               </div>
+            )
+         }
+         return
+      }, [roomType]
+   )
+
    return (
       <div className="d-flex bg-admin">
          <div className="d-flex flex-column w-100 color-main align-items-center">
-            <div className="navigation bg-white w-100 d-flex align-items-center justify-content-between">
+            {/* <div className="navigation bg-white w-100 d-flex align-items-center justify-content-between">
                <span>รายการหอพักทั้งหมดในระบบ</span>
                <span>Welcome! - ADMIN POWER</span>
-            </div>
+            </div> */}
 
             <div className="w-85 form_panel flex-column p-3 mt-2-v mb-2-v">
                <form>
@@ -170,12 +212,12 @@ function CustomerForm() {
                         </div>
 
                         <div className="form-group">
+                           {AddRoomType}
                            {
                               roomType?.dorm_type?.map(function (element, index) {
                                  return (
-                                    <>
-                                       {console.log(element.room_name)}
-                                       <Add_row key={index}
+                                    <>{index !== 0 &&
+                                       < Add_row key={index}
                                           row={index}
                                           value1={element.room_name}
                                           value2={element.room_area}
@@ -183,6 +225,8 @@ function CustomerForm() {
                                           value4={element.additional}
                                           handleReturnRoomType={handleReturnRoomType}
                                        />
+                                    }
+
                                     </>
                                  )
                               })
@@ -192,7 +236,7 @@ function CustomerForm() {
                   </div>
 
                   <div class="card-columns d-flex">
-                     <CustomerCostPanel />
+                     <CustomerCostPanel dateCostPanel={roomType} />
                   </div>
                   <div className="d-flex w-100">
                      <ConInPanel />
@@ -283,7 +327,7 @@ function CustomerForm() {
                         <p className="m-0 text-white">ยกเลิก</p>
                      </div>
                      <div className="btn_cancel bg-success d-flex justify-content-center align-items-center">
-                        <p className="m-0 text-white">ตกลง</p>
+                        <p className="m-0 text-white" onClick={() => console.log(descDorm,roomType)}>ตกลง</p>
                      </div>
                   </div>
                </div>

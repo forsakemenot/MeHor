@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../../customer_form/customer_form.css';
 import './../../../App.css';
 
-function CustomerCostPanel() {
+function CustomerCostPanel({dateCostPanel}) {
     return (
         <div className="cost w-100">
             <div className="card border-light panel_frame">
@@ -15,7 +15,7 @@ function CustomerCostPanel() {
                             <div className="d-flex align-items-center mt-0-5-v">
                                 <input type="radio" name="cost" className="radio_type" />
                                 <span className="fs-0-9-v pl-0-5-v">จำนวนเงิน</span>
-                                <input type="number" name="insurance_bill" className="input_type ml-0-5-v p-0-5-v" />
+                                <input type="number" name="insurance_bill" className="input_type ml-0-5-v p-0-5-v" value={dateCostPanel?.insurance_bill}/>
                                 <span className="fs-0-9-v pl-0-5-v">บาท/หน่วย</span>
                             </div>
                             <div className="d-flex align-items-center mt-0-5-v">

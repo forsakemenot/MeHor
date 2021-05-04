@@ -2,8 +2,6 @@ import React from 'react';
 import '../admin_form/admin_form.css';
 
 function Dorm_panel({ dataInfo }) {
-
-    console.log(dataInfo);
     return (
         <div className="dorm_info card">
                         <div className="card-header">ข้อมูลที่พัก</div>
