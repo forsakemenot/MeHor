@@ -1,52 +1,51 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import './dom_me.css';
-import '../../App.css';
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import city from '../../img/city.svg';
 import ListDormMe from "../../components/ListDormMe/ListDormMe"
 // import warningBW from '../../img/warning-bw.svg';
 
 function DomMe() {
-    const [dorm, setDorm] = useState()
+    const { UserId } = useParams()
+    const [descDorm, setDescDorm] = useState({})
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
     const status = [{
-        name:"หอพักสันติ",
+        name: "หอพักสันติ",
         status: false,
-        update:""
+        update: ""
     },
     {
-        name:"หอพัก",
+        name: "หอพัก",
         status: true,
-        update:""
+        update: ""
     }]
     const optionsGet = data => {
         return {
-           headers: {
-              'Content-Type': 'application/json',
-              'Authorization': token,
-           },
-           method: 'get',
-           // body: JSON.stringify(data)
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token,
+            },
+            method: 'get',
+            // body: JSON.stringify(data)
         };
-     };
-     useEffect(() => {
-        console.log("useEffect");
-        fetch('http://localhost:5000/api/dorm/alldorm', optionsGet())
-           .then(res => res.json())
-           .then(res => {
-              if (res.dorm) {
-                 setDorm(res.dorm)
-                 console.log(res);
-              }
-              console.log(res);
-           })
-           .catch(error => {
-              console.log(error);
-  
-           })
-  
-     }, []);
+    };
+    useEffect(() => {
+        fetch('http://103.13.231.22:5000/api/dorm/dormById/' + UserId, optionsGet())
+            .then(res => res.json())
+            .then(res => {
+                if (res.dorm) {
+                    setDescDorm(res.dorm)
+                    console.log(res);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+
+            })
+
+    }, []);
+    console.log(descDorm);
     return (
         <div id="form_bg" className="d-flex justify-center">
             <div className="dom_me d-flex">
@@ -62,11 +61,7 @@ function DomMe() {
                 </div>
 
                 <div className="apartment_success d-flex">
-                    {
-                        status.map(function (element,index) {
-                            return <ListDormMe data={element} />
-                        })
-                    }
+                     <ListDormMe data={descDorm} />     
                 </div>
             </div>
         </div>

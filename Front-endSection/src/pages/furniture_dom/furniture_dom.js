@@ -15,12 +15,12 @@ import AddMap from '../../components/Map/Map'
 
 function FurnitureDom() {
    const history = useHistory();
+   const [dormId, setDormId] = useState('');
    const [facilities, setFacilities] = useState([]);
    const [selectedFile, setSelectedFile] = useState(null);
-   const [dormid, setDormid] = useState('');
    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
    const options = data => {
-      console.log(selectedFile);
+      console.log(data);
       return {
          headers: {
             'Authorization': token,
@@ -41,20 +41,17 @@ function FurnitureDom() {
    };
    useEffect(() => {
       console.log("useEffect");
-      fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
+      fetch('http://103.13.231.22:5000/api/dorm/dorm', optionsGet())
          .then(res => res.json())
          .then(res => {
-            console.log(res)
             if (res.dorm) {
-               setDormid(res.dorm._id)
-               console.log(res);
+               console.log("dorm", res);
+               setDormId(res.dorm._id)
             }
          })
          .catch(error => {
             console.log(error);
-
          })
-
    }, []);
 
    const handleInputChange = (e) => {
@@ -74,18 +71,16 @@ function FurnitureDom() {
       console.log(facilities);
    }
 
-   const HandleSubmit = (evt) => {
+   const HandleSubmit = async (evt) => {
       const formData = new FormData();
       const array = [...selectedFile]
-      formData.append("dorm_id", dormid);
+      console.log("dormId", dormId);
+      formData.append("dorm_id", dormId);
       formData.append("dorm_facilities", facilities);
-      array.forEach(element => {
+      await array.forEach(element => {
          formData.append("files", element);
       });
-      console.log(formData, 'test');
-      console.log(facilities);
-      console.log(dormid);
-      fetch('http://localhost:5000/api/dorm/dormfacility', options(formData))
+      fetch('http://103.13.231.22:5000/api/dorm/dormfacility', options(formData))
          .then(res => res.json())
          .then(res => {
             if (res.error) alert(res.error);

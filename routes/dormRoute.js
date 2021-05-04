@@ -14,7 +14,7 @@ router.get('/dorm', (req, res) => {
     const token = req.headers.authorization || '';
     const email = jwt.decode(token).email
     console.log(jwt.decode(token).email);
-    Dorm.findOne({ user: email, is_done: false}).exec()
+    Dorm.findOne({ user: email, is_done: false }).exec()
         .then(dorm => {
             console.log(dorm);
             res.status(200).json({ dorm: dorm });
@@ -352,8 +352,8 @@ router.post('/dormDocument', cpUpload, async (req, res) => {
     let fullpath_regis, fullpath_location
     console.log(req.files['regis_pic'][0]);
     if (req.files) {
-        fullpath_regis = uploadPDF(req.files['regis_pic'][0], res)
-        fullpath_location = uploadPDF(req.files['location_pic'][0], res)
+        fullpath_regis = uploadPDF(req.files['regis_pic'][0], req, res)
+        fullpath_location = uploadPDF(req.files['location_pic'][0], req, res)
     }
 
     const dorm_id = req.body.dorm_id || '';
@@ -379,6 +379,14 @@ router.post('/dormDocument', cpUpload, async (req, res) => {
                 res.status(500).json({ error: err.message });
                 return err
             }
+            // Dorm is_done = true 
+            Dorm.findOne({ _id: dorm_id }).exec()
+                .then(Dorm => {
+                    // console.log(Dorm);
+                    Dorm.is_done = true
+                    Dorm.save()
+                })
+                .catch(err => { console.log(err); res.status(400).json({ error: err }); return })
             res.status(200).send("success")
         })
     }

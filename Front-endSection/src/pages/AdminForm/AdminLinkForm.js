@@ -1,21 +1,18 @@
 import React, { useState, useEffect,useMemo } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import CostPanel from '../../pages/admin/component/cost_panel'
-import DetailTypeRoom from '../../pages/admin/component/detail_typeRoom'
-import DormInfoPanel from '../../pages/admin/component/dormInfo_panel.js'
-import ContactDormPanel from '../../pages/admin/component/contactDorm_panel'
+import DormInfoPanel from '../admin/component/dormInfo_panel.js'
+import ContactDormPanel from '../admin/component/contactDorm_panel'
 // import MapPanel from '../../pages/admin/component/map_panel.js'
-import ConInPanel from '../../pages/admin/component/conveninetIn_panel.js'
-import ConOutPanel from '../../pages/admin/component/conveninetOut_panel.js'
-import DetailPanel from '../../pages/admin/component/detail_panel'
-import CustomerCostPanel from '../../pages/admin/component/customet_costPanel'
+import ConInPanel from '../admin/component/conveninetIn_panel.js'
+import ConOutPanel from '../admin/component/conveninetOut_panel.js'
+import DetailPanel from '../admin/component/detail_panel'
+import CustomerCostPanel from '../admin/component/customet_costPanel'
 import Add_row from "../../components/add_row/add_row"
 import bin from '../../img/metro-bin.svg';
 import upload from '../../img/upload.svg';
-import info from '../../img/info-circle.svg';
 
-function CustomerForm() {
+function AdminLinkForm() {
    const history = useHistory();
    const { UserId } = useParams()
    const [numRow, setNumRow] = useState(0);
@@ -40,18 +37,14 @@ function CustomerForm() {
       fetch('http://103.13.231.22:5000/api/dorm/dormById/' + UserId, optionsGet())
          .then(res => res.json())
          .then(res => {
-            console.log(res);
             if (res.dorm) {
                setDescDorm(res.dorm);
-               // console.log(res.dorm);
             }
             if (res.DormType) {
                setRoomType(res.DormType);
-               // console.log(res.DormType);
             }
             if (res.DormFac) {
                setDescDormFac(res.DormFac);
-               // console.log(res.DormType);
             }
          })
          .catch(error => {
@@ -340,10 +333,8 @@ function CustomerForm() {
             </div>
          </div>
       </div>
-
-
    );
 }
 
 
-export default CustomerForm;
+export default AdminLinkForm;

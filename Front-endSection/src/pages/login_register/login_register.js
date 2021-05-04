@@ -46,7 +46,7 @@ function Login_register() {
     const HandleSubmitLogin = (evt) => {
         console.log(userLoginDetails);
 
-        fetch('http://localhost:5000/api/users/login', options(userLoginDetails))
+        fetch('http://103.13.231.22:5000/api/users/login', options(userLoginDetails))
             .then(res => res.json())
             .then(res => {
                 if (res.success) {
@@ -66,7 +66,7 @@ function Login_register() {
     }
     const HandleSubmitRegis = (evt) => {
         console.log(userRegisDetails);
-        fetch('http://localhost:5000/api/users/signup', options(userRegisDetails))
+        fetch('http://103.13.231.22:5000/api/users/signup', options(userRegisDetails))
             .then(res => res.json())
             .then(res => {
 

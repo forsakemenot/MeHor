@@ -17,6 +17,9 @@ import Add_row from "../../components/add_row/add_row"
 function RoomType() {
    const history = useHistory();
    const [numRow, setNumRow] = useState(0);
+   const [checked, setChecked] = useState({
+      cost: true
+   });
    const [roomType, setRoomType] = useState({ dorm_type: [] });
    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
    const options = data => {
@@ -81,8 +84,8 @@ function RoomType() {
    let rows = [];
    for (var i = 0; i < numRow; i++) {
       rows.push(
-         <Add_row key={i + 2}
-            row={i + 2}
+         <Add_row key={i}
+            row={i}
             col1={"room_name"}
             col2={"room_area"}
             col3={"room_cost"}
@@ -102,10 +105,11 @@ function RoomType() {
 
    useEffect(() => {
       console.log("useEffect");
-      fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
+      fetch('http://103.13.231.22:5000/api/dorm/dorm', optionsGet())
          .then(res => res.json())
          .then(res => {
             if (res.dorm) {
+               console.log(res.dorm._id);
                setRoomType({
                   ...roomType,
                   dorm_id: res.dorm._id //กำหนดค่าของ Value แต่ละอันเข้า Object NAME:VALUE
@@ -131,7 +135,7 @@ function RoomType() {
          dorm_type: items
       })
 
-      fetch('http://localhost:5000/api/dorm/dormtype', options(roomType))
+      fetch('http://103.13.231.22:5000/api/dorm/dormtype', options(roomType))
          .then(res => res.json())
          .then(res => {
             console.log(res);

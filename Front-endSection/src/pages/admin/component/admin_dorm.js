@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './../admin_all_dorm/admin_all_dorm.js';
 import './../../../App.css';
-
+import { Link } from "react-router-dom";
 import bin from './../../../img/metro-bin.svg'
 import edit from './../../../img/edit.svg'
 
-function AdminAllDorm({dataAllDorm}) {
+function AdminAllDorm({ dataAllDorm }) {
     return (
         <div className="dorm_component card-body">
             <div className="row dorm_box align-items-center text-secondary">
@@ -25,8 +25,8 @@ function AdminAllDorm({dataAllDorm}) {
                     <p className="m-0 text_label">4 / 13 /2021</p>
                 </div>
                 <div className="col-2 d-flex justify-evenly">
-                    <img src={edit} className="img_admin_edit"></img>
-                    <img src={bin} className="img_admin_edit"></img>
+                    <Link to={`/AdminLinkForm/` + dataAllDorm._id}><img alt="" src={edit} className="img_admin_edit pointer" /></Link>
+                    <img alt="" src={bin} className="img_admin_edit pointer" />
                 </div>
             </div>
         </div>
