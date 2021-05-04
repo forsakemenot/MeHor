@@ -18,24 +18,28 @@ function Add_row(prop) {
         <input type="text" className="form-control" placeholder="ex. ห้องเดี่ยว 1 เตียง" 
         row={prop.row}
         name={prop.col1}
+        value={prop.value1}
         onChange={prop.handleReturnRoomType} />
       </div>
       <div className="w-20">
         <input type="text" className="form-control" placeholder="16 ตรม." 
         row={prop.row} 
         name={prop.col2}
+        value={prop.value2}
         onChange={prop.handleReturnRoomType} />
       </div>
       <div className="w-20">
         <input type="text" className="form-control" placeholder="4,000 บาท/เดือน" 
         row={prop.row} 
         name={prop.col3}
+        value={prop.value3}
         onChange={prop.handleReturnRoomType} />
       </div>
       <div className="w-20">
         <input type="text" className="form-control" placeholder="4,000 บาท/เดือน" 
         row={prop.row} 
         name={prop.col4}
+        value={prop.value4}
         onChange={prop.handleReturnRoomType} />
       </div>
       <div className="w-5">

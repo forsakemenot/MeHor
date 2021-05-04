@@ -9,7 +9,7 @@ import ConInPanel from '../../pages/admin/component/conveninetIn_panel.js'
 import ConOutPanel from '../../pages/admin/component/conveninetOut_panel.js'
 import DocPanel from '../../pages/admin/component/doc_panel.js'
 import DetailPanel from '../../pages/admin/component/detail_panel'
-
+import Add_row from "../../components/add_row/add_row"
 import bin from '../../img/metro-bin.svg';
 function CustomerForm() {
    const { UserId } = useParams()
@@ -54,7 +54,34 @@ function CustomerForm() {
             console.log(error);
          })
    }, []);
-   
+   const handleReturnRoomType = (e) => {
+      if (e.delete) {
+         let items = [...roomType.dorm_type]
+         items[e.delete] = [0]
+         setRoomType({
+            ...roomType,
+            dorm_type: items
+         })
+      } else {
+         console.log(e.target?.getAttribute('row'), e.target?.name, e.target?.value);
+         console.log(roomType);
+         let row = e.target?.getAttribute('row') - 1
+         let field = e.target?.name
+         let value = e.target?.value
+         let items = [...roomType.dorm_type]
+
+         let item = {
+            ...roomType.dorm_type[row],
+            [field]: value
+         }
+
+         items[row] = item;
+         setRoomType({
+            ...roomType,
+            dorm_type: items
+         })
+      }
+   }
    return (
       <div className="d-flex bg-admin">
          <div className="d-flex flex-column w-100 color-main align-items-center">
@@ -68,9 +95,9 @@ function CustomerForm() {
                   <div className="d-flex flex-wrap">
                      <div className="card_size card-columns">
                         <DormInfoPanel dataInfo={descDorm} />
-                        <ContactDormPanel dataContact={descDorm}/>
+                        <ContactDormPanel dataContact={descDorm} />
                         {/* <MapPanel /> */}
-                        <DetailPanel dataDetail={descDorm}/>
+                        <DetailPanel dataDetail={descDorm} />
                      </div>
                   </div>
 
@@ -83,6 +110,23 @@ function CustomerForm() {
 
                         <div className="form-group">
                            <DetailTypeRoom />
+                           {
+                              roomType?.dorm_type?.map(function (element, index) {
+                                 return(
+                                 <>
+                                    {console.log(element.room_name)}
+                                    <Add_row key={index}
+                                       row={index}
+                                       value1={element.room_name}
+                                       value2={element.room_area}
+                                       value3={element.room_cost}
+                                       value4={element.additional}
+                                       handleReturnRoomType={handleReturnRoomType}
+                                    />
+                                 </>
+                                 )
+                              })
+                           }
                         </div>
                      </div>
                   </div>

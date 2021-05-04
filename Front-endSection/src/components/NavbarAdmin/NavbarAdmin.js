@@ -1,24 +1,11 @@
 import React, { useState } from 'react';
 import './NavbarAdmin.css';
-import { Link, useParams } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 function NavbarAdmin({ pages }) {
-    const { AdminId } = useParams()
-    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
-    const optionsGet = data => {
-        return {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': token,
-            },
-            method: 'get',
-            // body: JSON.stringify(data)
-        };
-    };
     const [page, setPage] = useState(pages);
     function handleNavBar(e) {
         setPage(e);
     }
-
     return (
         <div className="navbar_admin text-white d-flex flex-wrap justify-content-start flex-column w-100">
             <div className="d-flex w-100 flex-column justify-content-start h-40">
@@ -26,7 +13,7 @@ function NavbarAdmin({ pages }) {
                     <span className="fs-3-5-v font-weight-bold w-100 text-center">MeHor</span>
                     <span className="text-uppercase w-100 text-center fs-0-9-v font-weight-bold">admin panel</span>
                 </div>
-                <Link to={`/AdminDorm/` + AdminId} className="nav-admin">
+                <Link to="/AdminDorm" className="nav-admin">
                     <div className={`d-flex w-100 justify-content-center py-1-v fs-0-9-v mt-2-v ${page === 0 && "bg-active-nav-bar-admin"}`} onClick={() => handleNavBar(0)}>
                         <span>รายการหอพักทั้งหมดในระบบ</span>
                     </div>
@@ -43,10 +30,10 @@ function NavbarAdmin({ pages }) {
                 </Link>
             </div>
             <div className="d-flex w-95 mx-auto flex-column justify-content-end h-50 line-bottom-white py-1-v">
-                <Link to="/" className="nav-admin" onClick={() => window.location.href = '/'}>
-                    <div className="back_to_home w-80 mx-auto d-flex justify-content-center py-0-4-v">
-                        <span className="fs-0-9-v">กลับไปยังหน้าเว็บไซต์หลัก</span>
-                    </div>
+            <Link to="/" className="nav-admin" onClick={() => window.location.href='/'}>
+                <div className="back_to_home w-80 mx-auto d-flex justify-content-center py-0-4-v">
+                    <span className="fs-0-9-v">กลับไปยังหน้าเว็บไซต์หลัก</span>
+                </div>
                 </Link>
             </div>
         </div>

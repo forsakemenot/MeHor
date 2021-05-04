@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../admin_form/admin_form.css';
 import './../../../App.css';
-
 import bin from '../../../img/metro-bin.svg';
 
 function detail_typeRoom() {
@@ -11,7 +10,6 @@ function detail_typeRoom() {
             <span className="w-20 text_label">ขนาดห้อง</span>
             <span className="w-15 text_label">ราคา</span>
             <span className="w-35 text_label">รายละเอียด</span>
-            <img alt="" src={bin} className="w-2"></img>
         </div>
     );
 }
