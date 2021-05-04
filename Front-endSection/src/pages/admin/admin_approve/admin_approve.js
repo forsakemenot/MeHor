@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect,useMemo } from "react";
 import './../admin_approve/admin_approve.css';
 import './../../../App.css';
 
@@ -10,6 +10,44 @@ import DormApprove from '../component/dorm_approve'
 import NavbarAdmin from '../../../components/NavbarAdmin/NavbarAdmin.js'
 
 function AdminApprove() {
+    const [descDorm, setDescDorm] = useState([]);
+   const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
+   const optionsGet = data => {
+      return {
+         headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token,
+         },
+         method: 'get',
+         // body: JSON.stringify(data)
+      };
+   };
+   useEffect(() => {
+      console.log("useEffect");
+      fetch('http://103.13.231.22:5000/api/dorm/alldorm', optionsGet())
+          .then(res => res.json())
+          .then(res => {
+              if (res.dorm) {
+                  setDescDorm(res.dorm);
+                  // console.log(res.dorm);
+              }
+          })
+          .catch(error => {
+              console.log(error);
+          })
+  }, []);
+   const DormListApprove = useMemo(
+    () => {
+       if (descDorm[0]?.dorm_name) {
+          return (
+             descDorm.map(function (element, index) {
+                return <DormApprove dataAllDorm={element} />
+             })
+          )
+       }
+       return
+    }, [descDorm]
+ )
     return (
         <div className="d-flex bg-admin">
             <div className="w-20 d-flex">
@@ -47,7 +85,7 @@ function AdminApprove() {
                             </div>
                         </div>
                     </div>
-                    <DormApprove />
+                    {DormListApprove}
                 </div>
             </div>
         </div>
