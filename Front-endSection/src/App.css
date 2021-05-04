@@ -131,6 +131,9 @@ p{
 .w-5{
   width: 5%;
 }
+.w-6{
+  width: 6%;
+}
 .w-10{
   width: 10%;
 }
@@ -226,6 +229,9 @@ p{
 }
 .mr-3-v{
   margin-right: 3vw;
+}
+.mr-35-v{
+  margin-right: 35vw;
 }
 .ml-0-2-v{
   margin-left: 0.2vw;
