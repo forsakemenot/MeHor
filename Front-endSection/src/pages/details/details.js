@@ -39,6 +39,7 @@ function Details() {
     const [convenient, setConvenient] = useState(true);
     const [roomType, setRoomType] = useState({});
     const [descDorm, setDescDorm] = useState({});
+    const [descDormFac, setDescDormFac] = useState({});
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
     const optionsGet = data => {
         return {
@@ -76,12 +77,20 @@ function Details() {
                     setRoomType(res.DormType);
                     // console.log(res.DormType);
                 }
+                if (res.DormFac) {
+                    setDescDormFac(res.DormFac);
+                 }
             })
             .catch(error => {
                 console.log(error);
             })
     }, []);
 
+    let arrayDormFac = []
+    if (descDormFac.dorm_facilities) {
+        arrayDormFac = descDormFac?.dorm_facilities[0]?.split(",")
+    }
+    console.log(arrayDormFac);
     const desc_update = {
         view: "534",
         update: "29 มีนาคม 2564",
@@ -229,13 +238,13 @@ function Details() {
                         <div className="w-100 d-flex align-items-center color-main">
                             <span className="fs-1-2-v">{descDorm.dorm_name}</span>
                         </div>
-                        <div className="w-100 d-flex ">
+                        {/* <div className="w-100 d-flex ">
                             <img className="mr-0-5-v" alt="" src={star} />
                             <span className="color-main ">เข้าร่วมเครือข่าย สจล.</span>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
-                <div className="w-50 d-flex justify-content-end  align-items-center">
+                {/* <div className="w-50 d-flex justify-content-end  align-items-center">
                     <div className="w-40 d-flex flex-wrap justify-content-end mr-2-v">
                         <div className="w-100 d-flex align-items-center justify-content-end">
                             <img className="mr-0-5-v" alt="" src={eye} />
@@ -249,7 +258,7 @@ function Details() {
                     <div className="w-10">
                         <img className="w-75" alt="" src={heartOff} />
                     </div>
-                </div>
+                </div> */}
 
                 {/* รูปสไลด์เจ้าปัญหา */}
 
@@ -403,7 +412,7 @@ function Details() {
                             <div className="w-100 d-flex flex-wrap mt-0-5-v">
                                 <ul className="w-95 d-flex flex-wrap p-0">
                                     {
-                                        detailsInDorm.inRoom.map(function (element, index) {
+                                        arrayDormFac.map(function (element, index) {
                                             return <><div className="w-5"></div><li className="color-main w-45 fs-1-v">{element}</li></>
                                         })
                                     }
