@@ -14,7 +14,7 @@ router.get('/dorm', (req, res) => {
     const token = req.headers.authorization || '';
     const email = jwt.decode(token).email
     console.log(jwt.decode(token).email);
-    Dorm.findOne({ user: email}).exec()
+    Dorm.findOne({ user: email, is_done: false}).exec()
         .then(dorm => {
             console.log(dorm);
             res.status(200).json({ dorm: dorm });
@@ -143,7 +143,7 @@ router.get('/dormById/:dorm_id', (req, res) => {
 })
 
 router.patch('/dormById/:dorm_id', (req, res) => {
-    // console.log(req.params.dorm_id);
+    console.log(req.params.dorm_id);
     Dorm.findOne({ _id: req.params.dorm_id }).exec()
         .then(async dorm => {
             let dormtest = {}

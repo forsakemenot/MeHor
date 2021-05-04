@@ -6,11 +6,18 @@ import account from '../../img/account.svg'
 import key from '../../img/key.svg'
 
 function Profile() {
-    const [selectedFile, setSelectedFile] = useState(null);
+    // const [selectedFile, setSelectedFile] = useState(null);
     const [file, setFile] = React.useState("");
     const [userid, setUserid] = useState('');
     const [user, setUser] = useState([]);
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
+
+    const ImageThumb = ({ image }) => {
+        if (image) {return <img src={URL.createObjectURL(image)} className="img_user"/>}
+        
+        
+    };
+
     const options = data => {
         return {
             headers: {
@@ -38,8 +45,8 @@ function Profile() {
                 'Authorization': token,
             },
             method: 'post',
-           // body: JSON.stringify(data)
-           body: data
+            // body: JSON.stringify(data)
+            body: data
         };
     };
     useEffect(() => {
@@ -50,7 +57,7 @@ function Profile() {
                 const obj = {};
                 for (const [key, value] of Object.entries(res.user)) {
                     // console.log(key);
-                    // console.log(value);
+                    // console.log(value);  
                     if (key !== "password") {
                         if (key !== "email") {
                             if (key !== "role") {
@@ -105,9 +112,8 @@ function Profile() {
     // console.log(token);
     function handleUpload(event) {
         setFile(event.target.files[0]);
-    
 
-      }
+    }
 
     return (
         <div className="d-flex justify-center">
@@ -132,9 +138,10 @@ function Profile() {
                             </div>
                             <div className="d-flex justify-content-center align-items-center flex-column">
                                 <div className="img_profile d-flex">
-                                    <div className="img_user"></div>
-                                    <div className="align-items-center">
-                                        <input onChange={(e) => setSelectedFile(e.target.files)} multiple id="input-b1" name="input-b1" type="file" data-browse-on-zone-click="true" />
+                                    {/* <div className="img_user"></div> */}
+                                    {file && <ImageThumb image={file} />}
+                                    <div className="align-items-center d-flex justify-content-center">
+                                        <input onChange={handleUpload} multiple id="input-b1" name="input-b1" type="file" data-browse-on-zone-click="true" />
                                     </div>
                                 </div>
                                 {/* input profile */}
@@ -156,6 +163,16 @@ function Profile() {
                                     <button type="submit" onClick={HandleSubmitUpdate} className="btn_login">อัพเดต</button>
                                 </div>
                             </div>
+{/* 
+                            <div id="upload-box">
+                                <input type="file" onChange={handleUpload} />
+                                <p>Filename: {file.name}</p>
+                                <p>File type: {file.type}</p>
+                                <p>File size: {file.size} bytes</p>
+                                {file && <ImageThumb image={file} />}
+                            </div> */}
+
+
 
                             {/* tab security */}
                             {/* <div className="security_form">

@@ -1,3 +1,4 @@
+
 .bg_profile {
 
     margin: 3% 0 0 0;
@@ -61,6 +62,7 @@
     border-radius: 50%;
     background-color: gray;
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+    object-fit: cover;
 }
 
 .btn_uploadImg {

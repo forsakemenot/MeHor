@@ -5,19 +5,19 @@ const handleError = (err, res) => {
     return;
 };
 
-exports.uploadFile = (req, res) => {
+exports.uploadFile = (file, req, res) => {
     // upload file
-    let tempPath = req.file.path;
+    let tempPath = file.file.path;
     let targetPath = path.join(tempPath);
 
-    if (req.file.mimetype === "image/png") {
+    if (file.file.mimetype === "image/png") {
         targetPath = targetPath + '.png';
         fs.rename(tempPath, targetPath, err => {
             if (err) return handleError(err, res);
             console.log("File uploaded!")
             // res.status(200).contentType("text/plain").end("File uploaded!");
         });
-    } else if (req.file.mimetype === "image/jpeg") {
+    } else if (file.file.mimetype === "image/jpeg") {
         targetPath = targetPath + '.jpg';
         fs.rename(tempPath, targetPath, err => {
             if (err) return handleError(err, res);
@@ -33,29 +33,29 @@ exports.uploadFile = (req, res) => {
         });
     }
 
-    return path.join(__dirname, '../../', targetPath);
+    return path.join(req.get('host'), targetPath.replace('public\\', '').replace('public/', ''));
 }
 
-exports.uploadPDF = (req, res) => {
+exports.uploadPDF = (file, req, res) => {
     // upload file
-    let tempPath = req.path;
+    let tempPath = file.path;
     let targetPath = path.join(tempPath);
 
-    if (req.mimetype === "image/png") {
+    if (file.mimetype === "image/png") {
         targetPath = targetPath + '.png';
         fs.rename(tempPath, targetPath, err => {
             if (err) return handleError(err, res);
             console.log("File uploaded!")
             // res.status(200).send("File uploaded!");
         });
-    } else if (req.mimetype === "image/jpeg") {
+    } else if (file.mimetype === "image/jpeg") {
         targetPath = targetPath + '.jpg';
         fs.rename(tempPath, targetPath, err => {
             if (err) return handleError(err, res);
             console.log("File uploaded!")
             // res.status(200).send("File uploaded!");
         });
-    } else if (req.mimetype === "application/pdf") {
+    } else if (file.mimetype === "application/pdf") {
         targetPath = targetPath + '.pdf';
         fs.rename(tempPath, targetPath, err => {
             if (err) return handleError(err, res);
@@ -70,11 +70,12 @@ exports.uploadPDF = (req, res) => {
         });
     }
 
-    return path.join(__dirname,targetPath.replace('public\\', '').replace('public/', ''))
+    return path.join(req.get('host'), targetPath.replace('public\\', '').replace('public/', ''));
 }
 
 exports.uploadMultiFile = (req, res) => {
     // upload file
+    console.log(req.files);
     let files = req.files
     let arr_file = []
     files.forEach(file => {
@@ -102,7 +103,7 @@ exports.uploadMultiFile = (req, res) => {
                 return
             });
         }
-        arr_file.push(__dirname,targetPath.replace('public\\', '').replace('public/', ''))
+        arr_file.push(path.join(req.get('host'), targetPath.replace('public\\', '').replace('public/', '')))
     });
 
     return arr_file;
