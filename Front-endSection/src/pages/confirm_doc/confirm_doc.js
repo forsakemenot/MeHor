@@ -73,13 +73,14 @@ function ConfirmDoc() {
         formData.append("regis_pic", fileDorm);
         formData.append("location_pic", fileDormNum);
         for (var pair of formData.entries()) {
-            console.log(pair[1]);
+            // console.log(pair[1]);
         }
 
         fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
             .then(res => res.json())
             .then(res => {
                 console.log(res);
+                alert('res')
                 // console.log(UserId);
                 if (res.error) alert(res.error);
                 if (res.success) {

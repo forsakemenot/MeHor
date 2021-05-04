@@ -44,6 +44,7 @@ function FurnitureDom() {
       fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
          .then(res => res.json())
          .then(res => {
+            console.log(res)
             if (res.dorm) {
                setDormid(res.dorm._id)
                console.log(res);
