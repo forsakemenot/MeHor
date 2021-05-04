@@ -20,6 +20,8 @@ import shadow_rnp from '../../img/shadow-rnp.png';
 import shadow_keki from '../../img/shadow-keki.png';
 import shadow_jinda from '../../img/shadow-jinda.png';
 import shadow_nikom from '../../img/shadow-nikom.png';
+import rail from '../../img/rail.png';
+import train from '../../img/train.png';
 
 function Home() {
     const [activeBoxPrice, setActiveBoxPrice] = useState(false);
@@ -81,29 +83,38 @@ function Home() {
     return (
 
         <div>
-            <div className="map_info">
+<div className="map_info">
                 <div className="main_kmitl">
                     <img alt="" src={kmitl}></img>
+                </div>
+                <div className="map-el environment">
+                    <img className="map-el rail" alt="" src={rail}></img>
+                    <img className="map-el train" alt="" src={train}></img>
                 </div>
                 <div className=" map-el zone_fbt">
                     <img className="map-el-shadow zone_fbt_shd" alt="" src={shadow_fbt}></img>
                     <img className="map-el-img zone_fbt_img" alt="" src={fbt}></img>
+                    <span className="map-el-text">โซน FBT</span>
                 </div>
                 <div className=" map-el zone_keki">
                     <img className="map-el-shadow zone_keki_shd" alt="" src={shadow_keki}></img>
                     <img className="map-el-img zone_keki_img" alt="" src={keki}></img>
+                    <span className="map-el-text-long">โซน เกกีงาม</span>
                 </div>
                 <div className=" map-el zone_rnp">
                     <img className="map-el-shadow zone_rnp_shd" alt="" src={shadow_rnp}></img>
                     <img className="map-el-img zone_rnp_img" alt="" src={rnp}></img>
+                    <span className="map-el-text">โซน RNP</span>
                 </div>
                 <div className=" map-el zone_jinda">
                     <img className="map-el-shadow zone_jinda_shd" alt="" src={shadow_jinda}></img>
                     <img className="map-el-img zone_jinda_img" alt="" src={jinda}></img>
+                    <span className="map-el-text-long">โซน จินดา</span>
                 </div>
                 <div className=" map-el zone_nikom">
                     <img className="map-el-shadow zone_nikom_shd" alt="" src={shadow_nikom}></img>
                     <img className="map-el-img zone_nikom_img" alt="" src={nikom}></img>
+                    <span className="map-el-text-height">โซน นิคมฯ</span>
                 </div>
             </div>
             <div>

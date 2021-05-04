@@ -66,6 +66,7 @@ function ConfirmDoc() {
     }
     const HandleSubmit = (evt) => {
         console.log(dormid);
+        
         const formData = new FormData();
         formData.append("dorm_id", dormid);
         formData.append("regis_pic", fileDorm);

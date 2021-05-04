@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import './../admin_approve/admin_approve.css';
 import './../../../App.css';
 
@@ -11,47 +11,80 @@ import NavbarAdmin from '../../../components/NavbarAdmin/NavbarAdmin.js'
 
 function AdminApprove() {
     const [descDorm, setDescDorm] = useState([]);
-   const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
-   const optionsGet = data => {
-      return {
-         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token,
-         },
-         method: 'get',
-         // body: JSON.stringify(data)
-      };
-   };
-   useEffect(() => {
-      console.log("useEffect");
-      fetch('http://103.13.231.22:5000/api/dorm/alldorm', optionsGet())
-          .then(res => res.json())
-          .then(res => {
-              if (res.dorm) {
-                  setDescDorm(res.dorm);
-                  // console.log(res.dorm);
-              }
-          })
-          .catch(error => {
-              console.log(error);
-          })
-  }, []);
-   const DormListApprove = useMemo(
-    () => {
-       if (descDorm[0]?.dorm_name) {
-          return (
-             descDorm.map(function (element, index) {
-                return <DormApprove dataAllDorm={element} />
-             })
-          )
-       }
-       return
-    }, [descDorm]
- )
+    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
+    const optionsGet = data => {
+        return {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token,
+            },
+            method: 'get',
+            // body: JSON.stringify(data)
+        };
+    };
+    const options = data => {
+        return {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token,
+            },
+            method: 'PATCH',
+            body: JSON.stringify(data)
+        };
+    };
+    useEffect(() => {
+        console.log("useEffect");
+        fetch('http://localhost:5000/api/dorm/alldormIsDone', optionsGet())
+            .then(res => res.json())
+            .then(res => {
+                if (res) {
+                    setDescDorm(res);
+                    // console.log(res.dorm);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }, []);
+
+    const HandleApprove = (evt) => {
+        console.log(descDorm[evt].dorm._id);
+        descDorm[evt].dorm.isApprove = true
+        fetch('http://localhost:5000/api/dorm/dormById/' + descDorm[evt].dorm._id, options(descDorm[evt]))
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                descDorm[evt] = res
+                setDescDorm(descDorm)
+                alert("Update success!!!")
+                window.location.reload()
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+    }
+    const DormListApprove = useMemo(
+        () => {
+            if (descDorm[0]?.dorm) {
+                return (
+                    descDorm.map(function (element, index) {
+                        if(!element.dorm.isApprove)
+                        return <DormApprove dataAllDorm={element.dorm} index={index} HandleApprove={HandleApprove} />
+
+                    })
+                )
+            }
+            return
+        }, [descDorm]
+
+    )
+
+
     return (
         <div className="d-flex bg-admin">
             <div className="w-20 d-flex">
-                <NavbarAdmin pages={1}/>
+                <NavbarAdmin pages={1} />
             </div>
             <div className="d-flex flex-column w-100 color-main align-items-center">
                 <div className="navigation bg-white w-100 d-flex align-items-center justify-content-between">
