@@ -11,7 +11,7 @@ import info from '../../img/info-circle.svg';
 
 function ConfirmDoc() {
     const history = useHistory();
-    const [dorm, setDorm] = useState();
+    const [dormid, setDormid] = useState();
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
     const optionsGet = data => {
         return {
@@ -39,7 +39,7 @@ function ConfirmDoc() {
             .then(res => res.json())
             .then(res => {
                 if (res.dorm) {
-                    setDorm(res.dorm)
+                    setDormid(res.dorm._id)
                     console.log(res.dorm);
                 }
             })
@@ -65,10 +65,10 @@ function ConfirmDoc() {
         // ...
     }
     const HandleSubmit = (evt) => {
-        console.log(dorm);
-        dorm.isDone = true;
+        console.log(dormid);
+        
         const formData = new FormData();
-        formData.append("dorm_id", dorm._id);
+        formData.append("dorm_id", dormid);
         formData.append("regis_pic", fileDorm);
         formData.append("location_pic", fileDormNum);
         for (var pair of formData.entries()) {

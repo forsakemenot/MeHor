@@ -6,15 +6,18 @@ import account from '../../img/account.svg'
 import key from '../../img/key.svg'
 
 function Profile() {
-    
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [file, setFile] = React.useState("");
+    const [userid, setUserid] = useState('');
     const [user, setUser] = useState([]);
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
     const options = data => {
         return {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': token,
             },
-            method: 'post',
+            method: 'PATCH',
             body: JSON.stringify(data)
         };
     };
@@ -28,31 +31,68 @@ function Profile() {
             // body: JSON.stringify(data)
         };
     };
-    const optionsPatch = data => {
+    const optionsPost = data => {
         return {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': token,
             },
-            method: 'patch',
-            body: JSON.stringify(data)
+            method: 'post',
+           // body: JSON.stringify(data)
+           body: data
         };
     };
-
-    const HandleSubmitUpdate = (evt) => {
-        fetch('http://103.13.231.22:5000/api/users/signup', options(user))
+    useEffect(() => {
+        console.log("useEffect");
+        fetch('http://localhost:5000/api/users/userById/', optionsGet())
             .then(res => res.json())
             .then(res => {
+                const obj = {};
+                for (const [key, value] of Object.entries(res.user)) {
+                    // console.log(key);
+                    // console.log(value);
+                    if (key !== "password") {
+                        if (key !== "email") {
+                            if (key !== "role") {
+                                if (key !== "_id") {
+                                    if (key !== "__v") obj[key] = value
+                                }
+                            }
+                        }
+                    }
 
-                console.log(res);
-                if (res.success) {
+                }
+                setUserid(res.user._id)
+                setUser(obj)
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }, []);
+    const handleInputChange = (e) => {
+        console.log(e.target.name);
+        const field = e.target.name;
+        const value = e.target.value;
+        setUser({
+            ...user,
+            [field]: value
+        });
+    }
+    const HandleSubmitUpdate = (evt) => {
+        console.log(user);
+        evt.preventDefault();
+        fetch('http://localhost:5000/api/users/userById/', options(user))
+
+            .then(res => res.json())
+            .then(res => {
+                console.log(res.user);
+                if (res.user) {
                     window.location.reload();
+                    console.log('updated');
+                    alert('updated')
                 }
                 else if (res.errors) {
-                    
-                }
-                else {
-                    alert('SOMETHING WENT WRONG')
+                    alert(res.error)
                 }
             })
             .catch(error => {
@@ -61,29 +101,17 @@ function Profile() {
             })
         evt.preventDefault();
     }
+
+    // console.log(token);
+    function handleUpload(event) {
+        setFile(event.target.files[0]);
     
-    console.log(token);
-    useEffect(() => {
-        console.log("useEffect");
-        fetch('http://localhost:5000/api/users/userById', optionsGet())
-            .then(res => res.json())
-            .then(res => {
-                if (res.user) {
-                    setUser(res.user)
-                    console.log(user);
-                }
-                console.log(user);
-            })
-            .catch(error => {
-                console.log(error);
 
-            })
-
-    }, []);
+      }
 
     return (
         <div className="d-flex justify-center">
-            <div className="bg_profile d-flex w-50">
+            <div className="bg_profile d-flex ">
 
                 {/* tab profile */}
                 {/* <div className="menu_profile">
@@ -105,28 +133,27 @@ function Profile() {
                             <div className="d-flex justify-content-center align-items-center flex-column">
                                 <div className="img_profile d-flex">
                                     <div className="img_user"></div>
-                                    <div className="btn_uploadImg d-flex">
-                                        <p>อัพโหลดภาพโปรไฟล์</p>
-                                        <img alt="" className="img_photo" src={photo}></img>
+                                    <div className="align-items-center">
+                                        <input onChange={(e) => setSelectedFile(e.target.files)} multiple id="input-b1" name="input-b1" type="file" data-browse-on-zone-click="true" />
                                     </div>
                                 </div>
                                 {/* input profile */}
                                 <div className="edit_profile d-flex align-items-center">
                                     <div className="edit_info">
                                         <p className="text_input">ชื่อ</p>
-                                        <input className="input_profile d-flex" value={user.firstname}></input>
+                                        <input onChange={handleInputChange} className="input_profile d-flex" value={user.firstname} name="firstname"></input>
                                     </div>
                                     <div className="edit_info">
                                         <p className="text_input">นามสกุล</p>
-                                        <input className="input_profile d-flex" value={user.surname}></input>
+                                        <input onChange={handleInputChange} className="input_profile d-flex" value={user.surname} name="surname"></input>
                                     </div>
                                     <div className="edit_info">
                                         <p className="text_input">เบอร์โทรศัพท์</p>
-                                        <input className="input_profile d-flex" ></input>
+                                        <input onChange={handleInputChange} className="input_profile d-flex" name="phone"></input>
                                     </div>
                                 </div>
                                 <div className="d-flex justify-end mb-4">
-                                    <button type="submit" className="btn_login">อัพเดต</button>
+                                    <button type="submit" onClick={HandleSubmitUpdate} className="btn_login">อัพเดต</button>
                                 </div>
                             </div>
 
@@ -152,6 +179,7 @@ function Profile() {
                         </div>
                     </div>
                 </form>
+
             </div>
         </div>
     );
