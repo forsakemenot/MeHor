@@ -28,7 +28,7 @@ function AdminApprove() {
                 'Content-Type': 'application/json',
                 'Authorization': token,
             },
-            method: 'patch',
+            method: 'PATCH',
             body: JSON.stringify(data)
         };
     };
@@ -39,7 +39,6 @@ function AdminApprove() {
             .then(res => {
                 if (res) {
                     setDescDorm(res);
-                    console.log(res);
                     // console.log(res.dorm);
                 }
             })
@@ -47,17 +46,18 @@ function AdminApprove() {
                 console.log(error);
             })
     }, []);
-    
-    const HandleApprove = (evt) => {
-        console.log(evt);
 
+    const HandleApprove = (evt) => {
+        console.log(descDorm[evt].dorm._id);
         descDorm[evt].dorm.isApprove = true
-        fetch('http://localhost:5000/api/dorm/dormById/'+descDorm[evt].dorm._id, options(descDorm))
+        fetch('http://localhost:5000/api/dorm/dormById/' + descDorm[evt].dorm._id, options(descDorm[evt]))
             .then(res => res.json())
             .then(res => {
-                if (res.success) {
-
-                }
+                console.log(res);
+                descDorm[evt] = res
+                setDescDorm(descDorm)
+                alert("Update success!!!")
+                window.location.reload()
             })
             .catch(error => {
                 console.log(error);
@@ -69,7 +69,7 @@ function AdminApprove() {
             if (descDorm[0]?.dorm) {
                 return (
                     descDorm.map(function (element, index) {
-                        console.log(element);
+                        if(!element.dorm.isApprove)
                         return <DormApprove dataAllDorm={element.dorm} index={index} HandleApprove={HandleApprove} />
 
                     })
@@ -77,7 +77,7 @@ function AdminApprove() {
             }
             return
         }, [descDorm]
-        
+
     )
 
 

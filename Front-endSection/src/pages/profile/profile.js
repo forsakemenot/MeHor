@@ -110,7 +110,6 @@ function Profile() {
                                         <img alt="" className="img_photo" src={photo}></img>
                                     </div>
                                 </div>
-
                                 {/* input profile */}
                                 <div className="edit_profile d-flex align-items-center">
                                     <div className="edit_info">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect , useMemo} from 'react';
 import './../admin_user/admin_user.css';
 import './../../../App.css';
 
@@ -8,6 +8,47 @@ import NavbarAdmin from "../../../components/NavbarAdmin/NavbarAdmin.js"
 import User from "../component/admin_user.js"
 
 function AdminUser() {
+   const [user, setUser] = useState([]);
+   const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
+   const optionsGet = data => {
+      return {
+         headers: {
+            'Content-Type': 'application/json',
+            'Authorization': token,
+         },
+         method: 'get',
+         // body: JSON.stringify(data)
+      };
+   };
+   useEffect(() => {
+      console.log("useEffect");
+      fetch('http://localhost:5000/api/users/userAll', optionsGet())
+         .then(res => res.json())
+         .then(res => {
+
+            if (res) {
+               setUser(res);
+               // console.log(res);
+            }
+         })
+         .catch(error => {
+            console.log(error);
+         })
+   }, []);
+   const userList = useMemo(
+      () => {
+         if (user.users) {
+            return (
+               user.users.map(function (element, index) {
+                  console.log(element, 'test');
+                  return <User Data={element} />
+               })
+            )
+         }
+         return
+      }, [user]
+   )
+
    return (
       <div className="d-flex bg-admin">
          <div className="w-20 d-flex">
@@ -65,7 +106,7 @@ function AdminUser() {
                         </div>
                      </div>
 
-                     <User />
+                     {userList}
                      
                   </div>
                </div>
