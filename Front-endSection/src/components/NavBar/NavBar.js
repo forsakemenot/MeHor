@@ -83,7 +83,7 @@ function NavBar() {
          <Navbar.Collapse id="responsive-navbar-nav" className="w-100">
             <Nav className="w-100 d-flex align-items-baseline">
                <Nav.Link><Link to="/" className="color-white fs-1-v">หน้าแรก</Link></Nav.Link>
-               <NavDropdown title="ค้นหาที่พัก" className="color-white fs-1-v pt-1-v" id="collasible-nav-dropdown">
+               <NavDropdown title="ค้นหาที่พัก" className="color-white fs-1-v" id="collasible-nav-dropdown">
                   <NavDropdown.Item><Link to="/zone" className="color-main fs-0-9-v">โซน วีคอนโด</Link></NavDropdown.Item>
                   <NavDropdown.Item><Link to="/zone" className="color-main fs-0-9-v">โซน เกกี</Link></NavDropdown.Item>
                   <NavDropdown.Item><Link to="/zone" className="color-main fs-0-9-v">โซน RNP</Link></NavDropdown.Item>
