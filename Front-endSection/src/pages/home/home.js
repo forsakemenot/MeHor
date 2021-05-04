@@ -45,9 +45,11 @@ function Home() {
         fetch('http://103.13.231.22:5000/api/dorm/alldormIsApprove', optionsGet())
             .then(res => res.json())
             .then(res => {
-                console.log(res.dorm);
-                if (res.dorm) {
-                    setDescDorm(res.dorm);
+                // console.log(res[0].dorm);
+
+                if (res[0].dorm) {
+                    // console.log(res);
+                    setDescDorm(res);
                 }
             })
             .catch(error => {
@@ -70,11 +72,15 @@ function Home() {
     }
     const dormBox = useMemo(
         () => {
-            if (descDorm[0]?.dorm_name) {
+            
+            if (descDorm[0].dorm) {
+                console.log(descDorm);
                 return (
-                    descDorm.map(function (element, index) {
-                        return <DomList data={element} />
-                    })
+                    // descDorm?.map(function (element, index) {
+                    //     return <DomList data={element} />
+                    // })
+                    <>
+                    </>
                 )
             }
             return
