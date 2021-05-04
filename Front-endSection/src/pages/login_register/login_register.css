@@ -12,10 +12,11 @@
 }
 .box_login{
     margin: auto;
-    margin-top: 3vw;
+    margin-top: 2vw;
     margin-bottom: 5vw;
-    border: 3px solid #325679;
-    width: 30%;
+    border: 1.5px solid #325679;
+    width: 28%;
+    border-radius: 15px;
 }
 .tab_child{
     padding: 0.5vw 0vw;
@@ -23,27 +24,29 @@
     justify-content: center;
     flex: 1 1 50%;
     color: #325679;
-    border-bottom: 3px solid #325679;
+    border-bottom: 1.5px solid #325679;
 }
 .tab_active{
    background: #325679;
    color: #FFF;
+   border-radius: 15px 15px 0px 0px;
 }
 .text_tab{
     font-size: 1.2vw;
 }
 .text_from{
     position: relative;
-    margin: auto;
     flex-direction: column;
-    width: 80%;
+    width: 90%;
+    padding: 0.5vw;
 }
-.text_from div input{
+.text_from div input,
+.flex-50 div input{
     width: 100%;
-    height: 1.5vw;
+    height: 2vw;
     padding: 0.5vw 0.5vw;
-    border: 2px solid #325679;
-    border-radius: 10px;
+    border: 1.5px solid #325679;
+    border-radius: 5px;
     color: #696969;
 }
 .text_from div img{
@@ -55,23 +58,12 @@
     color: #325679;
     font-size: 1vw;
 }
-.div_checkbox{
-    position: relative;
-    margin: auto;
-    width: 80%;
-    padding: 1vw 0vw 1vw 0vw;
-}
-.div_checkbox span{
-    font-size: 0.9vw;
-    color: #325679;
-}
 .checkbox{
-    height: 1vw;
-    width: 1vw;
-    
+    height: 1.5vw;
+    width: 1.5vw;
 }
 .box_top{
-    margin: 0vw 1vw 0vw 1vw;
+    margin: 0vw 0.5vw;
 }
 .box_bottom{
     margin: 0vw 1vw 0vw 0vw;
@@ -79,13 +71,13 @@
 /* .checkbox:checked{
     background-color: #325679;
 } */
-.flex-50{
+/* .flex-50{
     flex: 1 1 50%;
-}
-.flex-50 div input{
+} */
+/* .flex-50 div input{
     width: 95%;
-    border-radius: 10px;
-}
+    border-radius: 5px;
+} */
 #input_surname{
     margin-left: 2vw;
 }
@@ -94,32 +86,37 @@
 }
 
 #img_email{
-    height: 0.7vw;
-    top: 78%;
-    left: 94%;
+    width: 1.5vw;
+    top: 62%;
+    left: 90%;
 }
 #img_email2{
-    height: 0.7vw;
-    top: 78%;
-    left: 94%;
+    height: 1.1vw;
+    top: 59%;
+    left: 89%;
 }
 #img_man1{
-    height: 0.8vw;
-    top: 76%;
-    left: 38%;
+    height: 1.2vw;
+    top: 62%;
+    left: 39%;
 }
 #img_man2{
-    height: 0.8vw;
-    top: 76%;
-    left: 92%;
+    height: 1.2vw;
+    top: 62%;
+    left: 91%;
 }
 #img_lock{
-    height: 0.9vw;
-    top: 75%;
-    left: 95%;
+    width: 1vw;
+    top: 60%;
+    left: 92%;
+}
+#img_lock2{
+    width: 1vw;
+    top: 56%;
+    left: 91%;
 }
 .bt_color{
-    border-top: 2px solid #325679;
+    border-top: 1px solid #325679;
 }
 .btn_login{
     margin: auto;
@@ -128,10 +125,10 @@
     color: #FFF;
     font-size: 1vw;
     font-family: 'Kanit', sans-serif;
-    width: 7vw;
+    width: 13vw;
     padding: 0.5vw 0vw;
     border: 0px;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 .text_forget{
     margin: auto;

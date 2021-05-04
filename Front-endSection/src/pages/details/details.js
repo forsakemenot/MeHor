@@ -24,6 +24,8 @@ import eye from "../../img/eye.svg";
 import clock from "../../img/clock.svg";
 import heartOff from "../../img/heart-off.svg";
 
+import ads_banner from '../../img/Ads-banner.svg';
+
 import room from "../../img/20210321_151812.svg";
 import Map from "../../components/Map/Map"
 // import Comment from "../../components/CommentReview/CommentReview";
@@ -81,7 +83,7 @@ function Details() {
         img: [room, room, room, room, room]
     }
     const detailsInDorm = {
-        inRoom: ["เครื่องปรับอากาศ", "เฟอร์นิเจอร์", "อินเทอร์เน็ตไร้สาย (Wifi)","กล้องวงจารปิด (CCTV)"],
+        inRoom: ["เครื่องปรับอากาศ", "เฟอร์นิเจอร์", "อินเทอร์เน็ตไร้สาย (Wifi)", "กล้องวงจารปิด (CCTV)"],
         central: ["เครื่องซักผ้า", "ตู้กดน้ำ", "กล้องวงจารปิด (CCTV)"]
     }
 
@@ -173,36 +175,36 @@ function Details() {
             if (roomType.dorm_type) {
                 return (
                     <div className="w-80 mx-auto d-flex flex-wrap">
-                            <div className="w-50 d-flex flex-wrap border-right-color">
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={bill} />
-                                    <span className="w-90 color-main "><b>ค่าเงินมัดจำ/ค่าเงินประกัน :</b> {roomType.insurance_bill}</span>
-                                </div>
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v bg-third">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={electric} />
-                                    <span className="w-90 color-main "><b>ค่าเงินมัดจำ/ค่าเงินประกัน :</b> หน่วยละ {roomType.electric_bill} บาท</span>
-                                </div>
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={wifi} />
-                                    <span className="w-90 color-main "><b>อินเทอร์เน็ต (Wifi) :</b> {roomType.internet_bill}</span>
-                                </div>
-
+                        <div className="w-50 d-flex flex-wrap border-right-color">
+                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v">
+                                <img alt="" className="w-10 size_icon_desc" alt="" src={bill} />
+                                <span className="w-90 color-main "><b>ค่าเงินมัดจำ/ค่าเงินประกัน :</b> {roomType.insurance_bill}</span>
                             </div>
-                            <div className="w-50 d-flex flex-wrap">
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={check} />
-                                    <span className="w-90 color-main"><b>จ่ายล่วงหน้า :</b> {roomType.pre_paid}</span>
-                                </div>
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v bg-third">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={water} />
-                                    <span className="w-90 color-main "><b>ค่าน้ำ หน่วยละ :</b> {roomType.water_bill} บาท</span>
-                                </div>
-                                <div className="w-100 pl-2-v d-flex align-items-center fs-1-v">
-                                    <img alt="" className="w-10 size_icon_desc" alt="" src={keycard} />
-                                    <span className="w-90 color-main "><b>คีย์การ์ด :</b> {roomType.keycard} บาท/ชุด</span>
-                                </div>
+                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v bg-third">
+                                <img alt="" className="w-10 size_icon_desc" alt="" src={electric} />
+                                <span className="w-90 color-main "><b>ค่าเงินมัดจำ/ค่าเงินประกัน :</b> หน่วยละ {roomType.electric_bill} บาท</span>
+                            </div>
+                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v">
+                                <img alt="" className="w-10 size_icon_desc" alt="" src={wifi} />
+                                <span className="w-90 color-main "><b>อินเทอร์เน็ต (Wifi) :</b> {roomType.internet_bill}</span>
+                            </div>
+
+                        </div>
+                        <div className="w-50 d-flex flex-wrap">
+                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v">
+                                <img alt="" className="w-10 size_icon_desc" alt="" src={check} />
+                                <span className="w-90 color-main"><b>จ่ายล่วงหน้า :</b> {roomType.pre_paid}</span>
+                            </div>
+                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v bg-third">
+                                <img alt="" className="w-10 size_icon_desc" alt="" src={water} />
+                                <span className="w-90 color-main "><b>ค่าน้ำ หน่วยละ :</b> {roomType.water_bill} บาท</span>
+                            </div>
+                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v">
+                                <img alt="" className="w-10 size_icon_desc" alt="" src={keycard} />
+                                <span className="w-90 color-main "><b>คีย์การ์ด :</b> {roomType.keycard} บาท/ชุด</span>
                             </div>
                         </div>
+                    </div>
                 )
             }
             return
@@ -241,13 +243,42 @@ function Details() {
                         <img className="w-75" alt="" src={heartOff} />
                     </div>
                 </div>
-                <div className="w-100 d-flex mt-1-v mx-auto">
-                    <img className="w-100" alt="" src={desc_update.img[0]} />
+
+                {/* รูปสไลด์เจ้าปัญหา */}
+                <div id="carouselControls" className="carousel slide" data-ride="carousel">
+                    <div className="carousel-inner">
+                        <div className="carousel-item active">
+                            <img src={desc_update.img[0]} className="d-block w-100" alt="..." />
+                        </div>
+                        <div className="carousel-item">
+                            <img src={ads_banner} className="d-block w-100" alt="..." />
+                        </div>
+                        <div className="carousel-item">
+                            <img src={desc_update.img[2]} className="d-block w-100" alt="..." />
+                        </div>
+                        <div className="carousel-item">
+                            <img src={desc_update.img[3]} className="d-block w-100" alt="..." />
+                        </div>
+                        <div className="carousel-item">
+                            <img src={desc_update.img[4]} className="d-block w-100" alt="..." />
+                        </div>
+                    </div>
+                    <a className="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="sr-only">Previous</span>
+                    </a>
+                    <a className="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="sr-only">Next</span>
+                    </a>
                 </div>
+
                 <div className="w-100 d-flex justify-content-between mx-auto mt-1-v">
                     {
                         desc_update.img.map(function (element, index) {
-                            return <div className="w-20 d-flex"><img className="w-100" alt="" src={element} /></div>
+                            return <div className="w-20 d-flex">
+                                <img className="w-100" alt="" src={element} />
+                            </div>
                         })
                     }
                 </div>
@@ -261,7 +292,7 @@ function Details() {
                         {price}
                     </div>
                     <div className="w-100 d-flex h-100 mt-0-5-v">
-                        <Map/>
+                        <Map />
                     </div>
                 </div>
             </div>
