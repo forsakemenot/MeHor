@@ -54,30 +54,30 @@ function DomList({ data }) {
             </div>
             {/* <div className="color-main w-55 d-flex flex-column h-80"> */}
               <div className="h-100 d-flex flex-column color-main">
-                <span className="fs-2-v"><b>{data.dorm_name}</b><br /></span>
+                <span className="fs-1-5-v"><b>{data.dorm_name}</b><br /></span>
 
                 <div className="d-flex w-100 h-25 py-1-v flex-column">
                   <div className="d-flex w-25">
-                    <span className="fs-1-2-v">descrtiption</span>
+                    <span className="fs-1-v">descrtiption</span>
                   </div>
                   <div className="d-flex pl-0-2-v w-95 mx-auto">
-                    <span className="fs-1-2-v color-third">{data.description}</span>
+                    <span className="fs-1-v color-third">{data.description}</span>
                   </div>
                 </div>
 
                 <div className="w-100 d-flex h-20 py-1-v flex-column">
                   <div className="w-70">
-                    <span className="fs-1-2-v">สิ่งอำนวยความสะดวก</span>
+                    <span className="fs-1-v">สิ่งอำนวยความสะดวก</span>
                   </div>
                   <div className="pl-0-2-v w-95 mx-auto">
-                    <span className="fs-1-2-v color-third ">
+                    <span className="fs-1-v color-third ">
                       {dormfaci.dorm_facilities.map(element => {
                         return <> {element} </>
                       })}
                     </span>
                   </div>
                 </div>
-                <span className="fs-2-5-v d-flex font-weight-bold">฿ {roomtype?.dorm_type[0].room_cost} / เดือน</span>
+                <span className="fs-2-v d-flex font-weight-bold">฿ {roomtype?.dorm_type[0].room_cost} / เดือน</span>
               </div>
             {/* </div> */}
           </Link >
