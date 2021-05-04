@@ -45,7 +45,7 @@ function Profile() {
     };
     useEffect(() => {
         console.log("useEffect");
-        fetch('http://103.13.231.22:5000/api/users/userById/', optionsGet())
+        fetch('http://localhost:5000/api/users/userById/', optionsGet())
             .then(res => res.json())
             .then(res => {
                 const obj = {};
@@ -82,7 +82,7 @@ function Profile() {
     const HandleSubmitUpdate = (evt) => {
         console.log(user);
         evt.preventDefault();
-        fetch('http://103.13.231.22:5000/api/users/userById/', options(user))
+        fetch('http://localhost:5000/api/users/userById/', options(user))
 
             .then(res => res.json())
             .then(res => {

@@ -31,9 +31,10 @@ function AdminLinkForm() {
 
 
    useEffect(() => {
-      fetch('http://103.13.231.22:5000/api/dorm/dormById/' + UserId, optionsGet())
+      fetch('http://localhost:5000/api/dorm/dormById/' + UserId, optionsGet())
          .then(res => res.json())
          .then(res => {
+            console.log(res);
             if (res.dorm) {
                setDescDorm(res.dorm);
             }
@@ -114,7 +115,7 @@ function AdminLinkForm() {
          console.log(pair[1]);
       }
 
-      fetch('http://103.13.231.22:5000/api/dorm/dormDocument', options(formData))
+      fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
          .then(res => res.json())
          .then(res => {
             console.log(res);

@@ -1,5 +1,8 @@
 .size-image-dorm-list{
-   height: 16vw;
+   height: 10vw;
+   width: 10vw;
+   margin-right: 1vw;
+   object-fit: cover;
 }
 .text-remove-hover:hover{
    text-decoration: none;

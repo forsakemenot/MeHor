@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './confirm_doc.css';
 import '../../App.css';
 
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 
 import document from '../../img/document.svg';
 import check from '../../img/check-circle.svg';
@@ -10,6 +10,7 @@ import upload from '../../img/upload.svg';
 import info from '../../img/info-circle.svg';
 
 function ConfirmDoc() {
+    const { UserId } = useParams()
     const history = useHistory();
     const [dormid, setDormid] = useState();
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
@@ -24,9 +25,9 @@ function ConfirmDoc() {
         };
     };
     const options = data => {
+
         return {
             headers: {
-                'Accept': 'application/json',
                 'Authorization': token,
             },
             method: 'post',
@@ -35,10 +36,9 @@ function ConfirmDoc() {
     };
     useEffect(() => {
         console.log("useEffect");
-        fetch('http://103.13.231.22:5000/api/dorm/dorm', optionsGet())
+        fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
             .then(res => res.json())
             .then(res => {
-                console.log(res.dorm._id);
                 if (res.dorm) {
                     setDormid(res.dorm._id)
                     console.log(res.dorm);
@@ -67,6 +67,7 @@ function ConfirmDoc() {
     }
     const HandleSubmit = (evt) => {
         console.log(dormid);
+        
         const formData = new FormData();
         formData.append("dorm_id", dormid);
         formData.append("regis_pic", fileDorm);
@@ -75,20 +76,22 @@ function ConfirmDoc() {
             console.log(pair[1]);
         }
 
-        fetch('http://103.13.231.22:5000/api/dorm/dormDocument', options(formData))
+        fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
             .then(res => res.json())
             .then(res => {
                 console.log(res);
+                // console.log(UserId);
                 if (res.error) alert(res.error);
                 if (res.success) {
                     alert("success")
-                    // history.push("/DormMe");
+                    history.push("/DormMe" + UserId);
                 }
             })
+
             .catch(error => {
-                console.log("ERROR", error);
-                alert("success")
-                history.push("/DormMe");
+                console.log(error);
+                // alert(error);
+
             })
         evt.preventDefault();
     }
@@ -198,7 +201,7 @@ function ConfirmDoc() {
                     </ul>
 
                     <div className="continue d-flex">
-                        <button id="btn_continue" type="submit" style={{ width: '13vw' }}>บันทึกและรอการตรวจสอบ</button>
+                        <button id="btn_continue" type="submit" className="border-0" style={{ width: '13vw' }}>บันทึกและรอการตรวจสอบ</button>
                     </div>
                 </form>
             </div>

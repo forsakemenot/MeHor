@@ -5,7 +5,7 @@ import Plus from './../../img/Plus.svg';
 import minus from './../../img/minus.svg';
 import './home.css';
 import './../../App.css';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import DomList from "../../components/DomList/DomList";
 import Footer from "../../components/Footer/Footer"
 
@@ -29,6 +29,7 @@ function Home() {
     const [activeBoxCommonFee, setActiveBoxCommonFee] = useState(false);
     const [activeBoxSeeMore, setActiveBoxSeeMore] = useState(false);
     const [descDorm, setDescDorm] = useState([]);
+    let query = useQuery();
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
     const optionsGet = data => {
         return {
@@ -40,9 +41,12 @@ function Home() {
             // body: JSON.stringify(data)
         };
     };
+    function useQuery() {
+        return new URLSearchParams(useLocation().search);
+    }
     useEffect(() => {
 
-        fetch('http://103.13.231.22:5000/api/dorm/alldormIsApprove', optionsGet())
+        fetch('http://localhost:5000/api/dorm/alldormIsApprove', optionsGet())
             .then(res => res.json())
             .then(res => {
                 if (res[0].dorm) {
@@ -53,7 +57,9 @@ function Home() {
                 console.log(error);
             })
     }, []);
-
+    useEffect(() => {
+        console.log(query.get("zone"))
+    }, [query]);
     function togglePrice() {
         setActiveBoxPrice(!activeBoxPrice);
     }
@@ -68,7 +74,20 @@ function Home() {
     }
     const dormBox = useMemo(
         () => {
-            if (descDorm ?? descDorm[0].dorm) {
+
+            if (query.get("zone") === "Nikom") {
+                return (
+                    descDorm?.map(function (element, index) {
+                        console.log(element.dorm);
+                        return<> {descDorm.dorm_zone === "Nikom" &&
+                                <DomList data={element} />
+                            }
+                        </>
+
+                    })
+                )
+            }
+            else if (descDorm ?? descDorm[0].dorm) {
                 return (
                     descDorm?.map(function (element, index) {
                         console.log(element.dorm);

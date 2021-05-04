@@ -31,7 +31,7 @@ function DomMe() {
         };
     };
     useEffect(() => {
-        fetch('http://103.13.231.22:5000/api/dorm/dormById/' + UserId, optionsGet())
+        fetch('http://localhost:5000/api/dorm/dormById/' + UserId, optionsGet())
             .then(res => res.json())
             .then(res => {
                 if (res.dorm) {
