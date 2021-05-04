@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import './../admin_all_dorm/admin_all_dorm.css';
 
 import bin from './../../../img/metro-bin.svg'
@@ -23,24 +23,24 @@ function AllDorm() {
    };
    useEffect(() => {
       console.log("useEffect");
-      fetch('http://103.13.231.22:5000/api/dorm/alldorm', optionsGet())
-          .then(res => res.json())
-          .then(res => {
-              if (res.dorm) {
-                  setDescDorm(res.dorm);
-                  // console.log(res.dorm);
-              }
-          })
-          .catch(error => {
-              console.log(error);
-          })
-  }, []);
+      fetch('http://localhost:5000/api/dorm/alldormIsDone', optionsGet())
+         .then(res => res.json())
+         .then(res => {
+            if (res) {
+               setDescDorm(res);
+            }
+         })
+         .catch(error => {
+            console.log(error);
+         })
+   }, []);
    const dormListInWeb = useMemo(
       () => {
-         if (descDorm[0]?.dorm_name) {
+         if (descDorm[0]?.dorm) {
             return (
                descDorm.map(function (element, index) {
-                  return <AdminAllDorm dataAllDorm={element} />
+                  console.log(element);
+                  return <AdminAllDorm dataAllDorm={element.dorm} />
                })
             )
          }
