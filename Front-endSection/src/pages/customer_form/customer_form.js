@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import CostPanel from '../../pages/admin/component/cost_panel'
 import DetailTypeRoom from '../../pages/admin/component/detail_typeRoom'
@@ -7,12 +8,17 @@ import ContactDormPanel from '../../pages/admin/component/contactDorm_panel'
 // import MapPanel from '../../pages/admin/component/map_panel.js'
 import ConInPanel from '../../pages/admin/component/conveninetIn_panel.js'
 import ConOutPanel from '../../pages/admin/component/conveninetOut_panel.js'
-import DocPanel from '../../pages/admin/component/doc_panel.js'
 import DetailPanel from '../../pages/admin/component/detail_panel'
+import CustomerCostPanel from '../../pages/admin/component/customet_costPanel'
 import Add_row from "../../components/add_row/add_row"
 import bin from '../../img/metro-bin.svg';
+import upload from '../../img/upload.svg';
+import info from '../../img/info-circle.svg';
+
 function CustomerForm() {
+   const history = useHistory();
    const { UserId } = useParams()
+   const [dormid, setDormid] = useState();
    const [roomType, setRoomType] = useState({});
    const [descDorm, setDescDorm] = useState({});
    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
@@ -82,6 +88,61 @@ function CustomerForm() {
          })
       }
    }
+
+   const options = data => {
+
+      return {
+         headers: {
+            'Authorization': token,
+         },
+         method: 'post',
+         body: data
+      };
+   };
+
+   const [fileDorm, setFileDorm] = useState("");
+   const [fileDormNum, setFileDormNum] = useState("");
+
+   // Handles file upload event and updates state
+   function handleFileDorm(event) {
+      setFileDorm(event.target.files[0]);
+      // Add code here to upload file to server
+      // ...
+   }
+   function handleFileDormNum(event) {
+      setFileDormNum(event.target.files[0]);
+
+      // Add code here to upload file to server
+      // ...
+   }
+
+   const HandleSubmit = (evt) => {
+      console.log(dormid);
+      const formData = new FormData();
+      formData.append("dorm_id", dormid);
+      formData.append("regis_pic", fileDorm);
+      formData.append("location_pic", fileDormNum);
+      for (var pair of formData.entries()) {
+         console.log(pair[1]);
+      }
+
+      fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
+         .then(res => res.json())
+         .then(res => {
+            console.log(res);
+            if (res.error) alert(res.error);
+            if (res.success) {
+               alert("success")
+               history.push("/DormMe");
+            }
+         })
+         .catch(error => {
+            console.log(error);
+            alert("success")
+            history.push("/DormMe");
+         })
+      evt.preventDefault();
+   }
    return (
       <div className="d-flex bg-admin">
          <div className="d-flex flex-column w-100 color-main align-items-center">
@@ -109,21 +170,20 @@ function CustomerForm() {
                         </div>
 
                         <div className="form-group">
-                           <DetailTypeRoom />
                            {
                               roomType?.dorm_type?.map(function (element, index) {
-                                 return(
-                                 <>
-                                    {console.log(element.room_name)}
-                                    <Add_row key={index}
-                                       row={index}
-                                       value1={element.room_name}
-                                       value2={element.room_area}
-                                       value3={element.room_cost}
-                                       value4={element.additional}
-                                       handleReturnRoomType={handleReturnRoomType}
-                                    />
-                                 </>
+                                 return (
+                                    <>
+                                       {console.log(element.room_name)}
+                                       <Add_row key={index}
+                                          row={index}
+                                          value1={element.room_name}
+                                          value2={element.room_area}
+                                          value3={element.room_cost}
+                                          value4={element.additional}
+                                          handleReturnRoomType={handleReturnRoomType}
+                                       />
+                                    </>
                                  )
                               })
                            }
@@ -132,7 +192,7 @@ function CustomerForm() {
                   </div>
 
                   <div class="card-columns d-flex">
-                     <CostPanel />
+                     <CustomerCostPanel />
                   </div>
                   <div className="d-flex w-100">
                      <ConInPanel />
@@ -155,7 +215,66 @@ function CustomerForm() {
                      </div>
                   </div>
 
-                  <DocPanel />
+                  <div className="doc mt-1-v">
+                     <div className="card border-light panel_frame">
+                        <div className="card-header d-flex align-items-center justify-content-between">
+                           <span className="fs-1-v w-50">เอกสารยืนยัน</span>
+                        </div>
+                        <div className="document d-flex align-items-center justify-content-center">
+                           <form onSubmit={HandleSubmit}>
+                              <div className={`house_regis m-1-v mx-auto d-flex ${fileDorm.type != undefined && "active"}`}>
+                                 <div className="header_topic d-flex">
+                                    <p className="pl-1-v m-0">สำเนาทะเบียนบ้านของ "ที่พัก" พร้อมเซ็นสำเนาถูกต้อง</p>
+                                    <p className="remark_file pl-1-v m-0">(รองรับไฟล์ jpg. png. และ pdf.)</p>
+                                 </div>
+                                 <div className="status d-flex">
+                                    <p className="status_file d-flex">
+                                       {fileDorm.type == undefined ?
+                                          "ยังไม่ได้อัพโหลด" : fileDorm.name
+                                       }
+                                    </p>
+
+                                 </div>
+
+
+                                 <div className="upload d-flex position-relative">
+                                    <input type="file" onChange={handleFileDorm} className="input-file-type position-absolute w-90 mx-auto bg-info" />
+                                    <span className="upload_file d-flex">อัพโหลดสำเนาทะเบียนบ้าน<img alt="" src={upload} className="img_upload ml-0-5-v"></img></span>
+                                 </div>
+                              </div>
+
+                              <div className={`house_regis mx-auto d-flex ${fileDormNum.type != undefined && "active"}`}>
+                                 <div className="header_topic d-flex position-relative">
+                                    <p className="pl-1-v m-0">รูปถ่ายที่พักโดยให้เห็น "บ้านเลขที่" และอาคารที่ชัดเจน</p>
+                                    <p className="remark_file pl-1-v m-0">(รองรับไฟล์ jpg. png. และ pdf.)</p>
+                                 </div>
+                                 {/* {file.name} */}
+                                 <div className="status d-flex">
+                                    <p className="status_file d-flex">
+                                       {fileDormNum.type == undefined ?
+                                          "ยังไม่ได้อัพโหลด" : fileDormNum.name
+                                       }
+                                    </p>
+                                 </div>
+                                 <div className="upload d-flex position-relative">
+                                    <input type="file" onChange={handleFileDormNum} className="input-file-type position-absolute w-90 mx-auto bg-info" />
+                                    <span className="upload_file d-flex">อัพโหลดภาพถ่าย<img alt="" src={upload} className="img_upload ml-0-5-v"></img></span>
+
+
+                                 </div>
+                                 {/* <div id="upload-box" className="file-input">
+
+                                    <label for="file">
+                                       Select file
+                                    <p class="file-name"></p>
+                                    </label>
+                                    {file && <ImageThumb image={file} />}
+                                 </div> */}
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
                </form>
 
                <div className="button line-top-gray">

@@ -71,7 +71,7 @@ function Home() {
             if (descDorm[0]?.dorm_name) {
                 return (
                     descDorm.map(function (element, index) {
-                        return <DomList data={element} HeartImg={HeartImg} />
+                        return <DomList data={element} />
                     })
                 )
             }

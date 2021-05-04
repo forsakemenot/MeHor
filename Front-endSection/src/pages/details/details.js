@@ -32,10 +32,10 @@ import Map from "../../components/Map/Map"
 import Footer from "../../components/Footer/Footer";
 function Details() {
     const { dormId } = useParams()
-    const [typeRoom, setTypeRoom] = useState(false);
-    const [desc, setDesc] = useState(false);
-    const [morePrice, setMorePrice] = useState(false);
-    const [convenient, setConvenient] = useState(false);
+    const [typeRoom, setTypeRoom] = useState(true);
+    const [desc, setDesc] = useState(true);
+    const [morePrice, setMorePrice] = useState(true);
+    const [convenient, setConvenient] = useState(true);
     const [roomType, setRoomType] = useState({});
     const [descDorm, setDescDorm] = useState({});
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
