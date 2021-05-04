@@ -127,9 +127,9 @@ function FurnitureDom() {
          <div className="form_dorm">
             <form onSubmit={HandleSubmit}>
                <div className="conveninent">
-                  <div className="d-flex pl-2-v">
+                  <div className="d-flex pl-2-v align-items-center">
                      <img alt="" className="img_formdorm" src={city} />
-                     <p className="text_header">สิ่งอำนวยความสะดวก</p>
+                     <span className="text_header">สิ่งอำนวยความสะดวก</span>
                   </div>
                   <hr className="line_under_head"></hr>
 
@@ -137,25 +137,25 @@ function FurnitureDom() {
                      <div className="ภายในห้อง">
                         <div className="in_room d-flex">
                            <img alt="" className="img_furniture" src={door} />
-                           <p className="text_topic">ภายในห้อง</p>
+                           <span className="text_topic">ภายในห้อง</span>
                         </div>
 
                         <div id="check">
                            <div className="checkbox_room">
                               <input type="checkbox" className="checkbox_type" onChange={handleInputChange} name="เครื่องปรับอากาศ"></input>
-                              <span >เครื่องปรับอากาศ</span>
+                              <span>เครื่องปรับอากาศ</span>
                            </div>
                            <div className="checkbox_room">
                               <input type="checkbox" className="checkbox_type" onChange={handleInputChange} name="พัดลม"></input>
-                              <span >พัดลม</span>
+                              <span>พัดลม</span>
                            </div>
                            <div className="checkbox_room">
                               <input type="checkbox" className="checkbox_type" onChange={handleInputChange} name="เครื่องทำน้ำอุ่น"></input>
-                              <span > เครื่องทำน้ำอุ่น</span>
+                              <span>เครื่องทำน้ำอุ่น</span>
                            </div>
                            <div className="checkbox_room">
                               <input type="checkbox" className="checkbox_type" onChange={handleInputChange} name="เตียง โต๊ะ ตู้เสื้อผ้า"></input>
-                              <span >เตียง โต๊ะ ตู้เสื้อผ้า</span>
+                              <span>เตียง โต๊ะ ตู้เสื้อผ้า</span>
                            </div>
                            <div className="checkbox_room">
                               <input type="checkbox" className="checkbox_type" onChange={handleInputChange} name="Internet / wifi"></input>
@@ -187,7 +187,7 @@ function FurnitureDom() {
                      <div className="ส่วนกลาง">
                         <div className="out_room d-flex">
                            <img alt="" className="img_furniture" src={hotel} />
-                           <p className="text_topic">ส่วนกลาง</p>
+                           <span className="text_topic">ส่วนกลาง</span>
                         </div>
 
                         <div className="check">
@@ -242,9 +242,9 @@ function FurnitureDom() {
 
                {/* photo dorm */}
                <div className="photo">
-                  <div className="d-flex pl-2-v">
+                  <div className="d-flex pl-2-v align-items-center">
                      <img alt="" className="img_formdorm" src={camera} />
-                     <p className="text_header">รูปภาพที่พัก</p>
+                     <span className="text_header">รูปภาพที่พัก</span>
                   </div>
                   <hr className="line_under_head"></hr>
 
@@ -262,17 +262,17 @@ function FurnitureDom() {
 
 
                   <div className="upload_image d-flex">
-                     <div>
-                        <img alt="" src={upload_pic}></img>
+                     <div className="d-flex justify-content-center align-items-center">
+                        <img alt="" src={upload_pic} className="w-60"></img>
                      </div>
                   </div>
                   <div className="ml-5-v">
                      {/* <button type="file" id="customFile" name="filename" className="btn_add_image file" data-browse-on-zone-click="true">เพิ่มรูป</button> */}
-                     <input onChange={(e) => setSelectedFile(e.target.files)} multiple id="input-b1" name="input-b1" type="file" class="file" data-browse-on-zone-click="true" />
+                     <input onChange={(e) => setSelectedFile(e.target.files)} multiple id="input-b1" name="input-b1" type="file" class="file fs-1-v" data-browse-on-zone-click="true" />
                   </div>
-                  <div className="remark_upload">
-                     <p>* รูปภาพแรก จะเป็น<u>รูปภาพหลัก</u>ของหอพัก</p>
-                     <p>** ไฟล์ภาพรองรับขนาดไม่เกิน 5 mb</p>
+                  <div className="d-flex flex-column mt-0-5-v remark_upload">
+                     <span>* รูปภาพแรก จะเป็น<u>รูปภาพหลัก</u>ของหอพัก</span>
+                     <span>** ไฟล์ภาพรองรับขนาดไม่เกิน 5 mb</span>
                   </div>
                </div>
 

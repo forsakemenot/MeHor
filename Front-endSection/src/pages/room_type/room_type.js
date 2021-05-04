@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './room_type.css';
 import '../../App.css';
-import {useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import city from '../../img/city.svg';
 import coin from '../../img/coins.svg';
@@ -15,7 +15,7 @@ import Add_row from "../../components/add_row/add_row"
 
 
 function RoomType() {
-const history = useHistory();
+   const history = useHistory();
    const [numRow, setNumRow] = useState(0);
    const [roomType, setRoomType] = useState({ dorm_type: [] });
    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
@@ -51,7 +51,7 @@ const history = useHistory();
       } else {
          console.log(e.target?.getAttribute('row'), e.target?.name, e.target?.value);
          console.log(roomType);
-         let row = e.target?.getAttribute('row') -1
+         let row = e.target?.getAttribute('row') - 1
          let field = e.target?.name
          let value = e.target?.value
          let items = [...roomType.dorm_type]
@@ -135,7 +135,7 @@ const history = useHistory();
          .then(res => res.json())
          .then(res => {
             console.log(res);
-            if(res.error){
+            if (res.error) {
                alert(res.error)
             }
             if (res.success) {
@@ -146,7 +146,7 @@ const history = useHistory();
          .catch(error => {
             console.log(error);
          })
-      
+
    }
 
    return (
@@ -179,10 +179,10 @@ const history = useHistory();
             <form onSubmit={HandleSubmit}>
                <div className="d-flex box-top-head-room-type w-95 mx-auto">
                   <img alt="" className="img_formdorm" src={city} />
-                  <p className="text_header">ประเภทห้อง</p>
+                  <span className="text_header">ประเภทห้อง</span>
                </div>
                <div className="w-95 mx-auto  d-flex justify-content-center flex-wrap flex-column">
-                  <div className="d-flex w-100 align-items-center justify-content-around mt-1-v">
+                  <div className="d-flex w-100 align-items-center justify-content-around mt-1-v fs-1-v">
                      1
               <div className="w-20">
                         <input type="text" className="input-type-room" placeholder="ex. ห้องเดี่ยว 1 เตียง"
@@ -218,17 +218,17 @@ const history = useHistory();
                </div>
                <div className="d-flex box-top-head-room-type mt-3-v w-95 mx-auto">
                   <img alt="" className="img_formdorm" src={coin} />
-                  <p className="text_header">ค่าใช้จ่ายเพิ่มเติม</p>
+                  <span className="text_header">ค่าใช้จ่ายเพิ่มเติม</span>
                </div>
 
                {/* deposit */}
                <div className="d-flex form_cost">
                   <div className="d-flex box-top-sub-room-type w-90">
                      <img alt="" className="img_cost" src={money} />
-                     <p>ค่าเงินมัดจำ/ค่าเงินประกัน</p>
+                     <span>ค่าเงินมัดจำ/ค่าเงินประกัน</span>
                   </div>
                   <div className="m-left mt-0-5-v">
-                     <div className="mt-1-v d-flex align-items-center">
+                     <div className="mt-0-5-v d-flex align-items-center">
                         <input type="radio" className="radio_type" name="cost" />
                         <span className="ml-0-5-v">จำนวนเงิน</span>
                         <input className="amount" name="insurance_bill" onChange={handleInputChange} />
@@ -240,8 +240,7 @@ const history = useHistory();
                         <span className="ml-0-5-v">ไม่มีคำเงินมัดจำ/ค่าเงินประกัน</span>
                      </div>
                      <div className="mt-1-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" name="other" />
-                        <span className="ml-0-5-v">อื่นๆ</span>
+                        <span>อื่นๆ</span>
                         <input className="d-flex other ml-1-v" name="insurance_bill" onChange={handleInputChange} />
                      </div>
                   </div>
@@ -251,12 +250,11 @@ const history = useHistory();
                <div className="d-flex form_cost mt-1-v">
                   <div className="d-flex box-top-sub-room-type w-90">
                      <img alt="" className="img_cost" src={payment} />
-                     <p>จ่ายล่วงหน้า</p>
+                     <span>จ่ายล่วงหน้า</span>
                   </div>
                   <div className="m-left mt-0-5-v">
                      <div className="d-flex align-items-center mt-0-5-v">
-                        <input type="radio" className="radio_type" name="specify" />
-                        <span className="ml-0-5-v">ระบุเดือน</span>
+                        <span>ระบุเดือน</span>
                         <select className="select_mount" name="pre_paid" onChange={handleInputChange}>
                            <option>-- เลือกเดือน --</option>
                            <option value="1">1 เดือน</option>
@@ -268,7 +266,7 @@ const history = useHistory();
                            <option value="7">1 ปี</option>
                         </select>
                      </div>
-                     <div className="mt-1-v d-flex align-items-center">
+                     <div className="mt-0-5-v d-flex align-items-center">
                         <input type="radio" className="radio_type" name="payment" onChange={handleInputChange} />
                         <span className="ml-0-5-v">จำนวนเงิน</span>
                         <input className="amount ml-1-v" name="insurance_bill" onChange={handleInputChange} />
@@ -283,8 +281,7 @@ const history = useHistory();
                         <span className="ml-0-5-v">ไม่ต้องจ่ายล่วงหน้า</span>
                      </div>
                      <div className="mt-1-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" name="other" />
-                        <span className="ml-0-5-v">อื่นๆ</span>
+                        <span>อื่นๆ</span>
                         <input className="d-flex other ml-1-v" name="pre_paid" onChange={handleInputChange} />
                      </div>
                   </div>
@@ -294,22 +291,21 @@ const history = useHistory();
                <div className="d-flex form_cost mt-1-v">
                   <div className="d-flex box-top-sub-room-type w-90">
                      <img alt="" className="img_cost_1" src={electric} />
-                     <p>ค่าไฟ</p>
+                     <span>ค่าไฟ</span>
                   </div>
-                  <div className="m-left mt-1-v">
+                  <div className="m-left mt-0-5-v">
                      <div className="mt-0-5-v d-flex align-items-center">
                         <input type="radio" className="radio_type" name="electric" />
                         <span className="ml-0-5-v">ตามยูนิตที่ใช้</span>
                         <input className="amount ml-1-v" name="electric_bill" onChange={handleInputChange} />
                         <span>บาท/หน่วย</span>
                      </div>
-                     <div className="mt-1-v d-flex align-items-center">
+                     <div className="mt-0-5-v d-flex align-items-center">
                         <input type="radio" className="radio_type" name="electric" onChange={handleInputChange} value="รวมในค่าห้องแล้ว" />
                         <span className="ml-0-5-v">รวมในค่าห้องแล้ว</span>
                      </div>
-                     <div className="mt-1-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" name="other" />
-                        <span className="ml-0-5-v">อื่นๆ</span>
+                     <div className="mt-0-5-v d-flex align-items-center">
+                        <span>อื่นๆ</span>
                         <input className="d-flex other ml-1-v" onChange={handleInputChange} />
                      </div>
                   </div>
@@ -319,10 +315,10 @@ const history = useHistory();
                <div className="d-flex form_cost mt-0-5-v">
                   <div className="d-flex box-top-sub-room-type w-90">
                      <img alt="" className="img_cost_1" src={water} />
-                     <p>ค่าน้ำ</p>
+                     <span>ค่าน้ำ</span>
                   </div>
 
-                  <div className="m-left mt-1-v">
+                  <div className="m-left mt-0-5-v">
                      <div className="mt-0-5-v d-flex align-items-center">
                         <input type="radio" className="radio_type" name="water" />
                         <span className="ml-0-5-v">ตามยูนิตที่ใช้</span>
@@ -346,8 +342,7 @@ const history = useHistory();
                         <span className="ml-0-5-v">รวมในค่าห้องแล้ว</span>
                      </div>
                      <div className="mt-1-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" name="other" />
-                        <span className="ml-0-5-v">อื่นๆ</span>
+                        <span>อื่นๆ</span>
                         <input className="d-flex other ml-1-v" name="water_bill" onChange={handleInputChange} />
                      </div>
                      {/* ยังไม่ได้ทำส่วนนี้ */}
@@ -363,7 +358,7 @@ const history = useHistory();
                <div className="d-flex form_cost mt-1-v">
                   <div className="d-flex box-top-sub-room-type w-90">
                      <img alt="" className="img_cost" src={wifi} />
-                     <p>อินเทอร์เน็ต</p>
+                     <span>อินเทอร์เน็ต</span>
                   </div>
 
                   <div className="m-left mt-1-v">
@@ -382,8 +377,7 @@ const history = useHistory();
                         <span className="ml-0-5-v">ไม่มีอินเทอร์เน็ต</span>
                      </div>
                      <div className="mt-1-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" name="other" />
-                        <span className="ml-0-5-v">อื่นๆ</span>
+                        <span>อื่นๆ</span>
                         <input className="d-flex other ml-1-v" name="internet_bill" onChange={handleInputChange} />
                      </div>
                   </div>
@@ -393,7 +387,7 @@ const history = useHistory();
                <div className="d-flex form_cost mt-0-5-v">
                   <div className="d-flex box-top-sub-room-type w-90">
                      <img alt="" className="img_cost" src={keycard} />
-                     <p>คีย์การ์ด</p>
+                     <span>คีย์การ์ด</span>
                   </div>
 
                   <div className="m-left mt-1-v">
@@ -412,8 +406,7 @@ const history = useHistory();
                         <span className="ml-0-5-v">ไม่มีคีย์การ์ด</span>
                      </div>
                      <div className="mt-1-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" name="other" />
-                        <span className="ml-0-5-v">อื่นๆ</span>
+                        <span>อื่นๆ</span>
                         <input className="d-flex other ml-1-v" name="keycard" onChange={handleInputChange} />
                      </div>
                   </div>

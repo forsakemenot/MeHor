@@ -119,47 +119,47 @@ function ConfirmDoc() {
             <div className="form_dorm">
                 <div className="d-flex">
                     <img alt="" className="img_doc" src={document} />
-                    <p className="text_header">เอกสารยืนยัน</p>
+                    <span className="text_header">เอกสารยืนยัน</span>
                 </div>
                 <hr className="line_under_head"></hr>
 
                 <div className="d-flex ml-3-v">
                     <img alt="" className="img_cost" src={check} />
-                    <p>ค่าเงินมัดจำ/ค่าเงินประกัน</p>
+                    <span className="color-main fs-1-v">ค่าเงินมัดจำ/ค่าเงินประกัน</span>
                 </div>
 
-                <div className="text_head_table d-flex align-items-baseline color-main ml-3-v">
-                    <p>เอกสาร</p>
-                    <p className="note">(โปรดแนบเอกสารให้ตรงกับหัวข้อ)</p>
+                <div className="text_head_table d-flex align-items-baseline color-main ml-3-v py-1-v">
+                    <span className="fs-1-v">เอกสาร</span>
+                    <span className="note">(โปรดแนบเอกสารให้ตรงกับหัวข้อ)</span>
                 </div>
                 <form onSubmit={HandleSubmit}>
                     <div className={`house_regis mx-auto d-flex ${fileDorm.type != undefined && "active"}`}>
                         <div className="header_topic d-flex">
-                            <p className="pl-1-v m-0">สำเนาทะเบียนบ้านของ "ที่พัก" พร้อมเซ็นสำเนาถูกต้อง</p>
-                            <p className="remark_file pl-1-v m-0">(รองรับไฟล์ jpg. png. และ pdf.)</p>
+                            <span className="pl-1-v fs-1-v">สำเนาทะเบียนบ้านของ "ที่พัก" พร้อมเซ็นสำเนาถูกต้อง</span>
+                            <span className="remark_file pl-1-v">(รองรับไฟล์ jpg. png. และ pdf.)</span>
                         </div>
                         <div className="status d-flex">
-                            <p className="status_file d-flex">
+                            <span className="status_file d-flex">
                                 {fileDorm.type == undefined ?
                                     "ยังไม่ได้อัพโหลด" : fileDorm.name
                                 }
-                            </p>
+                            </span>
 
                         </div>
 
 
                         <div className="upload d-flex">
-                            <p className="upload_file d-flex position-relative">อัพโหลดสำเนาทะเบียนบ้าน
+                            <span className="upload_file d-flex position-relative">อัพโหลดสำเนาทะเบียนบ้าน
                         <input type="file" onChange={handleFileDorm} className="input-file-type position-absolute w-80 mx-auto bg-info" />
                                 <img alt="" src={upload} className="img_upload ml-0-5-v"></img>
-                            </p>
+                            </span>
                         </div>
                     </div>
 
                     <div className={`house_regis mx-auto d-flex ${fileDormNum.type != undefined && "active"}`}>
                         <div className="header_topic d-flex position-relative">
-                            <p className="pl-1-v m-0">รูปถ่ายที่พักโดยให้เห็น "บ้านเลขที่" และอาคารที่ชัดเจน</p>
-                            <p className="remark_file pl-1-v m-0">(รองรับไฟล์ jpg. png. และ pdf.)</p>
+                            <span className="pl-1-v fs-1-v">รูปถ่ายที่พักโดยให้เห็น "บ้านเลขที่" และอาคารที่ชัดเจน</span>
+                            <span className="remark_file pl-1-v">(รองรับไฟล์ jpg. png. และ pdf.)</span>
                         </div>
                         {/* {file.name} */}
                         <div className="status d-flex">
