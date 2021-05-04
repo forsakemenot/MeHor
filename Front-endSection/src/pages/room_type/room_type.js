@@ -188,7 +188,6 @@ function RoomType() {
                </div>
                <div className="w-95 mx-auto  d-flex justify-content-center flex-wrap flex-column">
                   <div className="d-flex w-100 align-items-center justify-content-around mt-1-v fs-1-v">
-                     1
               <div className="w-20">
                         <input type="text" className="input-type-room" placeholder="ex. ห้องเดี่ยว 1 เตียง"
                            row="1"

@@ -9,12 +9,15 @@ import hotel from '../../img/hotel.svg';
 import camera from '../../img/camera.svg';
 import warning from '../../img/warning.svg';
 import upload_pic from '../../img/upload_pic.svg';
+import AddImage from "../../components/AddImage/AddImage"
 
 import AddMap from '../../components/Map/Map'
 
 
 function FurnitureDom() {
    const history = useHistory();
+   // const [file, setFile] = useState("");
+
    const [dormId, setDormId] = useState('');
    const [facilities, setFacilities] = useState([]);
    const [selectedFile, setSelectedFile] = useState(null);
@@ -94,6 +97,13 @@ function FurnitureDom() {
          })
       evt.preventDefault();
    }
+   // function handleUpload(event) {
+   //    for (let i = 0; i < event.target.files.length; i++) {
+   //       setFile(event.target.files[0]);
+   //       console.log(event.target.files);
+   //    }
+
+   // }
    return (
 
       <div className="d-flex">
@@ -258,6 +268,12 @@ function FurnitureDom() {
 
 
                   <div className="upload_image d-flex">
+                     {/* {file &&
+                        FileList?.map(function (element, index) {
+                           return <AddImage image={element} />
+                        })
+                     } */}
+
                      <div className="d-flex justify-content-center align-items-center">
                         <img alt="" src={upload_pic} className="w-60"></img>
                      </div>

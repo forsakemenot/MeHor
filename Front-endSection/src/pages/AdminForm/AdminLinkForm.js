@@ -1,6 +1,5 @@
-import React, { useState, useEffect,useMemo } from "react";
-import { useHistory } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect, useMemo } from "react";
+import { useHistory,useParams,Link } from "react-router-dom";
 import DormInfoPanel from '../admin/component/dormInfo_panel.js'
 import ContactDormPanel from '../admin/component/contactDorm_panel'
 // import MapPanel from '../../pages/admin/component/map_panel.js'
@@ -9,8 +8,6 @@ import ConOutPanel from '../admin/component/conveninetOut_panel.js'
 import DetailPanel from '../admin/component/detail_panel'
 import CustomerCostPanel from '../admin/component/customet_costPanel'
 import Add_row from "../../components/add_row/add_row"
-import bin from '../../img/metro-bin.svg';
-import upload from '../../img/upload.svg';
 
 function AdminLinkForm() {
    const history = useHistory();
@@ -148,7 +145,6 @@ function AdminLinkForm() {
          if (roomType.dorm_type) {
             return (
                <div className="d-flex w-100 align-items-center justify-content-around mt-1-v">
-                  1
                   <div className="w-20">
                      <input type="text" className="input-type-room" value={roomType?.dorm_type[0].room_name} placeholder="ex. ห้องเดี่ยว 1 เตียง"
                         row="1"
@@ -237,11 +233,11 @@ function AdminLinkForm() {
                      <CustomerCostPanel dateCostPanel={roomType} />
                   </div>
                   <div className="d-flex w-100">
-                     <ConInPanel dataInPanel={descDormFac}/>
-                     <ConOutPanel dataOutPanel={descDormFac}/>
+                     <ConInPanel dataInPanel={descDormFac} />
+                     <ConOutPanel dataOutPanel={descDormFac} />
                   </div>
 
-                  <div className="image mt-1-v">
+                  {/* <div className="image mt-1-v">
                      <div className="card border-light panel_frame">
                         <div className="card-header d-flex align-items-center justify-content-between">
                            <span className="fs-1-v w-50">รูปภาพทั้งหมด</span>
@@ -255,9 +251,9 @@ function AdminLinkForm() {
                            <img alt="" className="image_dorm_all" />
                         </div>
                      </div>
-                  </div>
+                  </div> */}
 
-                  <div className="doc mt-1-v">
+                  {/* <div className="doc mt-1-v">
                      <div className="card border-light panel_frame">
                         <div className="card-header d-flex align-items-center justify-content-between">
                            <span className="fs-1-v w-50">เอกสารยืนยัน</span>
@@ -290,7 +286,6 @@ function AdminLinkForm() {
                                     <p className="pl-1-v m-0">รูปถ่ายที่พักโดยให้เห็น "บ้านเลขที่" และอาคารที่ชัดเจน</p>
                                     <p className="remark_file pl-1-v m-0">(รองรับไฟล์ jpg. png. และ pdf.)</p>
                                  </div>
-                                 {/* {file.name} */}
                                  <div className="status d-flex">
                                     <p className="status_file d-flex">
                                        {fileDormNum.type == undefined ?
@@ -301,32 +296,24 @@ function AdminLinkForm() {
                                  <div className="upload d-flex position-relative">
                                     <input type="file" onChange={handleFileDormNum} className="input-file-type position-absolute w-90 mx-auto bg-info" />
                                     <span className="upload_file d-flex">อัพโหลดภาพถ่าย<img alt="" src={upload} className="img_upload ml-0-5-v"></img></span>
-
-
                                  </div>
-                                 {/* <div id="upload-box" className="file-input">
-
-                                    <label for="file">
-                                       Select file
-                                    <p class="file-name"></p>
-                                    </label>
-                                    {file && <ImageThumb image={file} />}
-                                 </div> */}
                               </div>
                            </form>
                         </div>
                      </div>
-                  </div>
+                  </div> */}
                </form>
 
                <div className="button line-top-gray">
                   <div className="d-flex justify-content-center mt-1-v">
-                     <div className="btn_cancel bg-main d-flex justify-content-center align-items-center">
-                        <p className="m-0 text-white">ยกเลิก</p>
-                     </div>
-                     <div className="btn_cancel bg-success d-flex justify-content-center align-items-center">
+                     <Link to={`/DormMe/` + UserId}>
+                        <div className="btn_cancel bg-main d-flex justify-content-center align-items-center">
+                           <p className="m-0 text-white">ย้อนกลับ</p>
+                        </div>
+                     </Link>
+                     {/* <div className="btn_cancel bg-success d-flex justify-content-center align-items-center">
                         <p className="m-0 text-white" onClick={() => console.log(descDorm,roomType)}>ตกลง</p>
-                     </div>
+                     </div> */}
                   </div>
                </div>
 
