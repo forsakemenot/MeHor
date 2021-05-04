@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './confirm_doc.css';
 import '../../App.css';
-
+import jwt from 'jsonwebtoken';
 import { Link, useHistory, useParams } from "react-router-dom";
 
 import document from '../../img/document.svg';
@@ -10,10 +10,11 @@ import upload from '../../img/upload.svg';
 import info from '../../img/info-circle.svg';
 
 function ConfirmDoc() {
-    const { UserId } = useParams()
+
     const history = useHistory();
     const [dormid, setDormid] = useState();
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
+    const [userId, setUserId] = useState((token && jwt.decode(token).id) || '');
     const optionsGet = data => {
         return {
             headers: {
@@ -36,6 +37,7 @@ function ConfirmDoc() {
     };
     useEffect(() => {
         console.log("useEffect");
+        console.log(userId);
         fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
             .then(res => res.json())
             .then(res => {
@@ -83,14 +85,13 @@ function ConfirmDoc() {
                 // console.log(UserId);
                 if (res.error) alert(res.error);
                 if (res.success) {
-                    alert("success")
-                    history.push("/DormMe" + UserId);
+                  
                 }
             })
-
             .catch(error => {
                 console.log(error);
-                // alert(error);
+                alert("success")
+                history.push("/DormMe/" + userId);
             })
         evt.preventDefault();
     }
