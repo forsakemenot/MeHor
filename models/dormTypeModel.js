@@ -5,38 +5,38 @@ const DormTypeSchema = mongoose.Schema({
     dorm_id: {
         type: String,
         unique: true,
-        required: true
+        
     },
     dorm_type: [{
-        room_name : {type: String ,  required: true},
-        room_area : {type: String ,  required: true},
-        room_cost : {type: String ,  required: true},
-        additional : {type: String ,  required: true}
+        room_name : {type: String ,  },
+        room_area : {type: String ,  },
+        room_cost : {type: String ,  },
+        additional : {type: String ,  }
     }],
     insurance_bill: {
         type: String,
-        required: true
+        
     },
     pre_paid: {
         type: String,
-        required: true
+        
     },
     electric_bill: {
         type: String,
-        required: true
+        
     },
     water_bill: {
         type: String,
         default: false,
-        required: true
+        
     },
     internet_bill:{
         type: String,
-        required: true
+        
     },
     keycard:{
         type: String,
-        required: true
+        
     }
 
 });
