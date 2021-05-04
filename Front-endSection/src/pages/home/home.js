@@ -41,7 +41,7 @@ function Home() {
         };
     };
     useEffect(() => {
-        
+
         fetch('http://103.13.231.22:5000/api/dorm/alldormIsApprove', optionsGet())
             .then(res => res.json())
             .then(res => {
@@ -230,7 +230,9 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <div className="footer">
+                <Footer />
+            </div>
         </div>
     );
 }

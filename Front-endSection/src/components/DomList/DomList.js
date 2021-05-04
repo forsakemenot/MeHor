@@ -13,7 +13,7 @@ function DomList({ data }) {
               <img alt="" src={data.DormFac.img[0]} className="size-image-dorm-list w-95" />
             </div>
             {/* <div className="color-main w-55 d-flex flex-column h-80"> */}
-            <div className="h-100 d-flex flex-column color-main">
+            <div className="information h-100 d-flex flex-column color-main">
               <span className="fs-1-5-v"><b>{data.dorm.dorm_name}</b><br /></span>
 
               <div className="d-flex w-100 h-25 py-1-v flex-column">
@@ -37,7 +37,7 @@ function DomList({ data }) {
                   </span>
                 </div>
               </div>
-              <span className="fs-2-v d-flex font-weight-bold">฿ {data.DormType.dorm_type[0].room_cost} / เดือน</span>
+              <span className="price fs-2-v d-flex font-weight-bold">฿ {data.DormType.dorm_type[0].room_cost} / เดือน</span>
             </div>
             {/* </div> */}
           </Link >
@@ -50,7 +50,7 @@ function DomList({ data }) {
   )
   return (
     <div className="d-flex">
-      <div className="disc_dom_list py-1-v w-90">
+      <div className="disc_dom_list py-1-v w-95">
         {dormBox}
       </div>
     </div>
