@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../admin_form/admin_form.css';
 import './../../../App.css';
 
-function cost_panel() {
+function CostPanel() {
     return (
         <div className="cost w-100">
             <div className="card border-light panel_frame">
@@ -38,4 +38,4 @@ function cost_panel() {
         </div>
     );
 }
-export default cost_panel;
+export default CostPanel;
