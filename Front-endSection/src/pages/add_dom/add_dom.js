@@ -116,7 +116,7 @@ function AddDom() {
 
    const HandleSubmit = (evt) => {
       console.log(dormDetails);
-      fetch('http://103.13.231.22:5000/api/dorm/adddorm', options(dormDetails))
+      fetch('http://localhost:5000/api/dorm/adddorm', options(dormDetails))
          .then(res => res.json())
          .then(res => {
             if (res.success) {
@@ -280,8 +280,8 @@ function AddDom() {
                   </select>
                </div>
                <div className="d-flex main_form">
-                  <span className="fs-1-v">โซนที่พักอื่นๆ *</span>
-                  <input type="text" onChange={handleInputChange} name="dorm_others" required></input>
+                  <span className="fs-1-v">โซนที่พักอื่นๆ</span>
+                  <input type="text" onChange={handleInputChange} name="dorm_others"></input>
                </div>
 
                {/* address form */}

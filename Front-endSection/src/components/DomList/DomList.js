@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import "./DomList.css";
 import { Link } from "react-router-dom";
 function DomList({ data }) {
-  const server = 'http://103.13.231.22:5000/'
+  const server = 'http://localhost:5000/'
   const [roomtype, setRoomtype] = useState([]);
   const [dormfaci, setDormfaci] = useState({});
   const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
@@ -17,7 +17,7 @@ function DomList({ data }) {
     };
   };
   useEffect(() => {
-    fetch('http://103.13.231.22:5000/api/dorm/roomtypebyid/' + data._id, optionsGet())
+    fetch('http://localhost:5000/api/dorm/roomtypebyid/' + data._id, optionsGet())
       .then(res => res.json())
       .then(res => {
         if (res.DormType) {
@@ -30,7 +30,7 @@ function DomList({ data }) {
       })
   }, [data]);
   useEffect(() => {
-    fetch('http://103.13.231.22:5000/api/dorm/facilitybyid/' + data._id, optionsGet())
+    fetch('http://localhost:5000/api/dorm/facilitybyid/' + data._id, optionsGet())
       .then(res => res.json())
       .then(res => {
         if (res.DormFacility) {
