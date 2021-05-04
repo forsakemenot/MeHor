@@ -131,6 +131,10 @@
 
 /*--------------------------------*/
 
+.map_info{
+    height: 38vw;
+}
+
 .main_kmitl{
     position: absolute;
     left: calc(45vw);
@@ -138,28 +142,28 @@
 }
 .zone_fbt{
     position: absolute;
-    left: calc(55vw);
+    left: calc(45vw);
     top: calc(23vw);
 }
 .zone_keki{
     position: absolute;
-    left: calc(25vw);
-    top: calc(6vw);
+    left: calc(22vw);
+    top: calc(7vw);
 }
 .zone_rnp{
     position: absolute;
-    left: calc(9vw);
-    top: calc(5vw);
+    left: calc(8vw);
+    top: calc(0vw);
 }
 .zone_jinda{
     position: absolute;
-    left: calc(29vw);
-    top: calc(22vw);
+    left: calc(20vw);
+    top: calc(24vw);
 }
 .zone_nikom{
     position: absolute;
-    left: calc(75vw);
-    top: calc(2vw);
+    left: calc(80vw);
+    top: calc(1vw);
 }
 
 .main_kmitl img{
@@ -178,6 +182,53 @@
     top: -1px;
     transition: .2s;
 }
+.map-el-text{
+    font-size: 2vw;
+    position: absolute;
+    right: 4vw;
+    top: 11vw;
+    transition: .2s;
+    opacity: 0;
+}
+.map-el-text-long{
+    font-size: 2vw;
+    position: absolute;
+    right: 3vw;
+    top: 11vw;
+    transition: .2s;
+    opacity: 0;
+}
+.map-el-text-height{
+    font-size: 2vw;
+    position: absolute;
+    right: 3vw;
+    top: 13.5vw;
+    transition: .2s;
+    opacity: 0;
+}
+
 .map-el:hover .map-el-img{
     top: -15px;
+}
+
+.map-el:hover .map-el-text{
+    opacity: 1;
+}
+.map-el:hover .map-el-text-long{
+    opacity: 1;
+}
+.map-el:hover .map-el-text-height{
+    opacity: 1;
+}
+
+.rail{
+    position: absolute;
+    width: 76vw;
+    left: 12vw;
+}
+.train{
+    position: absolute;
+    width: 21vw;
+    left: 62.5vw;
+    top: 25vw;
 }
