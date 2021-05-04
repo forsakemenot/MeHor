@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
 import './../admin_all_dorm/admin_all_dorm.css';
-
-import bin from './../../../img/metro-bin.svg'
-import edit from './../../../img/edit.svg'
 import search from '../../../img/search-admin.svg'
 
 import AdminAllDorm from '../component/admin_dorm.js'
@@ -105,7 +102,7 @@ function AllDorm() {
                               <p className="m-0">โซน</p>
                            </div>
                            <div className="col-2">
-                              <p className="m-0">อัพเดตข้อมูลล่าสุด</p>
+                              <p className="m-0">เจ้าของหอ</p>
                            </div>
                         </div>
                      </div>

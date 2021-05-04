@@ -8,7 +8,7 @@ function Dorm_panel({ dataInfo }) {
                         <div className="card-body d-flex flex-column">
                             <div className="d-flex align-items-center justify-content-end">
                                 <span className="text_label">ชื่อที่พัก</span>
-                                <input className="input_panel my-0-4-v" value={dataInfo?.dorm_name} />
+                                <input className="input_panel my-0-4-v" name="dorm_name" value={dataInfo?.dorm_name} />
                             </div>
                             <div className="d-flex align-items-center justify-content-end">
                                 <span className="text_label">ประเภทห้องพัก</span>

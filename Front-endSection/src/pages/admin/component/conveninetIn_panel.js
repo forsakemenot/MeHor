@@ -7,7 +7,6 @@ function ConveninetIn_panel({ dataInPanel }) {
     if (dataInPanel.dorm_facilities) {
         arrayDormFac = dataInPanel?.dorm_facilities[0]?.split(",")
     }
-    console.log(arrayDormFac.includes('เครื่องปรับอากาศ'))
 
     // dataInPanel?.dorm_facilities?.split(",") ||
     return (

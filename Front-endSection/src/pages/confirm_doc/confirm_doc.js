@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './confirm_doc.css';
 import '../../App.css';
 
-import { Link, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 import document from '../../img/document.svg';
 import check from '../../img/check-circle.svg';

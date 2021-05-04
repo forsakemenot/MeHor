@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import del from '../../img/icon-red-del.svg';
 import dorm from "../../img/img_test.svg"
 import edit from "../../img/icon-edit.svg"
@@ -17,8 +16,8 @@ function ListDormMe({ data }) {
                     <span className="fs-1-v color-main">การปรับปรุง :</span>
                 </div>
                 <div className="d-flex flex-column w-80 h-100 mx-auto align-items-start justify-content-around">
-                    <span className="fs-1-v color-main font-weight-bold">{data.name}</span>
-                    {data.status === true ?
+                    <span className="fs-1-v color-main font-weight-bold">{data.dorm_name}</span>
+                    {data.isApprove === true ?
                         <div className="bg-success rounded fs-0-8-v btn-check-status">
                             <span className="color-white">ตรวจสอบแล้ว</span>
                         </div> :
@@ -26,7 +25,7 @@ function ListDormMe({ data }) {
                             <span className="color-white">รอการตรวจสอบ</span>
                         </div>
                     }
-                    <span className="fs-1-v">(ปรับปรุงล่าสุด {data.update})</span>
+                    <span className="fs-1-v">(ปรับปรุงล่าสุด -)</span>
                 </div>
             </div>
             <div className="d-flex w-15 align-items-start justify-content-end h-100">

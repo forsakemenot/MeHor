@@ -1,11 +1,10 @@
 import LogoHome from './img/MeHorWhite.png';
 
-import React, { useState } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Home from './pages/home/home.js';
 import AddDom from './pages/add_dom/add_dom.js';
@@ -21,12 +20,13 @@ import Details from "./pages/details/details.js";
 import Advertise from "./pages/advertise/advertise.js";
 import Zone from "./pages/zone/zone.js"
 import AboutWeb from "./pages/about_web/about_web"
-import jwt from 'jsonwebtoken';
+// import jwt from 'jsonwebtoken';
 import AdminForm from './pages/admin/admin_form/admin_form.js'
 import AdminDorm from './pages/admin/admin_all_dorm/admin_all_dorm.js'
 import AdminApprove from './pages/admin/admin_approve/admin_approve.js'
 import AdminUser from './pages/admin/admin_user/admin_user.js'
 import CustomerForm from "./pages/customer_form/customer_form"
+import AdminLinkForm from "./pages/AdminForm/AdminLinkForm"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 function App() {
@@ -82,7 +82,7 @@ function App() {
         <Route path="/ConfirmDoc">
           <ConfirmDoc />
         </Route>
-        <Route path="/DormMe">
+        <Route path="/DormMe/:UserId">
           <DormMe />
         </Route>
         <Route path="/WebBoard">
@@ -108,6 +108,9 @@ function App() {
         </Route>
         <Route path="/CustomerForm/:UserId">
           <CustomerForm />
+        </Route>
+        <Route path="/AdminLinkForm/:UserId">
+          <AdminLinkForm />
         </Route>
         <Route path="/AdminDorm">
           <AdminDorm />
