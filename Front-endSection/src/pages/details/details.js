@@ -120,10 +120,10 @@ function Details() {
             if (descDorm.dorm_address) {
                 
                 return (
-                    <div className="w-45 mx-auto d-flex justify-content-start flex-wrap">
+                    <div className="w-60 mx-auto d-flex justify-content-start flex-wrap box-1-contant">
                         <div className="w-100 d-flex justify-content-around align-items-center">
-                            <img alt="" className="w-10 image_contact" src={location} alt="" />
-                            <span className="desc_contact w-90">{
+                            <img alt="" className="image_contact" src={location} alt="" />
+                            <span className="desc_contact w-90 pl-1">{
                                 descDorm.dorm_address.address_number + " " +
                                 descDorm.dorm_address.street + " " +
                                 descDorm.dorm_address.province + " " +
@@ -134,17 +134,17 @@ function Details() {
                         <div className="w-100 d-flex justify-content-around align-items-center">
                             <div className="w-100 d-flex justify-content-around align-items-center">
                                 <img alt="" className="w-10 image_contact" src={phone} alt="" />
-                                <span className="desc_contact w-90">{descDorm.owner_phone}</span>
+                                <span className="desc_contact w-90 pl-1">{descDorm.owner_phone}</span>
                             </div>
                         </div>
                         <div className="w-100 d-flex justify-content-around align-items-center">
                             <div className="w-100 d-flex justify-content-around align-items-center">
                                 <img alt="" className="w-10 image_contact" src={line} alt="" />
-                                <span className="desc_contact w-90">{descDorm.owner_line}</span>
+                                <span className="desc_contact w-90 pl-1">{descDorm.owner_line}</span>
                             </div>
                         </div>
                         <div className="w-100 d-flex">
-                            <img alt="" className="w-50 py-0-5-v" src={confirm} />
+                            <img alt="" className="w-50 py-0-5-v box-1 confirm" src={confirm} />
                         </div>
                     </div>
                 )
@@ -190,32 +190,32 @@ function Details() {
         () => {
             if (roomType.dorm_type) {
                 return (
-                    <div className="w-80 mx-auto d-flex flex-wrap">
-                        <div className="w-50 d-flex flex-wrap border-right-color">
-                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v">
+                    <div className="w-80 mx-auto d-flex flex-wrap box-4">
+                        <div className="w-50 d-flex flex-wrap border-right-color box-4-border">
+                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v box-4-list">
                                 <img alt="" className="w-10 size_icon_desc" alt="" src={bill} />
                                 <span className="w-90 color-main "><b>ค่าเงินมัดจำ/ค่าเงินประกัน :</b> {roomType.insurance_bill}</span>
                             </div>
-                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v bg-third">
+                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v bg-third box-4-list">
                                 <img alt="" className="w-10 size_icon_desc" alt="" src={electric} />
                                 <span className="w-90 color-main "><b>ค่าเงินมัดจำ/ค่าเงินประกัน :</b> หน่วยละ {roomType.electric_bill} บาท</span>
                             </div>
-                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v">
+                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v box-4-list">
                                 <img alt="" className="w-10 size_icon_desc" alt="" src={wifi} />
                                 <span className="w-90 color-main "><b>อินเทอร์เน็ต (Wifi) :</b> {roomType.internet_bill}</span>
                             </div>
 
                         </div>
                         <div className="w-50 d-flex flex-wrap">
-                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v">
+                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v pt-0-5-v box-4-list">
                                 <img alt="" className="w-10 size_icon_desc" alt="" src={check} />
                                 <span className="w-90 color-main"><b>จ่ายล่วงหน้า :</b> {roomType.pre_paid}</span>
                             </div>
-                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v bg-third">
+                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v bg-third box-4-list">
                                 <img alt="" className="w-10 size_icon_desc" alt="" src={water} />
                                 <span className="w-90 color-main "><b>ค่าน้ำ หน่วยละ :</b> {roomType.water_bill} บาท</span>
                             </div>
-                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v">
+                            <div className="w-100 pl-2-v d-flex align-items-center fs-1-v box-4-list">
                                 <img alt="" className="w-10 size_icon_desc" alt="" src={keycard} />
                                 <span className="w-90 color-main "><b>คีย์การ์ด :</b> {roomType.keycard} บาท/ชุด</span>
                             </div>
@@ -227,16 +227,17 @@ function Details() {
         }, [roomType]
     )
     return (
+        <div className='w-80 mx-auto'>
         <div className='my-1-auto'>
             {/* รูปหอพัก */}
             <div className="w-90 mx-auto d-flex flex-wrap">
-                <div className="w-50 d-flex">
-                    <div>
-                        <img className="mr-1-v" alt="" src={home} />
+                <div className="w-50 d-flex pb-2">
+                    <div className="d-flex align-items-center">
+                        <img className="mr-1-v home_icon" alt="" src={home} />
                     </div>
-                    <div className="w-30">
+                    <div className="w-50 d-flex justify-content-center">
                         <div className="w-100 d-flex align-items-center color-main">
-                            <span className="fs-1-2-v">{descDorm.dorm_name}</span>
+                            <span className="fs-1-7-v">{descDorm.dorm_name}</span>
                         </div>
                         {/* <div className="w-100 d-flex ">
                             <img className="mr-0-5-v" alt="" src={star} />
@@ -259,9 +260,10 @@ function Details() {
                         <img className="w-75" alt="" src={heartOff} />
                     </div>
                 </div> */}
+                
 
                 {/* รูปสไลด์เจ้าปัญหา */}
-
+                <div className="pt-1">
                 <Carousel>
                     <Carousel.Item>
                         <img
@@ -299,20 +301,21 @@ function Details() {
                         />
                     </Carousel.Item>
                 </Carousel>
-
+                
 
                 <div className="w-100 d-flex justify-content-between mx-auto mt-1-v">
                     {
                         desc_update.img.map(function (element, index) {
                             return <div className="w-20 d-flex">
-                                <img className="w-100" alt="" src={element} />
+                                <img className="w-100 p-1" alt="" src={element} />
                             </div>
                         })
                     }
                 </div>
+                </div>
             </div>
             {/* ช่องทางติดต่อ */}
-            <div className="d-flex w-80 mx-auto py-1-5-v">
+            <div className="d-flex w-80 mx-auto py-1-5-v box-1">
                 {contant}
                 <div className="w-60 d-flex justify-content-center flex-wrap">
                     <div className="w-100 d-flex align-items-center">
@@ -350,7 +353,7 @@ function Details() {
                             </div>
                             <div className="w-50 d-flex">
                                 <div className="w-50 sub-text-drop-down d-flex justify-content-center">
-                                    <span className="color-main">ราคาเช่ารายเดือน</span>
+                                    <span className="color-main text-center">ราคาเช่ารายเดือน</span>
                                 </div>
                                 <div className="w-50 sub-text-drop-down d-flex justify-content-center">
                                     <span className="color-main">ราคาเช่ารายวัน</span>
@@ -392,7 +395,7 @@ function Details() {
                             </div>
                         </div>
                     </div>
-                    {morePrice === true && descMore}
+                    {morePrice === true && descMore} 
                 </div>
                 {/* สิ่งอำนวยความสะดวก */}
                 <div className="w-100 d-flex flex-wrap mt-2-v mb-2-v">
@@ -409,11 +412,11 @@ function Details() {
                     {
                         convenient === true &&
                         <div className="w-80 mx-auto d-flex flex-wrap ">
-                            <div className="w-100 d-flex flex-wrap mt-0-5-v">
-                                <ul className="w-95 d-flex flex-wrap p-0">
+                            <div className="w-100 d-flex flex-wrap mt-0-5-v pl-4">
+                                <ul className="w-95 d-flex flex-wrap p-0 box-5">
                                     {
                                         arrayDormFac.map(function (element, index) {
-                                            return <><div className="w-5"></div><li className="color-main w-45 fs-1-v">{element}</li></>
+                                            return <><div className="w-5"></div><li className="color-main w-45 fs-1-v conv-list">{element}</li></>
                                         })
                                     }
                                 </ul>
@@ -454,6 +457,7 @@ function Details() {
                 }
 
             </div> */}
+        </div>
         </div>
     );
 }
