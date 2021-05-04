@@ -77,3 +77,8 @@
     border-radius: 5px;
     padding: 0.3vw 1vw;
 }
+.banner_img{
+    width: 80vw;
+    height: 50vh;
+    object-fit:cover
+}

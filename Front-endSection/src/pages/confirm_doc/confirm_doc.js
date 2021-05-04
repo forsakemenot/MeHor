@@ -91,7 +91,6 @@ function ConfirmDoc() {
             .catch(error => {
                 console.log(error);
                 // alert(error);
-
             })
         evt.preventDefault();
     }
