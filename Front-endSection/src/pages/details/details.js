@@ -25,6 +25,7 @@ import clock from "../../img/clock.svg";
 import heartOff from "../../img/heart-off.svg";
 
 import ads_banner from '../../img/Ads-banner.svg';
+import Carousel from 'react-bootstrap/Carousel';
 
 import room from "../../img/20210321_151812.svg";
 import Map from "../../components/Map/Map"
@@ -251,33 +252,45 @@ function Details() {
                 </div>
 
                 {/* รูปสไลด์เจ้าปัญหา */}
-                <div id="carouselControls" className="carousel slide" data-ride="carousel">
-                    <div className="carousel-inner">
-                        <div className="carousel-item active">
-                            <img src={desc_update.img[0]} className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={ads_banner} className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={desc_update.img[2]} className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={desc_update.img[3]} className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={desc_update.img[4]} className="d-block w-100" alt="..." />
-                        </div>
-                    </div>
-                    <a className="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
-                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span className="sr-only">Previous</span>
-                    </a>
-                    <a className="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
-                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span className="sr-only">Next</span>
-                    </a>
-                </div>
+
+                <Carousel>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={desc_update.img[0]}
+                            alt=""
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-lock w-100"
+                            src={desc_update.img[1]}
+                            alt="Second slide"
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={desc_update.img[2]}
+                            alt="Third slide"
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={desc_update.img[3]}
+                            alt=""
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={desc_update.img[4]}
+                            alt=""
+                        />
+                    </Carousel.Item>
+                </Carousel>
+
 
                 <div className="w-100 d-flex justify-content-between mx-auto mt-1-v">
                     {

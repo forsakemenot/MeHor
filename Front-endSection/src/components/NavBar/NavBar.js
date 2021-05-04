@@ -75,15 +75,15 @@ function NavBar() {
       //       }
       //    </div>
       // </div>
-      <Navbar collapseOnSelect expand="lg" className="bg-main d-flex align-items-center">
+      <Navbar collapseOnSelect expand="lg" className="bg-main d-flex align-items-center justify-conten-center">
          <Navbar.Brand>
-            <Link to="/" className="color-white fs-2-5-v">MeHor</Link>
+            <Link to="/" className="color-white fs-2-5-v font-weight-bold logo-home">MeHor</Link>
          </Navbar.Brand>
          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
          <Navbar.Collapse id="responsive-navbar-nav" className="w-100">
-            <Nav className="w-100">
+            <Nav className="w-100 d-flex align-items-baseline">
                <Nav.Link><Link to="/" className="color-white fs-1-v">หน้าแรก</Link></Nav.Link>
-               <NavDropdown title="ค้นหาที่พัก" className="color-white fs-1-v d-flex align-items-end" id="collasible-nav-dropdown">
+               <NavDropdown title="ค้นหาที่พัก" className="color-white fs-1-v pt-1-v" id="collasible-nav-dropdown">
                   <NavDropdown.Item><Link to="/zone" className="color-main fs-0-9-v">โซน วีคอนโด</Link></NavDropdown.Item>
                   <NavDropdown.Item><Link to="/zone" className="color-main fs-0-9-v">โซน เกกี</Link></NavDropdown.Item>
                   <NavDropdown.Item><Link to="/zone" className="color-main fs-0-9-v">โซน RNP</Link></NavDropdown.Item>
@@ -94,15 +94,15 @@ function NavBar() {
                <Nav.Link><Link to="/Advertise" className="color-white fs-1-v">ลงโฆษณา</Link></Nav.Link>
                <Nav.Link><Link to="/AboutWeb" className="color-white fs-1-v">เกี่ยวกับเว็บไซต์</Link></Nav.Link>
             </Nav>
-            <Nav className="">
+            <Nav className="w-20 justify-content-end">
                <Nav.Link>
                   {email ?
-                     <NavDropdown title="test" className="color-white" id="collasible-nav-dropdown">
+                     <NavDropdown title={email} className="color-white" id="collasible-nav-dropdown">
                         <NavDropdown.Item><Link to="/Profile" className="color-main fs-0-9-v">จัดการบัญชี</Link></NavDropdown.Item>
                         <NavDropdown.Item><Link to="/AdminDorm" className="color-main fs-0-9-v">ประกาศหอพักของฉัน</Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link onSubmit={handleLogout} className="color-main fs-0-9-v">ออกจากระบบ</Link></NavDropdown.Item>
+                        <NavDropdown.Item onClick={handleLogout}><Link className="color-main fs-0-9-v">ออกจากระบบ</Link></NavDropdown.Item>
                      </NavDropdown>
-                     : <Link to="/LoginRegister" className="color-white">เข้าสู่ระบบ/สมัครสมาชิก</Link>
+                     : <Link to="/LoginRegister" className="color-white fs-1-v">เข้าสู่ระบบ/สมัครสมาชิก</Link>
                   }
                </Nav.Link>
             </Nav>

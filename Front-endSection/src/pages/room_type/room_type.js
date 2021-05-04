@@ -17,6 +17,9 @@ import Add_row from "../../components/add_row/add_row"
 function RoomType() {
    const history = useHistory();
    const [numRow, setNumRow] = useState(0);
+   const [checked, setChecked] = useState({
+      cost: true
+   });
    const [roomType, setRoomType] = useState({ dorm_type: [] });
    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
    const options = data => {
