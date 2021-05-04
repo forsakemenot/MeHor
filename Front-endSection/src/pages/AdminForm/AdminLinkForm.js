@@ -37,6 +37,7 @@ function AdminLinkForm() {
       fetch('http://localhost:5000/api/dorm/dormById/' + UserId, optionsGet())
          .then(res => res.json())
          .then(res => {
+            console.log(res);
             if (res.dorm) {
                setDescDorm(res.dorm);
             }

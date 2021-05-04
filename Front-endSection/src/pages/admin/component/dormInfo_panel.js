@@ -7,7 +7,7 @@ function Dorm_panel({ dataInfo }) {
     // const [user, setUser] = useState([]);
     const handleInputChange = useCallback(
         (e) => {
-            console.log(e);
+            
     
             // console.log(e.target.name);
             const field = e.target.name;
