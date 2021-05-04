@@ -101,6 +101,12 @@ p{
 .color-second{
   color: #F26627;
 }
+.color-second{
+  color: #F26627;
+}
+.color-third{
+  color: #929292;
+}
 .color-gray {
   color: #464646;
 }
@@ -112,6 +118,9 @@ p{
 }
 .kanit{
   font-family: 'Kanit', sans-serif;
+}
+.kanit-thin{
+  font-weight: normal !important;
 }
 .w-2{
   width: 2%;
@@ -277,6 +286,15 @@ p{
 }
 .p-2-v{
   padding: 2vw;
+}
+.pl-0-2-v{
+  padding-left: 0.2vw;
+}
+.pl-0-3-v{
+  padding-left: 0.3vw;
+}
+.pl-0-4-v{
+  padding-left: 0.4vw;
 }
 .pl-0-5-v{
   padding-left: 0.5vw;

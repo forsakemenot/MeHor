@@ -1,6 +1,7 @@
-.text_dom_list{
-    font-size: 1.3vw;
-}
+
 .size-image-dorm-list{
     height: 14vw;
+}
+.text-remove-hover:hover{
+  text-decoration: none;
 }
