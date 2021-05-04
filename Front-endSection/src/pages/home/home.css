@@ -5,6 +5,14 @@
     background-color: #F7F7F7;
     display: block;
 }
+.frame_home {
+    width: 75%;
+}
+.search_home {
+    width: 75%; 
+    display: flex;
+    align-items: center;
+}
 .search_dom{
     width: 100%;
     justify-content: center;
@@ -12,14 +20,17 @@
 }
 .search_dom input{
     width: 60%;
+    height: 3vw;
     font-size: 1vw;
     border: .1vw solid #325679;
     padding: 0vw 1vw;
     border-radius: 6px;
 }
-.search_dom button{
+.search_dom button,
+.annouce_dorm{
     position: relative;
-    left: -1%;
+    height: 3vw;
+    left: -2%;
     border: 0;
     font-size: 1vw;
     border-radius: 6px;
@@ -180,4 +191,16 @@
 }
 .map-el:hover .map-el-img{
     top: -15px;
+}
+
+@media screen and (max-width: 567px){
+    .map_info{
+        visibility: hidden;
+        height: 0;
+    }
+    .search_home {
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
 }
