@@ -55,6 +55,7 @@ function Details() {
                     setRoomType(res.DormType);
                     console.log(res.DormType);
                 }
+                console.log(dormId);
             })
             .catch(error => {
                 console.log(error);

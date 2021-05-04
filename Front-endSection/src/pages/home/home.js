@@ -69,7 +69,6 @@ function Home() {
     const dormBox = useMemo(
         () => {
             if (descDorm[0]?.dorm_name) {
-                console.log(descDorm[0],"test");
                 return (
                     descDorm.map(function (element, index) {
                         return <DomList data={element} HeartImg={HeartImg} />
