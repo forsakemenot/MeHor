@@ -71,9 +71,9 @@ function ConfirmDoc() {
         formData.append("regis_pic", fileDorm);
         formData.append("location_pic", fileDormNum);
         for (var pair of formData.entries()) {
-            console.log(pair[1]); 
+            console.log(pair[1]);
         }
-        
+
         fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
             .then(res => res.json())
             .then(res => {
@@ -87,7 +87,7 @@ function ConfirmDoc() {
             .catch(error => {
                 console.log(error);
                 alert("success")
-                    history.push("/DormMe");
+                history.push("/DormMe");
             })
         evt.preventDefault();
     }
@@ -133,49 +133,49 @@ function ConfirmDoc() {
                     <p className="note">(โปรดแนบเอกสารให้ตรงกับหัวข้อ)</p>
                 </div>
                 <form onSubmit={HandleSubmit}>
-                <div className={`house_regis mx-auto d-flex ${fileDorm.type != undefined && "active"}`}>
-                    <div className="header_topic d-flex">
-                        <p className="pl-1-v m-0">สำเนาทะเบียนบ้านของ "ที่พัก" พร้อมเซ็นสำเนาถูกต้อง</p>
-                        <p className="remark_file pl-1-v m-0">(รองรับไฟล์ jpg. png. และ pdf.)</p>
-                    </div>
-                    <div className="status d-flex">
-                        <p className="status_file d-flex">
-                            {fileDorm.type == undefined ?
-                                "ยังไม่ได้อัพโหลด" : fileDorm.name
-                            }
-                        </p>
+                    <div className={`house_regis mx-auto d-flex ${fileDorm.type != undefined && "active"}`}>
+                        <div className="header_topic d-flex">
+                            <p className="pl-1-v m-0">สำเนาทะเบียนบ้านของ "ที่พัก" พร้อมเซ็นสำเนาถูกต้อง</p>
+                            <p className="remark_file pl-1-v m-0">(รองรับไฟล์ jpg. png. และ pdf.)</p>
+                        </div>
+                        <div className="status d-flex">
+                            <p className="status_file d-flex">
+                                {fileDorm.type == undefined ?
+                                    "ยังไม่ได้อัพโหลด" : fileDorm.name
+                                }
+                            </p>
 
-                    </div>
-                    
-                            
-                    <div className="upload d-flex">
-                        <p className="upload_file d-flex position-relative">อัพโหลดสำเนาทะเบียนบ้าน
+                        </div>
+
+
+                        <div className="upload d-flex">
+                            <p className="upload_file d-flex position-relative">อัพโหลดสำเนาทะเบียนบ้าน
                         <input type="file" onChange={handleFileDorm} className="input-file-type position-absolute w-80 mx-auto bg-info" />
-                            <img alt="" src={upload} className="img_upload ml-0-5-v"></img>
-                        </p>
-                    </div>
-                </div>
-
-                <div className={`house_regis mx-auto d-flex ${fileDormNum.type != undefined && "active"}`}>
-                    <div className="header_topic d-flex position-relative">
-                        <p className="pl-1-v m-0">รูปถ่ายที่พักโดยให้เห็น "บ้านเลขที่" และอาคารที่ชัดเจน</p>
-                        <p className="remark_file pl-1-v m-0">(รองรับไฟล์ jpg. png. และ pdf.)</p>
-                    </div>
-                    {/* {file.name} */}
-                    <div className="status d-flex">
-                        <p className="status_file d-flex">
-                            {fileDormNum.type == undefined ?
-                                "ยังไม่ได้อัพโหลด" : fileDormNum.name
-                            }
-                        </p>
-                    </div>
-                    <div className="upload d-flex position-relative">
-                        <input type="file" onChange={handleFileDormNum} className="input-file-type position-absolute w-80 mx-auto bg-info" />
-                        <p className="upload_file d-flex">อัพโหลดสำเนาทะเบียนบ้าน
                                 <img alt="" src={upload} className="img_upload ml-0-5-v"></img>
-                        </p>
+                            </p>
+                        </div>
                     </div>
-                    {/* <div id="upload-box" className="file-input">
+
+                    <div className={`house_regis mx-auto d-flex ${fileDormNum.type != undefined && "active"}`}>
+                        <div className="header_topic d-flex position-relative">
+                            <p className="pl-1-v m-0">รูปถ่ายที่พักโดยให้เห็น "บ้านเลขที่" และอาคารที่ชัดเจน</p>
+                            <p className="remark_file pl-1-v m-0">(รองรับไฟล์ jpg. png. และ pdf.)</p>
+                        </div>
+                        {/* {file.name} */}
+                        <div className="status d-flex">
+                            <p className="status_file d-flex">
+                                {fileDormNum.type == undefined ?
+                                    "ยังไม่ได้อัพโหลด" : fileDormNum.name
+                                }
+                            </p>
+                        </div>
+                        <div className="upload d-flex position-relative">
+                            <input type="file" onChange={handleFileDormNum} className="input-file-type position-absolute w-80 mx-auto bg-info" />
+                            <p className="upload_file d-flex">อัพโหลดสำเนาทะเบียนบ้าน
+                                <img alt="" src={upload} className="img_upload ml-0-5-v"></img>
+                            </p>
+                        </div>
+                        {/* <div id="upload-box" className="file-input">
                         
                         <label for="file">
                             Select file
@@ -183,22 +183,22 @@ function ConfirmDoc() {
                         </label>
                         {file && <ImageThumb image={file} />}
                     </div> */}
-                </div>
-               
-                <div className="info d-flex align-items-center ml-3-v">
-                    <img alt="" src={info} className="img_info"></img>
-                    <span className="text_info">รูปถ่ายที่ไม่อนุญาตให้ลงในประกาศ</span>
-                </div>
+                    </div>
 
-                <ul className="list_info">
-                    <li className="mb-0-5-v">หลักฐานที่ใช้ในการลงทะเบียนเพื่อยืนยันตัวตนกับ เว็บไซต์ mehor.in.th
+                    <div className="info d-flex align-items-center ml-3-v">
+                        <img alt="" src={info} className="img_info"></img>
+                        <span className="text_info">รูปถ่ายที่ไม่อนุญาตให้ลงในประกาศ</span>
+                    </div>
+
+                    <ul className="list_info">
+                        <li className="mb-0-5-v">หลักฐานที่ใช้ในการลงทะเบียนเพื่อยืนยันตัวตนกับ เว็บไซต์ mehor.in.th
                         <span className="text_red">จะไม่แสดงให้ผู้ใช้งานหรือบุคคลทั่วไปเห็น</span></li>
-                    <li>ทีมงานใช้เวลาตรวจสอบเอกสารและเปลี่ยนสถานะการตรวจสอบไม่เกิน 7 วันทำการ</li>
-                </ul>
+                        <li>ทีมงานใช้เวลาตรวจสอบเอกสารและเปลี่ยนสถานะการตรวจสอบไม่เกิน 7 วันทำการ</li>
+                    </ul>
 
-                <div className="continue d-flex">
-                    <button id="btn_continue" type="submit" style={{ width: '13vw' }}>บันทึกและรอการตรวจสอบ</button>
-                </div>
+                    <div className="continue d-flex">
+                        <button id="btn_continue" type="submit" style={{ width: '13vw' }}>บันทึกและรอการตรวจสอบ</button>
+                    </div>
                 </form>
             </div>
         </div>
