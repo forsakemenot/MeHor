@@ -1,11 +1,13 @@
-
-
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Dorm = require('../models/dormModel.js');
 const User = require('../models/usersModel.js');
 const config = require('../config');
+
+const multer = require('multer')
+const upload_img = multer({ dest: './public' })
+const { uploadFile, uploadPDF, uploadMultiFile } = require('../util/uploadFile.function')
 
 const router = express.Router();
 
@@ -40,6 +42,27 @@ router.get('/userById', async (req, res) => {
 
     User.findOne({ _id: id }).exec()
         .then((user) => {
+            res.status(200).json({ user: user });
+        })
+        .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+});
+
+let profile = upload_img.fields([{ name: 'profile', maxCount: 1 }])
+router.patch('/userById', profile, async (req, res) => {
+    const token = req.headers.authorization || '';
+    const id = jwt.decode(token).id
+    let fullpath_profile
+    if (req.files) {
+        fullpath_profile = uploadPDF(req.files['profile'][0], res)
+    }
+    const userEdit = req.body
+    User.findOne({ _id: id }).exec()
+        .then((user) => {
+            user.firstname = userEdit.firstname
+            user.surname = userEdit.surname
+            user.profile = fullpath_profile
+            user.phone = userEdit.phone
+            user.save()
             res.status(200).json({ user: user });
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })

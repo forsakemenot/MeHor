@@ -13,7 +13,12 @@ const DormFacilitySchema = mongoose.Schema({
     img: [{
         type: String,
         required: true
-    }]
+    }],
+    dorm_id: {
+        type: String,
+        unique: true,
+        required: true
+    }
 
 });
 

@@ -23,9 +23,15 @@ const UserSchema = mongoose.Schema({
         default: false,
         required: true
     },
-    role:{
+    role: {
         type: String,
         required: true
+    },
+    profile: {
+        type: String
+    },
+    phone: {
+        type: String
     }
 
 });
