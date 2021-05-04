@@ -1,9 +1,10 @@
 import del from '../../img/icon-red-del.svg';
 import dorm from "../../img/img_test.svg"
 import edit from "../../img/icon-edit.svg"
+import { Link } from "react-router-dom";
 function ListDormMe({ data }) {
 
-
+    console.log(data);
     return (
         <div className="test_check d-flex align-items-center w-95 mt-1-v mb-1-v">
             <div className="d-flex w-25 h-100">
@@ -29,7 +30,7 @@ function ListDormMe({ data }) {
                 </div>
             </div>
             <div className="d-flex w-15 align-items-start justify-content-end h-100">
-                <img alt="" src={edit} className="pointer image-del-dorm-me" />
+                <Link to={`/AdminLinkForm/` + data._id}><img alt="" src={edit} className="pointer image-del-dorm-me" /> </Link>
                 <img alt="" src={del} className="pointer image-del-dorm-me" />
 
             </div>

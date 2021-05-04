@@ -84,8 +84,8 @@ function RoomType() {
    let rows = [];
    for (var i = 0; i < numRow; i++) {
       rows.push(
-         <Add_row key={i + 2}
-            row={i + 2}
+         <Add_row key={i}
+            row={i}
             col1={"room_name"}
             col2={"room_area"}
             col3={"room_cost"}
