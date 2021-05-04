@@ -83,13 +83,14 @@ function ConfirmDoc() {
                 // console.log(UserId);
                 if (res.error) alert(res.error);
                 if (res.success) {
-                    alert("success")
-                    history.push("/CustomerForm/" + UserId);
                 }
             })
+
             .catch(error => {
                 console.log(error);
-                alert(error);
+                // alert(error);
+                alert("success")
+                history.push("/DormMe");
             })
         evt.preventDefault();
     }

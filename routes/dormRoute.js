@@ -47,7 +47,7 @@ router.get('/alldormIsDone', (req, res) => {
                 return (dormtest)
             })
             Promise.all(promises).then(function (results) {
-                
+
                 res.status(200).json(array)
             })
         })
@@ -79,7 +79,7 @@ router.get('/alldormIsActive', (req, res) => {
                 return (dormtest)
             })
             Promise.all(promises).then(function (results) {
-                
+
                 res.status(200).json(array)
             })
         })
@@ -111,7 +111,7 @@ router.get('/alldormIsApprove', (req, res) => {
                 return (dormtest)
             })
             Promise.all(promises).then(function (results) {
-                
+
                 res.status(200).json(array)
             })
         })
@@ -381,8 +381,16 @@ router.post('/dormDocument', cpUpload, async (req, res) => {
                 res.status(500).json({ error: err.message });
                 return err
             }
+            Dorm.findOne({ _id: dorm_id }).exec()
+                .then(Dorm => {
+                    // console.log(Dorm);
+                    Dorm.is_done = true
+                    Dorm.save()
+                })
+                .catch(err => { console.log(err); res.status(400).json({ error: err }); return })
             res.status(200).send("success")
         })
+
     }
 });
 module.exports = router;
