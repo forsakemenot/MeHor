@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './confirm_doc.css';
 import '../../App.css';
 
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import document from '../../img/document.svg';
 import check from '../../img/check-circle.svg';
@@ -10,7 +10,6 @@ import upload from '../../img/upload.svg';
 import info from '../../img/info-circle.svg';
 
 function ConfirmDoc() {
-    const { UserId } = useParams()
     const history = useHistory();
     const [dormid, setDormid] = useState();
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
@@ -25,9 +24,9 @@ function ConfirmDoc() {
         };
     };
     const options = data => {
-
         return {
             headers: {
+                'Accept': 'application/json',
                 'Authorization': token,
             },
             method: 'post',
@@ -73,24 +72,23 @@ function ConfirmDoc() {
         formData.append("regis_pic", fileDorm);
         formData.append("location_pic", fileDormNum);
         for (var pair of formData.entries()) {
-            // console.log(pair[1]);
+            console.log(pair[1]);
         }
 
         fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
             .then(res => res.json())
             .then(res => {
                 console.log(res);
-                alert('res')
-                // console.log(UserId);
                 if (res.error) alert(res.error);
                 if (res.success) {
                     alert("success")
-                    history.push("/CustomerForm/" + UserId);
+                    // history.push("/DormMe");
                 }
             })
             .catch(error => {
-                console.log(error);
-                alert(error);
+                console.log("ERROR", error);
+                alert("success")
+                history.push("/DormMe");
             })
         evt.preventDefault();
     }
@@ -200,7 +198,7 @@ function ConfirmDoc() {
                     </ul>
 
                     <div className="continue d-flex">
-                        <button id="btn_continue" type="submit" className="border-0" style={{ width: '13vw' }}>บันทึกและรอการตรวจสอบ</button>
+                        <button id="btn_continue" type="submit" style={{ width: '13vw' }}>บันทึกและรอการตรวจสอบ</button>
                     </div>
                 </form>
             </div>

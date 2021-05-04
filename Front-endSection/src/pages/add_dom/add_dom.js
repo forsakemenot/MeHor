@@ -26,6 +26,16 @@ const center = {
 
 const zoom = 15
 
+// const showMyLocation = () => {
+//   if (location.loaded && !location.error) {
+//     mapRef.current.leafletElements.flyTo([location.coordinates.lat, location.coordinates.lng],
+//       zoom, { animate: true }
+//     );
+//   } else {
+//     alert(location.error.massage)
+//   }
+// };
+
 function DraggableMarker() {
    const [position, setPosition] = useState(center)
 
@@ -64,6 +74,117 @@ function DraggableMarker() {
 }
 
 // ส่วน Reset Map
+// function DisplayPosition({ map }) {
+//   const [position, setPosition] = useState(map.getCenter())
+
+//   const onClick = useCallback(() => {
+//     map.setView(center, zoom)
+//   }, [map])
+
+//   const onMove = useCallback(() => {
+//     setPosition(map.getCenter())
+//   }, [map])
+
+//   useEffect(() => {
+//     map.on('move', onMove)
+//     return () => {
+//       map.off('move', onMove)
+//     }
+//   }, [map, onMove])
+
+//   return (
+//     <p>
+//       latitude: {position.lat.toFixed(4)}, longitude: {position.lng.toFixed(4)}{' '}
+//       {/* <button onClick={onClick}>reset</button> */}
+//     </p>
+//   )
+// }
+
+// ตัว marker
+// function LocationMarker() {
+//   const [position, setPosition] = useState(null)
+//   const [draggable, setDraggable] = useState(false)
+
+//   const markerRef = useRef(null)
+//   const eventHandlers = useMemo(
+//     () => ({
+//       dragend() {
+//         const marker = markerRef.current
+//         if (marker != null) {
+//           setPosition(marker.getLatLng())
+//         }
+//       },
+//     }),
+//     [],
+//   )
+//   const toggleDraggable = useCallback(() => {
+//     setDraggable((d) => !d)
+//   }, [])
+//   const map = useMapEvents({
+//     click() {
+//       map.locate()
+//     },
+//     locationfound(e) {
+//       setPosition(e.latlng)
+//       map.flyTo(e.latlng, map.getZoom())
+//     },
+//   })
+
+//   return position === null ? null : (
+//     <Marker
+//       draggable={draggable}
+//       eventHandlers={eventHandlers}
+//       icon={myIcon}
+//       position={position}>
+//       <Popup>
+//         <span onClick={toggleDraggable}>
+//           {draggable
+//             ? 'Marker is draggable'
+//             : 'Click here to make marker draggable'}
+//         </span>
+//       </Popup>
+//     </Marker>
+//   )
+// }
+
+// function DraggableMarker() {
+//   const [position, setPosition] = useState(center)
+
+//   const markerRef = useRef(null)
+
+//   const eventHandlers = useMemo(
+//     () => ({
+//       dragend() {
+//         const marker = markerRef.current
+//         if (marker != null) {
+//           setPosition(marker.getLatLng())
+//         }
+//       },
+//     }),
+//     [position],
+//   )
+
+//   return (
+//     <Marker
+//       icon={myIcon}
+//       draggable="True"
+//       eventHandlers={eventHandlers}
+//       position={position}
+//       ref={markerRef}
+//     >
+//       <Popup minWidth={90}>
+//         <span >
+//           Hello world
+//           {/* {draggable
+//             ? 'Marker is draggable'
+//             : 'Click here to make marker draggable'} */}
+//         </span>
+//       </Popup>
+//     </Marker>
+//   )
+// }
+
+// ส่วน Reset Map
 function DisplayPosition({ map }) {
    const [position, setPosition] = useState(map.getCenter())
 
@@ -89,6 +210,57 @@ function DisplayPosition({ map }) {
       </p>
    )
 }
+
+// ตัว marker
+// function LocationMarker() {
+//   const [position, setPosition] = useState(null)
+//   const [draggable, setDraggable] = useState(false)
+
+//   const markerRef = useRef(null)
+
+
+
+//   const eventHandlers = useMemo(
+//     () => ({
+//       dragend() {
+//         const marker = markerRef.current
+//         if (marker != null) {
+//           setPosition(marker.getLatLng())
+//         }
+//       },
+//     }),
+//     [],
+//   )
+//   const toggleDraggable = useCallback(() => {
+//     setDraggable((d) => !d)
+//   }, [])
+//   const map = useMapEvents({
+//     click() {
+//       map.locate()
+//     },
+//     locationfound(e) {
+//       setPosition(e.latlng)
+//       map.flyTo(e.latlng, map.getZoom())
+//     },
+//   })
+
+//   return position === null ? null : (
+//     <Marker
+//       draggable={draggable}
+//       eventHandlers={eventHandlers}
+//       icon={myIcon}
+//       position={position}
+//     >
+//       <Popup>
+//         <span onClick={toggleDraggable}>
+//           {draggable
+//             ? 'Marker is draggable'
+//             : 'Click here to make marker draggable'}
+//         </span>
+//       </Popup>
+//     </Marker>
+//   )
+// }
 
 function AddDom() {
    const history = useHistory();
