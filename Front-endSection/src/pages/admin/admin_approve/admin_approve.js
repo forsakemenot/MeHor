@@ -35,7 +35,7 @@ function AdminApprove() {
     };
     useEffect(() => {
         console.log("useEffect");
-        fetch('http://103.13.231.22:5000/api/dorm/alldormIsDone', optionsGet())
+        fetch('http://localhost:5000/api/dorm/alldormIsDone', optionsGet())
             .then(res => res.json())
             .then(res => {
                 if (res) {
@@ -51,7 +51,7 @@ function AdminApprove() {
     const HandleApprove = (evt) => {
         console.log(descDorm[evt].dorm._id);
         descDorm[evt].dorm.isApprove = true
-        fetch('http://103.13.231.22:5000/api/dorm/dormById/' + descDorm[evt].dorm._id, options(descDorm[evt]))
+        fetch('http://localhost:5000/api/dorm/dormById/' + descDorm[evt].dorm._id, options(descDorm[evt]))
             .then(res => res.json())
             .then(res => {
                 console.log(res);

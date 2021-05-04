@@ -25,14 +25,14 @@ router.get('/dorm', (req, res) => {
 router.get('/alldormIsDone', (req, res) => {
     Dorm.find({ is_done: true }).exec()
         .then(async dorms => {
-            let dormtest = {}
-            Promise.all(dorms.map(async (dorm) => {
+            let array = []
+            let promises = dorms.map(async (dorm) => {
+                let dormtest = {}
                 dormtest.dorm = dorm
                 dormtest.DormType = await DormType.findOne({ dorm_id: dorm._id }).exec()
                     .then((DormType) => {
                         return DormType
                     })
-                    .catch(err => { console.log(err); res.status(400).json({ error: err }); })
                 dormtest.DormFac = await DormFacility.findOne({ dorm_id: dorm._id }).exec()
                     .then((DormFac) => {
                         return DormFac
@@ -43,11 +43,12 @@ router.get('/alldormIsDone', (req, res) => {
                         return DormDoc
                     })
                     .catch(err => { console.log(err); res.status(400).json({ error: err }); })
-                console.log('res');
+                array.push(dormtest)
                 return (dormtest)
-            })).then((result) => {
-                // console.log(result);
-                res.status(200).json(result)
+            })
+            Promise.all(promises).then(function (results) {
+                
+                res.status(200).json(array)
             })
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
@@ -56,14 +57,14 @@ router.get('/alldormIsDone', (req, res) => {
 router.get('/alldormIsActive', (req, res) => {
     Dorm.find({ isActive: true }).exec()
         .then(async dorms => {
-            let dormtest = {}
-            Promise.all(dorms.map(async (dorm) => {
+            let array = []
+            let promises = dorms.map(async (dorm) => {
+                let dormtest = {}
                 dormtest.dorm = dorm
                 dormtest.DormType = await DormType.findOne({ dorm_id: dorm._id }).exec()
                     .then((DormType) => {
                         return DormType
                     })
-                    .catch(err => { console.log(err); res.status(400).json({ error: err }); })
                 dormtest.DormFac = await DormFacility.findOne({ dorm_id: dorm._id }).exec()
                     .then((DormFac) => {
                         return DormFac
@@ -74,11 +75,12 @@ router.get('/alldormIsActive', (req, res) => {
                         return DormDoc
                     })
                     .catch(err => { console.log(err); res.status(400).json({ error: err }); })
-                console.log('res');
+                array.push(dormtest)
                 return (dormtest)
-            })).then((result) => {
-                // console.log(result);
-                res.status(200).json(result)
+            })
+            Promise.all(promises).then(function (results) {
+                
+                res.status(200).json(array)
             })
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
@@ -87,14 +89,14 @@ router.get('/alldormIsActive', (req, res) => {
 router.get('/alldormIsApprove', (req, res) => {
     Dorm.find({ isApprove: true }).exec()
         .then(async dorms => {
-            let dormtest = {}
-            Promise.all(dorms.map(async (dorm) => {
+            let array = []
+            let promises = dorms.map(async (dorm) => {
+                let dormtest = {}
                 dormtest.dorm = dorm
                 dormtest.DormType = await DormType.findOne({ dorm_id: dorm._id }).exec()
                     .then((DormType) => {
                         return DormType
                     })
-                    .catch(err => { console.log(err); res.status(400).json({ error: err }); })
                 dormtest.DormFac = await DormFacility.findOne({ dorm_id: dorm._id }).exec()
                     .then((DormFac) => {
                         return DormFac
@@ -105,11 +107,12 @@ router.get('/alldormIsApprove', (req, res) => {
                         return DormDoc
                     })
                     .catch(err => { console.log(err); res.status(400).json({ error: err }); })
-                console.log('res');
+                array.push(dormtest)
                 return (dormtest)
-            })).then((result) => {
-                // console.log(result);
-                res.status(200).json(result)
+            })
+            Promise.all(promises).then(function (results) {
+                
+                res.status(200).json(array)
             })
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
@@ -211,7 +214,6 @@ router.get('/documentbyid/:dorm_id', (req, res) => {
             res.status(200).json({ dormDocument: dormDocument });
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
-
 })
 
 router.post('/adddorm', (req, res) => {
@@ -379,14 +381,6 @@ router.post('/dormDocument', cpUpload, async (req, res) => {
                 res.status(500).json({ error: err.message });
                 return err
             }
-            // Dorm is_done = true 
-            Dorm.findOne({ _id: dorm_id }).exec()
-                .then(Dorm => {
-                    // console.log(Dorm);
-                    Dorm.is_done = true
-                    Dorm.save()
-                })
-                .catch(err => { console.log(err); res.status(400).json({ error: err }); return })
             res.status(200).send("success")
         })
     }

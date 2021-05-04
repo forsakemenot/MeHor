@@ -52,7 +52,7 @@ function Details() {
         };
     };
     // useEffect(() => {
-    //     fetch('http://103.13.231.22:5000/api/dorm/roomtypebyid/' + dormId, optionsGet())
+    //     fetch('http://localhost:5000/api/dorm/roomtypebyid/' + dormId, optionsGet())
     //         .then(res => res.json())
     //         .then(res => {
     //             if (res.DormType) {
@@ -66,7 +66,7 @@ function Details() {
     //         })
     // }, []);
     useEffect(() => {
-        fetch('http://103.13.231.22:5000/api/dorm/dormById/' + dormId, optionsGet())
+        fetch('http://localhost:5000/api/dorm/dormById/' + dormId, optionsGet())
             .then(res => res.json())
             .then(res => {
                 if (res.dorm) {
