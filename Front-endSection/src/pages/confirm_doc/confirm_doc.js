@@ -38,6 +38,7 @@ function ConfirmDoc() {
         fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
             .then(res => res.json())
             .then(res => {
+                console.log(res.dorm._id);
                 if (res.dorm) {
                     setDormid(res.dorm._id)
                     console.log(res.dorm);
@@ -66,7 +67,6 @@ function ConfirmDoc() {
     }
     const HandleSubmit = (evt) => {
         console.log(dormid);
-        
         const formData = new FormData();
         formData.append("dorm_id", dormid);
         formData.append("regis_pic", fileDorm);
