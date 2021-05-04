@@ -103,7 +103,7 @@ exports.uploadMultiFile = (req, res) => {
                 return
             });
         }
-        arr_file.push(req.protocol + '://', path.join(req.get('host'), targetPath.replace('public\\', '').replace('public/', '')))
+        arr_file.push(path.join(req.get('host'), targetPath.replace('public\\', '').replace('public/', '')))
     });
 
     return arr_file;
