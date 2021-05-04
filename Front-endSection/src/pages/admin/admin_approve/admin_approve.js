@@ -20,6 +20,7 @@ function AdminApprove() {
             },
             method: 'get',
             // body: JSON.stringify(data)
+
         };
     };
     const options = data => {

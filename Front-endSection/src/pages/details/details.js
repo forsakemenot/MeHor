@@ -50,27 +50,31 @@ function Details() {
             // body: JSON.stringify(data)
         };
     };
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/api/dorm/roomtypebyid/' + dormId, optionsGet())
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             if (res.DormType) {
+    //                 setRoomType(res.DormType);
+    //                 // console.log(res.DormType);
+    //             }
+    //             console.log(dormId);
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+    // }, []);
     useEffect(() => {
-        fetch('http://103.13.231.22:5000/api/dorm/roomtypebyid/' + dormId, optionsGet())
+        fetch('http://localhost:5000/api/dorm/dormById/' + dormId, optionsGet())
             .then(res => res.json())
             .then(res => {
+                if (res.dorm) {
+                    setDescDorm(res.dorm);
+                    // console.log(res.Dorm);
+                }
                 if (res.DormType) {
                     setRoomType(res.DormType);
-                    console.log(res.DormType);
-                }
-                console.log(dormId);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }, []);
-    useEffect(() => {
-        fetch('http://103.13.231.22:5000/api/dorm/dormById/' + dormId, optionsGet())
-            .then(res => res.json())
-            .then(res => {
-                if (res.Dorm) {
-                    setDescDorm(res.Dorm);
-                    console.log(res.Dorm);
+                    // console.log(res.DormType);
                 }
             })
             .catch(error => {
@@ -103,7 +107,9 @@ function Details() {
 
     const contant = useMemo(
         () => {
+            console.log(descDorm);
             if (descDorm.dorm_address) {
+                
                 return (
                     <div className="w-45 mx-auto d-flex justify-content-start flex-wrap">
                         <div className="w-100 d-flex justify-content-around align-items-center">

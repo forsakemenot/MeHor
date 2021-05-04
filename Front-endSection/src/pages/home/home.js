@@ -41,13 +41,15 @@ function Home() {
         };
     };
     useEffect(() => {
-        console.log("useEffect");
-        fetch('http://103.13.231.22:5000/api/dorm/alldorm', optionsGet())
+
+        fetch('http://103.13.231.22:5000/api/dorm/alldormIsApprove', optionsGet())
             .then(res => res.json())
             .then(res => {
-                if (res.dorm) {
-                    setDescDorm(res.dorm);
-                    // console.log(res.dorm);
+                // console.log(res[0].dorm);
+
+                if (res[0].dorm) {
+                    // console.log(res);
+                    setDescDorm(res);
                 }
             })
             .catch(error => {
@@ -70,11 +72,15 @@ function Home() {
     }
     const dormBox = useMemo(
         () => {
-            if (descDorm[0]?.dorm_name) {
+            
+            if (descDorm[0].dorm) {
+                console.log(descDorm);
                 return (
-                    descDorm.map(function (element, index) {
-                        return <DomList data={element} />
-                    })
+                    // descDorm?.map(function (element, index) {
+                    //     return <DomList data={element} />
+                    // })
+                    <>
+                    </>
                 )
             }
             return
@@ -83,7 +89,7 @@ function Home() {
     return (
 
         <div>
-<div className="map_info">
+            <div className="map_info">
                 <div className="main_kmitl">
                     <img alt="" src={kmitl}></img>
                 </div>
@@ -143,7 +149,7 @@ function Home() {
                             <div className="position-absolute line_filter"></div>
                             <div className="d-flex box_filter_dropbox">
                                 <span className='color-main'>ราคา</span>
-                                <img alt="" className="w-10" src={activeBoxPrice ? minus : Plus} onClick={togglePrice} />
+                                <img alt="" className="w-6" src={activeBoxPrice ? minus : Plus} onClick={togglePrice} />
                             </div>
                             {
                                 activeBoxPrice === true &&
@@ -171,7 +177,7 @@ function Home() {
                             }
                             <div className="d-flex box_filter_dropbox">
                                 <span className='color-main'>สิ่งอำนวยความสะดวก</span>
-                                <img alt="" className="w-10" src={activeBoxConvenient ? minus : Plus} onClick={toggleConvenient} />
+                                <img alt="" className="w-6" src={activeBoxConvenient ? minus : Plus} onClick={toggleConvenient} />
                                 {
                                     activeBoxConvenient === true &&
                                     <div className="d-flex align-center checkbox_convenient mt-0-5-v">
@@ -210,7 +216,7 @@ function Home() {
                             </div>
                             <div className="d-flex box_filter_dropbox">
                                 <span className='color-main'>ส่วนกลาง</span>
-                                <img alt="" className="w-10" src={activeBoxCommonFee ? minus : Plus} onClick={toggleCommonFee} />
+                                <img alt="" className="w-6" src={activeBoxCommonFee ? minus : Plus} onClick={toggleCommonFee} />
                                 {
                                     activeBoxCommonFee === true &&
                                     <div className="d-flex align-center checkbox_common_fee mt-0-5-v">

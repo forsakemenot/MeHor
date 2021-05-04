@@ -53,7 +53,7 @@ router.patch('/userById', profile, async (req, res) => {
     const id = jwt.decode(token).id
     let fullpath_profile
     if (req.files) {
-        fullpath_profile = uploadPDF(req.files['profile'][0], res)
+        fullpath_profile = uploadPDF(req.files['profile'][0], req, res)
     }
     const userEdit = req.body
     User.findOne({ _id: id }).exec()

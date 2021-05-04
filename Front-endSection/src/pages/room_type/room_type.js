@@ -145,6 +145,7 @@ function RoomType() {
          })
          .catch(error => {
             console.log(error);
+            alert(error)
          })
 
    }
@@ -229,14 +230,14 @@ function RoomType() {
                   </div>
                   <div className="m-left mt-0-5-v">
                      <div className="mt-0-5-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" name="cost" />
+                        <input type="radio" className="radio_type"/>
                         <span className="ml-0-5-v">จำนวนเงิน</span>
                         <input className="amount" name="insurance_bill" onChange={handleInputChange} />
                         <span>บาท</span>
                      </div>
                      <small className="remark">*รวมค่าเงินมัดจำและค่าเงินประกัน</small>
                      <div className="mt-1-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" value="no_insurance_bill" name="cost" onChange={handleInputChange} />
+                        <input type="radio" className="radio_type" value="no_insurance_bill" name="insurance_bill" onChange={handleInputChange} />
                         <span className="ml-0-5-v">ไม่มีคำเงินมัดจำ/ค่าเงินประกัน</span>
                      </div>
                      <div className="mt-1-v d-flex align-items-center">
@@ -253,7 +254,7 @@ function RoomType() {
                      <span>จ่ายล่วงหน้า</span>
                   </div>
                   <div className="m-left mt-0-5-v">
-                     <div className="d-flex align-items-center mt-0-5-v">
+                     {/* <div className="d-flex align-items-center mt-0-5-v">
                         <span>ระบุเดือน</span>
                         <select className="select_mount" name="pre_paid" onChange={handleInputChange}>
                            <option>-- เลือกเดือน --</option>
@@ -265,19 +266,19 @@ function RoomType() {
                            <option value="6">6 เดือน</option>
                            <option value="7">1 ปี</option>
                         </select>
-                     </div>
+                     </div> */}
                      <div className="mt-0-5-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" name="payment" onChange={handleInputChange} />
+                        <input type="radio" className="radio_type" />
                         <span className="ml-0-5-v">จำนวนเงิน</span>
-                        <input className="amount ml-1-v" name="insurance_bill" onChange={handleInputChange} />
+                        <input className="amount ml-1-v" name="pre_paid" onChange={handleInputChange} />
                         <span>บาท</span>
                      </div>
                      <div className="mt-1-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" name="payment" onChange={handleInputChange} value="จ่ายเท่าจำนวนค่าห้อง" />
+                        <input type="radio" className="radio_type" name="pre_paid" onChange={handleInputChange} value="จ่ายเท่าจำนวนค่าห้อง" />
                         <span className="ml-0-5-v">จ่ายเท่าจำนวนค่าห้อง</span>
                      </div>
                      <div className="mt-1-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" name="payment" onChange={handleInputChange} value="ไม่ต้องจ่ายล่วงหน้า" />
+                        <input type="radio" className="radio_type" name="pre_paid" onChange={handleInputChange} value="ไม่ต้องจ่ายล่วงหน้า" />
                         <span className="ml-0-5-v">ไม่ต้องจ่ายล่วงหน้า</span>
                      </div>
                      <div className="mt-1-v d-flex align-items-center">
@@ -295,13 +296,13 @@ function RoomType() {
                   </div>
                   <div className="m-left mt-0-5-v">
                      <div className="mt-0-5-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" name="electric" />
+                        <input type="radio" className="radio_type" />
                         <span className="ml-0-5-v">ตามยูนิตที่ใช้</span>
                         <input className="amount ml-1-v" name="electric_bill" onChange={handleInputChange} />
                         <span>บาท/หน่วย</span>
                      </div>
                      <div className="mt-0-5-v d-flex align-items-center">
-                        <input type="radio" className="radio_type" name="electric" onChange={handleInputChange} value="รวมในค่าห้องแล้ว" />
+                        <input type="radio" className="radio_type" name="electric_bill" onChange={handleInputChange} value="รวมในค่าห้องแล้ว" />
                         <span className="ml-0-5-v">รวมในค่าห้องแล้ว</span>
                      </div>
                      <div className="mt-0-5-v d-flex align-items-center">
@@ -325,7 +326,7 @@ function RoomType() {
                         <input className="amount ml-1-v" name="water_bill" onChange={handleInputChange} />
                         <span>บาท/หน่วย</span>
                      </div>
-                     <div className="mt-1-v d-flex align-items-center">
+                     {/* <div className="mt-1-v d-flex align-items-center">
                         <input type="radio" className="radio_type" name="water" />
                         <span className="ml-0-5-v">เหมาจ่าย</span>
                         <input className="amount ml-1-v" name="water_bill" onChange={handleInputChange} />
@@ -336,7 +337,7 @@ function RoomType() {
                         <span className="ml-0-5-v">เหมาจ่าย</span>
                         <input className="amount ml-1-v" name="water_bill" onChange={handleInputChange} />
                         <span>บาทต่อ<u>ห้อง</u>/หน่วย</span>
-                     </div>
+                     </div> */}
                      <div className="mt-1-v d-flex align-items-center">
                         <input type="radio" className="radio_type" name="water" value="รวมในค่าห้องแล้ว" onChange={handleInputChange} />
                         <span className="ml-0-5-v">รวมในค่าห้องแล้ว</span>
