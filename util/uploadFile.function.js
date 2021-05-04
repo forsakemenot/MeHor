@@ -70,7 +70,7 @@ exports.uploadPDF = (req, res) => {
         });
     }
 
-    return path.join(targetPath.replace('public\\', '').replace('public/', ''));
+    return path.join(__dirname,targetPath.replace('public\\', '').replace('public/', ''))
 }
 
 exports.uploadMultiFile = (req, res) => {
@@ -102,7 +102,7 @@ exports.uploadMultiFile = (req, res) => {
                 return
             });
         }
-        arr_file.push(targetPath.replace('public\\', '').replace('public/', ''))
+        arr_file.push(__dirname,targetPath.replace('public\\', '').replace('public/', ''))
     });
 
     return arr_file;
