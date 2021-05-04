@@ -80,37 +80,28 @@ function NavBar() {
             <Link to="/" className="color-white fs-2-5-v">MeHor</Link>
          </Navbar.Brand>
          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-         <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
-               <Nav.Link><Link to="/" className="color-white">หน้าแรก</Link></Nav.Link>
-               <NavDropdown title="ค้นหาที่พัก" className="color-white" id="collasible-nav-dropdown">
-                  <NavDropdown.Item><Link to="/zone" className="color-main">โซน วีคอนโด</Link></NavDropdown.Item>
-                  <NavDropdown.Item><Link to="/zone" className="color-main">โซน เกกี</Link></NavDropdown.Item>
-                  <NavDropdown.Item><Link to="/zone" className="color-main">โซน RNP</Link></NavDropdown.Item>
-                  <NavDropdown.Item><Link to="/zone" className="color-main">โซน FBT</Link></NavDropdown.Item>
-                  <NavDropdown.Item><Link to="/zone" className="color-main">โซน จินดา</Link></NavDropdown.Item>
+         <Navbar.Collapse id="responsive-navbar-nav" className="w-100">
+            <Nav className="w-100">
+               <Nav.Link><Link to="/" className="color-white fs-1-v">หน้าแรก</Link></Nav.Link>
+               <NavDropdown title="ค้นหาที่พัก" className="color-white fs-1-v d-flex align-items-end" id="collasible-nav-dropdown">
+                  <NavDropdown.Item><Link to="/zone" className="color-main fs-0-9-v">โซน วีคอนโด</Link></NavDropdown.Item>
+                  <NavDropdown.Item><Link to="/zone" className="color-main fs-0-9-v">โซน เกกี</Link></NavDropdown.Item>
+                  <NavDropdown.Item><Link to="/zone" className="color-main fs-0-9-v">โซน RNP</Link></NavDropdown.Item>
+                  <NavDropdown.Item><Link to="/zone" className="color-main fs-0-9-v">โซน FBT</Link></NavDropdown.Item>
+                  <NavDropdown.Item><Link to="/zone" className="color-main fs-0-9-v">โซน จินดา</Link></NavDropdown.Item>
                </NavDropdown>
-               <Nav.Link><Link to="/Advertise" className="color-white">ลงโฆษณา</Link></Nav.Link>
-               <Nav.Link><Link to="/AboutWeb" className="color-white">เกี่ยวกับเว็บไซต์</Link></Nav.Link>
+
+               <Nav.Link><Link to="/Advertise" className="color-white fs-1-v">ลงโฆษณา</Link></Nav.Link>
+               <Nav.Link><Link to="/AboutWeb" className="color-white fs-1-v">เกี่ยวกับเว็บไซต์</Link></Nav.Link>
             </Nav>
-            <Nav>
+            <Nav className="">
                <Nav.Link>
                   {email ?
-                     <div className="d-flex flex-column align-items-center w-20">
-                        <div className="color-white position-relative w-100">
-                           <span className="fs-0-9-v">{email}</span>
-                           <img alt="" src={arrow} className="image_search_arrow" onClick={toggleDropdownProfile} />
-                           {dropDownProfile === true &&
-                              <div className="d-flex bg-white position-absolute align-items-center flex-column z-index-2 box-drop-down-profile rounded w-100">
-                                 <Link to="/Profile" className="py-0-5-v" onClick={toggleDropdownProfile}><span className="text-dark fs-0-8-v">จัดการบัญชี</span></Link>
-                                 <Link to="/AdminDorm" onClick={() => window.location.href = "/AdminDorm"}><span className="text-dark py-0-5-v fs-0-8-v">ประกาศหอพักของฉัน</span></Link>
-                                 <form onSubmit={handleLogout} className="py-0-5-v w-90 mx-auto">
-                                    <button className="w-100 color-main bg-white rounded fs-0-8-v">ออกจากระบบ</button>
-                                 </form>
-                              </div>
-                           }
-                        </div>
-                     </div>
+                     <NavDropdown title="test" className="color-white" id="collasible-nav-dropdown">
+                        <NavDropdown.Item><Link to="/Profile" className="color-main fs-0-9-v">จัดการบัญชี</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/AdminDorm" className="color-main fs-0-9-v">ประกาศหอพักของฉัน</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link onSubmit={handleLogout} className="color-main fs-0-9-v">ออกจากระบบ</Link></NavDropdown.Item>
+                     </NavDropdown>
                      : <Link to="/LoginRegister" className="color-white">เข้าสู่ระบบ/สมัครสมาชิก</Link>
                   }
                </Nav.Link>
