@@ -8,10 +8,10 @@ const DormTypeSchema = mongoose.Schema({
         
     },
     dorm_type: [{
-        room_name : {type: String ,  },
-        room_area : {type: String ,  },
-        room_cost : {type: String ,  },
-        additional : {type: String ,  }
+        room_name : {type: String },
+        room_area : {type: String },
+        room_cost : {type: String },
+        additional : {type: String }
     }],
     insurance_bill: {
         type: String,
