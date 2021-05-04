@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./NavBar.css"
 import arrow from "../../img/Icon-arrow-drop-down.svg"
 import jwt from 'jsonwebtoken';
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 function NavBar() {
+  const {AdminId}  = useParams()
   const [isOpen, setOpen] = useState(false);
   const [dropDownProfile, setDropDownProfile] = useState(false);
   const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
@@ -58,7 +59,7 @@ function NavBar() {
               {dropDownProfile === true &&
                 <div className="d-flex bg-white position-absolute align-items-center flex-column z-index-2 box-drop-down-profile rounded w-100">
                   <Link to="/Profile" className="py-0-5-v" onClick={toggleDropdownProfile}><span className="text-dark fs-0-8-v">จัดการบัญชี</span></Link>
-                  <Link to="/AdminApprove" onClick={() => window.location.href = '/AdminDorm'}><span className="text-dark py-0-5-v fs-0-8-v">ประกาศหอพักของฉัน</span></Link>
+                  <Link to={`/AdminDorm/` + AdminId} onClick={() => window.location.href = `/AdminDorm/` + AdminId}><span className="text-dark py-0-5-v fs-0-8-v">ประกาศหอพักของฉัน</span></Link>
                   <form onSubmit={handleLogout} className="py-0-5-v w-90 mx-auto">
                     <button className="w-100 color-main bg-white rounded fs-0-8-v">ออกจากระบบ</button>
                   </form>

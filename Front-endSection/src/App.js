@@ -106,10 +106,10 @@ function App() {
         <Route path="/AdminForm/:dormId">
           <AdminForm />
         </Route>
-        <Route path="/CustomerForm/:CustomerId">
+        <Route path="/CustomerForm/:UserId">
           <CustomerForm />
         </Route>
-        <Route path="/AdminDorm">
+        <Route path="/AdminDorm/:UserId">
           <AdminDorm />
         </Route>
         <Route path="/AdminApprove">

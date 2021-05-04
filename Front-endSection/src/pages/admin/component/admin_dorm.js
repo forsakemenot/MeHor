@@ -5,7 +5,7 @@ import './../../../App.css';
 import bin from './../../../img/metro-bin.svg'
 import edit from './../../../img/edit.svg'
 
-function AdminAllDorm() {
+function AdminAllDorm({dataAllDorm}) {
     return (
         <div className="dorm_component card-body">
             <div className="row dorm_box align-items-center text-secondary">
@@ -16,10 +16,10 @@ function AdminAllDorm() {
                     <p className="m-0 text_label">#001</p>
                 </div>
                 <div className="col-3">
-                    <p className="m-0 text_label">A.J. PARK</p>
+                    <p className="m-0 text_label">{dataAllDorm?.dorm_name}</p>
                 </div>
                 <div className="col-2">
-                    <p className="m-0 text_label">เกกีงาม</p>
+                    <p className="m-0 text_label">{dataAllDorm?.dorm_zone}</p>
                 </div>
                 <div className="col-2">
                     <p className="m-0 text_label">4 / 13 /2021</p>

@@ -12,7 +12,7 @@ import DetailPanel from '../../pages/admin/component/detail_panel'
 
 import bin from '../../img/metro-bin.svg';
 function CustomerForm() {
-   const { CustomerId } = useParams()
+   const { UserId } = useParams()
    const [roomType, setRoomType] = useState({});
    const [descDorm, setDescDorm] = useState({});
    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
@@ -27,7 +27,7 @@ function CustomerForm() {
       };
    };
    useEffect(() => {
-      fetch('http://103.13.231.22:5000/api/dorm/roomtypebyid/' + CustomerId, optionsGet())
+      fetch('http://103.13.231.22:5000/api/dorm/roomtypebyid/' + UserId, optionsGet())
          .then(res => res.json())
          .then(res => {
             if (res.DormType) {
@@ -42,7 +42,7 @@ function CustomerForm() {
 
 
    useEffect(() => {
-      fetch('http://103.13.231.22:5000/api/dorm/dormById/' + CustomerId, optionsGet())
+      fetch('http://103.13.231.22:5000/api/dorm/dormById/' + UserId, optionsGet())
          .then(res => res.json())
          .then(res => {
             if (res.Dorm) {
