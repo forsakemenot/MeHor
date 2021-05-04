@@ -14,17 +14,15 @@ import wifi from "../../img/wifi.svg";
 import check from "../../img/money-check.svg";
 import water from "../../img/water.svg";
 import keycard from "../../img/keycard.svg";
-import door from "../../img/Icon-door-open.svg";
-import hotel from "../../img/Icon-hotel.svg";
-import profile from "../../img/profile.jpg";
+
 import confirm from "../../img/confirm.svg";
 import home from "../../img/Icon-open-home.svg";
-import star from "../../img/star.svg";
-import eye from "../../img/eye.svg";
-import clock from "../../img/clock.svg";
-import heartOff from "../../img/heart-off.svg";
+// import star from "../../img/star.svg";
+// import eye from "../../img/eye.svg";
+// import clock from "../../img/clock.svg";
+// import heartOff from "../../img/heart-off.svg";
 
-import ads_banner from '../../img/Ads-banner.svg';
+// import ads_banner from '../../img/Ads-banner.svg';
 import Carousel from 'react-bootstrap/Carousel';
 
 import room from "../../img/20210321_151812.svg";
@@ -51,7 +49,7 @@ function Details() {
             // body: JSON.stringify(data)
         };
     };
-    
+
     // useEffect(() => {
     //     fetch('http://localhost:5000/api/dorm/roomtypebyid/' + dormId, optionsGet())
     //         .then(res => res.json())
@@ -73,7 +71,7 @@ function Details() {
 
                 if (res.dorm) {
                     setDescDorm(res.dorm);
-                    // console.log(res.Dorm);
+                    // console.log(res.Dorm, 'dorm');
                 }
                 if (res.DormType) {
                     setRoomType(res.DormType);
@@ -81,18 +79,18 @@ function Details() {
                 }
                 if (res.DormFac) {
                     setDescDormFac(res.DormFac);
-                 }
+                    console.log(descDormFac?.img);
+                }
             })
             .catch(error => {
                 console.log(error);
             })
     }, []);
-    console.log(descDorm, 'test');
     let arrayDormFac = []
     if (descDormFac.dorm_facilities) {
         arrayDormFac = descDormFac?.dorm_facilities[0]?.split(",")
     }
-    console.log(arrayDormFac);
+    // console.log(descDormFac, 'img');
     const desc_update = {
         view: "534",
         update: "29 มีนาคม 2564",
@@ -118,9 +116,9 @@ function Details() {
 
     const contant = useMemo(
         () => {
-            console.log(descDorm);
+            // console.log(descDorm);
             if (descDorm.dorm_address) {
-                
+
                 return (
                     <div className="w-45 mx-auto d-flex justify-content-start flex-wrap">
                         <div className="w-100 d-flex justify-content-around align-items-center">
@@ -228,6 +226,9 @@ function Details() {
             return
         }, [roomType]
     )
+
+
+
     return (
         <div className='my-1-auto'>
             {/* รูปหอพัก */}
@@ -263,47 +264,32 @@ function Details() {
                 </div> */}
 
                 {/* รูปสไลด์เจ้าปัญหา */}
-
+                <div className="d-flex justify-content-center w-100">
                 <Carousel>
-                    <Carousel.Item>
+                    {/* <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src={desc_update.img[0]}
+                            src={'http://' + descDormFac?.img[0]}
                             alt=""
                         />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-lock w-100"
-                            src={desc_update.img[1]}
-                            alt="Second slide"
-                        />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={desc_update.img[2]}
-                            alt="Third slide"
-                        />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={desc_update.img[3]}
-                            alt=""
-                        />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={desc_update.img[4]}
-                            alt=""
-                        />
-                    </Carousel.Item>
+                    </Carousel.Item> */}
+
+                    {descDormFac?.img?.map(element => (
+
+                        <Carousel.Item>
+                            <img
+                                className="banner_img"
+                                src={'http://' + element}
+                                alt=""
+                            />
+                        </Carousel.Item>
+
+                    ))}
                 </Carousel>
+                </div>
 
 
-                <div className="w-100 d-flex justify-content-between mx-auto mt-1-v">
+                {/* <div className="w-100 d-flex justify-content-between mx-auto mt-1-v">
                     {
                         desc_update.img.map(function (element, index) {
                             return <div className="w-20 d-flex">
@@ -311,7 +297,7 @@ function Details() {
                             </div>
                         })
                     }
-                </div>
+                </div> */}
             </div>
             {/* ช่องทางติดต่อ */}
             <div className="d-flex w-80 mx-auto py-1-5-v">
