@@ -41,7 +41,7 @@ function FurnitureDom() {
    };
    useEffect(() => {
       console.log("useEffect");
-      fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
+      fetch('http://103.13.231.22:5000/api/dorm/dorm', optionsGet())
          .then(res => res.json())
          .then(res => {
             if (res.dorm) {
@@ -80,7 +80,7 @@ function FurnitureDom() {
       await array.forEach(element => {
          formData.append("files", element);
       });
-      fetch('http://localhost:5000/api/dorm/dormfacility', options(formData))
+      fetch('http://103.13.231.22:5000/api/dorm/dormfacility', options(formData))
          .then(res => res.json())
          .then(res => {
             if (res.error) alert(res.error);

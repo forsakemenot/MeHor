@@ -35,7 +35,7 @@ function AdminApprove() {
     };
     useEffect(() => {
         console.log("useEffect");
-        fetch('http://localhost:5000/api/dorm/alldormIsDone', optionsGet())
+        fetch('http://103.13.231.22:5000/api/dorm/alldormIsDone', optionsGet())
             .then(res => res.json())
             .then(res => {
                 if (res) {
@@ -51,7 +51,7 @@ function AdminApprove() {
     const HandleApprove = (evt) => {
         console.log(descDorm[evt].dorm._id);
         descDorm[evt].dorm.isApprove = true
-        fetch('http://localhost:5000/api/dorm/dormById/' + descDorm[evt].dorm._id, options(descDorm[evt]))
+        fetch('http://103.13.231.22:5000/api/dorm/dormById/' + descDorm[evt].dorm._id, options(descDorm[evt]))
             .then(res => res.json())
             .then(res => {
                 console.log(res);
@@ -63,16 +63,16 @@ function AdminApprove() {
             .catch(error => {
                 console.log(error);
             })
-
     }
     const DormListApprove = useMemo(
         () => {
             if (descDorm[0]?.dorm) {
                 return (
                     descDorm.map(function (element, index) {
-                        if(!element.dorm.isApprove)
-                        return <DormApprove dataAllDorm={element.dorm} index={index} HandleApprove={HandleApprove} />
-
+                        console.log(element.dorm.isApprove);
+                        if (!element.dorm.isApprove){
+                            return <DormApprove dataAllDorm={element.dorm} index={index} HandleApprove={HandleApprove} />
+                        }
                     })
                 )
             }

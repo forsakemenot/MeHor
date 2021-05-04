@@ -22,7 +22,7 @@ function AdminUser() {
    };
    useEffect(() => {
       console.log("useEffect");
-      fetch('http://localhost:5000/api/users/userAll', optionsGet())
+      fetch('http://103.13.231.22:5000/api/users/userAll', optionsGet())
          .then(res => res.json())
          .then(res => {
 

@@ -35,7 +35,7 @@ function ConfirmDoc() {
     };
     useEffect(() => {
         console.log("useEffect");
-        fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
+        fetch('http://103.13.231.22:5000/api/dorm/dorm', optionsGet())
             .then(res => res.json())
             .then(res => {
                 console.log(res.dorm._id);
@@ -75,7 +75,7 @@ function ConfirmDoc() {
             console.log(pair[1]);
         }
 
-        fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
+        fetch('http://103.13.231.22:5000/api/dorm/dormDocument', options(formData))
             .then(res => res.json())
             .then(res => {
                 console.log(res);
