@@ -118,14 +118,15 @@ function Home() {
                 </div>
             </div>
             <div>
-
             </div>
             <div className="dom_list d-flex">
-                <div className="w-75 d-flex flex-column justify-content-center align-items-center">
-                    <div className="search_dom d-flex mt-3-v">
-                        <input className="kanit" type="text" placeholder=" ค้นหา ชื่อที่พัก, ชื่อโซน"></input>
-                        <button className="color-white bg-main kanit">ค้นหา</button>
-                        <Link to="/AddDorm"><button className="ml-1-v color-white bg-main">+ ลงประกาศหอพัก</button></Link>
+                <div className="frame_home d-flex flex-column justify-content-center align-items-center">
+                    <div className="search_home mt-2-v">
+                        <div className="search_dom d-flex align-items-center">
+                            <input className="kanit" type="text" placeholder=" ค้นหา ชื่อที่พัก, ชื่อโซน"></input>
+                            <button className="color-white bg-main kanit">ค้นหา</button>
+                        </div>
+                        <Link to="/AddDorm"><button className="annouce_dorm ml-1-v color-white bg-main">+ ลงประกาศหอพัก</button></Link>
                     </div>
                     <div className="top_dom_list position-relative mt-1-5-v">
                         <div className="position-absolute line_back_home bg-main w-75"></div>
@@ -142,7 +143,7 @@ function Home() {
                             <div className="position-absolute line_filter"></div>
                             <div className="d-flex box_filter_dropbox">
                                 <span className='color-main'>ราคา</span>
-                                <img alt="" src={activeBoxPrice ? minus : Plus} onClick={togglePrice} />
+                                <img alt="" className="w-10" src={activeBoxPrice ? minus : Plus} onClick={togglePrice} />
                             </div>
                             {
                                 activeBoxPrice === true &&
@@ -170,7 +171,7 @@ function Home() {
                             }
                             <div className="d-flex box_filter_dropbox">
                                 <span className='color-main'>สิ่งอำนวยความสะดวก</span>
-                                <img alt="" src={activeBoxConvenient ? minus : Plus} onClick={toggleConvenient} />
+                                <img alt="" className="w-10" src={activeBoxConvenient ? minus : Plus} onClick={toggleConvenient} />
                                 {
                                     activeBoxConvenient === true &&
                                     <div className="d-flex align-center checkbox_convenient mt-0-5-v">
@@ -209,7 +210,7 @@ function Home() {
                             </div>
                             <div className="d-flex box_filter_dropbox">
                                 <span className='color-main'>ส่วนกลาง</span>
-                                <img alt="" src={activeBoxCommonFee ? minus : Plus} onClick={toggleCommonFee} />
+                                <img alt="" className="w-10" src={activeBoxCommonFee ? minus : Plus} onClick={toggleCommonFee} />
                                 {
                                     activeBoxCommonFee === true &&
                                     <div className="d-flex align-center checkbox_common_fee mt-0-5-v">

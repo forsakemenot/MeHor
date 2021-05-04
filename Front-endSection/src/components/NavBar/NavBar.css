@@ -1,10 +1,28 @@
-.nav-bar{
+.nav-link {
+  color: white !important;
+  padding: 1vw 1vw 0 1vw !important; 
+}
+.navbar-toggler {
+  border-color: white !important;
+}
+.navbar-toggler-icon {
+  background-image: url(../../img/menu.svg) !important;
+  width: 2.5vw !important;
+}
+
+.navbar a:hover{
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Old */
+/* .nav-bar{
     margin: 0.3vw 0vw !important;
     width: 40vw;
 
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: baseline;
   }
 .disc_dom_list{
     display: flex;
@@ -13,6 +31,7 @@
 }
   .nav-bar li{
     list-style: none;
+    font-size: 1vw;
   }
   .nav-bar li a,li a:hover,.logo-home:hover{
     color: #fff;
@@ -21,7 +40,6 @@
   .image_search_arrow{
     height: 0.4vw;
     margin-left: 0.5vw;
-    cursor: pointer;
   }
   .dropdown-body {
     top: 170%;
@@ -33,21 +51,21 @@
   }
   .dropdown-body li{
     border-bottom: 1px solid #E5E8EC;
-    font-size: 0.85vw;
-    padding: .1vw 0.5vw;
+    font-size: 1vw;
+    padding: .5vw 0.5vw;
   }
   .dropdown-body li:last-child{
     border: 0;
   }
   .dropdown-body.open {
     display: block;
-  }
-  .box-drop-down-profile{
+  } */
+  /* .box-drop-down-profile{ */
     /* padding: 0vw 2vw; */
-    left: -20%;
+    /* left: -20%;
     z-index: 1;
     box-shadow: 0px 3px 6px -4px #000000;
   }
   .box-drop-down-profile button{
     border: .1vw solid #3c658d;
-  }
+  } */
