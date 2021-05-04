@@ -22,6 +22,7 @@
   .image_search_arrow{
     height: 0.4vw;
     margin-left: 0.5vw;
+    cursor: pointer;
   }
   .dropdown-body {
     top: 170%;
