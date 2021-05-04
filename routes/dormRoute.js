@@ -115,6 +115,7 @@ router.get('/alldormIsApprove', (req, res) => {
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
 })
 
+
 router.get('/dormById/:dorm_id', (req, res) => {
     Dorm.findOne({ _id: req.params.dorm_id }).exec()
         .then(async dorm => {
@@ -139,8 +140,55 @@ router.get('/dormById/:dorm_id', (req, res) => {
             res.status(200).json(dormtest);
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
-
 })
+
+router.patch('/dormById/:dorm_id', (req, res) => {
+    // console.log(req.params.dorm_id);
+    Dorm.findOne({ _id: req.params.dorm_id }).exec()
+        .then(async dorm => {
+            let dormtest = {}
+            const dorm_body = req.body.dorm
+            for (const [key, value] of Object.entries(dorm_body)) {
+                dorm[key] = dorm_body[key]
+            }
+            dorm.save()
+            dormtest.dorm = dorm
+            dormtest.DormType = await DormType.findOne({ dorm_id: dorm._id }).exec()
+                .then((DormType) => {
+                    const DormType_body = req.body.DormType
+                    for (const [key, value] of Object.entries(DormType_body)) {
+                        DormType[key] = DormType_body[key]
+                    }
+                    DormType.save()
+                    return DormType
+                })
+                .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+            dormtest.DormFac = await DormFacility.findOne({ dorm_id: dorm._id }).exec()
+                .then((DormFac) => {
+                    const DormFac_body = req.body.DormFac
+                    for (const [key, value] of Object.entries(DormFac_body)) {
+                        DormFac[key] = DormFac_body[key]
+                    }
+                    DormFac.save()
+                    return DormFac
+                })
+                .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+            dormtest.DormDoc = await dormDocument.findOne({ dorm_id: dorm._id }).exec()
+                .then((DormDoc) => {
+                    const DormDoc_body = req.body.DormDoc
+                    for (const [key, value] of Object.entries(DormDoc_body)) {
+                        DormDoc[key] = DormDoc_body[key]
+                    }
+                    DormDoc.save()
+                    return DormDoc
+                })
+                .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+            console.log('res');
+            res.status(200).json(dormtest);
+        })
+        .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+})
+
 router.get('/roomtypebyid/:dorm_id', (req, res) => {
     DormType.findOne({ dorm_id: req.params.dorm_id }).exec()
         .then(DormType => {
@@ -331,15 +379,6 @@ router.post('/dormDocument', cpUpload, async (req, res) => {
                 res.status(500).json({ error: err.message });
                 return err
             }
-
-            // Dorm is_done = true 
-            Dorm.findOne({ _id: dorm_id }).exec()
-                .then(Dorm => {
-                    // console.log(Dorm);
-                    Dorm.is_done = true
-                    Dorm.save()
-                })
-                .catch(err => { console.log(err); res.status(400).json({ error: err }); return })
             res.status(200).send("success")
         })
     }
