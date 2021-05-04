@@ -77,7 +77,23 @@ function AdminForm() {
                      </div>
                   </div>
 
-                  <DocPanel />
+                  <div className="image mt-1-v">
+                     <div className="card border-light panel_frame">
+                        <div className="card-header d-flex align-items-center justify-content-between">
+                           <span className="fs-1-v w-50">เอกสารยืนยัน</span>
+                           <div className="d-flex align-items-center justify-content-end w-50">
+                              <input type="checkbox" className="checkbox_panel mr-1-v" />
+                              <span className="fs-1-v">เลือกทั้งหมด</span>
+                              <img src={bin} className="ml-2-v w-5"></img>
+                           </div>
+                        </div>
+                        <div className="form-group">
+                           <img alt="" className="image_dorm_all" />
+                        </div>
+                     </div>
+                  </div>
+
+                  
                </form>
 
                <div className="button line-top-gray">

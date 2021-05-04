@@ -109,7 +109,7 @@ function App() {
         <Route path="/CustomerForm/:UserId">
           <CustomerForm />
         </Route>
-        <Route path="/AdminDorm/:UserId">
+        <Route path="/AdminDorm">
           <AdminDorm />
         </Route>
         <Route path="/AdminApprove">
