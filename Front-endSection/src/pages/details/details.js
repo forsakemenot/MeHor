@@ -25,6 +25,7 @@ import clock from "../../img/clock.svg";
 import heartOff from "../../img/heart-off.svg";
 
 import ads_banner from '../../img/Ads-banner.svg';
+import Carousel from 'react-bootstrap/Carousel';
 
 import room from "../../img/20210321_151812.svg";
 import Map from "../../components/Map/Map"
@@ -49,27 +50,31 @@ function Details() {
             // body: JSON.stringify(data)
         };
     };
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/api/dorm/roomtypebyid/' + dormId, optionsGet())
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             if (res.DormType) {
+    //                 setRoomType(res.DormType);
+    //                 // console.log(res.DormType);
+    //             }
+    //             console.log(dormId);
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+    // }, []);
     useEffect(() => {
-        fetch('http://103.13.231.22:5000/api/dorm/roomtypebyid/' + dormId, optionsGet())
+        fetch('http://localhost:5000/api/dorm/dormById/' + dormId, optionsGet())
             .then(res => res.json())
             .then(res => {
+                if (res.dorm) {
+                    setDescDorm(res.dorm);
+                    // console.log(res.Dorm);
+                }
                 if (res.DormType) {
                     setRoomType(res.DormType);
-                    console.log(res.DormType);
-                }
-                console.log(dormId);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }, []);
-    useEffect(() => {
-        fetch('http://103.13.231.22:5000/api/dorm/dormById/' + dormId, optionsGet())
-            .then(res => res.json())
-            .then(res => {
-                if (res.Dorm) {
-                    setDescDorm(res.Dorm);
-                    console.log(res.Dorm);
+                    // console.log(res.DormType);
                 }
             })
             .catch(error => {
@@ -102,7 +107,9 @@ function Details() {
 
     const contant = useMemo(
         () => {
+            console.log(descDorm);
             if (descDorm.dorm_address) {
+                
                 return (
                     <div className="w-45 mx-auto d-flex justify-content-start flex-wrap">
                         <div className="w-100 d-flex justify-content-around align-items-center">
@@ -245,33 +252,45 @@ function Details() {
                 </div>
 
                 {/* รูปสไลด์เจ้าปัญหา */}
-                <div id="carouselControls" className="carousel slide" data-ride="carousel">
-                    <div className="carousel-inner">
-                        <div className="carousel-item active">
-                            <img src={desc_update.img[0]} className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={ads_banner} className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={desc_update.img[2]} className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={desc_update.img[3]} className="d-block w-100" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={desc_update.img[4]} className="d-block w-100" alt="..." />
-                        </div>
-                    </div>
-                    <a className="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
-                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span className="sr-only">Previous</span>
-                    </a>
-                    <a className="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
-                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span className="sr-only">Next</span>
-                    </a>
-                </div>
+
+                <Carousel>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={desc_update.img[0]}
+                            alt=""
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-lock w-100"
+                            src={desc_update.img[1]}
+                            alt="Second slide"
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={desc_update.img[2]}
+                            alt="Third slide"
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={desc_update.img[3]}
+                            alt=""
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={desc_update.img[4]}
+                            alt=""
+                        />
+                    </Carousel.Item>
+                </Carousel>
+
 
                 <div className="w-100 d-flex justify-content-between mx-auto mt-1-v">
                     {

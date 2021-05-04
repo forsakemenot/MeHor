@@ -28,7 +28,7 @@ function Home() {
     const [activeBoxConvenient, setActiveBoxConvenient] = useState(false);
     const [activeBoxCommonFee, setActiveBoxCommonFee] = useState(false);
     const [activeBoxSeeMore, setActiveBoxSeeMore] = useState(false);
-    const [descDorm, setDescDorm] = useState({});
+    const [descDorm, setDescDorm] = useState([]);
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
     const optionsGet = data => {
         return {
@@ -41,20 +41,18 @@ function Home() {
         };
     };
     useEffect(() => {
-        console.log("useEffect");
-        fetch('http://103.13.231.22:5000/api/dorm/alldorm', optionsGet())
+
+        fetch('http://localhost:5000/api/dorm/alldormIsApprove', optionsGet())
             .then(res => res.json())
             .then(res => {
-                if (res.dorm) {
-                    setDescDorm(res.dorm);
-                    // console.log(res.dorm);
+                if (res[0].dorm) {
+                    setDescDorm(res);
                 }
             })
             .catch(error => {
                 console.log(error);
             })
     }, []);
-
 
     function togglePrice() {
         setActiveBoxPrice(!activeBoxPrice);
@@ -70,18 +68,18 @@ function Home() {
     }
     const dormBox = useMemo(
         () => {
-            if (descDorm[0]?.dorm_name) {
+            if (descDorm ?? descDorm[0].dorm) {
                 return (
-                    descDorm.map(function (element, index) {
+                    descDorm?.map(function (element, index) {
+                        console.log(element.dorm);
                         return <DomList data={element} />
                     })
                 )
             }
-            return
+            return false
         }, [descDorm]
     )
     return (
-
         <div>
             <div className="map_info">
                 <div className="main_kmitl">

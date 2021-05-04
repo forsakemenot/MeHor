@@ -22,6 +22,7 @@ function CustomerForm() {
    const [dormid, setDormid] = useState();
    const [roomType, setRoomType] = useState({});
    const [descDorm, setDescDorm] = useState({});
+   const [descDormFac, setDescDormFac] = useState({});
    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
    const optionsGet = data => {
       return {
@@ -36,7 +37,7 @@ function CustomerForm() {
 
 
    useEffect(() => {
-      fetch('http://103.13.231.22:5000/api/dorm/dormById/' + UserId, optionsGet())
+      fetch('http://localhost:5000/api/dorm/dormById/' + UserId, optionsGet())
          .then(res => res.json())
          .then(res => {
             console.log(res);
@@ -46,6 +47,10 @@ function CustomerForm() {
             }
             if (res.DormType) {
                setRoomType(res.DormType);
+               // console.log(res.DormType);
+            }
+            if (res.DormFac) {
+               setDescDormFac(res.DormFac);
                // console.log(res.DormType);
             }
          })
@@ -239,8 +244,8 @@ function CustomerForm() {
                      <CustomerCostPanel dateCostPanel={roomType} />
                   </div>
                   <div className="d-flex w-100">
-                     <ConInPanel />
-                     <ConOutPanel />
+                     <ConInPanel dataInPanel={descDormFac}/>
+                     <ConOutPanel dataOutPanel={descDormFac}/>
                   </div>
 
                   <div className="image mt-1-v">

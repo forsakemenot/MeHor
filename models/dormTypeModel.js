@@ -15,12 +15,10 @@ const DormTypeSchema = mongoose.Schema({
     }],
     insurance_bill: {
         type: String,
-        unique: true,
         required: true
     },
     pre_paid: {
         type: String,
-        unique: true,
         required: true
     },
     electric_bill: {
