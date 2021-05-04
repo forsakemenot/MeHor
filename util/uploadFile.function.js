@@ -33,7 +33,7 @@ exports.uploadFile = (file, req, res) => {
         });
     }
 
-    return path.join(req.get('host'), targetPath.replace('public\\', '').replace('public/', ''));
+    return path.join(req.protocol + '://', req.get('host'), targetPath.replace('public\\', '').replace('public/', ''));
 }
 
 exports.uploadPDF = (file, req, res) => {
@@ -70,7 +70,7 @@ exports.uploadPDF = (file, req, res) => {
         });
     }
 
-    return path.join(req.get('host'), targetPath.replace('public\\', '').replace('public/', ''));
+    return path.join(req.protocol + '://', req.get('host'), targetPath.replace('public\\', '').replace('public/', ''));
 }
 
 exports.uploadMultiFile = (req, res) => {
@@ -103,7 +103,7 @@ exports.uploadMultiFile = (req, res) => {
                 return
             });
         }
-        arr_file.push(path.join(req.get('host'), targetPath.replace('public\\', '').replace('public/', '')))
+        arr_file.push(req.protocol + '://', path.join(req.get('host'), targetPath.replace('public\\', '').replace('public/', '')))
     });
 
     return arr_file;

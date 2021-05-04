@@ -41,13 +41,13 @@ function Home() {
         };
     };
     useEffect(() => {
-        console.log("useEffect");
-        fetch('http://103.13.231.22:5000/api/dorm/alldorm', optionsGet())
+
+        fetch('http://103.13.231.22:5000/api/dorm/alldormIsApprove', optionsGet())
             .then(res => res.json())
             .then(res => {
+                console.log(res.dorm);
                 if (res.dorm) {
                     setDescDorm(res.dorm);
-                    // console.log(res.dorm);
                 }
             })
             .catch(error => {
