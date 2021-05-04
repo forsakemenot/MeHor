@@ -9,17 +9,16 @@ function NavBar() {
   const [dropDownProfile, setDropDownProfile] = useState(false);
   const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
   const [email, setEmail] = useState((token && jwt.decode(token).email) || '');
-
   const handleLogout = () => {
     localStorage.removeItem('jwtToken');
   }
-
   function toggleDropdown() {
     setOpen(!isOpen);
   }
   function toggleDropdownProfile() {
     setDropDownProfile(!dropDownProfile)
   }
+  
   return (
     <div className="bg-main d-flex">
       <div className="d-flex left-nav">

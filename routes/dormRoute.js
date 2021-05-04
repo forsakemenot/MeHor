@@ -22,47 +22,148 @@ router.get('/dorm', (req, res) => {
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
 })
 
-router.get('/alldorm', (req, res) => {
-    // const token = req.headers.authorization || '';
-    // const email = jwt.decode(token).email
-    // console.log(jwt.decode(token).email);
-    Dorm.find({}).exec()
-        .then(dorm => {
-            res.status(200).json({ dorm: dorm });
+router.get('/alldormIsDone', (req, res) => {
+    Dorm.find({ is_done: true }).exec()
+        .then(async dorms => {
+            let dormtest = {}
+            Promise.all(dorms.map(async (dorm) => {
+                dormtest.dorm = dorm
+                dormtest.DormType = await DormType.findOne({ dorm_id: dorm._id }).exec()
+                    .then((DormType) => {
+                        return DormType
+                    })
+                    .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+                dormtest.DormFac = await DormFacility.findOne({ dorm_id: dorm._id }).exec()
+                    .then((DormFac) => {
+                        return DormFac
+                    })
+                    .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+                dormtest.DormDoc = await dormDocument.findOne({ dorm_id: dorm._id }).exec()
+                    .then((DormDoc) => {
+                        return DormDoc
+                    })
+                    .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+                console.log('res');
+                return (dormtest)
+            })).then((result) => {
+                // console.log(result);
+                res.status(200).json(result)
+            })
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
 })
-router.get('/dormById/:dorm_id', (req, res) => {
-    Dorm.findOne({_id:req.params.dorm_id}).exec()
-        .then(Dorm => {
-            res.status(200).json({ Dorm: Dorm });
+
+router.get('/alldormIsActive', (req, res) => {
+    Dorm.find({ isActive: true }).exec()
+        .then(async dorms => {
+            let dormtest = {}
+            Promise.all(dorms.map(async (dorm) => {
+                dormtest.dorm = dorm
+                dormtest.DormType = await DormType.findOne({ dorm_id: dorm._id }).exec()
+                    .then((DormType) => {
+                        return DormType
+                    })
+                    .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+                dormtest.DormFac = await DormFacility.findOne({ dorm_id: dorm._id }).exec()
+                    .then((DormFac) => {
+                        return DormFac
+                    })
+                    .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+                dormtest.DormDoc = await dormDocument.findOne({ dorm_id: dorm._id }).exec()
+                    .then((DormDoc) => {
+                        return DormDoc
+                    })
+                    .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+                console.log('res');
+                return (dormtest)
+            })).then((result) => {
+                // console.log(result);
+                res.status(200).json(result)
+            })
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
-  
+})
+
+router.get('/alldormIsApprove', (req, res) => {
+    Dorm.find({ isApprove: true }).exec()
+        .then(async dorms => {
+            let dormtest = {}
+            Promise.all(dorms.map(async (dorm) => {
+                dormtest.dorm = dorm
+                dormtest.DormType = await DormType.findOne({ dorm_id: dorm._id }).exec()
+                    .then((DormType) => {
+                        return DormType
+                    })
+                    .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+                dormtest.DormFac = await DormFacility.findOne({ dorm_id: dorm._id }).exec()
+                    .then((DormFac) => {
+                        return DormFac
+                    })
+                    .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+                dormtest.DormDoc = await dormDocument.findOne({ dorm_id: dorm._id }).exec()
+                    .then((DormDoc) => {
+                        return DormDoc
+                    })
+                    .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+                console.log('res');
+                return (dormtest)
+            })).then((result) => {
+                // console.log(result);
+                res.status(200).json(result)
+            })
+        })
+        .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+})
+
+router.get('/dormById/:dorm_id', (req, res) => {
+    Dorm.findOne({ _id: req.params.dorm_id }).exec()
+        .then(async dorm => {
+            let dormtest = {}
+            dormtest.dorm = dorm
+            dormtest.DormType = await DormType.findOne({ dorm_id: dorm._id }).exec()
+                .then((DormType) => {
+                    return DormType
+                })
+                .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+            dormtest.DormFac = await DormFacility.findOne({ dorm_id: dorm._id }).exec()
+                .then((DormFac) => {
+                    return DormFac
+                })
+                .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+            dormtest.DormDoc = await dormDocument.findOne({ dorm_id: dorm._id }).exec()
+                .then((DormDoc) => {
+                    return DormDoc
+                })
+                .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+            console.log('res');
+            res.status(200).json(dormtest);
+        })
+        .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+
 })
 router.get('/roomtypebyid/:dorm_id', (req, res) => {
-    DormType.findOne({dorm_id:req.params.dorm_id}).exec()
+    DormType.findOne({ dorm_id: req.params.dorm_id }).exec()
         .then(DormType => {
             res.status(200).json({ DormType: DormType });
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
-  
+
 })
 router.get('/facilitybyid/:dorm_id', (req, res) => {
-    DormFacility.findOne({dorm_id:req.params.dorm_id}).exec()
+    DormFacility.findOne({ dorm_id: req.params.dorm_id }).exec()
         .then(DormFacility => {
             res.status(200).json({ DormFacility: DormFacility });
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
-  
+
 })
 router.get('/documentbyid/:dorm_id', (req, res) => {
-    dormDocument.findOne({dorm_id:req.params.dorm_id}).exec()
-        .then(DormFacility => {
+    dormDocument.findOne({ dorm_id: req.params.dorm_id }).exec()
+        .then(dormDocument => {
             res.status(200).json({ dormDocument: dormDocument });
         })
         .catch(err => { console.log(err); res.status(400).json({ error: err }); })
-  
+
 })
 
 router.post('/adddorm', (req, res) => {
@@ -162,7 +263,7 @@ router.post('/dormtype', (req, res) => {
 router.post('/dormfacility', upload_img.any(), async (req, res) => {
     let fullpath
     if (req.files) {
-        fullpath = await uploadMultiFile(req, res)
+        fullpath = uploadMultiFile(req, res)
         console.log(fullpath);
     }
     const dorm_id = req.body.dorm_id || '';
@@ -187,17 +288,18 @@ router.post('/dormfacility', upload_img.any(), async (req, res) => {
                 res.status(500).json({ error: err.message });
                 return err
             }
+            res.json({
+                success: 'success',
+                img: img
+                // data: newDormFacility
+            });
         })
-        res.json({
-            success: 'success',
-            img: img,
-            data: newDormFacility
-        });
+        res.status(500)
     }
 });
 
-let cpUpload = upload_img.fields([{ name: 'regis_pic', maxCount: 1 }, { name: 'location_pic', maxCount: 8 }])
-router.post('/dormDocument', cpUpload, (req, res) => {
+let cpUpload = upload_img.fields([{ name: 'regis_pic', maxCount: 1 }, { name: 'location_pic', maxCount: 1 }])
+router.post('/dormDocument', cpUpload, async (req, res) => {
 
     let fullpath_regis, fullpath_location
     console.log(req.files['regis_pic'][0]);
@@ -205,7 +307,6 @@ router.post('/dormDocument', cpUpload, (req, res) => {
         fullpath_regis = uploadPDF(req.files['regis_pic'][0], res)
         fullpath_location = uploadPDF(req.files['location_pic'][0], res)
     }
-
 
     const dorm_id = req.body.dorm_id || '';
     const regis_pic = fullpath_regis;
@@ -224,12 +325,21 @@ router.post('/dormDocument', cpUpload, (req, res) => {
     } else {
 
         const newDormDocument = new dormDocument(reqBody);
-        newDormDocument.save(function (err) {
+        newDormDocument.save(function (err, doc, numbersAffected) {
             if (err) {
                 console.log(err.message);
                 res.status(500).json({ error: err.message });
                 return err
             }
+
+            // Dorm is_done = true 
+            Dorm.findOne({ _id: dorm_id }).exec()
+                .then(Dorm => {
+                    // console.log(Dorm);
+                    Dorm.is_done = true
+                    Dorm.save()
+                })
+                .catch(err => { console.log(err); res.status(400).json({ error: err }); return })
             res.status(200).send("success")
         })
     }

@@ -58,9 +58,6 @@ function DomList({ data, HeartImg }) {
               </span>
 
               <span className="text_dom_list">฿ {roomtype?.dorm_type[0].room_cost} / เดือน</span>
-              <div className="d-flex justify-content-end">
-                <button className="bg-second btn_dom_list d-flex"><img alt="" src={HeartImg} />สนใจ</button>
-              </div>
             </div>
           </>
         )

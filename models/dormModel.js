@@ -10,6 +10,10 @@ const DormSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
+    isActive: {
+        type: Boolean,
+        default: false
+    },
 
     dorm_name: {
         type: String,

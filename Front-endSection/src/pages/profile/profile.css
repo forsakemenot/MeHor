@@ -1,6 +1,5 @@
 .bg_profile {
-    width: 80vw;
-    justify-content: space-between;
+
     margin: 3% 0 0 0;
 }
 
@@ -35,7 +34,7 @@
 
 .info_profile {
     width: 60vw;
-    height: 70vh;
+
     background-color: white;
     box-shadow: 0 -3px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 11px;
@@ -82,7 +81,7 @@
 
 .edit_profile {
     width: 40vw;
-    height: 65vh;
+    
     flex-direction: column;
 }
 
@@ -91,7 +90,7 @@
 }
 
 .input_profile {
-    width: 38vw;
+    width: 30vw;
     height: 5vh;
     border: #A4B9E5 1px solid;
     border-radius: 5px;

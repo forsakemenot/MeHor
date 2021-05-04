@@ -34,6 +34,28 @@ const checkUserUniqueness = (field, value) => {
         .catch(err => console.log(err))
 }
 
+router.get('/userById', async (req, res) => {
+    const token = req.headers.authorization || '';
+    const id = jwt.decode(token).id
+
+    User.findOne({ _id: id }).exec()
+        .then((user) => {
+            res.status(200).json({ user: user });
+        })
+        .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+});
+
+router.get('/userAll', async (req, res) => {
+    // const token = req.headers.authorization || '';
+    // const id = jwt.decode(token).id
+
+    User.find({}).exec()
+        .then((user) => {
+            res.status(200).json({ users: user });
+        })
+        .catch(err => { console.log(err); res.status(400).json({ error: err }); })
+});
+
 router.post('/validate', async (req, res) => {
     const { field, value } = req.body;
     const { error, isUnique } = await checkUserUniqueness(field, value);
@@ -71,17 +93,17 @@ router.post('/signup', (req, res) => {
         }
         if (field === 'email' && !validateEmail(reqBody[field])) {
             // errors = { ...errors, [field]: 'Not a valid Email' }
-            headleError(res, {[field]: 'Not a valid Email'})
+            headleError(res, { [field]: 'Not a valid Email' })
             return
         }
         if (field === 'password' && password !== '' && password < 4) {
             // errors = { ...errors, [field]: 'Password too short' }
-            headleError(res, {[field]: 'Password too short'})
+            headleError(res, { [field]: 'Password too short' })
             return
         }
         if (field === 'confirmPassword' && confirmPassword !== password) {
             // errors = { ...errors, [field]: 'Passwords do not match' }
-            headleError(res, {[field]: 'Passwords do not match'})
+            headleError(res, { [field]: 'Passwords do not match' })
             return
         }
     });
