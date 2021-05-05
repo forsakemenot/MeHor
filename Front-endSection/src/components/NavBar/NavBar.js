@@ -96,7 +96,7 @@ function NavBar() {
             </Nav>
             <Nav className="w-20 justify-content-end">
                <Nav.Link>
-                  {email ?
+                  {email === 'admin@gmail.com'?
                      <NavDropdown title={email} className="color-white" id="collasible-nav-dropdown">
                         <NavDropdown.Item><Link to="/Profile" className="color-main fs-0-9-v">จัดการบัญชี</Link></NavDropdown.Item>
                         <NavDropdown.Item><Link to="/AdminDorm" className="color-main fs-0-9-v">ประกาศหอพักของฉัน</Link></NavDropdown.Item>

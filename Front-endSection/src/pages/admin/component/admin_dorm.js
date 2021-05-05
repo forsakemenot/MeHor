@@ -4,6 +4,7 @@ import './../../../App.css';
 import { Link } from "react-router-dom";
 import bin from './../../../img/metro-bin.svg'
 import edit from './../../../img/edit.svg'
+import eye from './../../../img/eye.svg'
 
 function AdminAllDorm({ dataAllDorm }) {
     return (
@@ -25,8 +26,7 @@ function AdminAllDorm({ dataAllDorm }) {
                     <p className="m-0 text_label">4 / 13 /2021</p>
                 </div>
                 <div className="col-2 d-flex justify-evenly">
-                    <Link to={`/AdminLinkForm/` + dataAllDorm._id}><img alt="" src={edit} className="img_admin_edit pointer" /></Link>
-                    <img alt="" src={bin} className="img_admin_edit pointer" />
+                    <Link to={`/AdminLinkForm/` + dataAllDorm._id}><img alt="" src={eye} className="img_admin_edit pointer" /></Link>
                 </div>
             </div>
         </div>
