@@ -140,8 +140,8 @@ function Home() {
                 <div className="frame_home">
                     <div className="search_home mt-2-v">
                         <div className="search_dorm">
-                            <input className="kanit" type="text" placeholder=" ค้นหา ชื่อที่พัก, ชื่อโซน"></input>
-                            <button className="color-white bg-main kanit">ค้นหา</button>
+                            <input className="kanit d-none" type="text" placeholder=" ค้นหา ชื่อที่พัก, ชื่อโซน"></input>
+                            <button className="color-white bg-main kanit d-none">ค้นหา</button>
                         </div>
                         <Link to="/AddDorm"><button className="annouce_dorm ml-1-v color-white bg-main d-flex align-items-center justify-content-center">+ ลงประกาศหอพัก</button></Link>
                     </div>
@@ -158,7 +158,7 @@ function Home() {
                     <div className="div_disc">
                         {dormBox}
                     </div>
-                    <div className="filter_dropbox position-relative">
+                    <div className="filter_dropbox position-relative d-none">
                         <div className="position-absolute line_filter"></div>
                         <div className="d-flex box_filter_dropbox">
                             <span className='color-main'>ราคา</span>

@@ -20,9 +20,9 @@ function User({Data}) {
                 <div className="col-4">
                     <span className="text_label">{Data?.email}</span>
                 </div>
-                <div className="col-1 d-flex justify-evenly">
+                {/* <div className="col-1 d-flex justify-evenly">
                     <img src={bin} className="img_admin_edit"></img>
-                </div>
+                </div> */}
             </div>
         </div>
     );
