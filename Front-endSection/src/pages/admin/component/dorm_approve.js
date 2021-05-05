@@ -11,9 +11,9 @@ function DormApprove(props) {
         <div className="approve_component">
             <div className="d-flex dorm_box align-items-center color-main">
                 <div className="d-flex w-60">
-                    <div className=" d-flex justify-content-center">
-                        <img alt="" className="img_admin_approve" />
-                    </div>
+                    {/* <div className=" d-flex justify-content-center">
+                        <img alt="" src={props.dataAllDorm?.img} className="img_admin_approve" />
+                    </div> */}
                     <div className="d-flex w-40 align-items-center ">
                         <div className="d-flex flex-column align-items-end w-45 mx-auto">
                             <span className="fs-1-v ">ชื่อหอพัก:</span>
