@@ -10,16 +10,6 @@ function DomMe() {
     const { UserId } = useParams()
     const [descDorm, setDescDorm] = useState({})
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
-    const status = [{
-        name: "หอพักสันติ",
-        status: false,
-        update: ""
-    },
-    {
-        name: "หอพัก",
-        status: true,
-        update: ""
-    }]
     const optionsGet = data => {
         return {
             headers: {
@@ -31,9 +21,10 @@ function DomMe() {
         };
     };
     useEffect(() => {
-        fetch('http://localhost:5000/api/dorm/dormById/' + UserId, optionsGet())
+        fetch('http://localhost:5000/api/dorm/dorm/', optionsGet())
             .then(res => res.json())
             .then(res => {
+                console.log(res);
                 if (res.dorm) {
                     setDescDorm(res.dorm)
                     console.log(res);

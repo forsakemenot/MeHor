@@ -14,7 +14,7 @@ router.get('/dorm', (req, res) => {
     const token = req.headers.authorization || '';
     const email = jwt.decode(token).email
     console.log(jwt.decode(token).email);
-    Dorm.findOne({ user: email, is_done: false }).exec()
+    Dorm.findOne({ user: email }).exec()
         .then(dorm => {
             console.log(dorm);
             res.status(200).json({ dorm: dorm });
