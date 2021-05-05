@@ -5,12 +5,15 @@
 .image_contact{
     width: 3vw;
     padding: 1vw 0.1vw;
+    min-width: 20px;
 }
 .image_price_details{
     width: 2.5vw;
     padding: 0.5vw;
+    min-width: 20px;
 }
 .text_price_details{
+    padding-top: 1vw;
     font-size: 1.5vw;
     color: #325679;
 }
@@ -21,6 +24,7 @@
     padding: 1vw 1vw 1vw 0vw;
 }
 .box-image-drop-down img{
+    width: 3vw;
     transform: rotate(180deg);
     transition: all 0.3s;
 }
@@ -77,8 +81,53 @@
     border-radius: 5px;
     padding: 0.3vw 1vw;
 }
+.home_icon{
+    width: 3vw;
+    min-width: 20px;
+    align-items: center;
+}
 .banner_img{
     width: 80vw;
     height: 50vh;
     object-fit:cover
+}
+.desc-text-drop-down span{
+    font-size: 1.7vw;
+}
+
+@media screen and (max-width: 992px){
+    .box-1-contant{
+        width: 90vw;
+    }
+    .box-1-contant{
+        width: 55vw;
+        padding-top: 1vw;
+    }
+}
+@media screen and (max-width: 576px){
+    .box-1{
+        flex-direction: column-reverse;
+    }
+    .box-1-contant{
+        width: 75vw;
+        padding-top: 1vw;
+    }
+    .box-4{
+        flex-direction: column;
+    }
+    .box-4-border{
+        width: 80vw;
+        border-width: 0px;
+        
+    }
+    .box-4-list{
+        width: 80vw;
+        background-color: white;
+    }
+    .box-5{
+        flex-direction: column;
+    }
+    .conv-list{
+        width: 50vw;
+    }
 }
