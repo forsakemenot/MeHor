@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import '../profile/profile.css';
-import '../../App.css';
-import photo from '../../img/add-a-photo.svg'
-import account from '../../img/account.svg'
-import key from '../../img/key.svg'
 
 function Profile() {
     // const [selectedFile, setSelectedFile] = useState(null);
@@ -13,9 +9,7 @@ function Profile() {
     const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
 
     const ImageThumb = ({ image }) => {
-        if (image) {return <img src={URL.createObjectURL(image)} className="img_user"/>}
-        
-        
+        if (image) {return <img src={URL.createObjectURL(image)} className="img_user"/>}  
     };
 
     const options = data => {
@@ -51,7 +45,7 @@ function Profile() {
     };
     useEffect(() => {
         console.log("useEffect");
-        fetch('http://103.13.231.22:5000/api/users/userById/', optionsGet())
+        fetch('http://localhost:5000/api/users/userById/', optionsGet())
             .then(res => res.json())
             .then(res => {
                 const obj = {};
@@ -88,7 +82,7 @@ function Profile() {
     const HandleSubmitUpdate = (evt) => {
         console.log(user);
         evt.preventDefault();
-        fetch('http://103.13.231.22:5000/api/users/userById/', options(user))
+        fetch('http://localhost:5000/api/users/userById/', options(user))
 
             .then(res => res.json())
             .then(res => {
@@ -112,8 +106,8 @@ function Profile() {
     // console.log(token);
     function handleUpload(event) {
         setFile(event.target.files[0]);
-
     }
+    
 
     return (
         <div className="d-flex justify-center">

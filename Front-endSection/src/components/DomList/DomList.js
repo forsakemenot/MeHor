@@ -9,8 +9,8 @@ function DomList({ data }) {
         console.log(data);
         return (
           <Link to={`/details/${data._id}`} onClick={() => window.location.href = `/details/${data.dorm._id}`} className="d-flex w-100 text-remove-hover bg-white p-1-v h-100">
-            <div className="w-45">
-              <img alt="" src={data.DormFac.img[0]} className="size-image-dorm-list w-95" />
+            <div className="mr-4 ml-1">
+              <img alt="" src={'http://'+data.DormFac.img[0]} className="size-image-dorm-list w-95" />
             </div>
             {/* <div className="color-main w-55 d-flex flex-column h-80"> */}
             <div className="information h-100 d-flex flex-column color-main">

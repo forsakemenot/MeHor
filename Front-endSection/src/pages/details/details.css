@@ -86,6 +86,14 @@
     min-width: 20px;
     align-items: center;
 }
+.banner_img{
+    width: 80vw;
+    height: 50vh;
+    object-fit:cover
+}
+.desc-text-drop-down span{
+    font-size: 1.7vw;
+}
 
 @media screen and (max-width: 992px){
     .box-1-contant{

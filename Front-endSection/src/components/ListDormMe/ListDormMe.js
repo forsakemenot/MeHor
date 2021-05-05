@@ -14,7 +14,7 @@ function ListDormMe({ data }) {
                 <div className="d-flex flex-column w-15 mx-auto align-items-end justify-content-around">
                     <span className="fs-1-v color-main">ชื่อหอพัก :</span>
                     <span className="fs-1-v color-main">สถานะ :</span>
-                    <span className="fs-1-v color-main">การปรับปรุง :</span>
+                    {/* <span className="fs-1-v color-main">การปรับปรุง :</span> */}
                 </div>
                 <div className="d-flex flex-column w-80 h-100 mx-auto align-items-start justify-content-around">
                     <span className="fs-1-v color-main font-weight-bold">{data.dorm_name}</span>
@@ -26,7 +26,7 @@ function ListDormMe({ data }) {
                             <span className="color-white">รอการตรวจสอบ</span>
                         </div>
                     }
-                    <span className="fs-1-v">(ปรับปรุงล่าสุด -)</span>
+                    {/* <span className="fs-1-v">(ปรับปรุงล่าสุด -)</span> */}
                 </div>
             </div>
             <div className="d-flex w-15 align-items-start justify-content-end h-100">

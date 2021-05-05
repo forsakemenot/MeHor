@@ -37,7 +37,7 @@ function CustomerForm() {
 
 
    useEffect(() => {
-      fetch('http://103.13.231.22:5000/api/dorm/dormById/' + UserId, optionsGet())
+      fetch('http://localhost:5000/api/dorm/dormById/' + UserId, optionsGet())
          .then(res => res.json())
          .then(res => {
             console.log(res);
@@ -124,7 +124,7 @@ function CustomerForm() {
          console.log(pair[1]);
       }
 
-      fetch('http://103.13.231.22:5000/api/dorm/dormDocument', options(formData))
+      fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
          .then(res => res.json())
          .then(res => {
             console.log(res);
@@ -155,7 +155,6 @@ function CustomerForm() {
          if (roomType.dorm_type) {
             return (
                <div className="d-flex w-100 align-items-center justify-content-around mt-1-v">
-                  1
                   <div className="w-20">
                      <input type="text" className="input-type-room" value={roomType?.dorm_type[0].room_name} placeholder="ex. ห้องเดี่ยว 1 เตียง"
                         row="1"

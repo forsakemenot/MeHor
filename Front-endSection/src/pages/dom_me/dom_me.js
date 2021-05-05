@@ -31,7 +31,7 @@ function DomMe() {
         };
     };
     useEffect(() => {
-        fetch('http://103.13.231.22:5000/api/dorm/dormById/' + UserId, optionsGet())
+        fetch('http://localhost:5000/api/dorm/dormById/' + UserId, optionsGet())
             .then(res => res.json())
             .then(res => {
                 if (res.dorm) {
@@ -45,7 +45,6 @@ function DomMe() {
             })
 
     }, []);
-    console.log(descDorm);
     return (
         <div id="form_bg" className="d-flex justify-center">
             <div className="dom_me d-flex">
@@ -56,7 +55,7 @@ function DomMe() {
                     </div>
 
                     <div className="add_room">
-                        <Link to="/AddDom"><button id="btn_continue" style={{ width: '13vw' }}>+ ลงประกาศหอพัก</button></Link>
+                        <Link to="/AddDorm"><button id="btn_continue" style={{ width: '13vw' }}>+ ลงประกาศหอพัก</button></Link>
                     </div>
                 </div>
 

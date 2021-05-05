@@ -20,7 +20,7 @@ function AllDorm() {
    };
    useEffect(() => {
       console.log("useEffect");
-      fetch('http://103.13.231.22:5000/api/dorm/alldormIsApprove', optionsGet())
+      fetch('http://localhost:5000/api/dorm/alldormIsApprove', optionsGet())
          .then(res => res.json())
          .then(res => {
             if (res) {

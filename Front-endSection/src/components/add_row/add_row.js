@@ -12,7 +12,6 @@ function Add_row(prop) {
 
   return (
     <div className="w-100 align-items-center justify-content-around mt-1-v" style={{ display: display }}>
-      {prop.row+1}
       <input type="hidden" name="none" value={del} />
       <div className="w-20">
         <input type="text" className="input-type-room" placeholder="ex. ห้องเดี่ยว 1 เตียง" 

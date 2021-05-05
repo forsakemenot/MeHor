@@ -105,7 +105,7 @@ function RoomType() {
 
    useEffect(() => {
       console.log("useEffect");
-      fetch('http://103.13.231.22:5000/api/dorm/dorm', optionsGet())
+      fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
          .then(res => res.json())
          .then(res => {
             if (res.dorm) {
@@ -135,7 +135,7 @@ function RoomType() {
          dorm_type: items
       })
 
-      fetch('http://103.13.231.22:5000/api/dorm/dormtype', options(roomType))
+      fetch('http://localhost:5000/api/dorm/dormtype', options(roomType))
          .then(res => res.json())
          .then(res => {
             console.log(res);
@@ -188,7 +188,6 @@ function RoomType() {
                </div>
                <div className="w-95 mx-auto  d-flex justify-content-center flex-wrap flex-column">
                   <div className="d-flex w-100 align-items-center justify-content-around mt-1-v fs-1-v">
-                     1
               <div className="w-20">
                         <input type="text" className="input-type-room" placeholder="ex. ห้องเดี่ยว 1 เตียง"
                            row="1"
