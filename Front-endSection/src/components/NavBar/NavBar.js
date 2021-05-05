@@ -84,11 +84,11 @@ function NavBar() {
             <Nav className="w-100 d-flex align-items-baseline">
                <Nav.Link><Link to="/" className="color-white fs-1-v">หน้าแรก</Link></Nav.Link>
                <NavDropdown title="ค้นหาที่พัก" className="color-white fs-1-v" id="collasible-nav-dropdown">
-                  <NavDropdown.Item><Link to="/?zone=Nikom" className="color-main fs-0-9-v">โซน นิคม</Link></NavDropdown.Item>
-                  <NavDropdown.Item><Link to="/?zone=gaygee" className="color-main fs-0-9-v">โซน เกกี</Link></NavDropdown.Item>
-                  <NavDropdown.Item><Link to="/?zone=rnp" className="color-main fs-0-9-v">โซน RNP</Link></NavDropdown.Item>
-                  <NavDropdown.Item><Link to="/?zone=fbt" className="color-main fs-0-9-v">โซน FBT</Link></NavDropdown.Item>
-                  <NavDropdown.Item><Link to="/?zone=jinda" className="color-main fs-0-9-v">โซน จินดา</Link></NavDropdown.Item>
+                  <NavDropdown.Item><Link to="/zonenikom" className="color-main fs-0-9-v">โซน นิคม</Link></NavDropdown.Item>
+                  <NavDropdown.Item><Link to="/zonekeki" className="color-main fs-0-9-v">โซน เกกี</Link></NavDropdown.Item>
+                  <NavDropdown.Item><Link to="/zonernp" className="color-main fs-0-9-v">โซน RNP</Link></NavDropdown.Item>
+                  <NavDropdown.Item><Link to="/zonefbt" className="color-main fs-0-9-v">โซน FBT</Link></NavDropdown.Item>
+                  <NavDropdown.Item><Link to="/zonejinda" className="color-main fs-0-9-v">โซน จินดา</Link></NavDropdown.Item>
                </NavDropdown>
 
                <Nav.Link><Link to="/Advertise" className="color-white fs-1-v">ลงโฆษณา</Link></Nav.Link>

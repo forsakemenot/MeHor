@@ -4,7 +4,6 @@ import edit from "../../img/icon-edit.svg"
 import { Link } from "react-router-dom";
 function ListDormMe({ data }) {
 
-    console.log(data);
     return (
         <div className="test_check d-flex align-items-center w-95 mt-1-v mb-1-v">
             <div className="d-flex w-25 h-100">

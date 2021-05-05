@@ -27,6 +27,11 @@ import AdminApprove from './pages/admin/admin_approve/admin_approve.js'
 import AdminUser from './pages/admin/admin_user/admin_user.js'
 import CustomerForm from "./pages/customer_form/customer_form"
 import AdminLinkForm from "./pages/AdminForm/AdminLinkForm"
+import ZoneJinda from "./pages/ZoneJinda/ZoneJinda"
+import ZoneGaygee from  "./pages/ZoneGaygee/ZoneGaygee"
+import ZoneNikom from  "./pages/ZoneNikom/ZoneNikom"
+import ZoneRnp from "./pages/ZoneRnp/ZoneRnp"
+import ZoneFbt from "./pages/ZoneFbt/ZoneFbt"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 function App() {
@@ -99,6 +104,21 @@ function App() {
         </Route>
         <Route path="/zone">
           <Zone />
+        </Route>
+        <Route path="/zonejinda">
+          <ZoneJinda />
+        </Route>
+        <Route path="/zonekeki">
+          <ZoneGaygee />
+        </Route>
+        <Route path="/zonenikom">
+          <ZoneNikom />
+        </Route>
+        <Route path="/zonernp">
+          <ZoneRnp />
+        </Route>
+        <Route path="/zonefbt">
+          <ZoneFbt />
         </Route>
         <Route path="/AboutWeb">
           <AboutWeb />

@@ -1,29 +1,14 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import HomeImg from './../../img/Icon-open-home.svg';
-import HeartImg from './../../img/Icon-awesome-heart.svg';
 import Plus from './../../img/Plus.svg';
 import minus from './../../img/minus.svg';
-import './home.css';
 import './../../App.css';
 import { Link, useLocation } from "react-router-dom";
 import DomList from "../../components/DomList/DomList";
 import Footer from "../../components/Footer/Footer"
+import bgZone from "../../img/zone_banner_fbt.jpg"
 
-import fbt from '../../img/fbt.png';
-import keki from '../../img/keki.png';
-import rnp from '../../img/rnp.png';
-import jinda from '../../img/jinda.png';
-import nikom from '../../img/nikom.png';
-import kmitl from '../../img/kmitl.png';
-import shadow_fbt from '../../img/shadow-fbt.png';
-import shadow_rnp from '../../img/shadow-rnp.png';
-import shadow_keki from '../../img/shadow-keki.png';
-import shadow_jinda from '../../img/shadow-jinda.png';
-import shadow_nikom from '../../img/shadow-nikom.png';
-import rail from '../../img/rail.png';
-import train from '../../img/train.png';
-
-function Home() {
+function ZoneFbt() {
     const [activeBoxPrice, setActiveBoxPrice] = useState(false);
     const [activeBoxConvenient, setActiveBoxConvenient] = useState(false);
     const [activeBoxCommonFee, setActiveBoxCommonFee] = useState(false);
@@ -83,15 +68,13 @@ function Home() {
             //     )
             // }
             // else 
-            // if(element.dorm.dorm_zone === "Jinda"){
-            //     return <DomList data={element} />
-            // }
+
             if (descDorm ?? descDorm[0].dorm) {
                 return (
                     descDorm?.map(function (element, index) {
-                        return <DomList data={element} />
-
-
+                        if (element.dorm.dorm_zone === "FBT") {
+                            return <DomList data={element} />
+                        }
                     })
                 )
             }
@@ -100,60 +83,11 @@ function Home() {
     )
     return (
         <div className="d-flex flex-column">
-            <div className="map_info">
-                <div className="main_kmitl">
-                    <img alt="" src={kmitl}></img>
-                </div>
-
-                <div className="map-el environment">
-                    <img className="map-el rail" alt="" src={rail}></img>
-                    <img className="map-el train" alt="" src={train}></img>
-                </div>
-                <Link to="/zonefbt" className="text-dark">
-                    <div className="map-el zone_fbt">
-                        <img className="map-el-shadow zone_fbt_shd" alt="" src={shadow_fbt}></img>
-                        <img className="map-el-img zone_fbt_img" alt="" src={fbt}></img>
-                        <span className="map-el-text">โซน FBT</span>
-                    </div>
-                </Link>
-
-                <Link to="/zonekeki" className="text-dark">
-                    <div className="map-el zone_keki">
-                        <img className="map-el-shadow zone_keki_shd" alt="" src={shadow_keki}></img>
-                        <img className="map-el-img zone_keki_img" alt="" src={keki}></img>
-                        <span className="map-el-text-long">โซน เกกีงาม</span>
-                    </div>
-                </Link>
-
-                <Link to="/zonernp" className="text-dark">
-                    <div className="map-el zone_rnp">
-                        <img className="map-el-shadow zone_rnp_shd" alt="" src={shadow_rnp}></img>
-                        <img className="map-el-img zone_rnp_img" alt="" src={rnp}></img>
-                        <span className="map-el-text">โซน RNP</span>
-                    </div>
-                </Link>
-
-                <Link to="/zonejinda" className="text-dark">
-                    <div className="map-el zone_jinda">
-                        <img className="map-el-shadow zone_jinda_shd" alt="" src={shadow_jinda}></img>
-                        <img className="map-el-img zone_jinda_img" alt="" src={jinda}></img>
-                        <span className="map-el-text-long">โซน จินดา</span>
-                    </div>
-                </Link>
-
-                <Link to="/zonenikom" className="text-dark">
-                    <div className="map-el zone_nikom">
-                        <img className="map-el-shadow zone_nikom_shd" alt="" src={shadow_nikom}></img>
-                        <img className="map-el-img zone_nikom_img" alt="" src={nikom}></img>
-                        <span className="map-el-text-height">โซน นิคมฯ</span>
-                    </div>
-                </Link>
-            </div>
-
+            <img alt="" src={bgZone} />
             {/* หอพักทั้งหมด */}
             <div className="dom_list d-flex flex-wrap justify-content-center">
                 <div className="frame_home">
-                    <div className="search_home mt-2-v">
+                    <div className="search_home mt-2-v d-none">
                         <div className="search_dorm">
                             <input className="kanit" type="text" placeholder=" ค้นหา ชื่อที่พัก, ชื่อโซน"></input>
                             <button className="color-white bg-main kanit">ค้นหา</button>
@@ -173,7 +107,7 @@ function Home() {
                     <div className="div_disc">
                         {dormBox}
                     </div>
-                    <div className="filter_dropbox position-relative">
+                    <div className="filter_dropbox position-relative d-none">
                         <div className="position-absolute line_filter"></div>
                         <div className="d-flex box_filter_dropbox">
                             <span className='color-main'>ราคา</span>
@@ -271,4 +205,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default ZoneFbt;
