@@ -1,0 +1,133 @@
+.desc_contact{
+    font-size: 1.1vw;
+    color: #325679;
+}
+.image_contact{
+    width: 3vw;
+    padding: 1vw 0.1vw;
+    min-width: 20px;
+}
+.image_price_details{
+    width: 2.5vw;
+    padding: 0.5vw;
+    min-width: 20px;
+}
+.text_price_details{
+    padding-top: 1vw;
+    font-size: 1.5vw;
+    color: #325679;
+}
+.box-drop-down{
+    border-radius: 10px;
+}
+.box-image-drop-down{
+    padding: 1vw 1vw 1vw 0vw;
+}
+.box-image-drop-down img{
+    width: 3vw;
+    transform: rotate(180deg);
+    transition: all 0.3s;
+}
+.box-image-drop-down img.active-arrow{
+    transform: rotate(0deg);
+}
+.box-text-drop-down{
+    font-size: 1.2vw;
+}
+.sub-text-drop-down{
+    font-size: 1vw;
+    padding: 0.5vw 0vw;
+}
+.sub-text-drop-down.first{
+    padding: 0.5vw 1.5vw;
+}
+.size_icon_desc{
+    height: 2vw;
+    padding: 0.5vw 0.8vw;
+}
+.border-right-color{
+    border-right: 0.5px solid #707070;
+}
+.line_back_text{
+    position: absolute;
+    height: 0.1vw;
+    top: 50%;
+    background: #707070;
+    z-index: -1;
+}
+.text_on_line{
+    font-size: 1.2vw;
+    margin-left: 3.5vw;
+    padding: 0vw 0.5vw;
+}
+.pl-involve-post{
+    padding-left: 8vw;
+}
+.pr-involve-name{
+    padding-right: 6vw;
+}
+.image_review{
+    height: 1.5vw;
+    margin-left: 1.1vw;
+}
+.add-text-review{
+    border: 1px solid #325679;
+    border-radius: 10px;
+    padding: 0vw 0.5vw 0.2vw 0.5vw;
+    height: 8vw;
+}
+.btn-add-review{
+    border: 0;
+    border-radius: 5px;
+    padding: 0.3vw 1vw;
+}
+.home_icon{
+    width: 3vw;
+    min-width: 20px;
+    align-items: center;
+}
+.banner_img{
+    width: 80vw;
+    height: 50vh;
+    object-fit:cover
+}
+.desc-text-drop-down span{
+    font-size: 1.7vw;
+}
+
+@media screen and (max-width: 992px){
+    .box-1-contant{
+        width: 90vw;
+    }
+    .box-1-contant{
+        width: 55vw;
+        padding-top: 1vw;
+    }
+}
+@media screen and (max-width: 576px){
+    .box-1{
+        flex-direction: column-reverse;
+    }
+    .box-1-contant{
+        width: 75vw;
+        padding-top: 1vw;
+    }
+    .box-4{
+        flex-direction: column;
+    }
+    .box-4-border{
+        width: 80vw;
+        border-width: 0px;
+        
+    }
+    .box-4-list{
+        width: 80vw;
+        background-color: white;
+    }
+    .box-5{
+        flex-direction: column;
+    }
+    .conv-list{
+        width: 50vw;
+    }
+}

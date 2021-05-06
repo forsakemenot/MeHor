@@ -1,0 +1,25 @@
+.nav-link {
+  color: white !important;
+  padding: 1vw 1vw 0 1vw !important; 
+}
+a.nav-link {
+  padding-top: 0 !important;
+}
+.navbar-nav {
+  padding-top: 0.5vw !important;
+}
+.navbar-toggler {
+  border-color: white !important;
+}
+.navbar-toggler-icon {
+  background-image: url(../../img/menu.svg) !important;
+  width: 2.5vw !important;
+}
+.dropdown-menu {
+  left: calc(-5vw) !important;
+}
+
+.navbar a:hover{
+  color: #fff;
+  text-decoration: none;
+}
