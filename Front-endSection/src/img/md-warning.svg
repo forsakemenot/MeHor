@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42.29" height="39.27" viewBox="0 0 42.29 39.27">
-  <defs>
-    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#ffb7b7"/>
-      <stop offset="1" stop-color="#f84747"/>
-    </linearGradient>
-  </defs>
-  <path id="Icon_ionic-md-warning" data-name="Icon ionic-md-warning" d="M2.25,42.645H44.54L23.4,3.375ZM25.661,36.6H21.13V32.072h4.531Zm0-7.552H21.13V19.989h4.531Z" transform="translate(-2.25 -3.375)" fill="url(#linear-gradient)"/>
-</svg>
