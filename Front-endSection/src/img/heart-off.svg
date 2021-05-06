@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="76" height="76" viewBox="0 0 76 76">
-  <g id="Group_407" data-name="Group 407" transform="translate(-1704 -154)">
-    <g id="Ellipse_14" data-name="Ellipse 14" transform="translate(1704 154)" fill="#fff" stroke="#707070" stroke-width="1">
-      <circle cx="38" cy="38" r="38" stroke="none"/>
-      <circle cx="38" cy="38" r="37.5" fill="none"/>
-    </g>
-    <path id="Icon_awesome-heart" data-name="Icon awesome-heart" d="M37.061,4.7C32.668.96,26.134,1.633,22.1,5.794L20.522,7.421,18.943,5.794A10.962,10.962,0,0,0,3.984,4.7,11.511,11.511,0,0,0,3.191,21.37L18.7,37.387a2.513,2.513,0,0,0,3.631,0L37.846,21.37A11.5,11.5,0,0,0,37.061,4.7Z" transform="translate(1721.478 171.795)" fill="#c2c2c2"/>
-  </g>
-</svg>

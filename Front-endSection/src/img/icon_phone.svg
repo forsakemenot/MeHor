@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
-  <g id="Group_404" data-name="Group 404" transform="translate(-202 -1232)">
-    <g id="Ellipse_23" data-name="Ellipse 23" transform="translate(202 1232)" fill="#fff" stroke="#325679" stroke-width="1">
-      <circle cx="30" cy="30" r="30" stroke="none"/>
-      <circle cx="30" cy="30" r="29.5" fill="none"/>
-    </g>
-    <path id="Icon_material-call" data-name="Icon material-call" d="M9.766,15.832a22.037,22.037,0,0,0,9.586,9.586l3.2-3.2a1.446,1.446,0,0,1,1.484-.349,16.594,16.594,0,0,0,5.193.829,1.459,1.459,0,0,1,1.455,1.455V29.23a1.459,1.459,0,0,1-1.455,1.455A24.728,24.728,0,0,1,4.5,5.955,1.459,1.459,0,0,1,5.955,4.5h5.091A1.459,1.459,0,0,1,12.5,5.955a16.526,16.526,0,0,0,.829,5.193,1.46,1.46,0,0,1-.364,1.484l-3.2,3.2Z" transform="translate(214.408 1244.408)" fill="#325679"/>
-  </g>
-</svg>
