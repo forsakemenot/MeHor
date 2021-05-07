@@ -45,7 +45,7 @@ function Home() {
     }
     useEffect(() => {
 
-        fetch('http://localhost:5000/api/dorm/alldormIsApprove', optionsGet())
+        fetch('https://mehor-backend.herokuapp.com/api/dorm/alldormIsApprove', optionsGet())
             .then(res => res.json())
             .then(res => {
                 if (res[0].dorm) {

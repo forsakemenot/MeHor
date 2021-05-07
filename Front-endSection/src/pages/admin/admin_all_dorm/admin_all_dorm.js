@@ -20,7 +20,7 @@ function AllDorm() {
    };
    useEffect(() => {
       console.log("useEffect");
-      fetch('http://localhost:5000/api/dorm/alldormIsApprove', optionsGet())
+      fetch('https://mehor-backend.herokuapp.com/api/dorm/alldormIsApprove', optionsGet())
          .then(res => res.json())
          .then(res => {
             if (res) {
@@ -56,7 +56,7 @@ function AllDorm() {
             </div>
 
             <div className="w-85 form_panel flex-column p-1-v mt-2-v mb-2-v">
-               <div className="panel_bar w-100 line-bottom-gray">
+               <div className="panel_bar w-100 line-bottom-gray d-none">
                   <div className="row align-items-center">
                      <div className="col-4">
                         <div className="d-flex align-items-center justify-content-end">

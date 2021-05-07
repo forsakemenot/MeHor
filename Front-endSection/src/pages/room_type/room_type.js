@@ -105,7 +105,7 @@ function RoomType() {
 
    useEffect(() => {
       console.log("useEffect");
-      fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
+      fetch('https://mehor-backend.herokuapp.com/api/dorm/dorm', optionsGet())
          .then(res => res.json())
          .then(res => {
             if (res.dorm) {
@@ -135,7 +135,7 @@ function RoomType() {
          dorm_type: items
       })
 
-      fetch('http://localhost:5000/api/dorm/dormtype', options(roomType))
+      fetch('https://mehor-backend.herokuapp.com/api/dorm/dormtype', options(roomType))
          .then(res => res.json())
          .then(res => {
             console.log(res);

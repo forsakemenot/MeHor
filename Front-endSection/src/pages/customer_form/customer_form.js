@@ -37,7 +37,7 @@ function CustomerForm() {
 
 
    useEffect(() => {
-      fetch('http://localhost:5000/api/dorm/dormById/' + UserId, optionsGet())
+      fetch('https://mehor-backend.herokuapp.com/api/dorm/dormById/' + UserId, optionsGet())
          .then(res => res.json())
          .then(res => {
             console.log(res);
@@ -124,7 +124,7 @@ function CustomerForm() {
          console.log(pair[1]);
       }
 
-      fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
+      fetch('https://mehor-backend.herokuapp.com/api/dorm/dormDocument', options(formData))
          .then(res => res.json())
          .then(res => {
             console.log(res);

@@ -23,7 +23,7 @@ function AdminAllDorm({ dataAllDorm }) {
                     <p className="m-0 text_label">{dataAllDorm?.dorm_zone}</p>
                 </div>
                 <div className="col-2">
-                    <p className="m-0 text_label">4 / 13 /2021</p>
+                    <p className="m-0 text_label">{dataAllDorm?.owner_name}</p>
                 </div>
                 <div className="col-2 d-flex justify-evenly">
                     <Link to={`/AdminLinkForm/` + dataAllDorm._id}><img alt="" src={eye} className="img_admin_edit pointer" /></Link>

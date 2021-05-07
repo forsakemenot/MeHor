@@ -288,7 +288,7 @@ function AddDom() {
 
    const HandleSubmit = (evt) => {
       console.log(dormDetails);
-      fetch('http://localhost:5000/api/dorm/adddorm', options(dormDetails))
+      fetch('https://mehor-backend.herokuapp.com/api/dorm/adddorm', options(dormDetails))
          .then(res => res.json())
          .then(res => {
             if (res.success) {

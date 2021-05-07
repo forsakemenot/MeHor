@@ -31,7 +31,7 @@ function AdminLinkForm() {
 
 
    useEffect(() => {
-      fetch('http://localhost:5000/api/dorm/dormById/' + UserId, optionsGet())
+      fetch('https://mehor-backend.herokuapp.com/api/dorm/dormById/' + UserId, optionsGet())
          .then(res => res.json())
          .then(res => {
             console.log(res);
@@ -115,7 +115,7 @@ function AdminLinkForm() {
          console.log(pair[1]);
       }
 
-      fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
+      fetch('https://mehor-backend.herokuapp.com/api/dorm/dormDocument', options(formData))
          .then(res => res.json())
          .then(res => {
             console.log(res);
@@ -307,7 +307,7 @@ function AdminLinkForm() {
 
                <div className="button line-top-gray">
                   <div className="d-flex justify-content-center mt-1-v">
-                     <Link to={`/DormMe/` + UserId}>
+                     <Link to="/">
                         <div className="btn_cancel bg-main d-flex justify-content-center align-items-center">
                            <p className="m-0 text-white">ย้อนกลับ</p>
                         </div>
