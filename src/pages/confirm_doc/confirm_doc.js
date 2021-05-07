@@ -91,7 +91,7 @@ function ConfirmDoc() {
             .catch(error => {
                 console.log(error);
                 alert("success")
-                history.push("/DormMe/" + userId);
+                history.push("/");
             })
         evt.preventDefault();
     }

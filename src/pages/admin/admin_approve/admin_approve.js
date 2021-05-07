@@ -92,8 +92,9 @@ function AdminApprove() {
                     <span>รายการหอพักรออนุมัติ</span>
                     <span>Welcome! - ADMIN POWER</span>
                 </div>
-                <div className="w-85 form_panel flex-column p-1-v mt-2-v mb-2-v">
-                    <div className="d-flex align-items-center w-100 py-0-5-v">
+                <div className="w-85 form_panel flex-column p-1-v mt-2-v mb-2-v align-items-center">
+                    <span>รายการหอพักรออนุมัติ</span>
+                    <div className="d-none align-items-center w-100 py-0-5-v d-none">
                         <div className="w-50 d-flex align-items-center justify-content-start position-relative">
                             <input className="search_dorm_admin fs-1-v px-0-5-v" type="text" placeholder="รายการหอพักทั้งหมดในระบบ"></input>
                             <img alt="" src={search} className="position-absolute image-search-admin-approve" />

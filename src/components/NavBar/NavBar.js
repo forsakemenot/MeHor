@@ -8,7 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar() {
-   const { AdminId } = useParams()
+   const { UserId } = useParams()
    const [isOpen, setOpen] = useState(false);
    const [dropDownProfile, setDropDownProfile] = useState(false);
    const [token, setToken] = useState(localStorage.getItem('jwtToken') || '');
@@ -96,14 +96,21 @@ function NavBar() {
             </Nav>
             <Nav className="w-20 justify-content-end">
                <Nav.Link>
-                  {email === 'admin@gmail.com'?
-                     <NavDropdown title={email} className="color-white" id="collasible-nav-dropdown">
-                        <NavDropdown.Item><Link to="/Profile" className="color-main fs-0-9-v">จัดการบัญชี</Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link to="/AdminDorm" className="color-main fs-0-9-v">ประกาศหอพักของฉัน</Link></NavDropdown.Item>
-                        <NavDropdown.Item onClick={handleLogout}><Link className="color-main fs-0-9-v">ออกจากระบบ</Link></NavDropdown.Item>
-                     </NavDropdown>
+                  {email ?
+                     email === 'admin@gmail.com' ?
+                        <NavDropdown title={email} className="color-white" id="collasible-nav-dropdown">
+                           <NavDropdown.Item><Link to="/Profile" className="color-main fs-0-9-v">จัดการบัญชี</Link></NavDropdown.Item>
+                           <NavDropdown.Item><Link to="/AdminDorm" className="color-main fs-0-9-v">จัดการหอพัก</Link></NavDropdown.Item>
+                           <NavDropdown.Item onClick={handleLogout}><Link className="color-main fs-0-9-v">ออกจากระบบ</Link></NavDropdown.Item>
+                        </NavDropdown>
+                        : <NavDropdown title={email} className="color-white" id="collasible-nav-dropdown">
+                           <NavDropdown.Item><Link to="/Profile" className="color-main fs-0-9-v">จัดการบัญชี</Link></NavDropdown.Item>
+                           <NavDropdown.Item><Link to={'/DormMe' + UserId} className="color-main fs-0-9-v">ประกาศหอพักของฉัน</Link></NavDropdown.Item>
+                           <NavDropdown.Item onClick={handleLogout}><Link className="color-main fs-0-9-v">ออกจากระบบ</Link></NavDropdown.Item>
+                        </NavDropdown>
                      : <Link to="/LoginRegister" className="color-white fs-1-v">เข้าสู่ระบบ/สมัครสมาชิก</Link>
                   }
+
                </Nav.Link>
             </Nav>
          </Navbar.Collapse>

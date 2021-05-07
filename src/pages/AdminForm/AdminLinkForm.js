@@ -307,7 +307,7 @@ function AdminLinkForm() {
 
                <div className="button line-top-gray">
                   <div className="d-flex justify-content-center mt-1-v">
-                     <Link to={`/DormMe/` + UserId}>
+                     <Link to="/">
                         <div className="btn_cancel bg-main d-flex justify-content-center align-items-center">
                            <p className="m-0 text-white">ย้อนกลับ</p>
                         </div>
