@@ -22,7 +22,7 @@ function AdminUser() {
    };
    useEffect(() => {
       console.log("useEffect");
-      fetch('http://localhost:5000/api/users/userAll', optionsGet())
+      fetch('https://mehor-backend.herokuapp.com/api/users/userAll', optionsGet())
          .then(res => res.json())
          .then(res => {
 

@@ -51,7 +51,7 @@ function Details() {
     };
     
     // useEffect(() => {
-    //     fetch('http://localhost:5000/api/dorm/roomtypebyid/' + dormId, optionsGet())
+    //     fetch('https://mehor-backend.herokuapp.com/api/dorm/roomtypebyid/' + dormId, optionsGet())
     //         .then(res => res.json())
     //         .then(res => {
     //             if (res.DormType) {
@@ -65,7 +65,7 @@ function Details() {
     //         })
     // }, []);
     useEffect(() => {
-        fetch('http://localhost:5000/api/dorm/dormById/' + dormId, optionsGet())
+        fetch('https://mehor-backend.herokuapp.com/api/dorm/dormById/' + dormId, optionsGet())
             .then(res => res.json())
             .then(res => {
 

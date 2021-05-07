@@ -38,7 +38,7 @@ function ConfirmDoc() {
     useEffect(() => {
         console.log("useEffect");
         console.log(userId);
-        fetch('http://localhost:5000/api/dorm/dorm', optionsGet())
+        fetch('https://mehor-backend.herokuapp.com/api/dorm/dorm', optionsGet())
             .then(res => res.json())
             .then(res => {
                 if (res.dorm) {
@@ -78,7 +78,7 @@ function ConfirmDoc() {
             console.log(pair[1]);
         }
 
-        fetch('http://localhost:5000/api/dorm/dormDocument', options(formData))
+        fetch('https://mehor-backend.herokuapp.com/api/dorm/dormDocument', options(formData))
             .then(res => res.json())
             .then(res => {
                 console.log(res);

@@ -45,7 +45,7 @@ function Profile() {
     };
     useEffect(() => {
         console.log("useEffect");
-        fetch('http://localhost:5000/api/users/userById/', optionsGet())
+        fetch('https://mehor-backend.herokuapp.com/api/users/userById/', optionsGet())
             .then(res => res.json())
             .then(res => {
                 const obj = {};
@@ -82,7 +82,7 @@ function Profile() {
     const HandleSubmitUpdate = (evt) => {
         console.log(user);
         evt.preventDefault();
-        fetch('http://localhost:5000/api/users/userById/', options(user))
+        fetch('https://mehor-backend.herokuapp.com/api/users/userById/', options(user))
 
             .then(res => res.json())
             .then(res => {
