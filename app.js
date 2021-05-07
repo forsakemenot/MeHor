@@ -49,6 +49,10 @@ app.use((req, res, next) => {
 app.use('/api/users', users);
 app.use('/api/dorm', dorm);
 
+app.get('/', (req, res) => {
+    res.send("test");
+});
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/client/build/index.html'));
 });
